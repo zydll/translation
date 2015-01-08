@@ -1,0 +1,1699 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<title>15.1. os — Miscellaneous operating system interfaces — Python v2.7.8 documentation</title>
+<link href="../_static/default.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2.7.8',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+<script src="../_static/jquery.js" type="text/javascript"></script>
+<script src="../_static/underscore.js" type="text/javascript"></script>
+<script src="../_static/doctools.js" type="text/javascript"></script>
+<script src="../_static/sidebar.js" type="text/javascript"></script>
+<link href="../_static/opensearch.xml" rel="search" title="Search within Python v2.7.8 documentation" type="application/opensearchdescription+xml"/>
+<link href="../about.html" rel="author" title="About these documents"/>
+<link href="../copyright.html" rel="copyright" title="Copyright"/>
+<link href="../index.html" rel="top" title="Python v2.7.8 documentation"/>
+<link href="allos.html" rel="up" title="15. Generic Operating System Services"/>
+<link href="io.html" rel="next" title="15.2. io — Core tools for working with streams"/>
+<link href="allos.html" rel="prev" title="15. Generic Operating System Services"/>
+<link href="../_static/py.png" rel="shortcut icon" type="image/png"/>
+<script src="../_static/copybutton.js" type="text/javascript"></script>
+<script src="../_static/version_switch.js" type="text/javascript"></script>
+</head>
+<body>
+<div class="related">
+<h3><font id="920">{{s.920}}</font></h3>
+<ul>
+<li class="right" style="margin-right: 10px">
+<a accesskey="I" href="../genindex.html" title="General Index"><font id="928">{{s.928}}</font></a></li>
+<li class="right">
+<a href="../py-modindex.html" title="Python Module Index"><font id="929">{{s.929}}</font></a> |</li>
+<li class="right">
+<a accesskey="N" href="io.html" title="15.2. io — Core tools for working with streams"><font id="930">{{s.930}}</font></a> |</li>
+<li class="right">
+<a accesskey="P" href="allos.html" title="15. Generic Operating System Services"><font id="931">{{s.931}}</font></a> |</li>
+<li><img alt="" src="../_static/py.png" style="vertical-align: middle; margin-top: -1px"/></li>
+<li><a href="http://www.python.org/"><font id="932">{{s.932}}</font></a> »</li>
+<li>
+<span class="version_switcher_placeholder">2.7.8</span>
+<a href="../index.html"><font id="933">{{s.933}}</font></a> »
+        </li>
+<li><a href="index.html"><font id="934">{{s.934}}</font></a> »</li>
+<li><a accesskey="U" href="allos.html"><font id="935">{{s.935}}</font></a> »</li>
+</ul>
+</div>
+<div class="document">
+<div class="documentwrapper">
+<div class="bodywrapper">
+<div class="body">
+<div class="section" id="module-os">
+<span id="os-miscellaneous-operating-system-interfaces"></span><h1>15.1. <a class="reference internal" href="#module-os" title="os: Miscellaneous operating system interfaces."><tt class="xref py py-mod docutils literal"><span class="pre">os</span></tt></a> — <font id="912">{{s.912}}</font><a class="headerlink" href="#module-os" title="Permalink to this headline">¶</a></h1>
+<p><font id="1">{{s.1}}</font><font id="2">{{s.2}}</font><font id="3">{{s.3}}</font></p>
+<p><font id="4">{{s.4}}</font></p>
+<ul class="simple">
+<li><font id="987">{{s.987}}</font><font id="988">{{s.988}}</font></li>
+<li><font id="989">{{s.989}}</font></li>
+<li><font id="990">{{s.990}}</font><font id="991">{{s.991}}</font></li>
+<li><font id="992">{{s.992}}</font></li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title"><font id="5">{{s.5}}</font></p>
+<p class="last"><font id="6">{{s.6}}</font></p>
+</div>
+<dl class="exception">
+<dt id="os.error">
+<em class="property">exception </em><tt class="descclassname">os.</tt><tt class="descname">error</tt><a class="headerlink" href="#os.error" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="7">{{s.7}}</font></p>
+</dd></dl>
+<dl class="data">
+<dt id="os.name">
+<tt class="descclassname">os.</tt><tt class="descname">name</tt><a class="headerlink" href="#os.name" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="8">{{s.8}}</font><font id="9">{{s.9}}</font></p>
+<div class="admonition-see-also admonition seealso">
+<p class="first admonition-title"><font id="10">{{s.10}}</font></p>
+<p><font id="11">{{s.11}}</font><font id="12">{{s.12}}</font></p>
+<p class="last"><font id="13">{{s.13}}</font></p>
+</div>
+</dd></dl>
+<div class="section" id="process-parameters">
+<span id="os-procinfo"></span><h2><font id="913">{{s.913}}</font><a class="headerlink" href="#process-parameters" title="Permalink to this headline">¶</a></h2>
+<p><font id="14">{{s.14}}</font></p>
+<dl class="data">
+<dt id="os.environ">
+<tt class="descclassname">os.</tt><tt class="descname">environ</tt><a class="headerlink" href="#os.environ" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="15">{{s.15}}</font></p>
+<p><font id="16">{{s.16}}</font><font id="17">{{s.17}}</font></p>
+<p><font id="18">{{s.18}}</font><font id="19">{{s.19}}</font></p>
+<div class="admonition note">
+<p class="first admonition-title"><font id="20">{{s.20}}</font></p>
+<p class="last"><font id="21">{{s.21}}</font></p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title"><font id="22">{{s.22}}</font></p>
+<p class="last"><font id="23">{{s.23}}</font><font id="24">{{s.24}}</font></p>
+</div>
+<p><font id="25">{{s.25}}</font></p>
+<p><font id="26">{{s.26}}</font><font id="27">{{s.27}}</font></p>
+<p class="versionchanged"><font id="28">{{s.28}}</font><font id="29">{{s.29}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt>
+<tt class="descclassname">os.</tt><tt class="descname">chdir</tt><big>(</big><em>path</em><big>)</big></dt>
+<dt>
+<tt class="descclassname">os.</tt><tt class="descname">fchdir</tt><big>(</big><em>fd</em><big>)</big></dt>
+<dt>
+<tt class="descclassname">os.</tt><tt class="descname">getcwd</tt><big>(</big><big>)</big></dt>
+<dd><p><font id="30">{{s.30}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="os.ctermid">
+<tt class="descclassname">os.</tt><tt class="descname">ctermid</tt><big>(</big><big>)</big><a class="headerlink" href="#os.ctermid" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="31">{{s.31}}</font></p>
+<p><font id="32">{{s.32}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="os.getegid">
+<tt class="descclassname">os.</tt><tt class="descname">getegid</tt><big>(</big><big>)</big><a class="headerlink" href="#os.getegid" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="33">{{s.33}}</font><font id="34">{{s.34}}</font></p>
+<p><font id="35">{{s.35}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="os.geteuid">
+<tt class="descclassname">os.</tt><tt class="descname">geteuid</tt><big>(</big><big>)</big><a class="headerlink" href="#os.geteuid" title="Permalink to this definition">¶</a></dt>
+<dd><p id="index-0"><font id="36">{{s.36}}</font></p>
+<p><font id="37">{{s.37}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="os.getgid">
+<tt class="descclassname">os.</tt><tt class="descname">getgid</tt><big>(</big><big>)</big><a class="headerlink" href="#os.getgid" title="Permalink to this definition">¶</a></dt>
+<dd><p id="index-1"><font id="38">{{s.38}}</font></p>
+<p><font id="39">{{s.39}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="os.getgroups">
+<tt class="descclassname">os.</tt><tt class="descname">getgroups</tt><big>(</big><big>)</big><a class="headerlink" href="#os.getgroups" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="40">{{s.40}}</font></p>
+<p><font id="41">{{s.41}}</font></p>
+<div class="admonition note">
+<p class="first admonition-title"><font id="42">{{s.42}}</font></p>
+<p class="last"><font id="43">{{s.43}}</font><font id="44">{{s.44}}</font><font id="45">{{s.45}}</font><font id="46">{{s.46}}</font><font id="47">{{s.47}}</font><font id="48">{{s.48}}</font></p>
+</div>
+</dd></dl>
+<dl class="function">
+<dt id="os.initgroups">
+<tt class="descclassname">os.</tt><tt class="descname">initgroups</tt><big>(</big><em>username</em>, <em>gid</em><big>)</big><a class="headerlink" href="#os.initgroups" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="49">{{s.49}}</font></p>
+<p><font id="50">{{s.50}}</font></p>
+<p class="versionadded"><font id="51">{{s.51}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="os.getlogin">
+<tt class="descclassname">os.</tt><tt class="descname">getlogin</tt><big>(</big><big>)</big><a class="headerlink" href="#os.getlogin" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="52">{{s.52}}</font><font id="53">{{s.53}}</font></p>
+<p><font id="54">{{s.54}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="os.getpgid">
+<tt class="descclassname">os.</tt><tt class="descname">getpgid</tt><big>(</big><em>pid</em><big>)</big><a class="headerlink" href="#os.getpgid" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="55">{{s.55}}</font><font id="56">{{s.56}}</font></p>
+<p><font id="57">{{s.57}}</font></p>
+<p class="versionadded"><font id="58">{{s.58}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="os.getpgrp">
+<tt class="descclassname">os.</tt><tt class="descname">getpgrp</tt><big>(</big><big>)</big><a class="headerlink" href="#os.getpgrp" title="Permalink to this definition">¶</a></dt>
+<dd><p id="index-3"><font id="59">{{s.59}}</font></p>
+<p><font id="60">{{s.60}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="os.getpid">
+<tt class="descclassname">os.</tt><tt class="descname">getpid</tt><big>(</big><big>)</big><a class="headerlink" href="#os.getpid" title="Permalink to this definition">¶</a></dt>
+<dd><p id="index-4"><font id="61">{{s.61}}</font></p>
+<p><font id="62">{{s.62}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="os.getppid">
+<tt class="descclassname">os.</tt><tt class="descname">getppid</tt><big>(</big><big>)</big><a class="headerlink" href="#os.getppid" title="Permalink to this definition">¶</a></dt>
+<dd><p id="index-5"><font id="63">{{s.63}}</font></p>
+<p><font id="64">{{s.64}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="os.getresuid">
+<tt class="descclassname">os.</tt><tt class="descname">getresuid</tt><big>(</big><big>)</big><a class="headerlink" href="#os.getresuid" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="65">{{s.65}}</font></p>
+<p><font id="66">{{s.66}}</font></p>
+<p class="versionadded"><font id="67">{{s.67}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="os.getresgid">
+<tt class="descclassname">os.</tt><tt class="descname">getresgid</tt><big>(</big><big>)</big><a class="headerlink" href="#os.getresgid" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="68">{{s.68}}</font></p>
+<p><font id="69">{{s.69}}</font></p>
+<p class="versionadded"><font id="70">{{s.70}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="os.getuid">
+<tt class="descclassname">os.</tt><tt class="descname">getuid</tt><big>(</big><big>)</big><a class="headerlink" href="#os.getuid" title="Permalink to this definition">¶</a></dt>
+<dd><p id="index-6"><font id="71">{{s.71}}</font></p>
+<p><font id="72">{{s.72}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="os.getenv">
+<tt class="descclassname">os.</tt><tt class="descname">getenv</tt><big>(</big><em>varname</em><span class="optional">[</span>, <em>value</em><span class="optional">]</span><big>)</big><a class="headerlink" href="#os.getenv" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="73">{{s.73}}</font><font id="74">{{s.74}}</font></p>
+<p><font id="75">{{s.75}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="os.putenv">
+<tt class="descclassname">os.</tt><tt class="descname">putenv</tt><big>(</big><em>varname</em>, <em>value</em><big>)</big><a class="headerlink" href="#os.putenv" title="Permalink to this definition">¶</a></dt>
+<dd><p id="index-7"><font id="76">{{s.76}}</font><font id="77">{{s.77}}</font></p>
+<p><font id="78">{{s.78}}</font></p>
+<div class="admonition note">
+<p class="first admonition-title"><font id="79">{{s.79}}</font></p>
+<p class="last"><font id="80">{{s.80}}</font><font id="81">{{s.81}}</font></p>
+</div>
+<p><font id="82">{{s.82}}</font><font id="83">{{s.83}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="os.setegid">
+<tt class="descclassname">os.</tt><tt class="descname">setegid</tt><big>(</big><em>egid</em><big>)</big><a class="headerlink" href="#os.setegid" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="84">{{s.84}}</font></p>
+<p><font id="85">{{s.85}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="os.seteuid">
+<tt class="descclassname">os.</tt><tt class="descname">seteuid</tt><big>(</big><em>euid</em><big>)</big><a class="headerlink" href="#os.seteuid" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="86">{{s.86}}</font></p>
+<p><font id="87">{{s.87}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="os.setgid">
+<tt class="descclassname">os.</tt><tt class="descname">setgid</tt><big>(</big><em>gid</em><big>)</big><a class="headerlink" href="#os.setgid" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="88">{{s.88}}</font></p>
+<p><font id="89">{{s.89}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="os.setgroups">
+<tt class="descclassname">os.</tt><tt class="descname">setgroups</tt><big>(</big><em>groups</em><big>)</big><a class="headerlink" href="#os.setgroups" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="90">{{s.90}}</font><font id="91">{{s.91}}</font><font id="92">{{s.92}}</font></p>
+<p><font id="93">{{s.93}}</font></p>
+<p class="versionadded"><font id="94">{{s.94}}</font></p>
+<div class="admonition note">
+<p class="first admonition-title"><font id="95">{{s.95}}</font></p>
+<p class="last"><font id="96">{{s.96}}</font><font id="97">{{s.97}}</font></p>
+</div>
+</dd></dl>
+<dl class="function">
+<dt id="os.setpgrp">
+<tt class="descclassname">os.</tt><tt class="descname">setpgrp</tt><big>(</big><big>)</big><a class="headerlink" href="#os.setpgrp" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="98">{{s.98}}</font><font id="99">{{s.99}}</font></p>
+<p><font id="100">{{s.100}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="os.setpgid">
+<tt class="descclassname">os.</tt><tt class="descname">setpgid</tt><big>(</big><em>pid</em>, <em>pgrp</em><big>)</big><a class="headerlink" href="#os.setpgid" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="101">{{s.101}}</font><font id="102">{{s.102}}</font></p>
+<p><font id="103">{{s.103}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="os.setregid">
+<tt class="descclassname">os.</tt><tt class="descname">setregid</tt><big>(</big><em>rgid</em>, <em>egid</em><big>)</big><a class="headerlink" href="#os.setregid" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="104">{{s.104}}</font></p>
+<p><font id="105">{{s.105}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="os.setresgid">
+<tt class="descclassname">os.</tt><tt class="descname">setresgid</tt><big>(</big><em>rgid</em>, <em>egid</em>, <em>sgid</em><big>)</big><a class="headerlink" href="#os.setresgid" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="106">{{s.106}}</font></p>
+<p><font id="107">{{s.107}}</font></p>
+<p class="versionadded"><font id="108">{{s.108}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="os.setresuid">
+<tt class="descclassname">os.</tt><tt class="descname">setresuid</tt><big>(</big><em>ruid</em>, <em>euid</em>, <em>suid</em><big>)</big><a class="headerlink" href="#os.setresuid" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="109">{{s.109}}</font></p>
+<p><font id="110">{{s.110}}</font></p>
+<p class="versionadded"><font id="111">{{s.111}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="os.setreuid">
+<tt class="descclassname">os.</tt><tt class="descname">setreuid</tt><big>(</big><em>ruid</em>, <em>euid</em><big>)</big><a class="headerlink" href="#os.setreuid" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="112">{{s.112}}</font></p>
+<p><font id="113">{{s.113}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="os.getsid">
+<tt class="descclassname">os.</tt><tt class="descname">getsid</tt><big>(</big><em>pid</em><big>)</big><a class="headerlink" href="#os.getsid" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="114">{{s.114}}</font><font id="115">{{s.115}}</font></p>
+<p><font id="116">{{s.116}}</font></p>
+<p class="versionadded"><font id="117">{{s.117}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="os.setsid">
+<tt class="descclassname">os.</tt><tt class="descname">setsid</tt><big>(</big><big>)</big><a class="headerlink" href="#os.setsid" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="118">{{s.118}}</font><font id="119">{{s.119}}</font></p>
+<p><font id="120">{{s.120}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="os.setuid">
+<tt class="descclassname">os.</tt><tt class="descname">setuid</tt><big>(</big><em>uid</em><big>)</big><a class="headerlink" href="#os.setuid" title="Permalink to this definition">¶</a></dt>
+<dd><p id="index-8"><font id="121">{{s.121}}</font></p>
+<p><font id="122">{{s.122}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="os.strerror">
+<tt class="descclassname">os.</tt><tt class="descname">strerror</tt><big>(</big><em>code</em><big>)</big><a class="headerlink" href="#os.strerror" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="123">{{s.123}}</font><font id="124">{{s.124}}</font></p>
+<p><font id="125">{{s.125}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="os.umask">
+<tt class="descclassname">os.</tt><tt class="descname">umask</tt><big>(</big><em>mask</em><big>)</big><a class="headerlink" href="#os.umask" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="126">{{s.126}}</font></p>
+<p><font id="127">{{s.127}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="os.uname">
+<tt class="descclassname">os.</tt><tt class="descname">uname</tt><big>(</big><big>)</big><a class="headerlink" href="#os.uname" title="Permalink to this definition">¶</a></dt>
+<dd><p id="index-9"><font id="128">{{s.128}}</font><font id="129">{{s.129}}</font><font id="130">{{s.130}}</font><font id="131">{{s.131}}</font></p>
+<p><font id="132">{{s.132}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="os.unsetenv">
+<tt class="descclassname">os.</tt><tt class="descname">unsetenv</tt><big>(</big><em>varname</em><big>)</big><a class="headerlink" href="#os.unsetenv" title="Permalink to this definition">¶</a></dt>
+<dd><p id="index-10"><font id="133">{{s.133}}</font><font id="134">{{s.134}}</font></p>
+<p><font id="135">{{s.135}}</font><font id="136">{{s.136}}</font></p>
+<p><font id="137">{{s.137}}</font></p>
+</dd></dl>
+</div>
+<div class="section" id="file-object-creation">
+<span id="os-newstreams"></span><h2><font id="914">{{s.914}}</font><a class="headerlink" href="#file-object-creation" title="Permalink to this headline">¶</a></h2>
+<p><font id="138">{{s.138}}</font><font id="139">{{s.139}}</font></p>
+<dl class="function">
+<dt id="os.fdopen">
+<tt class="descclassname">os.</tt><tt class="descname">fdopen</tt><big>(</big><em>fd</em><span class="optional">[</span>, <em>mode</em><span class="optional">[</span>, <em>bufsize</em><span class="optional">]</span><span class="optional">]</span><big>)</big><a class="headerlink" href="#os.fdopen" title="Permalink to this definition">¶</a></dt>
+<dd><p id="index-11"><font id="140">{{s.140}}</font><font id="141">{{s.141}}</font><font id="142">{{s.142}}</font></p>
+<p><font id="143">{{s.143}}</font></p>
+<p class="versionchanged"><font id="144">{{s.144}}</font><font id="145">{{s.145}}</font></p>
+<p class="versionchanged"><font id="146">{{s.146}}</font><font id="147">{{s.147}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="os.popen">
+<tt class="descclassname">os.</tt><tt class="descname">popen</tt><big>(</big><em>command</em><span class="optional">[</span>, <em>mode</em><span class="optional">[</span>, <em>bufsize</em><span class="optional">]</span><span class="optional">]</span><big>)</big><a class="headerlink" href="#os.popen" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="148">{{s.148}}</font><font id="149">{{s.149}}</font><font id="150">{{s.150}}</font><font id="151">{{s.151}}</font></p>
+<p><font id="152">{{s.152}}</font></p>
+<p class="deprecated"><font id="153">{{s.153}}</font><font id="154">{{s.154}}</font><font id="155">{{s.155}}</font><font id="156">{{s.156}}</font></p>
+<p class="versionchanged"><font id="157">{{s.157}}</font><font id="158">{{s.158}}</font><font id="159">{{s.159}}</font><font id="160">{{s.160}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="os.tmpfile">
+<tt class="descclassname">os.</tt><tt class="descname">tmpfile</tt><big>(</big><big>)</big><a class="headerlink" href="#os.tmpfile" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="161">{{s.161}}</font><font id="162">{{s.162}}</font></p>
+<p><font id="163">{{s.163}}</font></p>
+</dd></dl>
+<p><font id="164">{{s.164}}</font></p>
+<p class="deprecated"><font id="165">{{s.165}}</font><font id="166">{{s.166}}</font><font id="167">{{s.167}}</font></p>
+<p><font id="168">{{s.168}}</font><font id="169">{{s.169}}</font><font id="170">{{s.170}}</font><font id="171">{{s.171}}</font></p>
+<p><font id="172">{{s.172}}</font><font id="173">{{s.173}}</font></p>
+<p><font id="174">{{s.174}}</font><font id="175">{{s.175}}</font><font id="176">{{s.176}}</font></p>
+<p><font id="177">{{s.177}}</font></p>
+<dl class="function">
+<dt id="os.popen2">
+<tt class="descclassname">os.</tt><tt class="descname">popen2</tt><big>(</big><em>cmd</em><span class="optional">[</span>, <em>mode</em><span class="optional">[</span>, <em>bufsize</em><span class="optional">]</span><span class="optional">]</span><big>)</big><a class="headerlink" href="#os.popen2" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="178">{{s.178}}</font></p>
+<p class="deprecated"><font id="179">{{s.179}}</font><font id="180">{{s.180}}</font><font id="181">{{s.181}}</font><font id="182">{{s.182}}</font></p>
+<p><font id="183">{{s.183}}</font></p>
+<p class="versionadded"><font id="184">{{s.184}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="os.popen3">
+<tt class="descclassname">os.</tt><tt class="descname">popen3</tt><big>(</big><em>cmd</em><span class="optional">[</span>, <em>mode</em><span class="optional">[</span>, <em>bufsize</em><span class="optional">]</span><span class="optional">]</span><big>)</big><a class="headerlink" href="#os.popen3" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="185">{{s.185}}</font></p>
+<p class="deprecated"><font id="186">{{s.186}}</font><font id="187">{{s.187}}</font><font id="188">{{s.188}}</font><font id="189">{{s.189}}</font></p>
+<p><font id="190">{{s.190}}</font></p>
+<p class="versionadded"><font id="191">{{s.191}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="os.popen4">
+<tt class="descclassname">os.</tt><tt class="descname">popen4</tt><big>(</big><em>cmd</em><span class="optional">[</span>, <em>mode</em><span class="optional">[</span>, <em>bufsize</em><span class="optional">]</span><span class="optional">]</span><big>)</big><a class="headerlink" href="#os.popen4" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="192">{{s.192}}</font></p>
+<p class="deprecated"><font id="193">{{s.193}}</font><font id="194">{{s.194}}</font><font id="195">{{s.195}}</font><font id="196">{{s.196}}</font></p>
+<p><font id="197">{{s.197}}</font></p>
+<p class="versionadded"><font id="198">{{s.198}}</font></p>
+</dd></dl>
+<p><font id="199">{{s.199}}</font></p>
+<p><font id="200">{{s.200}}</font></p>
+</div>
+<div class="section" id="file-descriptor-operations">
+<span id="os-fd-ops"></span><h2><font id="915">{{s.915}}</font><a class="headerlink" href="#file-descriptor-operations" title="Permalink to this headline">¶</a></h2>
+<p><font id="201">{{s.201}}</font></p>
+<p><font id="202">{{s.202}}</font><font id="203">{{s.203}}</font><font id="204">{{s.204}}</font><font id="205">{{s.205}}</font><font id="206">{{s.206}}</font></p>
+<p><font id="207">{{s.207}}</font><font id="208">{{s.208}}</font></p>
+<dl class="function">
+<dt id="os.close">
+<tt class="descclassname">os.</tt><tt class="descname">close</tt><big>(</big><em>fd</em><big>)</big><a class="headerlink" href="#os.close" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="209">{{s.209}}</font></p>
+<p><font id="210">{{s.210}}</font></p>
+<div class="admonition note">
+<p class="first admonition-title"><font id="211">{{s.211}}</font></p>
+<p class="last"><font id="212">{{s.212}}</font><font id="213">{{s.213}}</font></p>
+</div>
+</dd></dl>
+<dl class="function">
+<dt id="os.closerange">
+<tt class="descclassname">os.</tt><tt class="descname">closerange</tt><big>(</big><em>fd_low</em>, <em>fd_high</em><big>)</big><a class="headerlink" href="#os.closerange" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="214">{{s.214}}</font><font id="215">{{s.215}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">for</span> <span class="n">fd</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="n">fd_low</span><span class="p">,</span> <span class="n">fd_high</span><span class="p">):</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">close</span><span class="p">(</span><span class="n">fd</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">OSError</span><span class="p">:</span>
+        <span class="k">pass</span>
+</pre></div>
+</div>
+<p><font id="216">{{s.216}}</font></p>
+<p class="versionadded"><font id="217">{{s.217}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="os.dup">
+<tt class="descclassname">os.</tt><tt class="descname">dup</tt><big>(</big><em>fd</em><big>)</big><a class="headerlink" href="#os.dup" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="218">{{s.218}}</font></p>
+<p><font id="219">{{s.219}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="os.dup2">
+<tt class="descclassname">os.</tt><tt class="descname">dup2</tt><big>(</big><em>fd</em>, <em>fd2</em><big>)</big><a class="headerlink" href="#os.dup2" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="220">{{s.220}}</font></p>
+<p><font id="221">{{s.221}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="os.fchmod">
+<tt class="descclassname">os.</tt><tt class="descname">fchmod</tt><big>(</big><em>fd</em>, <em>mode</em><big>)</big><a class="headerlink" href="#os.fchmod" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="222">{{s.222}}</font><font id="223">{{s.223}}</font></p>
+<p><font id="224">{{s.224}}</font></p>
+<p class="versionadded"><font id="225">{{s.225}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="os.fchown">
+<tt class="descclassname">os.</tt><tt class="descname">fchown</tt><big>(</big><em>fd</em>, <em>uid</em>, <em>gid</em><big>)</big><a class="headerlink" href="#os.fchown" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="226">{{s.226}}</font><font id="227">{{s.227}}</font></p>
+<p><font id="228">{{s.228}}</font></p>
+<p class="versionadded"><font id="229">{{s.229}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="os.fdatasync">
+<tt class="descclassname">os.</tt><tt class="descname">fdatasync</tt><big>(</big><em>fd</em><big>)</big><a class="headerlink" href="#os.fdatasync" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="230">{{s.230}}</font><font id="231">{{s.231}}</font></p>
+<p><font id="232">{{s.232}}</font></p>
+<div class="admonition note">
+<p class="first admonition-title"><font id="233">{{s.233}}</font></p>
+<p class="last"><font id="234">{{s.234}}</font></p>
+</div>
+</dd></dl>
+<dl class="function">
+<dt id="os.fpathconf">
+<tt class="descclassname">os.</tt><tt class="descname">fpathconf</tt><big>(</big><em>fd</em>, <em>name</em><big>)</big><a class="headerlink" href="#os.fpathconf" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="235">{{s.235}}</font><font id="236">{{s.236}}</font><font id="237">{{s.237}}</font><font id="238">{{s.238}}</font><font id="239">{{s.239}}</font><font id="240">{{s.240}}</font><font id="241">{{s.241}}</font></p>
+<p><font id="242">{{s.242}}</font><font id="243">{{s.243}}</font><font id="244">{{s.244}}</font></p>
+<p><font id="245">{{s.245}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="os.fstat">
+<tt class="descclassname">os.</tt><tt class="descname">fstat</tt><big>(</big><em>fd</em><big>)</big><a class="headerlink" href="#os.fstat" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="246">{{s.246}}</font></p>
+<p><font id="247">{{s.247}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="os.fstatvfs">
+<tt class="descclassname">os.</tt><tt class="descname">fstatvfs</tt><big>(</big><em>fd</em><big>)</big><a class="headerlink" href="#os.fstatvfs" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="248">{{s.248}}</font></p>
+<p><font id="249">{{s.249}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="os.fsync">
+<tt class="descclassname">os.</tt><tt class="descname">fsync</tt><big>(</big><em>fd</em><big>)</big><a class="headerlink" href="#os.fsync" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="250">{{s.250}}</font><font id="251">{{s.251}}</font><font id="252">{{s.252}}</font></p>
+<p><font id="253">{{s.253}}</font></p>
+<p><font id="254">{{s.254}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="os.ftruncate">
+<tt class="descclassname">os.</tt><tt class="descname">ftruncate</tt><big>(</big><em>fd</em>, <em>length</em><big>)</big><a class="headerlink" href="#os.ftruncate" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="255">{{s.255}}</font></p>
+<p><font id="256">{{s.256}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="os.isatty">
+<tt class="descclassname">os.</tt><tt class="descname">isatty</tt><big>(</big><em>fd</em><big>)</big><a class="headerlink" href="#os.isatty" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="257">{{s.257}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="os.lseek">
+<tt class="descclassname">os.</tt><tt class="descname">lseek</tt><big>(</big><em>fd</em>, <em>pos</em>, <em>how</em><big>)</big><a class="headerlink" href="#os.lseek" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="258">{{s.258}}</font><font id="259">{{s.259}}</font><font id="260">{{s.260}}</font><font id="261">{{s.261}}</font></p>
+<p><font id="262">{{s.262}}</font></p>
+</dd></dl>
+<dl class="data">
+<dt id="os.SEEK_SET">
+<tt class="descclassname">os.</tt><tt class="descname">SEEK_SET</tt><a class="headerlink" href="#os.SEEK_SET" title="Permalink to this definition">¶</a></dt>
+<dt id="os.SEEK_CUR">
+<tt class="descclassname">os.</tt><tt class="descname">SEEK_CUR</tt><a class="headerlink" href="#os.SEEK_CUR" title="Permalink to this definition">¶</a></dt>
+<dt id="os.SEEK_END">
+<tt class="descclassname">os.</tt><tt class="descname">SEEK_END</tt><a class="headerlink" href="#os.SEEK_END" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="263">{{s.263}}</font><font id="264">{{s.264}}</font></p>
+<p><font id="265">{{s.265}}</font></p>
+<p class="versionadded"><font id="266">{{s.266}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="os.open">
+<tt class="descclassname">os.</tt><tt class="descname">open</tt><big>(</big><em>file</em>, <em>flags</em><span class="optional">[</span>, <em>mode</em><span class="optional">]</span><big>)</big><a class="headerlink" href="#os.open" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="267">{{s.267}}</font><font id="268">{{s.268}}</font><font id="269">{{s.269}}</font></p>
+<p><font id="270">{{s.270}}</font><font id="271">{{s.271}}</font><font id="272">{{s.272}}</font></p>
+<p><font id="273">{{s.273}}</font></p>
+<div class="admonition note">
+<p class="first admonition-title"><font id="274">{{s.274}}</font></p>
+<p class="last"><font id="275">{{s.275}}</font><font id="276">{{s.276}}</font><font id="277">{{s.277}}</font></p>
+</div>
+</dd></dl>
+<dl class="function">
+<dt id="os.openpty">
+<tt class="descclassname">os.</tt><tt class="descname">openpty</tt><big>(</big><big>)</big><a class="headerlink" href="#os.openpty" title="Permalink to this definition">¶</a></dt>
+<dd><p id="index-12"><font id="278">{{s.278}}</font><font id="279">{{s.279}}</font><font id="280">{{s.280}}</font></p>
+<p><font id="281">{{s.281}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="os.pipe">
+<tt class="descclassname">os.</tt><tt class="descname">pipe</tt><big>(</big><big>)</big><a class="headerlink" href="#os.pipe" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="282">{{s.282}}</font><font id="283">{{s.283}}</font></p>
+<p><font id="284">{{s.284}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="os.read">
+<tt class="descclassname">os.</tt><tt class="descname">read</tt><big>(</big><em>fd</em>, <em>n</em><big>)</big><a class="headerlink" href="#os.read" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="285">{{s.285}}</font><font id="286">{{s.286}}</font><font id="287">{{s.287}}</font></p>
+<p><font id="288">{{s.288}}</font></p>
+<div class="admonition note">
+<p class="first admonition-title"><font id="289">{{s.289}}</font></p>
+<p class="last"><font id="290">{{s.290}}</font><font id="291">{{s.291}}</font></p>
+</div>
+</dd></dl>
+<dl class="function">
+<dt id="os.tcgetpgrp">
+<tt class="descclassname">os.</tt><tt class="descname">tcgetpgrp</tt><big>(</big><em>fd</em><big>)</big><a class="headerlink" href="#os.tcgetpgrp" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="292">{{s.292}}</font></p>
+<p><font id="293">{{s.293}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="os.tcsetpgrp">
+<tt class="descclassname">os.</tt><tt class="descname">tcsetpgrp</tt><big>(</big><em>fd</em>, <em>pg</em><big>)</big><a class="headerlink" href="#os.tcsetpgrp" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="294">{{s.294}}</font></p>
+<p><font id="295">{{s.295}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="os.ttyname">
+<tt class="descclassname">os.</tt><tt class="descname">ttyname</tt><big>(</big><em>fd</em><big>)</big><a class="headerlink" href="#os.ttyname" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="296">{{s.296}}</font><font id="297">{{s.297}}</font></p>
+<p><font id="298">{{s.298}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="os.write">
+<tt class="descclassname">os.</tt><tt class="descname">write</tt><big>(</big><em>fd</em>, <em>str</em><big>)</big><a class="headerlink" href="#os.write" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="299">{{s.299}}</font><font id="300">{{s.300}}</font></p>
+<p><font id="301">{{s.301}}</font></p>
+<div class="admonition note">
+<p class="first admonition-title"><font id="302">{{s.302}}</font></p>
+<p class="last"><font id="303">{{s.303}}</font><font id="304">{{s.304}}</font></p>
+</div>
+</dd></dl>
+<div class="section" id="open-flag-constants">
+<span id="open-constants"></span><h3><font id="921">{{s.921}}</font><tt class="docutils literal"><span class="pre">open()</span></tt></h3>
+<p><font id="305">{{s.305}}</font><font id="306">{{s.306}}</font><font id="307">{{s.307}}</font><font id="308">{{s.308}}</font></p>
+<dl class="data">
+<dt id="os.O_RDONLY">
+<tt class="descclassname">os.</tt><tt class="descname">O_RDONLY</tt><a class="headerlink" href="#os.O_RDONLY" title="Permalink to this definition">¶</a></dt>
+<dt id="os.O_WRONLY">
+<tt class="descclassname">os.</tt><tt class="descname">O_WRONLY</tt><a class="headerlink" href="#os.O_WRONLY" title="Permalink to this definition">¶</a></dt>
+<dt id="os.O_RDWR">
+<tt class="descclassname">os.</tt><tt class="descname">O_RDWR</tt><a class="headerlink" href="#os.O_RDWR" title="Permalink to this definition">¶</a></dt>
+<dt id="os.O_APPEND">
+<tt class="descclassname">os.</tt><tt class="descname">O_APPEND</tt><a class="headerlink" href="#os.O_APPEND" title="Permalink to this definition">¶</a></dt>
+<dt id="os.O_CREAT">
+<tt class="descclassname">os.</tt><tt class="descname">O_CREAT</tt><a class="headerlink" href="#os.O_CREAT" title="Permalink to this definition">¶</a></dt>
+<dt id="os.O_EXCL">
+<tt class="descclassname">os.</tt><tt class="descname">O_EXCL</tt><a class="headerlink" href="#os.O_EXCL" title="Permalink to this definition">¶</a></dt>
+<dt id="os.O_TRUNC">
+<tt class="descclassname">os.</tt><tt class="descname">O_TRUNC</tt><a class="headerlink" href="#os.O_TRUNC" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="309">{{s.309}}</font></p>
+</dd></dl>
+<dl class="data">
+<dt id="os.O_DSYNC">
+<tt class="descclassname">os.</tt><tt class="descname">O_DSYNC</tt><a class="headerlink" href="#os.O_DSYNC" title="Permalink to this definition">¶</a></dt>
+<dt id="os.O_RSYNC">
+<tt class="descclassname">os.</tt><tt class="descname">O_RSYNC</tt><a class="headerlink" href="#os.O_RSYNC" title="Permalink to this definition">¶</a></dt>
+<dt id="os.O_SYNC">
+<tt class="descclassname">os.</tt><tt class="descname">O_SYNC</tt><a class="headerlink" href="#os.O_SYNC" title="Permalink to this definition">¶</a></dt>
+<dt id="os.O_NDELAY">
+<tt class="descclassname">os.</tt><tt class="descname">O_NDELAY</tt><a class="headerlink" href="#os.O_NDELAY" title="Permalink to this definition">¶</a></dt>
+<dt id="os.O_NONBLOCK">
+<tt class="descclassname">os.</tt><tt class="descname">O_NONBLOCK</tt><a class="headerlink" href="#os.O_NONBLOCK" title="Permalink to this definition">¶</a></dt>
+<dt id="os.O_NOCTTY">
+<tt class="descclassname">os.</tt><tt class="descname">O_NOCTTY</tt><a class="headerlink" href="#os.O_NOCTTY" title="Permalink to this definition">¶</a></dt>
+<dt id="os.O_SHLOCK">
+<tt class="descclassname">os.</tt><tt class="descname">O_SHLOCK</tt><a class="headerlink" href="#os.O_SHLOCK" title="Permalink to this definition">¶</a></dt>
+<dt id="os.O_EXLOCK">
+<tt class="descclassname">os.</tt><tt class="descname">O_EXLOCK</tt><a class="headerlink" href="#os.O_EXLOCK" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="310">{{s.310}}</font></p>
+</dd></dl>
+<dl class="data">
+<dt id="os.O_BINARY">
+<tt class="descclassname">os.</tt><tt class="descname">O_BINARY</tt><a class="headerlink" href="#os.O_BINARY" title="Permalink to this definition">¶</a></dt>
+<dt id="os.O_NOINHERIT">
+<tt class="descclassname">os.</tt><tt class="descname">O_NOINHERIT</tt><a class="headerlink" href="#os.O_NOINHERIT" title="Permalink to this definition">¶</a></dt>
+<dt id="os.O_SHORT_LIVED">
+<tt class="descclassname">os.</tt><tt class="descname">O_SHORT_LIVED</tt><a class="headerlink" href="#os.O_SHORT_LIVED" title="Permalink to this definition">¶</a></dt>
+<dt id="os.O_TEMPORARY">
+<tt class="descclassname">os.</tt><tt class="descname">O_TEMPORARY</tt><a class="headerlink" href="#os.O_TEMPORARY" title="Permalink to this definition">¶</a></dt>
+<dt id="os.O_RANDOM">
+<tt class="descclassname">os.</tt><tt class="descname">O_RANDOM</tt><a class="headerlink" href="#os.O_RANDOM" title="Permalink to this definition">¶</a></dt>
+<dt id="os.O_SEQUENTIAL">
+<tt class="descclassname">os.</tt><tt class="descname">O_SEQUENTIAL</tt><a class="headerlink" href="#os.O_SEQUENTIAL" title="Permalink to this definition">¶</a></dt>
+<dt id="os.O_TEXT">
+<tt class="descclassname">os.</tt><tt class="descname">O_TEXT</tt><a class="headerlink" href="#os.O_TEXT" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="311">{{s.311}}</font></p>
+</dd></dl>
+<dl class="data">
+<dt id="os.O_ASYNC">
+<tt class="descclassname">os.</tt><tt class="descname">O_ASYNC</tt><a class="headerlink" href="#os.O_ASYNC" title="Permalink to this definition">¶</a></dt>
+<dt id="os.O_DIRECT">
+<tt class="descclassname">os.</tt><tt class="descname">O_DIRECT</tt><a class="headerlink" href="#os.O_DIRECT" title="Permalink to this definition">¶</a></dt>
+<dt id="os.O_DIRECTORY">
+<tt class="descclassname">os.</tt><tt class="descname">O_DIRECTORY</tt><a class="headerlink" href="#os.O_DIRECTORY" title="Permalink to this definition">¶</a></dt>
+<dt id="os.O_NOFOLLOW">
+<tt class="descclassname">os.</tt><tt class="descname">O_NOFOLLOW</tt><a class="headerlink" href="#os.O_NOFOLLOW" title="Permalink to this definition">¶</a></dt>
+<dt id="os.O_NOATIME">
+<tt class="descclassname">os.</tt><tt class="descname">O_NOATIME</tt><a class="headerlink" href="#os.O_NOATIME" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="312">{{s.312}}</font></p>
+</dd></dl>
+</div>
+</div>
+<div class="section" id="files-and-directories">
+<span id="os-file-dir"></span><h2><font id="916">{{s.916}}</font><a class="headerlink" href="#files-and-directories" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="os.access">
+<tt class="descclassname">os.</tt><tt class="descname">access</tt><big>(</big><em>path</em>, <em>mode</em><big>)</big><a class="headerlink" href="#os.access" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="313">{{s.313}}</font><font id="314">{{s.314}}</font><font id="315">{{s.315}}</font><font id="316">{{s.316}}</font><font id="317">{{s.317}}</font></p>
+<p><font id="318">{{s.318}}</font></p>
+<div class="admonition note">
+<p class="first admonition-title"><font id="319">{{s.319}}</font></p>
+<p><font id="320">{{s.320}}</font><font id="321">{{s.321}}</font><font id="322">{{s.322}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">access</span><span class="p">(</span><span class="s">"myfile"</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">R_OK</span><span class="p">):</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">"myfile"</span><span class="p">)</span> <span class="k">as</span> <span class="n">fp</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">fp</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="k">return</span> <span class="s">"some default data"</span>
+</pre></div>
+</div>
+<p><font id="323">{{s.323}}</font></p>
+<div class="last highlight-python"><div class="highlight"><pre><span class="k">try</span><span class="p">:</span>
+    <span class="n">fp</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">"myfile"</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">IOError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">e</span><span class="o">.</span><span class="n">errno</span> <span class="o">==</span> <span class="n">errno</span><span class="o">.</span><span class="n">EACCES</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s">"some default data"</span>
+    <span class="c"># Not a permission error.</span>
+    <span class="k">raise</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">with</span> <span class="n">fp</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">fp</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title"><font id="324">{{s.324}}</font></p>
+<p class="last"><font id="325">{{s.325}}</font></p>
+</div>
+</dd></dl>
+<dl class="data">
+<dt id="os.F_OK">
+<tt class="descclassname">os.</tt><tt class="descname">F_OK</tt><a class="headerlink" href="#os.F_OK" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="326">{{s.326}}</font></p>
+</dd></dl>
+<dl class="data">
+<dt id="os.R_OK">
+<tt class="descclassname">os.</tt><tt class="descname">R_OK</tt><a class="headerlink" href="#os.R_OK" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="327">{{s.327}}</font></p>
+</dd></dl>
+<dl class="data">
+<dt id="os.W_OK">
+<tt class="descclassname">os.</tt><tt class="descname">W_OK</tt><a class="headerlink" href="#os.W_OK" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="328">{{s.328}}</font></p>
+</dd></dl>
+<dl class="data">
+<dt id="os.X_OK">
+<tt class="descclassname">os.</tt><tt class="descname">X_OK</tt><a class="headerlink" href="#os.X_OK" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="329">{{s.329}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="os.chdir">
+<tt class="descclassname">os.</tt><tt class="descname">chdir</tt><big>(</big><em>path</em><big>)</big><a class="headerlink" href="#os.chdir" title="Permalink to this definition">¶</a></dt>
+<dd><p id="index-13"><font id="330">{{s.330}}</font></p>
+<p><font id="331">{{s.331}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="os.fchdir">
+<tt class="descclassname">os.</tt><tt class="descname">fchdir</tt><big>(</big><em>fd</em><big>)</big><a class="headerlink" href="#os.fchdir" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="332">{{s.332}}</font><font id="333">{{s.333}}</font></p>
+<p><font id="334">{{s.334}}</font></p>
+<p class="versionadded"><font id="335">{{s.335}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="os.getcwd">
+<tt class="descclassname">os.</tt><tt class="descname">getcwd</tt><big>(</big><big>)</big><a class="headerlink" href="#os.getcwd" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="336">{{s.336}}</font></p>
+<p><font id="337">{{s.337}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="os.getcwdu">
+<tt class="descclassname">os.</tt><tt class="descname">getcwdu</tt><big>(</big><big>)</big><a class="headerlink" href="#os.getcwdu" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="338">{{s.338}}</font></p>
+<p><font id="339">{{s.339}}</font></p>
+<p class="versionadded"><font id="340">{{s.340}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="os.chflags">
+<tt class="descclassname">os.</tt><tt class="descname">chflags</tt><big>(</big><em>path</em>, <em>flags</em><big>)</big><a class="headerlink" href="#os.chflags" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="341">{{s.341}}</font><font id="342">{{s.342}}</font></p>
+<ul class="simple">
+<li><a class="reference internal" href="stat.html#stat.UF_NODUMP" title="stat.UF_NODUMP"><font id="937">{{s.937}}</font></a></li>
+<li><a class="reference internal" href="stat.html#stat.UF_IMMUTABLE" title="stat.UF_IMMUTABLE"><font id="938">{{s.938}}</font></a></li>
+<li><a class="reference internal" href="stat.html#stat.UF_APPEND" title="stat.UF_APPEND"><font id="939">{{s.939}}</font></a></li>
+<li><a class="reference internal" href="stat.html#stat.UF_OPAQUE" title="stat.UF_OPAQUE"><font id="940">{{s.940}}</font></a></li>
+<li><a class="reference internal" href="stat.html#stat.UF_NOUNLINK" title="stat.UF_NOUNLINK"><font id="941">{{s.941}}</font></a></li>
+<li><a class="reference internal" href="stat.html#stat.UF_COMPRESSED" title="stat.UF_COMPRESSED"><font id="942">{{s.942}}</font></a></li>
+<li><a class="reference internal" href="stat.html#stat.UF_HIDDEN" title="stat.UF_HIDDEN"><font id="943">{{s.943}}</font></a></li>
+<li><a class="reference internal" href="stat.html#stat.SF_ARCHIVED" title="stat.SF_ARCHIVED"><font id="944">{{s.944}}</font></a></li>
+<li><a class="reference internal" href="stat.html#stat.SF_IMMUTABLE" title="stat.SF_IMMUTABLE"><font id="945">{{s.945}}</font></a></li>
+<li><a class="reference internal" href="stat.html#stat.SF_APPEND" title="stat.SF_APPEND"><font id="946">{{s.946}}</font></a></li>
+<li><a class="reference internal" href="stat.html#stat.SF_NOUNLINK" title="stat.SF_NOUNLINK"><font id="947">{{s.947}}</font></a></li>
+<li><a class="reference internal" href="stat.html#stat.SF_SNAPSHOT" title="stat.SF_SNAPSHOT"><font id="948">{{s.948}}</font></a></li>
+</ul>
+<p><font id="343">{{s.343}}</font></p>
+<p class="versionadded"><font id="344">{{s.344}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="os.chroot">
+<tt class="descclassname">os.</tt><tt class="descname">chroot</tt><big>(</big><em>path</em><big>)</big><a class="headerlink" href="#os.chroot" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="345">{{s.345}}</font><font id="346">{{s.346}}</font></p>
+<p class="versionadded"><font id="347">{{s.347}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="os.chmod">
+<tt class="descclassname">os.</tt><tt class="descname">chmod</tt><big>(</big><em>path</em>, <em>mode</em><big>)</big><a class="headerlink" href="#os.chmod" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="348">{{s.348}}</font><font id="349">{{s.349}}</font></p>
+<ul class="simple">
+<li><a class="reference internal" href="stat.html#stat.S_ISUID" title="stat.S_ISUID"><font id="949">{{s.949}}</font></a></li>
+<li><a class="reference internal" href="stat.html#stat.S_ISGID" title="stat.S_ISGID"><font id="950">{{s.950}}</font></a></li>
+<li><a class="reference internal" href="stat.html#stat.S_ENFMT" title="stat.S_ENFMT"><font id="951">{{s.951}}</font></a></li>
+<li><a class="reference internal" href="stat.html#stat.S_ISVTX" title="stat.S_ISVTX"><font id="952">{{s.952}}</font></a></li>
+<li><a class="reference internal" href="stat.html#stat.S_IREAD" title="stat.S_IREAD"><font id="953">{{s.953}}</font></a></li>
+<li><a class="reference internal" href="stat.html#stat.S_IWRITE" title="stat.S_IWRITE"><font id="954">{{s.954}}</font></a></li>
+<li><a class="reference internal" href="stat.html#stat.S_IEXEC" title="stat.S_IEXEC"><font id="955">{{s.955}}</font></a></li>
+<li><a class="reference internal" href="stat.html#stat.S_IRWXU" title="stat.S_IRWXU"><font id="956">{{s.956}}</font></a></li>
+<li><a class="reference internal" href="stat.html#stat.S_IRUSR" title="stat.S_IRUSR"><font id="957">{{s.957}}</font></a></li>
+<li><a class="reference internal" href="stat.html#stat.S_IWUSR" title="stat.S_IWUSR"><font id="958">{{s.958}}</font></a></li>
+<li><a class="reference internal" href="stat.html#stat.S_IXUSR" title="stat.S_IXUSR"><font id="959">{{s.959}}</font></a></li>
+<li><a class="reference internal" href="stat.html#stat.S_IRWXG" title="stat.S_IRWXG"><font id="960">{{s.960}}</font></a></li>
+<li><a class="reference internal" href="stat.html#stat.S_IRGRP" title="stat.S_IRGRP"><font id="961">{{s.961}}</font></a></li>
+<li><a class="reference internal" href="stat.html#stat.S_IWGRP" title="stat.S_IWGRP"><font id="962">{{s.962}}</font></a></li>
+<li><a class="reference internal" href="stat.html#stat.S_IXGRP" title="stat.S_IXGRP"><font id="963">{{s.963}}</font></a></li>
+<li><a class="reference internal" href="stat.html#stat.S_IRWXO" title="stat.S_IRWXO"><font id="964">{{s.964}}</font></a></li>
+<li><a class="reference internal" href="stat.html#stat.S_IROTH" title="stat.S_IROTH"><font id="965">{{s.965}}</font></a></li>
+<li><a class="reference internal" href="stat.html#stat.S_IWOTH" title="stat.S_IWOTH"><font id="966">{{s.966}}</font></a></li>
+<li><a class="reference internal" href="stat.html#stat.S_IXOTH" title="stat.S_IXOTH"><font id="967">{{s.967}}</font></a></li>
+</ul>
+<p><font id="350">{{s.350}}</font></p>
+<div class="admonition note">
+<p class="first admonition-title"><font id="351">{{s.351}}</font></p>
+<p class="last"><font id="352">{{s.352}}</font><font id="353">{{s.353}}</font><font id="354">{{s.354}}</font><font id="355">{{s.355}}</font></p>
+</div>
+</dd></dl>
+<dl class="function">
+<dt id="os.chown">
+<tt class="descclassname">os.</tt><tt class="descname">chown</tt><big>(</big><em>path</em>, <em>uid</em>, <em>gid</em><big>)</big><a class="headerlink" href="#os.chown" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="356">{{s.356}}</font><font id="357">{{s.357}}</font></p>
+<p><font id="358">{{s.358}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="os.lchflags">
+<tt class="descclassname">os.</tt><tt class="descname">lchflags</tt><big>(</big><em>path</em>, <em>flags</em><big>)</big><a class="headerlink" href="#os.lchflags" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="359">{{s.359}}</font></p>
+<p><font id="360">{{s.360}}</font></p>
+<p class="versionadded"><font id="361">{{s.361}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="os.lchmod">
+<tt class="descclassname">os.</tt><tt class="descname">lchmod</tt><big>(</big><em>path</em>, <em>mode</em><big>)</big><a class="headerlink" href="#os.lchmod" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="362">{{s.362}}</font><font id="363">{{s.363}}</font><font id="364">{{s.364}}</font></p>
+<p><font id="365">{{s.365}}</font></p>
+<p class="versionadded"><font id="366">{{s.366}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="os.lchown">
+<tt class="descclassname">os.</tt><tt class="descname">lchown</tt><big>(</big><em>path</em>, <em>uid</em>, <em>gid</em><big>)</big><a class="headerlink" href="#os.lchown" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="367">{{s.367}}</font><font id="368">{{s.368}}</font></p>
+<p><font id="369">{{s.369}}</font></p>
+<p class="versionadded"><font id="370">{{s.370}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="os.link">
+<tt class="descclassname">os.</tt><tt class="descname">link</tt><big>(</big><em>source</em>, <em>link_name</em><big>)</big><a class="headerlink" href="#os.link" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="371">{{s.371}}</font></p>
+<p><font id="372">{{s.372}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="os.listdir">
+<tt class="descclassname">os.</tt><tt class="descname">listdir</tt><big>(</big><em>path</em><big>)</big><a class="headerlink" href="#os.listdir" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="373">{{s.373}}</font><font id="374">{{s.374}}</font><font id="375">{{s.375}}</font></p>
+<p><font id="376">{{s.376}}</font></p>
+<p class="versionchanged"><font id="377">{{s.377}}</font><font id="378">{{s.378}}</font><font id="379">{{s.379}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="os.lstat">
+<tt class="descclassname">os.</tt><tt class="descname">lstat</tt><big>(</big><em>path</em><big>)</big><a class="headerlink" href="#os.lstat" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="380">{{s.380}}</font><font id="381">{{s.381}}</font><font id="382">{{s.382}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="os.mkfifo">
+<tt class="descclassname">os.</tt><tt class="descname">mkfifo</tt><big>(</big><em>path</em><span class="optional">[</span>, <em>mode</em><span class="optional">]</span><big>)</big><a class="headerlink" href="#os.mkfifo" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="383">{{s.383}}</font><font id="384">{{s.384}}</font><font id="385">{{s.385}}</font></p>
+<p><font id="386">{{s.386}}</font></p>
+<p><font id="387">{{s.387}}</font><font id="388">{{s.388}}</font><font id="389">{{s.389}}</font><font id="390">{{s.390}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="os.mknod">
+<tt class="descclassname">os.</tt><tt class="descname">mknod</tt><big>(</big><em>filename</em><span class="optional">[</span>, <em>mode=0600</em><span class="optional">[</span>, <em>device=0</em><span class="optional">]</span><span class="optional">]</span><big>)</big><a class="headerlink" href="#os.mknod" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="391">{{s.391}}</font><font id="392">{{s.392}}</font><font id="393">{{s.393}}</font><font id="394">{{s.394}}</font><font id="395">{{s.395}}</font><font id="396">{{s.396}}</font><font id="397">{{s.397}}</font><font id="398">{{s.398}}</font><font id="399">{{s.399}}</font></p>
+<p class="versionadded"><font id="400">{{s.400}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="os.major">
+<tt class="descclassname">os.</tt><tt class="descname">major</tt><big>(</big><em>device</em><big>)</big><a class="headerlink" href="#os.major" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="401">{{s.401}}</font></p>
+<p class="versionadded"><font id="402">{{s.402}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="os.minor">
+<tt class="descclassname">os.</tt><tt class="descname">minor</tt><big>(</big><em>device</em><big>)</big><a class="headerlink" href="#os.minor" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="403">{{s.403}}</font></p>
+<p class="versionadded"><font id="404">{{s.404}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="os.makedev">
+<tt class="descclassname">os.</tt><tt class="descname">makedev</tt><big>(</big><em>major</em>, <em>minor</em><big>)</big><a class="headerlink" href="#os.makedev" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="405">{{s.405}}</font></p>
+<p class="versionadded"><font id="406">{{s.406}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="os.mkdir">
+<tt class="descclassname">os.</tt><tt class="descname">mkdir</tt><big>(</big><em>path</em><span class="optional">[</span>, <em>mode</em><span class="optional">]</span><big>)</big><a class="headerlink" href="#os.mkdir" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="407">{{s.407}}</font><font id="408">{{s.408}}</font><font id="409">{{s.409}}</font><font id="410">{{s.410}}</font><font id="411">{{s.411}}</font></p>
+<p><font id="412">{{s.412}}</font><font id="413">{{s.413}}</font></p>
+<p><font id="414">{{s.414}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="os.makedirs">
+<tt class="descclassname">os.</tt><tt class="descname">makedirs</tt><big>(</big><em>path</em><span class="optional">[</span>, <em>mode</em><span class="optional">]</span><big>)</big><a class="headerlink" href="#os.makedirs" title="Permalink to this definition">¶</a></dt>
+<dd><p id="index-14"><font id="415">{{s.415}}</font><font id="416">{{s.416}}</font><font id="417">{{s.417}}</font><font id="418">{{s.418}}</font><font id="419">{{s.419}}</font><font id="420">{{s.420}}</font></p>
+<div class="admonition note">
+<p class="first admonition-title"><font id="421">{{s.421}}</font></p>
+<p class="last"><font id="422">{{s.422}}</font></p>
+</div>
+<p class="versionadded"><font id="423">{{s.423}}</font></p>
+<p class="versionchanged"><font id="424">{{s.424}}</font><font id="425">{{s.425}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="os.pathconf">
+<tt class="descclassname">os.</tt><tt class="descname">pathconf</tt><big>(</big><em>path</em>, <em>name</em><big>)</big><a class="headerlink" href="#os.pathconf" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="426">{{s.426}}</font><font id="427">{{s.427}}</font><font id="428">{{s.428}}</font><font id="429">{{s.429}}</font><font id="430">{{s.430}}</font><font id="431">{{s.431}}</font><font id="432">{{s.432}}</font></p>
+<p><font id="433">{{s.433}}</font><font id="434">{{s.434}}</font><font id="435">{{s.435}}</font></p>
+<p><font id="436">{{s.436}}</font></p>
+</dd></dl>
+<dl class="data">
+<dt id="os.pathconf_names">
+<tt class="descclassname">os.</tt><tt class="descname">pathconf_names</tt><a class="headerlink" href="#os.pathconf_names" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="437">{{s.437}}</font><font id="438">{{s.438}}</font><font id="439">{{s.439}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="os.readlink">
+<tt class="descclassname">os.</tt><tt class="descname">readlink</tt><big>(</big><em>path</em><big>)</big><a class="headerlink" href="#os.readlink" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="440">{{s.440}}</font><font id="441">{{s.441}}</font><font id="442">{{s.442}}</font></p>
+<p class="versionchanged"><font id="443">{{s.443}}</font><font id="444">{{s.444}}</font></p>
+<p><font id="445">{{s.445}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="os.remove">
+<tt class="descclassname">os.</tt><tt class="descname">remove</tt><big>(</big><em>path</em><big>)</big><a class="headerlink" href="#os.remove" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="446">{{s.446}}</font><font id="447">{{s.447}}</font><font id="448">{{s.448}}</font><font id="449">{{s.449}}</font><font id="450">{{s.450}}</font><font id="451">{{s.451}}</font></p>
+<p><font id="452">{{s.452}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="os.removedirs">
+<tt class="descclassname">os.</tt><tt class="descname">removedirs</tt><big>(</big><em>path</em><big>)</big><a class="headerlink" href="#os.removedirs" title="Permalink to this definition">¶</a></dt>
+<dd><p id="index-15"><font id="453">{{s.453}}</font><font id="454">{{s.454}}</font><font id="455">{{s.455}}</font><font id="456">{{s.456}}</font></p>
+<p class="versionadded"><font id="457">{{s.457}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="os.rename">
+<tt class="descclassname">os.</tt><tt class="descname">rename</tt><big>(</big><em>src</em>, <em>dst</em><big>)</big><a class="headerlink" href="#os.rename" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="458">{{s.458}}</font><font id="459">{{s.459}}</font><font id="460">{{s.460}}</font><font id="461">{{s.461}}</font><font id="462">{{s.462}}</font><font id="463">{{s.463}}</font><font id="464">{{s.464}}</font></p>
+<p><font id="465">{{s.465}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="os.renames">
+<tt class="descclassname">os.</tt><tt class="descname">renames</tt><big>(</big><em>old</em>, <em>new</em><big>)</big><a class="headerlink" href="#os.renames" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="466">{{s.466}}</font><font id="467">{{s.467}}</font><font id="468">{{s.468}}</font></p>
+<p class="versionadded"><font id="469">{{s.469}}</font></p>
+<div class="admonition note">
+<p class="first admonition-title"><font id="470">{{s.470}}</font></p>
+<p class="last"><font id="471">{{s.471}}</font></p>
+</div>
+</dd></dl>
+<dl class="function">
+<dt id="os.rmdir">
+<tt class="descclassname">os.</tt><tt class="descname">rmdir</tt><big>(</big><em>path</em><big>)</big><a class="headerlink" href="#os.rmdir" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="472">{{s.472}}</font><font id="473">{{s.473}}</font><font id="474">{{s.474}}</font></p>
+<p><font id="475">{{s.475}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="os.stat">
+<tt class="descclassname">os.</tt><tt class="descname">stat</tt><big>(</big><em>path</em><big>)</big><a class="headerlink" href="#os.stat" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="476">{{s.476}}</font><font id="477">{{s.477}}</font></p>
+<p><font id="478">{{s.478}}</font></p>
+<ul class="simple">
+<li><tt class="xref py py-attr docutils literal"><span class="pre">st_mode</span></tt> - protection bits,</li>
+<li><tt class="xref py py-attr docutils literal"><span class="pre">st_ino</span></tt> - inode number,</li>
+<li><tt class="xref py py-attr docutils literal"><span class="pre">st_dev</span></tt> - device,</li>
+<li><tt class="xref py py-attr docutils literal"><span class="pre">st_nlink</span></tt> - number of hard links,</li>
+<li><tt class="xref py py-attr docutils literal"><span class="pre">st_uid</span></tt> - user id of owner,</li>
+<li><tt class="xref py py-attr docutils literal"><span class="pre">st_gid</span></tt> - group id of owner,</li>
+<li><tt class="xref py py-attr docutils literal"><span class="pre">st_size</span></tt> - size of file, in bytes,</li>
+<li><tt class="xref py py-attr docutils literal"><span class="pre">st_atime</span></tt> - time of most recent access,</li>
+<li><tt class="xref py py-attr docutils literal"><span class="pre">st_mtime</span></tt> - time of most recent content modification,</li>
+<li><tt class="xref py py-attr docutils literal"><span class="pre">st_ctime</span></tt> - platform dependent; time of most recent metadata change on
+Unix, or the time of creation on Windows)</li>
+</ul>
+<p class="versionchanged"><font id="479">{{s.479}}</font><font id="480">{{s.480}}</font><font id="481">{{s.481}}</font><font id="482">{{s.482}}</font></p>
+<p><font id="483">{{s.483}}</font></p>
+<ul class="simple">
+<li><tt class="xref py py-attr docutils literal"><span class="pre">st_blocks</span></tt> - number of 512-byte blocks allocated for file</li>
+<li><tt class="xref py py-attr docutils literal"><span class="pre">st_blksize</span></tt> - filesystem blocksize for efficient file system I/O</li>
+<li><tt class="xref py py-attr docutils literal"><span class="pre">st_rdev</span></tt> - type of device if an inode device</li>
+<li><tt class="xref py py-attr docutils literal"><span class="pre">st_flags</span></tt> - user defined flags for file</li>
+</ul>
+<p><font id="484">{{s.484}}</font></p>
+<ul class="simple">
+<li><tt class="xref py py-attr docutils literal"><span class="pre">st_gen</span></tt> - file generation number</li>
+<li><tt class="xref py py-attr docutils literal"><span class="pre">st_birthtime</span></tt> - time of file creation</li>
+</ul>
+<p><font id="485">{{s.485}}</font></p>
+<ul class="simple">
+<li><tt class="xref py py-attr docutils literal"><span class="pre">st_ftype</span></tt> (file type)</li>
+<li><tt class="xref py py-attr docutils literal"><span class="pre">st_attrs</span></tt> (attributes)</li>
+<li><tt class="xref py py-attr docutils literal"><span class="pre">st_obtype</span></tt> (object type).</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title"><font id="486">{{s.486}}</font></p>
+<p class="last"><font id="487">{{s.487}}</font><font id="488">{{s.488}}</font><font id="489">{{s.489}}</font></p>
+</div>
+<p><font id="490">{{s.490}}</font><font id="491">{{s.491}}</font></p>
+<p id="index-16"><font id="492">{{s.492}}</font><font id="493">{{s.493}}</font></p>
+<p><font id="494">{{s.494}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">os</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">statinfo</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">stat</span><span class="p">(</span><span class="s">'somefile.txt'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">statinfo</span>
+<span class="go">(33188, 422511, 769, 1, 1032, 100, 926, 1105022698,1105022732, 1105022732)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">statinfo</span><span class="o">.</span><span class="n">st_size</span>
+<span class="go">926</span>
+</pre></div>
+</div>
+<p><font id="495">{{s.495}}</font></p>
+<p class="versionchanged"><font id="496">{{s.496}}</font><font id="497">{{s.497}}</font></p>
+<p class="versionchanged"><font id="498">{{s.498}}</font><font id="499">{{s.499}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="os.stat_float_times">
+<tt class="descclassname">os.</tt><tt class="descname">stat_float_times</tt><big>(</big><span class="optional">[</span><em>newvalue</em><span class="optional">]</span><big>)</big><a class="headerlink" href="#os.stat_float_times" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="500">{{s.500}}</font><font id="501">{{s.501}}</font><font id="502">{{s.502}}</font></p>
+<p><font id="503">{{s.503}}</font></p>
+<p class="versionchanged"><font id="504">{{s.504}}</font><font id="505">{{s.505}}</font><font id="506">{{s.506}}</font></p>
+<p><font id="507">{{s.507}}</font><font id="508">{{s.508}}</font><font id="509">{{s.509}}</font></p>
+<p><font id="510">{{s.510}}</font><font id="511">{{s.511}}</font><font id="512">{{s.512}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="os.statvfs">
+<tt class="descclassname">os.</tt><tt class="descname">statvfs</tt><big>(</big><em>path</em><big>)</big><a class="headerlink" href="#os.statvfs" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="513">{{s.513}}</font><font id="514">{{s.514}}</font></p>
+<p id="index-17"><font id="515">{{s.515}}</font><font id="516">{{s.516}}</font><font id="517">{{s.517}}</font></p>
+<p><font id="518">{{s.518}}</font></p>
+<p class="versionchanged"><font id="519">{{s.519}}</font><font id="520">{{s.520}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="os.symlink">
+<tt class="descclassname">os.</tt><tt class="descname">symlink</tt><big>(</big><em>source</em>, <em>link_name</em><big>)</big><a class="headerlink" href="#os.symlink" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="521">{{s.521}}</font></p>
+<p><font id="522">{{s.522}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="os.tempnam">
+<tt class="descclassname">os.</tt><tt class="descname">tempnam</tt><big>(</big><span class="optional">[</span><em>dir</em><span class="optional">[</span>, <em>prefix</em><span class="optional">]</span><span class="optional">]</span><big>)</big><a class="headerlink" href="#os.tempnam" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="523">{{s.523}}</font><font id="524">{{s.524}}</font><font id="525">{{s.525}}</font><font id="526">{{s.526}}</font><font id="527">{{s.527}}</font><font id="528">{{s.528}}</font><font id="529">{{s.529}}</font><font id="530">{{s.530}}</font></p>
+<div class="admonition warning">
+<p class="first admonition-title"><font id="531">{{s.531}}</font></p>
+<p class="last"><font id="532">{{s.532}}</font><font id="533">{{s.533}}</font></p>
+</div>
+<p><font id="534">{{s.534}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="os.tmpnam">
+<tt class="descclassname">os.</tt><tt class="descname">tmpnam</tt><big>(</big><big>)</big><a class="headerlink" href="#os.tmpnam" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="535">{{s.535}}</font><font id="536">{{s.536}}</font><font id="537">{{s.537}}</font><font id="538">{{s.538}}</font></p>
+<div class="admonition warning">
+<p class="first admonition-title"><font id="539">{{s.539}}</font></p>
+<p class="last"><font id="540">{{s.540}}</font><font id="541">{{s.541}}</font></p>
+</div>
+<p><font id="542">{{s.542}}</font><font id="543">{{s.543}}</font></p>
+</dd></dl>
+<dl class="data">
+<dt id="os.TMP_MAX">
+<tt class="descclassname">os.</tt><tt class="descname">TMP_MAX</tt><a class="headerlink" href="#os.TMP_MAX" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="544">{{s.544}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="os.unlink">
+<tt class="descclassname">os.</tt><tt class="descname">unlink</tt><big>(</big><em>path</em><big>)</big><a class="headerlink" href="#os.unlink" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="545">{{s.545}}</font><font id="546">{{s.546}}</font><font id="547">{{s.547}}</font></p>
+<p><font id="548">{{s.548}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="os.utime">
+<tt class="descclassname">os.</tt><tt class="descname">utime</tt><big>(</big><em>path</em>, <em>times</em><big>)</big><a class="headerlink" href="#os.utime" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="549">{{s.549}}</font><font id="550">{{s.550}}</font><font id="551">{{s.551}}</font><font id="552">{{s.552}}</font><font id="553">{{s.553}}</font><font id="554">{{s.554}}</font><font id="555">{{s.555}}</font></p>
+<p class="versionchanged"><font id="556">{{s.556}}</font><font id="557">{{s.557}}</font></p>
+<p><font id="558">{{s.558}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="os.walk">
+<tt class="descclassname">os.</tt><tt class="descname">walk</tt><big>(</big><em>top</em>, <em>topdown=True</em>, <em>onerror=None</em>, <em>followlinks=False</em><big>)</big><a class="headerlink" href="#os.walk" title="Permalink to this definition">¶</a></dt>
+<dd><p id="index-20"><font id="559">{{s.559}}</font><font id="560">{{s.560}}</font></p>
+<p><font id="561">{{s.561}}</font><font id="562">{{s.562}}</font><font id="563">{{s.563}}</font><font id="564">{{s.564}}</font><font id="565">{{s.565}}</font></p>
+<p><font id="566">{{s.566}}</font><font id="567">{{s.567}}</font><font id="568">{{s.568}}</font></p>
+<p><font id="569">{{s.569}}</font><font id="570">{{s.570}}</font><font id="571">{{s.571}}</font></p>
+<p><font id="572">{{s.572}}</font><font id="573">{{s.573}}</font><font id="574">{{s.574}}</font><font id="575">{{s.575}}</font><font id="576">{{s.576}}</font></p>
+<p><font id="577">{{s.577}}</font><font id="578">{{s.578}}</font></p>
+<p class="versionadded"><font id="579">{{s.579}}</font><font id="580">{{s.580}}</font></p>
+<div class="admonition note">
+<p class="first admonition-title"><font id="581">{{s.581}}</font></p>
+<p class="last"><font id="582">{{s.582}}</font><font id="583">{{s.583}}</font></p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title"><font id="584">{{s.584}}</font></p>
+<p class="last"><font id="585">{{s.585}}</font><font id="586">{{s.586}}</font></p>
+</div>
+<p><font id="587">{{s.587}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">os.path</span> <span class="kn">import</span> <span class="n">join</span><span class="p">,</span> <span class="n">getsize</span>
+<span class="k">for</span> <span class="n">root</span><span class="p">,</span> <span class="n">dirs</span><span class="p">,</span> <span class="n">files</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">walk</span><span class="p">(</span><span class="s">'python/Lib/email'</span><span class="p">):</span>
+    <span class="k">print</span> <span class="n">root</span><span class="p">,</span> <span class="s">"consumes"</span><span class="p">,</span>
+    <span class="k">print</span> <span class="nb">sum</span><span class="p">(</span><span class="n">getsize</span><span class="p">(</span><span class="n">join</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">name</span><span class="p">))</span> <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">files</span><span class="p">),</span>
+    <span class="k">print</span> <span class="s">"bytes in"</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">files</span><span class="p">),</span> <span class="s">"non-directory files"</span>
+    <span class="k">if</span> <span class="s">'CVS'</span> <span class="ow">in</span> <span class="n">dirs</span><span class="p">:</span>
+        <span class="n">dirs</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s">'CVS'</span><span class="p">)</span>  <span class="c"># don't visit CVS directories</span>
+</pre></div>
+</div>
+<p><font id="588">{{s.588}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># Delete everything reachable from the directory named in "top",</span>
+<span class="c"># assuming there are no symbolic links.</span>
+<span class="c"># CAUTION:  This is dangerous!  For example, if top == '/', it</span>
+<span class="c"># could delete all your disk files.</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="k">for</span> <span class="n">root</span><span class="p">,</span> <span class="n">dirs</span><span class="p">,</span> <span class="n">files</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">walk</span><span class="p">(</span><span class="n">top</span><span class="p">,</span> <span class="n">topdown</span><span class="o">=</span><span class="bp">False</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">files</span><span class="p">:</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">name</span><span class="p">))</span>
+    <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">dirs</span><span class="p">:</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">rmdir</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">name</span><span class="p">))</span>
+</pre></div>
+</div>
+<p class="versionadded"><font id="589">{{s.589}}</font></p>
+</dd></dl>
+</div>
+<div class="section" id="process-management">
+<span id="os-process"></span><h2><font id="917">{{s.917}}</font><a class="headerlink" href="#process-management" title="Permalink to this headline">¶</a></h2>
+<p><font id="590">{{s.590}}</font></p>
+<p><font id="591">{{s.591}}</font><font id="592">{{s.592}}</font><font id="593">{{s.593}}</font><font id="594">{{s.594}}</font><font id="595">{{s.595}}</font></p>
+<dl class="function">
+<dt id="os.abort">
+<tt class="descclassname">os.</tt><tt class="descname">abort</tt><big>(</big><big>)</big><a class="headerlink" href="#os.abort" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="596">{{s.596}}</font><font id="597">{{s.597}}</font><font id="598">{{s.598}}</font><font id="599">{{s.599}}</font></p>
+<p><font id="600">{{s.600}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="os.execl">
+<tt class="descclassname">os.</tt><tt class="descname">execl</tt><big>(</big><em>path</em>, <em>arg0</em>, <em>arg1</em>, <em>...</em><big>)</big><a class="headerlink" href="#os.execl" title="Permalink to this definition">¶</a></dt>
+<dt id="os.execle">
+<tt class="descclassname">os.</tt><tt class="descname">execle</tt><big>(</big><em>path</em>, <em>arg0</em>, <em>arg1</em>, <em>...</em>, <em>env</em><big>)</big><a class="headerlink" href="#os.execle" title="Permalink to this definition">¶</a></dt>
+<dt id="os.execlp">
+<tt class="descclassname">os.</tt><tt class="descname">execlp</tt><big>(</big><em>file</em>, <em>arg0</em>, <em>arg1</em>, <em>...</em><big>)</big><a class="headerlink" href="#os.execlp" title="Permalink to this definition">¶</a></dt>
+<dt id="os.execlpe">
+<tt class="descclassname">os.</tt><tt class="descname">execlpe</tt><big>(</big><em>file</em>, <em>arg0</em>, <em>arg1</em>, <em>...</em>, <em>env</em><big>)</big><a class="headerlink" href="#os.execlpe" title="Permalink to this definition">¶</a></dt>
+<dt id="os.execv">
+<tt class="descclassname">os.</tt><tt class="descname">execv</tt><big>(</big><em>path</em>, <em>args</em><big>)</big><a class="headerlink" href="#os.execv" title="Permalink to this definition">¶</a></dt>
+<dt id="os.execve">
+<tt class="descclassname">os.</tt><tt class="descname">execve</tt><big>(</big><em>path</em>, <em>args</em>, <em>env</em><big>)</big><a class="headerlink" href="#os.execve" title="Permalink to this definition">¶</a></dt>
+<dt id="os.execvp">
+<tt class="descclassname">os.</tt><tt class="descname">execvp</tt><big>(</big><em>file</em>, <em>args</em><big>)</big><a class="headerlink" href="#os.execvp" title="Permalink to this definition">¶</a></dt>
+<dt id="os.execvpe">
+<tt class="descclassname">os.</tt><tt class="descname">execvpe</tt><big>(</big><em>file</em>, <em>args</em>, <em>env</em><big>)</big><a class="headerlink" href="#os.execvpe" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="601">{{s.601}}</font><font id="602">{{s.602}}</font><font id="603">{{s.603}}</font><font id="604">{{s.604}}</font></p>
+<p><font id="605">{{s.605}}</font><font id="606">{{s.606}}</font></p>
+<p><font id="607">{{s.607}}</font><font id="608">{{s.608}}</font><font id="609">{{s.609}}</font><font id="610">{{s.610}}</font><font id="611">{{s.611}}</font></p>
+<p><font id="612">{{s.612}}</font><font id="613">{{s.613}}</font><font id="614">{{s.614}}</font><font id="615">{{s.615}}</font></p>
+<p><font id="616">{{s.616}}</font><font id="617">{{s.617}}</font></p>
+<p><font id="618">{{s.618}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="os._exit">
+<tt class="descclassname">os.</tt><tt class="descname">_exit</tt><big>(</big><em>n</em><big>)</big><a class="headerlink" href="#os._exit" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="619">{{s.619}}</font></p>
+<p><font id="620">{{s.620}}</font></p>
+<div class="admonition note">
+<p class="first admonition-title"><font id="621">{{s.621}}</font></p>
+<p class="last"><font id="622">{{s.622}}</font><font id="623">{{s.623}}</font></p>
+</div>
+</dd></dl>
+<p><font id="624">{{s.624}}</font><font id="625">{{s.625}}</font></p>
+<div class="admonition note">
+<p class="first admonition-title"><font id="626">{{s.626}}</font></p>
+<p class="last"><font id="627">{{s.627}}</font><font id="628">{{s.628}}</font></p>
+</div>
+<dl class="data">
+<dt id="os.EX_OK">
+<tt class="descclassname">os.</tt><tt class="descname">EX_OK</tt><a class="headerlink" href="#os.EX_OK" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="629">{{s.629}}</font></p>
+<p><font id="630">{{s.630}}</font></p>
+<p class="versionadded"><font id="631">{{s.631}}</font></p>
+</dd></dl>
+<dl class="data">
+<dt id="os.EX_USAGE">
+<tt class="descclassname">os.</tt><tt class="descname">EX_USAGE</tt><a class="headerlink" href="#os.EX_USAGE" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="632">{{s.632}}</font></p>
+<p><font id="633">{{s.633}}</font></p>
+<p class="versionadded"><font id="634">{{s.634}}</font></p>
+</dd></dl>
+<dl class="data">
+<dt id="os.EX_DATAERR">
+<tt class="descclassname">os.</tt><tt class="descname">EX_DATAERR</tt><a class="headerlink" href="#os.EX_DATAERR" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="635">{{s.635}}</font></p>
+<p><font id="636">{{s.636}}</font></p>
+<p class="versionadded"><font id="637">{{s.637}}</font></p>
+</dd></dl>
+<dl class="data">
+<dt id="os.EX_NOINPUT">
+<tt class="descclassname">os.</tt><tt class="descname">EX_NOINPUT</tt><a class="headerlink" href="#os.EX_NOINPUT" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="638">{{s.638}}</font></p>
+<p><font id="639">{{s.639}}</font></p>
+<p class="versionadded"><font id="640">{{s.640}}</font></p>
+</dd></dl>
+<dl class="data">
+<dt id="os.EX_NOUSER">
+<tt class="descclassname">os.</tt><tt class="descname">EX_NOUSER</tt><a class="headerlink" href="#os.EX_NOUSER" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="641">{{s.641}}</font></p>
+<p><font id="642">{{s.642}}</font></p>
+<p class="versionadded"><font id="643">{{s.643}}</font></p>
+</dd></dl>
+<dl class="data">
+<dt id="os.EX_NOHOST">
+<tt class="descclassname">os.</tt><tt class="descname">EX_NOHOST</tt><a class="headerlink" href="#os.EX_NOHOST" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="644">{{s.644}}</font></p>
+<p><font id="645">{{s.645}}</font></p>
+<p class="versionadded"><font id="646">{{s.646}}</font></p>
+</dd></dl>
+<dl class="data">
+<dt id="os.EX_UNAVAILABLE">
+<tt class="descclassname">os.</tt><tt class="descname">EX_UNAVAILABLE</tt><a class="headerlink" href="#os.EX_UNAVAILABLE" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="647">{{s.647}}</font></p>
+<p><font id="648">{{s.648}}</font></p>
+<p class="versionadded"><font id="649">{{s.649}}</font></p>
+</dd></dl>
+<dl class="data">
+<dt id="os.EX_SOFTWARE">
+<tt class="descclassname">os.</tt><tt class="descname">EX_SOFTWARE</tt><a class="headerlink" href="#os.EX_SOFTWARE" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="650">{{s.650}}</font></p>
+<p><font id="651">{{s.651}}</font></p>
+<p class="versionadded"><font id="652">{{s.652}}</font></p>
+</dd></dl>
+<dl class="data">
+<dt id="os.EX_OSERR">
+<tt class="descclassname">os.</tt><tt class="descname">EX_OSERR</tt><a class="headerlink" href="#os.EX_OSERR" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="653">{{s.653}}</font></p>
+<p><font id="654">{{s.654}}</font></p>
+<p class="versionadded"><font id="655">{{s.655}}</font></p>
+</dd></dl>
+<dl class="data">
+<dt id="os.EX_OSFILE">
+<tt class="descclassname">os.</tt><tt class="descname">EX_OSFILE</tt><a class="headerlink" href="#os.EX_OSFILE" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="656">{{s.656}}</font></p>
+<p><font id="657">{{s.657}}</font></p>
+<p class="versionadded"><font id="658">{{s.658}}</font></p>
+</dd></dl>
+<dl class="data">
+<dt id="os.EX_CANTCREAT">
+<tt class="descclassname">os.</tt><tt class="descname">EX_CANTCREAT</tt><a class="headerlink" href="#os.EX_CANTCREAT" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="659">{{s.659}}</font></p>
+<p><font id="660">{{s.660}}</font></p>
+<p class="versionadded"><font id="661">{{s.661}}</font></p>
+</dd></dl>
+<dl class="data">
+<dt id="os.EX_IOERR">
+<tt class="descclassname">os.</tt><tt class="descname">EX_IOERR</tt><a class="headerlink" href="#os.EX_IOERR" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="662">{{s.662}}</font></p>
+<p><font id="663">{{s.663}}</font></p>
+<p class="versionadded"><font id="664">{{s.664}}</font></p>
+</dd></dl>
+<dl class="data">
+<dt id="os.EX_TEMPFAIL">
+<tt class="descclassname">os.</tt><tt class="descname">EX_TEMPFAIL</tt><a class="headerlink" href="#os.EX_TEMPFAIL" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="665">{{s.665}}</font><font id="666">{{s.666}}</font></p>
+<p><font id="667">{{s.667}}</font></p>
+<p class="versionadded"><font id="668">{{s.668}}</font></p>
+</dd></dl>
+<dl class="data">
+<dt id="os.EX_PROTOCOL">
+<tt class="descclassname">os.</tt><tt class="descname">EX_PROTOCOL</tt><a class="headerlink" href="#os.EX_PROTOCOL" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="669">{{s.669}}</font></p>
+<p><font id="670">{{s.670}}</font></p>
+<p class="versionadded"><font id="671">{{s.671}}</font></p>
+</dd></dl>
+<dl class="data">
+<dt id="os.EX_NOPERM">
+<tt class="descclassname">os.</tt><tt class="descname">EX_NOPERM</tt><a class="headerlink" href="#os.EX_NOPERM" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="672">{{s.672}}</font></p>
+<p><font id="673">{{s.673}}</font></p>
+<p class="versionadded"><font id="674">{{s.674}}</font></p>
+</dd></dl>
+<dl class="data">
+<dt id="os.EX_CONFIG">
+<tt class="descclassname">os.</tt><tt class="descname">EX_CONFIG</tt><a class="headerlink" href="#os.EX_CONFIG" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="675">{{s.675}}</font></p>
+<p><font id="676">{{s.676}}</font></p>
+<p class="versionadded"><font id="677">{{s.677}}</font></p>
+</dd></dl>
+<dl class="data">
+<dt id="os.EX_NOTFOUND">
+<tt class="descclassname">os.</tt><tt class="descname">EX_NOTFOUND</tt><a class="headerlink" href="#os.EX_NOTFOUND" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="678">{{s.678}}</font></p>
+<p><font id="679">{{s.679}}</font></p>
+<p class="versionadded"><font id="680">{{s.680}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="os.fork">
+<tt class="descclassname">os.</tt><tt class="descname">fork</tt><big>(</big><big>)</big><a class="headerlink" href="#os.fork" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="681">{{s.681}}</font><font id="682">{{s.682}}</font><font id="683">{{s.683}}</font></p>
+<p><font id="684">{{s.684}}</font></p>
+<div class="admonition warning">
+<p class="first admonition-title"><font id="685">{{s.685}}</font></p>
+<p class="last"><font id="686">{{s.686}}</font></p>
+</div>
+<p><font id="687">{{s.687}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="os.forkpty">
+<tt class="descclassname">os.</tt><tt class="descname">forkpty</tt><big>(</big><big>)</big><a class="headerlink" href="#os.forkpty" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="688">{{s.688}}</font><font id="689">{{s.689}}</font><font id="690">{{s.690}}</font><font id="691">{{s.691}}</font></p>
+<p><font id="692">{{s.692}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="os.kill">
+<tt class="descclassname">os.</tt><tt class="descname">kill</tt><big>(</big><em>pid</em>, <em>sig</em><big>)</big><a class="headerlink" href="#os.kill" title="Permalink to this definition">¶</a></dt>
+<dd><p id="index-24"><font id="693">{{s.693}}</font><font id="694">{{s.694}}</font></p>
+<p><font id="695">{{s.695}}</font><font id="696">{{s.696}}</font><font id="697">{{s.697}}</font><font id="698">{{s.698}}</font><font id="699">{{s.699}}</font></p>
+<p class="versionadded"><font id="700">{{s.700}}</font><font id="701">{{s.701}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="os.killpg">
+<tt class="descclassname">os.</tt><tt class="descname">killpg</tt><big>(</big><em>pgid</em>, <em>sig</em><big>)</big><a class="headerlink" href="#os.killpg" title="Permalink to this definition">¶</a></dt>
+<dd><p id="index-25"><font id="702">{{s.702}}</font></p>
+<p><font id="703">{{s.703}}</font></p>
+<p class="versionadded"><font id="704">{{s.704}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="os.nice">
+<tt class="descclassname">os.</tt><tt class="descname">nice</tt><big>(</big><em>increment</em><big>)</big><a class="headerlink" href="#os.nice" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="705">{{s.705}}</font><font id="706">{{s.706}}</font></p>
+<p><font id="707">{{s.707}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="os.plock">
+<tt class="descclassname">os.</tt><tt class="descname">plock</tt><big>(</big><em>op</em><big>)</big><a class="headerlink" href="#os.plock" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="708">{{s.708}}</font><font id="709">{{s.709}}</font></p>
+<p><font id="710">{{s.710}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt>
+<tt class="descclassname">os.</tt><tt class="descname">popen</tt><big>(</big><em>...</em><big>)</big></dt>
+<dt>
+<tt class="descclassname">os.</tt><tt class="descname">popen2</tt><big>(</big><em>...</em><big>)</big></dt>
+<dt>
+<tt class="descclassname">os.</tt><tt class="descname">popen3</tt><big>(</big><em>...</em><big>)</big></dt>
+<dt>
+<tt class="descclassname">os.</tt><tt class="descname">popen4</tt><big>(</big><em>...</em><big>)</big></dt>
+<dd><p><font id="711">{{s.711}}</font><font id="712">{{s.712}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="os.spawnl">
+<tt class="descclassname">os.</tt><tt class="descname">spawnl</tt><big>(</big><em>mode</em>, <em>path</em>, <em>...</em><big>)</big><a class="headerlink" href="#os.spawnl" title="Permalink to this definition">¶</a></dt>
+<dt id="os.spawnle">
+<tt class="descclassname">os.</tt><tt class="descname">spawnle</tt><big>(</big><em>mode</em>, <em>path</em>, <em>...</em>, <em>env</em><big>)</big><a class="headerlink" href="#os.spawnle" title="Permalink to this definition">¶</a></dt>
+<dt id="os.spawnlp">
+<tt class="descclassname">os.</tt><tt class="descname">spawnlp</tt><big>(</big><em>mode</em>, <em>file</em>, <em>...</em><big>)</big><a class="headerlink" href="#os.spawnlp" title="Permalink to this definition">¶</a></dt>
+<dt id="os.spawnlpe">
+<tt class="descclassname">os.</tt><tt class="descname">spawnlpe</tt><big>(</big><em>mode</em>, <em>file</em>, <em>...</em>, <em>env</em><big>)</big><a class="headerlink" href="#os.spawnlpe" title="Permalink to this definition">¶</a></dt>
+<dt id="os.spawnv">
+<tt class="descclassname">os.</tt><tt class="descname">spawnv</tt><big>(</big><em>mode</em>, <em>path</em>, <em>args</em><big>)</big><a class="headerlink" href="#os.spawnv" title="Permalink to this definition">¶</a></dt>
+<dt id="os.spawnve">
+<tt class="descclassname">os.</tt><tt class="descname">spawnve</tt><big>(</big><em>mode</em>, <em>path</em>, <em>args</em>, <em>env</em><big>)</big><a class="headerlink" href="#os.spawnve" title="Permalink to this definition">¶</a></dt>
+<dt id="os.spawnvp">
+<tt class="descclassname">os.</tt><tt class="descname">spawnvp</tt><big>(</big><em>mode</em>, <em>file</em>, <em>args</em><big>)</big><a class="headerlink" href="#os.spawnvp" title="Permalink to this definition">¶</a></dt>
+<dt id="os.spawnvpe">
+<tt class="descclassname">os.</tt><tt class="descname">spawnvpe</tt><big>(</big><em>mode</em>, <em>file</em>, <em>args</em>, <em>env</em><big>)</big><a class="headerlink" href="#os.spawnvpe" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="713">{{s.713}}</font></p>
+<p><font id="714">{{s.714}}</font><font id="715">{{s.715}}</font></p>
+<p><font id="716">{{s.716}}</font><font id="717">{{s.717}}</font><font id="718">{{s.718}}</font></p>
+<p><font id="719">{{s.719}}</font><font id="720">{{s.720}}</font><font id="721">{{s.721}}</font><font id="722">{{s.722}}</font><font id="723">{{s.723}}</font></p>
+<p><font id="724">{{s.724}}</font><font id="725">{{s.725}}</font><font id="726">{{s.726}}</font><font id="727">{{s.727}}</font></p>
+<p><font id="728">{{s.728}}</font><font id="729">{{s.729}}</font><font id="730">{{s.730}}</font><font id="731">{{s.731}}</font></p>
+<p><font id="732">{{s.732}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">os</span>
+<span class="n">os</span><span class="o">.</span><span class="n">spawnlp</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">P_WAIT</span><span class="p">,</span> <span class="s">'cp'</span><span class="p">,</span> <span class="s">'cp'</span><span class="p">,</span> <span class="s">'index.html'</span><span class="p">,</span> <span class="s">'/dev/null'</span><span class="p">)</span>
+
+<span class="n">L</span> <span class="o">=</span> <span class="p">[</span><span class="s">'cp'</span><span class="p">,</span> <span class="s">'index.html'</span><span class="p">,</span> <span class="s">'/dev/null'</span><span class="p">]</span>
+<span class="n">os</span><span class="o">.</span><span class="n">spawnvpe</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">P_WAIT</span><span class="p">,</span> <span class="s">'cp'</span><span class="p">,</span> <span class="n">L</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><font id="733">{{s.733}}</font><font id="734">{{s.734}}</font><font id="735">{{s.735}}</font><font id="736">{{s.736}}</font></p>
+<p class="versionadded"><font id="737">{{s.737}}</font></p>
+</dd></dl>
+<dl class="data">
+<dt id="os.P_NOWAIT">
+<tt class="descclassname">os.</tt><tt class="descname">P_NOWAIT</tt><a class="headerlink" href="#os.P_NOWAIT" title="Permalink to this definition">¶</a></dt>
+<dt id="os.P_NOWAITO">
+<tt class="descclassname">os.</tt><tt class="descname">P_NOWAITO</tt><a class="headerlink" href="#os.P_NOWAITO" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="738">{{s.738}}</font><font id="739">{{s.739}}</font></p>
+<p><font id="740">{{s.740}}</font></p>
+<p class="versionadded"><font id="741">{{s.741}}</font></p>
+</dd></dl>
+<dl class="data">
+<dt id="os.P_WAIT">
+<tt class="descclassname">os.</tt><tt class="descname">P_WAIT</tt><a class="headerlink" href="#os.P_WAIT" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="742">{{s.742}}</font><font id="743">{{s.743}}</font></p>
+<p><font id="744">{{s.744}}</font></p>
+<p class="versionadded"><font id="745">{{s.745}}</font></p>
+</dd></dl>
+<dl class="data">
+<dt id="os.P_DETACH">
+<tt class="descclassname">os.</tt><tt class="descname">P_DETACH</tt><a class="headerlink" href="#os.P_DETACH" title="Permalink to this definition">¶</a></dt>
+<dt id="os.P_OVERLAY">
+<tt class="descclassname">os.</tt><tt class="descname">P_OVERLAY</tt><a class="headerlink" href="#os.P_OVERLAY" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="746">{{s.746}}</font><font id="747">{{s.747}}</font><font id="748">{{s.748}}</font><font id="749">{{s.749}}</font><font id="750">{{s.750}}</font></p>
+<p><font id="751">{{s.751}}</font></p>
+<p class="versionadded"><font id="752">{{s.752}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="os.startfile">
+<tt class="descclassname">os.</tt><tt class="descname">startfile</tt><big>(</big><em>path</em><span class="optional">[</span>, <em>operation</em><span class="optional">]</span><big>)</big><a class="headerlink" href="#os.startfile" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="753">{{s.753}}</font></p>
+<p><font id="754">{{s.754}}</font></p>
+<p><font id="755">{{s.755}}</font><font id="756">{{s.756}}</font></p>
+<p><font id="757">{{s.757}}</font><font id="758">{{s.758}}</font><font id="759">{{s.759}}</font><font id="760">{{s.760}}</font><font id="761">{{s.761}}</font><font id="762">{{s.762}}</font></p>
+<p><font id="763">{{s.763}}</font></p>
+<p class="versionadded"><font id="764">{{s.764}}</font></p>
+<p class="versionadded"><font id="765">{{s.765}}</font><font id="766">{{s.766}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="os.system">
+<tt class="descclassname">os.</tt><tt class="descname">system</tt><big>(</big><em>command</em><big>)</big><a class="headerlink" href="#os.system" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="767">{{s.767}}</font><font id="768">{{s.768}}</font><font id="769">{{s.769}}</font></p>
+<p><font id="770">{{s.770}}</font><font id="771">{{s.771}}</font></p>
+<p><font id="772">{{s.772}}</font><font id="773">{{s.773}}</font><font id="774">{{s.774}}</font></p>
+<p><font id="775">{{s.775}}</font><font id="776">{{s.776}}</font><font id="777">{{s.777}}</font></p>
+<p><font id="778">{{s.778}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="os.times">
+<tt class="descclassname">os.</tt><tt class="descname">times</tt><big>(</big><big>)</big><a class="headerlink" href="#os.times" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="779">{{s.779}}</font><font id="780">{{s.780}}</font><font id="781">{{s.781}}</font><font id="782">{{s.782}}</font></p>
+<p><font id="783">{{s.783}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="os.wait">
+<tt class="descclassname">os.</tt><tt class="descname">wait</tt><big>(</big><big>)</big><a class="headerlink" href="#os.wait" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="784">{{s.784}}</font><font id="785">{{s.785}}</font></p>
+<p><font id="786">{{s.786}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="os.waitpid">
+<tt class="descclassname">os.</tt><tt class="descname">waitpid</tt><big>(</big><em>pid</em>, <em>options</em><big>)</big><a class="headerlink" href="#os.waitpid" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="787">{{s.787}}</font></p>
+<p><font id="788">{{s.788}}</font><font id="789">{{s.789}}</font></p>
+<p><font id="790">{{s.790}}</font><font id="791">{{s.791}}</font><font id="792">{{s.792}}</font><font id="793">{{s.793}}</font></p>
+<p><font id="794">{{s.794}}</font></p>
+<p><font id="795">{{s.795}}</font><font id="796">{{s.796}}</font><font id="797">{{s.797}}</font><font id="798">{{s.798}}</font><font id="799">{{s.799}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="os.wait3">
+<tt class="descclassname">os.</tt><tt class="descname">wait3</tt><big>(</big><em>options</em><big>)</big><a class="headerlink" href="#os.wait3" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="800">{{s.800}}</font><font id="801">{{s.801}}</font><font id="802">{{s.802}}</font><font id="803">{{s.803}}</font></p>
+<p><font id="804">{{s.804}}</font></p>
+<p class="versionadded"><font id="805">{{s.805}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="os.wait4">
+<tt class="descclassname">os.</tt><tt class="descname">wait4</tt><big>(</big><em>pid</em>, <em>options</em><big>)</big><a class="headerlink" href="#os.wait4" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="806">{{s.806}}</font><font id="807">{{s.807}}</font><font id="808">{{s.808}}</font><font id="809">{{s.809}}</font></p>
+<p><font id="810">{{s.810}}</font></p>
+<p class="versionadded"><font id="811">{{s.811}}</font></p>
+</dd></dl>
+<dl class="data">
+<dt id="os.WNOHANG">
+<tt class="descclassname">os.</tt><tt class="descname">WNOHANG</tt><a class="headerlink" href="#os.WNOHANG" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="812">{{s.812}}</font><font id="813">{{s.813}}</font></p>
+<p><font id="814">{{s.814}}</font></p>
+</dd></dl>
+<dl class="data">
+<dt id="os.WCONTINUED">
+<tt class="descclassname">os.</tt><tt class="descname">WCONTINUED</tt><a class="headerlink" href="#os.WCONTINUED" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="815">{{s.815}}</font></p>
+<p><font id="816">{{s.816}}</font></p>
+<p class="versionadded"><font id="817">{{s.817}}</font></p>
+</dd></dl>
+<dl class="data">
+<dt id="os.WUNTRACED">
+<tt class="descclassname">os.</tt><tt class="descname">WUNTRACED</tt><a class="headerlink" href="#os.WUNTRACED" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="818">{{s.818}}</font></p>
+<p><font id="819">{{s.819}}</font></p>
+<p class="versionadded"><font id="820">{{s.820}}</font></p>
+</dd></dl>
+<p><font id="821">{{s.821}}</font><font id="822">{{s.822}}</font></p>
+<dl class="function">
+<dt id="os.WCOREDUMP">
+<tt class="descclassname">os.</tt><tt class="descname">WCOREDUMP</tt><big>(</big><em>status</em><big>)</big><a class="headerlink" href="#os.WCOREDUMP" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="823">{{s.823}}</font></p>
+<p><font id="824">{{s.824}}</font></p>
+<p class="versionadded"><font id="825">{{s.825}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="os.WIFCONTINUED">
+<tt class="descclassname">os.</tt><tt class="descname">WIFCONTINUED</tt><big>(</big><em>status</em><big>)</big><a class="headerlink" href="#os.WIFCONTINUED" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="826">{{s.826}}</font></p>
+<p><font id="827">{{s.827}}</font></p>
+<p class="versionadded"><font id="828">{{s.828}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="os.WIFSTOPPED">
+<tt class="descclassname">os.</tt><tt class="descname">WIFSTOPPED</tt><big>(</big><em>status</em><big>)</big><a class="headerlink" href="#os.WIFSTOPPED" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="829">{{s.829}}</font></p>
+<p><font id="830">{{s.830}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="os.WIFSIGNALED">
+<tt class="descclassname">os.</tt><tt class="descname">WIFSIGNALED</tt><big>(</big><em>status</em><big>)</big><a class="headerlink" href="#os.WIFSIGNALED" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="831">{{s.831}}</font></p>
+<p><font id="832">{{s.832}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="os.WIFEXITED">
+<tt class="descclassname">os.</tt><tt class="descname">WIFEXITED</tt><big>(</big><em>status</em><big>)</big><a class="headerlink" href="#os.WIFEXITED" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="833">{{s.833}}</font></p>
+<p><font id="834">{{s.834}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="os.WEXITSTATUS">
+<tt class="descclassname">os.</tt><tt class="descname">WEXITSTATUS</tt><big>(</big><em>status</em><big>)</big><a class="headerlink" href="#os.WEXITSTATUS" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="835">{{s.835}}</font><font id="836">{{s.836}}</font></p>
+<p><font id="837">{{s.837}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="os.WSTOPSIG">
+<tt class="descclassname">os.</tt><tt class="descname">WSTOPSIG</tt><big>(</big><em>status</em><big>)</big><a class="headerlink" href="#os.WSTOPSIG" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="838">{{s.838}}</font></p>
+<p><font id="839">{{s.839}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="os.WTERMSIG">
+<tt class="descclassname">os.</tt><tt class="descname">WTERMSIG</tt><big>(</big><em>status</em><big>)</big><a class="headerlink" href="#os.WTERMSIG" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="840">{{s.840}}</font></p>
+<p><font id="841">{{s.841}}</font></p>
+</dd></dl>
+</div>
+<div class="section" id="miscellaneous-system-information">
+<span id="os-path"></span><h2><font id="918">{{s.918}}</font><a class="headerlink" href="#miscellaneous-system-information" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="os.confstr">
+<tt class="descclassname">os.</tt><tt class="descname">confstr</tt><big>(</big><em>name</em><big>)</big><a class="headerlink" href="#os.confstr" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="842">{{s.842}}</font><font id="843">{{s.843}}</font><font id="844">{{s.844}}</font><font id="845">{{s.845}}</font><font id="846">{{s.846}}</font><font id="847">{{s.847}}</font><font id="848">{{s.848}}</font></p>
+<p><font id="849">{{s.849}}</font></p>
+<p><font id="850">{{s.850}}</font><font id="851">{{s.851}}</font><font id="852">{{s.852}}</font></p>
+<p><font id="853">{{s.853}}</font></p>
+</dd></dl>
+<dl class="data">
+<dt id="os.confstr_names">
+<tt class="descclassname">os.</tt><tt class="descname">confstr_names</tt><a class="headerlink" href="#os.confstr_names" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="854">{{s.854}}</font><font id="855">{{s.855}}</font></p>
+<p><font id="856">{{s.856}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="os.getloadavg">
+<tt class="descclassname">os.</tt><tt class="descname">getloadavg</tt><big>(</big><big>)</big><a class="headerlink" href="#os.getloadavg" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="857">{{s.857}}</font></p>
+<p><font id="858">{{s.858}}</font></p>
+<p class="versionadded"><font id="859">{{s.859}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="os.sysconf">
+<tt class="descclassname">os.</tt><tt class="descname">sysconf</tt><big>(</big><em>name</em><big>)</big><a class="headerlink" href="#os.sysconf" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="860">{{s.860}}</font><font id="861">{{s.861}}</font><font id="862">{{s.862}}</font><font id="863">{{s.863}}</font></p>
+<p><font id="864">{{s.864}}</font></p>
+</dd></dl>
+<dl class="data">
+<dt id="os.sysconf_names">
+<tt class="descclassname">os.</tt><tt class="descname">sysconf_names</tt><a class="headerlink" href="#os.sysconf_names" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="865">{{s.865}}</font><font id="866">{{s.866}}</font></p>
+<p><font id="867">{{s.867}}</font></p>
+</dd></dl>
+<p><font id="868">{{s.868}}</font><font id="869">{{s.869}}</font></p>
+<p><font id="870">{{s.870}}</font></p>
+<dl class="data">
+<dt id="os.curdir">
+<tt class="descclassname">os.</tt><tt class="descname">curdir</tt><a class="headerlink" href="#os.curdir" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="871">{{s.871}}</font><font id="872">{{s.872}}</font><font id="873">{{s.873}}</font></p>
+</dd></dl>
+<dl class="data">
+<dt id="os.pardir">
+<tt class="descclassname">os.</tt><tt class="descname">pardir</tt><a class="headerlink" href="#os.pardir" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="874">{{s.874}}</font><font id="875">{{s.875}}</font><font id="876">{{s.876}}</font></p>
+</dd></dl>
+<dl class="data">
+<dt id="os.sep">
+<tt class="descclassname">os.</tt><tt class="descname">sep</tt><a class="headerlink" href="#os.sep" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="877">{{s.877}}</font><font id="878">{{s.878}}</font><font id="879">{{s.879}}</font><font id="880">{{s.880}}</font></p>
+</dd></dl>
+<dl class="data">
+<dt id="os.altsep">
+<tt class="descclassname">os.</tt><tt class="descname">altsep</tt><a class="headerlink" href="#os.altsep" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="881">{{s.881}}</font><font id="882">{{s.882}}</font><font id="883">{{s.883}}</font></p>
+</dd></dl>
+<dl class="data">
+<dt id="os.extsep">
+<tt class="descclassname">os.</tt><tt class="descname">extsep</tt><a class="headerlink" href="#os.extsep" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="884">{{s.884}}</font><font id="885">{{s.885}}</font><font id="886">{{s.886}}</font></p>
+<p class="versionadded"><font id="887">{{s.887}}</font></p>
+</dd></dl>
+<dl class="data">
+<dt id="os.pathsep">
+<tt class="descclassname">os.</tt><tt class="descname">pathsep</tt><a class="headerlink" href="#os.pathsep" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="888">{{s.888}}</font><font id="889">{{s.889}}</font></p>
+</dd></dl>
+<dl class="data">
+<dt id="os.defpath">
+<tt class="descclassname">os.</tt><tt class="descname">defpath</tt><a class="headerlink" href="#os.defpath" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="890">{{s.890}}</font><font id="891">{{s.891}}</font></p>
+</dd></dl>
+<dl class="data">
+<dt id="os.linesep">
+<tt class="descclassname">os.</tt><tt class="descname">linesep</tt><a class="headerlink" href="#os.linesep" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="892">{{s.892}}</font><font id="893">{{s.893}}</font><font id="895">{{s.895}}</font><font id="896">{{s.896}}</font></p>
+</dd></dl>
+<dl class="data">
+<dt id="os.devnull">
+<tt class="descclassname">os.</tt><tt class="descname">devnull</tt><a class="headerlink" href="#os.devnull" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="897">{{s.897}}</font><font id="898">{{s.898}}</font><font id="899">{{s.899}}</font></p>
+<p class="versionadded"><font id="900">{{s.900}}</font></p>
+</dd></dl>
+</div>
+<div class="section" id="miscellaneous-functions">
+<span id="os-miscfunc"></span><h2><font id="919">{{s.919}}</font><a class="headerlink" href="#miscellaneous-functions" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="os.urandom">
+<tt class="descclassname">os.</tt><tt class="descname">urandom</tt><big>(</big><em>n</em><big>)</big><a class="headerlink" href="#os.urandom" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="901">{{s.901}}</font></p>
+<p><font id="902">{{s.902}}</font><font id="903">{{s.903}}</font><font id="904">{{s.904}}</font><font id="905">{{s.905}}</font></p>
+<p><font id="906">{{s.906}}</font><font id="907">{{s.907}}</font></p>
+<p class="versionadded"><font id="908">{{s.908}}</font></p>
+</dd></dl>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sphinxsidebar">
+<div class="sphinxsidebarwrapper">
+<h3><font id="922">{{s.922}}</font></h3>
+<ul>
+<li><a class="reference internal" href="#">15.1. <tt class="docutils literal"><span class="pre">os</span></tt> — <font id="968">{{s.968}}</font></a><ul>
+<li><a class="reference internal" href="#process-parameters"><font id="969">{{s.969}}</font></a></li>
+<li><a class="reference internal" href="#file-object-creation"><font id="970">{{s.970}}</font></a></li>
+<li><a class="reference internal" href="#file-descriptor-operations"><font id="971">{{s.971}}</font></a><ul>
+<li><a class="reference internal" href="#open-flag-constants"><font id="972">{{s.972}}</font></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#files-and-directories"><font id="973">{{s.973}}</font></a></li>
+<li><a class="reference internal" href="#process-management"><font id="974">{{s.974}}</font></a></li>
+<li><a class="reference internal" href="#miscellaneous-system-information"><font id="975">{{s.975}}</font></a></li>
+<li><a class="reference internal" href="#miscellaneous-functions"><font id="976">{{s.976}}</font></a></li>
+</ul>
+</li>
+</ul>
+<h4><font id="926">{{s.926}}</font></h4>
+<p class="topless"><font id="909">{{s.909}}</font></p>
+<h4><font id="927">{{s.927}}</font></h4>
+<p class="topless"><font id="910">{{s.910}}</font></p>
+<h3><font id="923">{{s.923}}</font></h3>
+<ul class="this-page-menu">
+<li><a href="../bugs.html"><font id="977">{{s.977}}</font></a></li>
+<li><a href="../_sources/library/os.txt" rel="nofollow"><font id="978">{{s.978}}</font></a></li>
+</ul>
+<div id="searchbox" style="display: none">
+<h3><font id="924">{{s.924}}</font></h3>
+<form action="../search.html" class="search" method="get">
+<input name="q" size="18" type="text"/>
+<input type="submit" value="Go"/>
+<input name="check_keywords" type="hidden" value="yes"/>
+<input name="area" type="hidden" value="default"/>
+</form>
+<p class="searchtip" style="font-size: 90%"><font id="911">{{s.911}}</font></p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+</div>
+</div>
+<div class="clearer"></div>
+</div>
+<div class="related">
+<h3><font id="925">{{s.925}}</font></h3>
+<ul>
+<li class="right" style="margin-right: 10px">
+<a href="../genindex.html" title="General Index"><font id="979">{{s.979}}</font></a></li>
+<li class="right">
+<a href="../py-modindex.html" title="Python Module Index"><font id="980">{{s.980}}</font></a> |</li>
+<li class="right">
+<a href="io.html" title="15.2. io — Core tools for working with streams"><font id="981">{{s.981}}</font></a> |</li>
+<li class="right">
+<a href="allos.html" title="15. Generic Operating System Services"><font id="982">{{s.982}}</font></a> |</li>
+<li><img alt="" src="../_static/py.png" style="vertical-align: middle; margin-top: -1px"/></li>
+<li><a href="http://www.python.org/"><font id="983">{{s.983}}</font></a> »</li>
+<li>
+<span class="version_switcher_placeholder">2.7.8</span>
+<a href="../index.html"><font id="984">{{s.984}}</font></a> »
+        </li>
+<li><a href="index.html"><font id="985">{{s.985}}</font></a> »</li>
+<li><a href="allos.html"><font id="986">{{s.986}}</font></a> »</li>
+</ul>
+</div>
+<br><div id="disqus_thread"></div>
+<div class="footer">
+    © <a href="../copyright.html">Copyright</a> 1990-2014, Python Software Foundation.
+    <br/>
+    The Python Software Foundation is a non-profit corporation.
+    <a href="http://www.python.org/psf/donations/">Please donate.</a>
+<br/>
+    Last updated on Jul 27, 2014.
+    <a href="../bugs.html">Found a bug</a>?
+    <br/>
+    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'thepythontutorial2'; // required: replace example with your forum shortname
+    var disqus_identifier = '/python2/library/os';
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+<link href="../_static/ms_translator.css" rel="stylesheet" type="text/css"/>
+<script src="../_static/ms_translator.js" type="text/javascript"></script>
+{% include "python_278/ms_translator.html" %}
+</body>
+</html>

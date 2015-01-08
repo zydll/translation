@@ -1,0 +1,907 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<title>27.1. sys — System-specific parameters and functions — Python v2.7.8 documentation</title>
+<link href="../_static/default.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2.7.8',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+<script src="../_static/jquery.js" type="text/javascript"></script>
+<script src="../_static/underscore.js" type="text/javascript"></script>
+<script src="../_static/doctools.js" type="text/javascript"></script>
+<script src="../_static/sidebar.js" type="text/javascript"></script>
+<link href="../_static/opensearch.xml" rel="search" title="Search within Python v2.7.8 documentation" type="application/opensearchdescription+xml"/>
+<link href="../about.html" rel="author" title="About these documents"/>
+<link href="../copyright.html" rel="copyright" title="Copyright"/>
+<link href="../index.html" rel="top" title="Python v2.7.8 documentation"/>
+<link href="python.html" rel="up" title="27. Python Runtime Services"/>
+<link href="sysconfig.html" rel="next" title="27.2. sysconfig — Provide access to Python’s configuration information"/>
+<link href="python.html" rel="prev" title="27. Python Runtime Services"/>
+<link href="../_static/py.png" rel="shortcut icon" type="image/png"/>
+<script src="../_static/copybutton.js" type="text/javascript"></script>
+<script src="../_static/version_switch.js" type="text/javascript"></script>
+</head>
+<body>
+<div class="related">
+<h3><font id="345">{{s.345}}</font></h3>
+<ul>
+<li class="right" style="margin-right: 10px">
+<a accesskey="I" href="../genindex.html" title="General Index"><font id="351">{{s.351}}</font></a></li>
+<li class="right">
+<a href="../py-modindex.html" title="Python Module Index"><font id="352">{{s.352}}</font></a> |</li>
+<li class="right">
+<a accesskey="N" href="sysconfig.html" title="27.2. sysconfig — Provide access to Python’s configuration information"><font id="353">{{s.353}}</font></a> |</li>
+<li class="right">
+<a accesskey="P" href="python.html" title="27. Python Runtime Services"><font id="354">{{s.354}}</font></a> |</li>
+<li class="right">
+<a href="#" onclick="hideOriginTexts();return false;">中文</a> |</li>
+<li class="right">
+<a href="#" onclick="showOriginTexts();return false;">中英文对照</a> |</li>
+<li><img alt="" src="../_static/py.png" style="vertical-align: middle; margin-top: -1px"/></li>
+<li><a href="http://www.python.org/"><font id="355">{{s.355}}</font></a> »</li>
+<li>
+<span class="version_switcher_placeholder">2.7.8</span>
+<a href="../index.html"><font id="356">{{s.356}}</font></a> »
+        </li>
+<li><a href="index.html"><font id="357">{{s.357}}</font></a> »</li>
+<li><a accesskey="U" href="python.html"><font id="358">{{s.358}}</font></a> »</li>
+</ul>
+</div>
+<div class="document">
+<div class="documentwrapper">
+<div class="bodywrapper">
+<div class="body">
+<div class="section" id="module-sys">
+<span id="sys-system-specific-parameters-and-functions"></span><h1><font id="344">{{s.344}}</font><a class="headerlink" href="#module-sys" title="Permalink to this headline">¶</a></h1>
+<p><font id="1">{{s.1}}</font><font id="2">{{s.2}}</font></p>
+<dl class="data">
+<dt id="sys.argv">
+<tt class="descclassname">sys.</tt><tt class="descname">argv</tt><a class="headerlink" href="#sys.argv" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="3">{{s.3}}</font><font id="4">{{s.4}}</font><font id="5">{{s.5}}</font><font id="6">{{s.6}}</font></p>
+<p><font id="7">{{s.7}}</font></p>
+</dd></dl>
+<dl class="data">
+<dt id="sys.byteorder">
+<tt class="descclassname">sys.</tt><tt class="descname">byteorder</tt><a class="headerlink" href="#sys.byteorder" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="8">{{s.8}}</font><font id="9">{{s.9}}</font></p>
+<p class="versionadded"><font id="10">{{s.10}}</font></p>
+</dd></dl>
+<dl class="data">
+<dt id="sys.builtin_module_names">
+<tt class="descclassname">sys.</tt><tt class="descname">builtin_module_names</tt><a class="headerlink" href="#sys.builtin_module_names" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="11">{{s.11}}</font><font id="12">{{s.12}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="sys.call_tracing">
+<tt class="descclassname">sys.</tt><tt class="descname">call_tracing</tt><big>(</big><em>func</em>, <em>args</em><big>)</big><a class="headerlink" href="#sys.call_tracing" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="13">{{s.13}}</font><font id="14">{{s.14}}</font><font id="15">{{s.15}}</font></p>
+</dd></dl>
+<dl class="data">
+<dt id="sys.copyright">
+<tt class="descclassname">sys.</tt><tt class="descname">copyright</tt><a class="headerlink" href="#sys.copyright" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="16">{{s.16}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="sys._clear_type_cache">
+<tt class="descclassname">sys.</tt><tt class="descname">_clear_type_cache</tt><big>(</big><big>)</big><a class="headerlink" href="#sys._clear_type_cache" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="17">{{s.17}}</font><font id="18">{{s.18}}</font><font id="19">{{s.19}}</font></p>
+<p><font id="20">{{s.20}}</font></p>
+<p class="versionadded"><font id="21">{{s.21}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="sys._current_frames">
+<tt class="descclassname">sys.</tt><tt class="descname">_current_frames</tt><big>(</big><big>)</big><a class="headerlink" href="#sys._current_frames" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="22">{{s.22}}</font><font id="23">{{s.23}}</font></p>
+<p><font id="24">{{s.24}}</font><font id="25">{{s.25}}</font></p>
+<p><font id="26">{{s.26}}</font></p>
+<p class="versionadded"><font id="27">{{s.27}}</font></p>
+</dd></dl>
+<dl class="data">
+<dt id="sys.dllhandle">
+<tt class="descclassname">sys.</tt><tt class="descname">dllhandle</tt><a class="headerlink" href="#sys.dllhandle" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="28">{{s.28}}</font><font id="29">{{s.29}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="sys.displayhook">
+<tt class="descclassname">sys.</tt><tt class="descname">displayhook</tt><big>(</big><em>value</em><big>)</big><a class="headerlink" href="#sys.displayhook" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="30">{{s.30}}</font></p>
+<p><font id="31">{{s.31}}</font><font id="32">{{s.32}}</font></p>
+</dd></dl>
+<dl class="data">
+<dt id="sys.dont_write_bytecode">
+<tt class="descclassname">sys.</tt><tt class="descname">dont_write_bytecode</tt><a class="headerlink" href="#sys.dont_write_bytecode" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="33">{{s.33}}</font><font id="34">{{s.34}}</font></p>
+<p class="versionadded"><font id="35">{{s.35}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="sys.excepthook">
+<tt class="descclassname">sys.</tt><tt class="descname">excepthook</tt><big>(</big><em>type</em>, <em>value</em>, <em>traceback</em><big>)</big><a class="headerlink" href="#sys.excepthook" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="36">{{s.36}}</font></p>
+<p><font id="37">{{s.37}}</font><font id="38">{{s.38}}</font><font id="39">{{s.39}}</font><font id="40">{{s.40}}</font></p>
+</dd></dl>
+<dl class="data">
+<dt id="sys.__displayhook__">
+<tt class="descclassname">sys.</tt><tt class="descname">__displayhook__</tt><a class="headerlink" href="#sys.__displayhook__" title="Permalink to this definition">¶</a></dt>
+<dt id="sys.__excepthook__">
+<tt class="descclassname">sys.</tt><tt class="descname">__excepthook__</tt><a class="headerlink" href="#sys.__excepthook__" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="41">{{s.41}}</font><font id="42">{{s.42}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="sys.exc_info">
+<tt class="descclassname">sys.</tt><tt class="descname">exc_info</tt><big>(</big><big>)</big><a class="headerlink" href="#sys.exc_info" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="43">{{s.43}}</font><font id="44">{{s.44}}</font><font id="45">{{s.45}}</font><font id="46">{{s.46}}</font><font id="47">{{s.47}}</font></p>
+<p id="index-1"><font id="48">{{s.48}}</font><font id="49">{{s.49}}</font><font id="50">{{s.50}}</font><font id="51">{{s.51}}</font><font id="52">{{s.52}}</font></p>
+<p><font id="53">{{s.53}}</font></p>
+<div class="admonition warning">
+<p class="first admonition-title"><font id="54">{{s.54}}</font></p>
+<p class="last"><font id="55">{{s.55}}</font><font id="56">{{s.56}}</font><font id="57">{{s.57}}</font><font id="58">{{s.58}}</font></p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title"><font id="60">{{s.60}}</font></p>
+<p class="last"><font id="61">{{s.61}}</font></p>
+</div>
+</dd></dl>
+<dl class="function">
+<dt id="sys.exc_clear">
+<tt class="descclassname">sys.</tt><tt class="descname">exc_clear</tt><big>(</big><big>)</big><a class="headerlink" href="#sys.exc_clear" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="62">{{s.62}}</font><font id="63">{{s.63}}</font></p>
+<p><font id="64">{{s.64}}</font><font id="65">{{s.65}}</font><font id="66">{{s.66}}</font></p>
+<p class="versionadded"><font id="67">{{s.67}}</font></p>
+</dd></dl>
+<dl class="data">
+<dt id="sys.exc_type">
+<tt class="descclassname">sys.</tt><tt class="descname">exc_type</tt><a class="headerlink" href="#sys.exc_type" title="Permalink to this definition">¶</a></dt>
+<dt id="sys.exc_value">
+<tt class="descclassname">sys.</tt><tt class="descname">exc_value</tt><a class="headerlink" href="#sys.exc_value" title="Permalink to this definition">¶</a></dt>
+<dt id="sys.exc_traceback">
+<tt class="descclassname">sys.</tt><tt class="descname">exc_traceback</tt><a class="headerlink" href="#sys.exc_traceback" title="Permalink to this definition">¶</a></dt>
+<dd><p class="deprecated"><font id="68">{{s.68}}</font><font id="69">{{s.69}}</font></p>
+<p><font id="70">{{s.70}}</font><font id="71">{{s.71}}</font></p>
+</dd></dl>
+<dl class="data">
+<dt id="sys.exec_prefix">
+<tt class="descclassname">sys.</tt><tt class="descname">exec_prefix</tt><a class="headerlink" href="#sys.exec_prefix" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="72">{{s.72}}</font><font id="73">{{s.73}}</font><font id="74">{{s.74}}</font><font id="75">{{s.75}}</font></p>
+</dd></dl>
+<dl class="data">
+<dt id="sys.executable">
+<tt class="descclassname">sys.</tt><tt class="descname">executable</tt><a class="headerlink" href="#sys.executable" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="76">{{s.76}}</font><font id="77">{{s.77}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="sys.exit">
+<tt class="descclassname">sys.</tt><tt class="descname">exit</tt><big>(</big><span class="optional">[</span><em>arg</em><span class="optional">]</span><big>)</big><a class="headerlink" href="#sys.exit" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="78">{{s.78}}</font><font id="79">{{s.79}}</font></p>
+<p><font id="370">{{s.370}}</font><font id="371">{{s.371}}</font><font id="372">{{s.372}}</font><font id="373">{{s.373}}</font><font id="374">{{s.374}}</font><font id="375">{{s.375}}</font><font id="376">{{s.376}}</font></p>
+<p><font id="81">{{s.81}}</font></p>
+</dd></dl>
+<dl class="data">
+<dt id="sys.exitfunc">
+<tt class="descclassname">sys.</tt><tt class="descname">exitfunc</tt><a class="headerlink" href="#sys.exitfunc" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="82">{{s.82}}</font><font id="83">{{s.83}}</font><font id="84">{{s.84}}</font><font id="85">{{s.85}}</font><font id="86">{{s.86}}</font></p>
+<div class="admonition note">
+<p class="first admonition-title"><font id="87">{{s.87}}</font></p>
+<p class="last"><font id="88">{{s.88}}</font></p>
+</div>
+<p class="deprecated"><font id="89">{{s.89}}</font><font id="90">{{s.90}}</font></p>
+</dd></dl>
+<dl class="data">
+<dt id="sys.flags">
+<tt class="descclassname">sys.</tt><tt class="descname">flags</tt><a class="headerlink" href="#sys.flags" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="91">{{s.91}}</font><font id="92">{{s.92}}</font></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="45%"></col>
+<col width="55%"></col>
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head"><font id="391">{{s.391}}</font></th>
+<th class="head"><font id="392">{{s.392}}</font></th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td><tt class="xref py py-const docutils literal"><span class="pre">debug</span></tt></td>
+<td><a class="reference internal" href="../using/cmdline.html#cmdoption-d"><em class="xref std std-option">-d</em></a></td>
+</tr>
+<tr><td><tt class="xref py py-const docutils literal"><span class="pre">py3k_warning</span></tt></td>
+<td><a class="reference internal" href="../using/cmdline.html#cmdoption-3"><em class="xref std std-option">-3</em></a></td>
+</tr>
+<tr><td><tt class="xref py py-const docutils literal"><span class="pre">division_warning</span></tt></td>
+<td><a class="reference internal" href="../using/cmdline.html#cmdoption-Q"><em class="xref std std-option">-Q</em></a></td>
+</tr>
+<tr><td><tt class="xref py py-const docutils literal"><span class="pre">division_new</span></tt></td>
+<td><a class="reference internal" href="../using/cmdline.html#cmdoption-Q"><em class="xref std std-option">-Qnew</em></a></td>
+</tr>
+<tr><td><a class="reference internal" href="inspect.html#module-inspect" title="inspect: Extract information and source code from live objects."><tt class="xref py py-const docutils literal"><span class="pre">inspect</span></tt></a></td>
+<td><a class="reference internal" href="../using/cmdline.html#cmdoption-i"><em class="xref std std-option">-i</em></a></td>
+</tr>
+<tr><td><tt class="xref py py-const docutils literal"><span class="pre">interactive</span></tt></td>
+<td><a class="reference internal" href="../using/cmdline.html#cmdoption-i"><em class="xref std std-option">-i</em></a></td>
+</tr>
+<tr><td><tt class="xref py py-const docutils literal"><span class="pre">optimize</span></tt></td>
+<td><a class="reference internal" href="../using/cmdline.html#cmdoption-O"><em class="xref std std-option">-O</em></a> or <a class="reference internal" href="../using/cmdline.html#cmdoption-OO"><em class="xref std std-option">-OO</em></a></td>
+</tr>
+<tr><td><a class="reference internal" href="#sys.dont_write_bytecode" title="sys.dont_write_bytecode"><tt class="xref py py-const docutils literal"><span class="pre">dont_write_bytecode</span></tt></a></td>
+<td><a class="reference internal" href="../using/cmdline.html#cmdoption-B"><em class="xref std std-option">-B</em></a></td>
+</tr>
+<tr><td><tt class="xref py py-const docutils literal"><span class="pre">no_user_site</span></tt></td>
+<td><a class="reference internal" href="../using/cmdline.html#cmdoption-s"><em class="xref std std-option">-s</em></a></td>
+</tr>
+<tr><td><tt class="xref py py-const docutils literal"><span class="pre">no_site</span></tt></td>
+<td><a class="reference internal" href="../using/cmdline.html#cmdoption-S"><em class="xref std std-option">-S</em></a></td>
+</tr>
+<tr><td><tt class="xref py py-const docutils literal"><span class="pre">ignore_environment</span></tt></td>
+<td><a class="reference internal" href="../using/cmdline.html#cmdoption-E"><em class="xref std std-option">-E</em></a></td>
+</tr>
+<tr><td><tt class="xref py py-const docutils literal"><span class="pre">tabcheck</span></tt></td>
+<td><a class="reference internal" href="../using/cmdline.html#cmdoption-t"><em class="xref std std-option">-t</em></a> or <a class="reference internal" href="../using/cmdline.html#cmdoption-t"><em class="xref std std-option">-tt</em></a></td>
+</tr>
+<tr><td><tt class="xref py py-const docutils literal"><span class="pre">verbose</span></tt></td>
+<td><a class="reference internal" href="../using/cmdline.html#cmdoption-v"><em class="xref std std-option">-v</em></a></td>
+</tr>
+<tr><td><a class="reference internal" href="functions.html#unicode" title="unicode"><tt class="xref py py-const docutils literal"><span class="pre">unicode</span></tt></a></td>
+<td><a class="reference internal" href="../using/cmdline.html#cmdoption-U"><em class="xref std std-option">-U</em></a></td>
+</tr>
+<tr><td><tt class="xref py py-const docutils literal"><span class="pre">bytes_warning</span></tt></td>
+<td><em class="xref std std-option">-b</em></td>
+</tr>
+<tr><td><tt class="xref py py-const docutils literal"><span class="pre">hash_randomization</span></tt></td>
+<td><a class="reference internal" href="../using/cmdline.html#cmdoption-R"><em class="xref std std-option">-R</em></a></td>
+</tr>
+</tbody>
+</table>
+<p class="versionadded"><font id="93">{{s.93}}</font></p>
+<p class="versionadded"><font id="94">{{s.94}}</font><font id="95">{{s.95}}</font></p>
+</dd></dl>
+<dl class="data">
+<dt id="sys.float_info">
+<tt class="descclassname">sys.</tt><tt class="descname">float_info</tt><a class="headerlink" href="#sys.float_info" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="96">{{s.96}}</font><font id="97">{{s.97}}</font><font id="98">{{s.98}}</font><font id="99">{{s.99}}</font></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="24%"></col>
+<col width="18%"></col>
+<col width="57%"></col>
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head"><font id="377">{{s.377}}</font></th>
+<th class="head"><font id="378">{{s.378}}</font></th>
+<th class="head"><font id="379">{{s.379}}</font></th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td><tt class="xref py py-const docutils literal"><span class="pre">epsilon</span></tt></td>
+<td>DBL_EPSILON</td>
+<td><font id="380">{{s.380}}</font></td>
+</tr>
+<tr><td><tt class="xref py py-const docutils literal"><span class="pre">dig</span></tt></td>
+<td>DBL_DIG</td>
+<td><font id="381">{{s.381}}</font></td>
+</tr>
+<tr><td><tt class="xref py py-const docutils literal"><span class="pre">mant_dig</span></tt></td>
+<td>DBL_MANT_DIG</td>
+<td><font id="382">{{s.382}}</font></td>
+</tr>
+<tr><td><a class="reference internal" href="functions.html#max" title="max"><tt class="xref py py-const docutils literal"><span class="pre">max</span></tt></a></td>
+<td>DBL_MAX</td>
+<td><font id="383">{{s.383}}</font></td>
+</tr>
+<tr><td><tt class="xref py py-const docutils literal"><span class="pre">max_exp</span></tt></td>
+<td>DBL_MAX_EXP</td>
+<td><font id="384">{{s.384}}</font></td>
+</tr>
+<tr><td><tt class="xref py py-const docutils literal"><span class="pre">max_10_exp</span></tt></td>
+<td>DBL_MAX_10_EXP</td>
+<td><font id="385">{{s.385}}</font></td>
+</tr>
+<tr><td><a class="reference internal" href="functions.html#min" title="min"><tt class="xref py py-const docutils literal"><span class="pre">min</span></tt></a></td>
+<td>DBL_MIN</td>
+<td><font id="386">{{s.386}}</font></td>
+</tr>
+<tr><td><tt class="xref py py-const docutils literal"><span class="pre">min_exp</span></tt></td>
+<td>DBL_MIN_EXP</td>
+<td><font id="387">{{s.387}}</font></td>
+</tr>
+<tr><td><tt class="xref py py-const docutils literal"><span class="pre">min_10_exp</span></tt></td>
+<td>DBL_MIN_10_EXP</td>
+<td><font id="388">{{s.388}}</font></td>
+</tr>
+<tr><td><tt class="xref py py-const docutils literal"><span class="pre">radix</span></tt></td>
+<td>FLT_RADIX</td>
+<td><font id="389">{{s.389}}</font></td>
+</tr>
+<tr><td><tt class="xref py py-const docutils literal"><span class="pre">rounds</span></tt></td>
+<td>FLT_ROUNDS</td>
+<td><font id="390">{{s.390}}</font></td>
+</tr>
+</tbody>
+</table>
+<p><font id="100">{{s.100}}</font><font id="101">{{s.101}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">sys</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sys</span><span class="o">.</span><span class="n">float_info</span><span class="o">.</span><span class="n">dig</span>
+<span class="go">15</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s</span> <span class="o">=</span> <span class="s">'3.14159265358979'</span>    <span class="c"># decimal string with 15 significant digits</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">format</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">s</span><span class="p">),</span> <span class="s">'.15g'</span><span class="p">)</span>  <span class="c"># convert to float and back -&gt; same value</span>
+<span class="go">'3.14159265358979'</span>
+</pre></div>
+</div>
+<p><font id="102">{{s.102}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span> <span class="o">=</span> <span class="s">'9876543211234567'</span>    <span class="c"># 16 significant digits is too many!</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">format</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">s</span><span class="p">),</span> <span class="s">'.16g'</span><span class="p">)</span>  <span class="c"># conversion changes value</span>
+<span class="go">'9876543211234568'</span>
+</pre></div>
+</div>
+<p class="versionadded"><font id="103">{{s.103}}</font></p>
+</dd></dl>
+<dl class="data">
+<dt id="sys.float_repr_style">
+<tt class="descclassname">sys.</tt><tt class="descname">float_repr_style</tt><a class="headerlink" href="#sys.float_repr_style" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="104">{{s.104}}</font><font id="105">{{s.105}}</font><font id="106">{{s.106}}</font><font id="107">{{s.107}}</font></p>
+<p class="versionadded"><font id="108">{{s.108}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="sys.getcheckinterval">
+<tt class="descclassname">sys.</tt><tt class="descname">getcheckinterval</tt><big>(</big><big>)</big><a class="headerlink" href="#sys.getcheckinterval" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="109">{{s.109}}</font><font id="110">{{s.110}}</font></p>
+<p class="versionadded"><font id="111">{{s.111}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="sys.getdefaultencoding">
+<tt class="descclassname">sys.</tt><tt class="descname">getdefaultencoding</tt><big>(</big><big>)</big><a class="headerlink" href="#sys.getdefaultencoding" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="112">{{s.112}}</font></p>
+<p class="versionadded"><font id="113">{{s.113}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="sys.getdlopenflags">
+<tt class="descclassname">sys.</tt><tt class="descname">getdlopenflags</tt><big>(</big><big>)</big><a class="headerlink" href="#sys.getdlopenflags" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="114">{{s.114}}</font><font id="115">{{s.115}}</font><font id="116">{{s.116}}</font></p>
+<p class="versionadded"><font id="117">{{s.117}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="sys.getfilesystemencoding">
+<tt class="descclassname">sys.</tt><tt class="descname">getfilesystemencoding</tt><big>(</big><big>)</big><a class="headerlink" href="#sys.getfilesystemencoding" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="118">{{s.118}}</font><font id="119">{{s.119}}</font></p>
+<ul class="simple">
+<li>On Mac OS X, the encoding is <tt class="docutils literal"><span class="pre">'utf-8'</span></tt>.</li>
+<li>On Unix, the encoding is the user’s preference according to the result of
+nl_langinfo(CODESET), or <tt class="xref docutils literal"><span class="pre">None</span></tt> if the <tt class="docutils literal"><span class="pre">nl_langinfo(CODESET)</span></tt>
+failed.</li>
+<li>On Windows NT+, file names are Unicode natively, so no conversion is
+performed. <a class="reference internal" href="#sys.getfilesystemencoding" title="sys.getfilesystemencoding"><font id="359">{{s.359}}</font></a> still returns <tt class="docutils literal"><span class="pre">'mbcs'</span></tt>, as
+this is the encoding that applications should use when they explicitly
+want to convert Unicode strings to byte strings that are equivalent when
+used as file names.</li>
+<li>On Windows 9x, the encoding is <tt class="docutils literal"><span class="pre">'mbcs'</span></tt>.</li>
+</ul>
+<p class="versionadded"><font id="120">{{s.120}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="sys.getrefcount">
+<tt class="descclassname">sys.</tt><tt class="descname">getrefcount</tt><big>(</big><em>object</em><big>)</big><a class="headerlink" href="#sys.getrefcount" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="121">{{s.121}}</font><font id="122">{{s.122}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="sys.getrecursionlimit">
+<tt class="descclassname">sys.</tt><tt class="descname">getrecursionlimit</tt><big>(</big><big>)</big><a class="headerlink" href="#sys.getrecursionlimit" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="123">{{s.123}}</font><font id="124">{{s.124}}</font><font id="125">{{s.125}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="sys.getsizeof">
+<tt class="descclassname">sys.</tt><tt class="descname">getsizeof</tt><big>(</big><em>object</em><span class="optional">[</span>, <em>default</em><span class="optional">]</span><big>)</big><a class="headerlink" href="#sys.getsizeof" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="126">{{s.126}}</font><font id="127">{{s.127}}</font><font id="128">{{s.128}}</font></p>
+<p><font id="129">{{s.129}}</font><font id="130">{{s.130}}</font></p>
+<p><font id="131">{{s.131}}</font></p>
+<p class="versionadded"><font id="132">{{s.132}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="sys._getframe">
+<tt class="descclassname">sys.</tt><tt class="descname">_getframe</tt><big>(</big><span class="optional">[</span><em>depth</em><span class="optional">]</span><big>)</big><a class="headerlink" href="#sys._getframe" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="133">{{s.133}}</font><font id="134">{{s.134}}</font><font id="135">{{s.135}}</font><font id="136">{{s.136}}</font></p>
+<div class="impl-detail compound">
+<p><font id="137">{{s.137}}</font><font id="138">{{s.138}}</font><font id="139">{{s.139}}</font></p>
+</div>
+</dd></dl>
+<dl class="function">
+<dt id="sys.getprofile">
+<tt class="descclassname">sys.</tt><tt class="descname">getprofile</tt><big>(</big><big>)</big><a class="headerlink" href="#sys.getprofile" title="Permalink to this definition">¶</a></dt>
+<dd><p id="index-2"><font id="140">{{s.140}}</font></p>
+<p class="versionadded"><font id="141">{{s.141}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="sys.gettrace">
+<tt class="descclassname">sys.</tt><tt class="descname">gettrace</tt><big>(</big><big>)</big><a class="headerlink" href="#sys.gettrace" title="Permalink to this definition">¶</a></dt>
+<dd><p id="index-3"><font id="142">{{s.142}}</font></p>
+<div class="impl-detail compound">
+<p><font id="143">{{s.143}}</font><font id="144">{{s.144}}</font><font id="145">{{s.145}}</font></p>
+</div>
+<p class="versionadded"><font id="146">{{s.146}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="sys.getwindowsversion">
+<tt class="descclassname">sys.</tt><tt class="descname">getwindowsversion</tt><big>(</big><big>)</big><a class="headerlink" href="#sys.getwindowsversion" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="147">{{s.147}}</font><font id="148">{{s.148}}</font><font id="149">{{s.149}}</font><font id="150">{{s.150}}</font><font id="151">{{s.151}}</font></p>
+<p><font id="152">{{s.152}}</font></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="62%"></col>
+<col width="38%"></col>
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head"><font id="395">{{s.395}}</font></th>
+<th class="head"><font id="396">{{s.396}}</font></th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td><tt class="xref py py-const docutils literal"><span class="pre">0</span> <span class="pre">(VER_PLATFORM_WIN32s)</span></tt></td>
+<td>Win32s on Windows 3.1</td>
+</tr>
+<tr><td><tt class="xref py py-const docutils literal"><span class="pre">1</span> <span class="pre">(VER_PLATFORM_WIN32_WINDOWS)</span></tt></td>
+<td>Windows 95/98/ME</td>
+</tr>
+<tr><td><tt class="xref py py-const docutils literal"><span class="pre">2</span> <span class="pre">(VER_PLATFORM_WIN32_NT)</span></tt></td>
+<td>Windows NT/2000/XP/x64</td>
+</tr>
+<tr><td><tt class="xref py py-const docutils literal"><span class="pre">3</span> <span class="pre">(VER_PLATFORM_WIN32_CE)</span></tt></td>
+<td>Windows CE</td>
+</tr>
+</tbody>
+</table>
+<p><font id="153">{{s.153}}</font></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="54%"></col>
+<col width="46%"></col>
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head"><font id="393">{{s.393}}</font></th>
+<th class="head"><font id="394">{{s.394}}</font></th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td><tt class="xref py py-const docutils literal"><span class="pre">1</span> <span class="pre">(VER_NT_WORKSTATION)</span></tt></td>
+<td><font id="397">{{s.397}}</font></td>
+</tr>
+<tr><td><tt class="xref py py-const docutils literal"><span class="pre">2</span> <span class="pre">(VER_NT_DOMAIN_CONTROLLER)</span></tt></td>
+<td><font id="398">{{s.398}}</font></td>
+</tr>
+<tr><td><tt class="xref py py-const docutils literal"><span class="pre">3</span> <span class="pre">(VER_NT_SERVER)</span></tt></td>
+<td><font id="399">{{s.399}}</font></td>
+</tr>
+</tbody>
+</table>
+<p><font id="154">{{s.154}}</font><font id="155">{{s.155}}</font></p>
+<p><font id="156">{{s.156}}</font></p>
+<p class="versionadded"><font id="157">{{s.157}}</font></p>
+<p class="versionchanged"><font id="158">{{s.158}}</font><font id="159">{{s.159}}</font></p>
+</dd></dl>
+<dl class="data">
+<dt id="sys.hexversion">
+<tt class="descclassname">sys.</tt><tt class="descname">hexversion</tt><a class="headerlink" href="#sys.hexversion" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="160">{{s.160}}</font><font id="161">{{s.161}}</font><font id="162">{{s.162}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">if</span> <span class="n">sys</span><span class="o">.</span><span class="n">hexversion</span> <span class="o">&gt;=</span> <span class="mh">0x010502F0</span><span class="p">:</span>
+    <span class="c"># use some advanced feature</span>
+    <span class="o">...</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="c"># use an alternative implementation or warn the user</span>
+    <span class="o">...</span>
+</pre></div>
+</div>
+<p><font id="163">{{s.163}}</font><font id="164">{{s.164}}</font></p>
+<p><font id="165">{{s.165}}</font></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="34%"></col>
+<col width="66%"></col>
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head"><font id="400">{{s.400}}</font></th>
+<th class="head"><font id="401">{{s.401}}</font></th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td><tt class="xref py py-const docutils literal"><span class="pre">1-8</span></tt></td>
+<td><tt class="docutils literal"><span class="pre">PY_MAJOR_VERSION</span></tt>  (the <tt class="docutils literal"><span class="pre">2</span></tt> in <tt class="docutils literal"><span class="pre">2.1.0a3</span></tt>)</td>
+</tr>
+<tr><td><tt class="xref py py-const docutils literal"><span class="pre">9-16</span></tt></td>
+<td><tt class="docutils literal"><span class="pre">PY_MINOR_VERSION</span></tt>  (the <tt class="docutils literal"><span class="pre">1</span></tt> in
+<tt class="docutils literal"><span class="pre">2.1.0a3</span></tt>)</td>
+</tr>
+<tr><td><tt class="xref py py-const docutils literal"><span class="pre">17-24</span></tt></td>
+<td><tt class="docutils literal"><span class="pre">PY_MICRO_VERSION</span></tt>  (the <tt class="docutils literal"><span class="pre">0</span></tt> in
+<tt class="docutils literal"><span class="pre">2.1.0a3</span></tt>)</td>
+</tr>
+<tr><td><tt class="xref py py-const docutils literal"><span class="pre">25-28</span></tt></td>
+<td><tt class="docutils literal"><span class="pre">PY_RELEASE_LEVEL</span></tt>  (<tt class="docutils literal"><span class="pre">0xA</span></tt> for alpha,
+<tt class="docutils literal"><span class="pre">0xB</span></tt> for beta, <tt class="docutils literal"><span class="pre">0xC</span></tt> for release
+candidate and <tt class="docutils literal"><span class="pre">0xF</span></tt> for final)</td>
+</tr>
+<tr><td><tt class="xref py py-const docutils literal"><span class="pre">29-32</span></tt></td>
+<td><tt class="docutils literal"><span class="pre">PY_RELEASE_SERIAL</span></tt>  (the <tt class="docutils literal"><span class="pre">3</span></tt> in
+<tt class="docutils literal"><span class="pre">2.1.0a3</span></tt>, zero for final releases)</td>
+</tr>
+</tbody>
+</table>
+<p><font id="166">{{s.166}}</font></p>
+<p class="versionadded"><font id="167">{{s.167}}</font></p>
+</dd></dl>
+<dl class="data">
+<dt id="sys.long_info">
+<tt class="descclassname">sys.</tt><tt class="descname">long_info</tt><a class="headerlink" href="#sys.long_info" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="168">{{s.168}}</font><font id="169">{{s.169}}</font></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="35%"></col>
+<col width="65%"></col>
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head"><font id="402">{{s.402}}</font></th>
+<th class="head"><font id="403">{{s.403}}</font></th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td><tt class="xref py py-const docutils literal"><span class="pre">bits_per_digit</span></tt></td>
+<td><font id="404">{{s.404}}</font></td>
+</tr>
+<tr><td><tt class="xref py py-const docutils literal"><span class="pre">sizeof_digit</span></tt></td>
+<td><font id="405">{{s.405}}</font></td>
+</tr>
+</tbody>
+</table>
+<p class="versionadded"><font id="170">{{s.170}}</font></p>
+</dd></dl>
+<dl class="data">
+<dt id="sys.last_type">
+<tt class="descclassname">sys.</tt><tt class="descname">last_type</tt><a class="headerlink" href="#sys.last_type" title="Permalink to this definition">¶</a></dt>
+<dt id="sys.last_value">
+<tt class="descclassname">sys.</tt><tt class="descname">last_value</tt><a class="headerlink" href="#sys.last_value" title="Permalink to this definition">¶</a></dt>
+<dt id="sys.last_traceback">
+<tt class="descclassname">sys.</tt><tt class="descname">last_traceback</tt><a class="headerlink" href="#sys.last_traceback" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="171">{{s.171}}</font><font id="172">{{s.172}}</font><font id="173">{{s.173}}</font><font id="174">{{s.174}}</font><font id="177">{{s.177}}</font></p>
+<p><font id="178">{{s.178}}</font><font id="179">{{s.179}}</font></p>
+</dd></dl>
+<dl class="data">
+<dt id="sys.maxint">
+<tt class="descclassname">sys.</tt><tt class="descname">maxint</tt><a class="headerlink" href="#sys.maxint" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="180">{{s.180}}</font><font id="181">{{s.181}}</font><font id="182">{{s.182}}</font></p>
+</dd></dl>
+<dl class="data">
+<dt id="sys.maxsize">
+<tt class="descclassname">sys.</tt><tt class="descname">maxsize</tt><a class="headerlink" href="#sys.maxsize" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="183">{{s.183}}</font></p>
+</dd></dl>
+<dl class="data">
+<dt id="sys.maxunicode">
+<tt class="descclassname">sys.</tt><tt class="descname">maxunicode</tt><a class="headerlink" href="#sys.maxunicode" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="184">{{s.184}}</font><font id="185">{{s.185}}</font></p>
+</dd></dl>
+<dl class="data">
+<dt id="sys.meta_path">
+<tt class="descclassname">sys.</tt><tt class="descname">meta_path</tt><a class="headerlink" href="#sys.meta_path" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="186">{{s.186}}</font><font id="187">{{s.187}}</font><font id="188">{{s.188}}</font><font id="189">{{s.189}}</font></p>
+<p><font id="190">{{s.190}}</font></p>
+<p><font id="191">{{s.191}}</font></p>
+</dd></dl>
+<dl class="data">
+<dt id="sys.modules">
+<tt class="descclassname">sys.</tt><tt class="descname">modules</tt><a class="headerlink" href="#sys.modules" title="Permalink to this definition">¶</a></dt>
+<dd><p id="index-5"><font id="192">{{s.192}}</font><font id="193">{{s.193}}</font><font id="194">{{s.194}}</font></p>
+</dd></dl>
+<dl class="data">
+<dt id="sys.path">
+<tt class="descclassname">sys.</tt><tt class="descname">path</tt><a class="headerlink" href="#sys.path" title="Permalink to this definition">¶</a></dt>
+<dd><p id="index-6"><font id="195">{{s.195}}</font><font id="196">{{s.196}}</font></p>
+<p><font id="197">{{s.197}}</font><font id="198">{{s.198}}</font><font id="199">{{s.199}}</font></p>
+<p><font id="200">{{s.200}}</font></p>
+<p class="versionchanged"><font id="201">{{s.201}}</font><font id="202">{{s.202}}</font></p>
+<div class="admonition-see-also admonition seealso">
+<p class="first admonition-title"><font id="203">{{s.203}}</font></p>
+<p class="last"><font id="204">{{s.204}}</font></p>
+</div>
+</dd></dl>
+<dl class="data">
+<dt id="sys.path_hooks">
+<tt class="descclassname">sys.</tt><tt class="descname">path_hooks</tt><a class="headerlink" href="#sys.path_hooks" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="205">{{s.205}}</font><font id="206">{{s.206}}</font></p>
+<p><font id="207">{{s.207}}</font></p>
+</dd></dl>
+<dl class="data">
+<dt id="sys.path_importer_cache">
+<tt class="descclassname">sys.</tt><tt class="descname">path_importer_cache</tt><a class="headerlink" href="#sys.path_importer_cache" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="208">{{s.208}}</font><font id="209">{{s.209}}</font><font id="210">{{s.210}}</font><font id="211">{{s.211}}</font></p>
+<p><font id="213">{{s.213}}</font></p>
+</dd></dl>
+<dl class="data">
+<dt id="sys.platform">
+<tt class="descclassname">sys.</tt><tt class="descname">platform</tt><a class="headerlink" href="#sys.platform" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="214">{{s.214}}</font></p>
+<p><font id="215">{{s.215}}</font><font id="216">{{s.216}}</font></p>
+<div class="highlight-python"><pre>if sys.platform.startswith('freebsd'):
+    # FreeBSD-specific code here...
+elif sys.platform.startswith('linux'):
+    # Linux-specific code here...</pre>
+</div>
+<p class="versionchanged"><font id="217">{{s.217}}</font><font id="218">{{s.218}}</font><font id="219">{{s.219}}</font></p>
+<p><font id="220">{{s.220}}</font></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="44%"></col>
+<col width="56%"></col>
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">System</th>
+<th class="head"><a class="reference internal" href="platform.html#module-platform" title="platform: Retrieves as much platform identifying data as possible."><tt class="xref py py-data docutils literal"><span class="pre">platform</span></tt></a> value</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td>Linux (2.x <em>and</em> 3.x)</td>
+<td><tt class="docutils literal"><span class="pre">'linux2'</span></tt></td>
+</tr>
+<tr><td>Windows</td>
+<td><tt class="docutils literal"><span class="pre">'win32'</span></tt></td>
+</tr>
+<tr><td>Windows/Cygwin</td>
+<td><tt class="docutils literal"><span class="pre">'cygwin'</span></tt></td>
+</tr>
+<tr><td>Mac OS X</td>
+<td><tt class="docutils literal"><span class="pre">'darwin'</span></tt></td>
+</tr>
+<tr><td>OS/2</td>
+<td><tt class="docutils literal"><span class="pre">'os2'</span></tt></td>
+</tr>
+<tr><td>OS/2 EMX</td>
+<td><tt class="docutils literal"><span class="pre">'os2emx'</span></tt></td>
+</tr>
+<tr><td>RiscOS</td>
+<td><tt class="docutils literal"><span class="pre">'riscos'</span></tt></td>
+</tr>
+<tr><td>AtheOS</td>
+<td><tt class="docutils literal"><span class="pre">'atheos'</span></tt></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition-see-also admonition seealso">
+<p class="first admonition-title"><font id="221">{{s.221}}</font></p>
+<p><font id="222">{{s.222}}</font><font id="223">{{s.223}}</font></p>
+<p class="last"><font id="224">{{s.224}}</font></p>
+</div>
+</dd></dl>
+<dl class="data">
+<dt id="sys.prefix">
+<tt class="descclassname">sys.</tt><tt class="descname">prefix</tt><a class="headerlink" href="#sys.prefix" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="225">{{s.225}}</font><font id="226">{{s.226}}</font><font id="227">{{s.227}}</font><font id="228">{{s.228}}</font></p>
+</dd></dl>
+<dl class="data">
+<dt id="sys.ps1">
+<tt class="descclassname">sys.</tt><tt class="descname">ps1</tt><a class="headerlink" href="#sys.ps1" title="Permalink to this definition">¶</a></dt>
+<dt id="sys.ps2">
+<tt class="descclassname">sys.</tt><tt class="descname">ps2</tt><a class="headerlink" href="#sys.ps2" title="Permalink to this definition">¶</a></dt>
+<dd><p id="index-11"><font id="229">{{s.229}}</font><font id="230">{{s.230}}</font><font id="231">{{s.231}}</font><font id="233">{{s.233}}</font><font id="234">{{s.234}}</font></p>
+</dd></dl>
+<dl class="data">
+<dt id="sys.py3kwarning">
+<tt class="descclassname">sys.</tt><tt class="descname">py3kwarning</tt><a class="headerlink" href="#sys.py3kwarning" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="235">{{s.235}}</font><font id="236">{{s.236}}</font><font id="237">{{s.237}}</font></p>
+<p class="versionadded"><font id="238">{{s.238}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="sys.setcheckinterval">
+<tt class="descclassname">sys.</tt><tt class="descname">setcheckinterval</tt><big>(</big><em>interval</em><big>)</big><a class="headerlink" href="#sys.setcheckinterval" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="239">{{s.239}}</font><font id="240">{{s.240}}</font><font id="241">{{s.241}}</font><font id="242">{{s.242}}</font><font id="243">{{s.243}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="sys.setdefaultencoding">
+<tt class="descclassname">sys.</tt><tt class="descname">setdefaultencoding</tt><big>(</big><em>name</em><big>)</big><a class="headerlink" href="#sys.setdefaultencoding" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="244">{{s.244}}</font><font id="245">{{s.245}}</font><font id="246">{{s.246}}</font><font id="247">{{s.247}}</font></p>
+<p class="versionadded"><font id="248">{{s.248}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="sys.setdlopenflags">
+<tt class="descclassname">sys.</tt><tt class="descname">setdlopenflags</tt><big>(</big><em>n</em><big>)</big><a class="headerlink" href="#sys.setdlopenflags" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="249">{{s.249}}</font><font id="250">{{s.250}}</font><font id="251">{{s.251}}</font><font id="255">{{s.255}}</font><font id="256">{{s.256}}</font><font id="257">{{s.257}}</font></p>
+<p class="versionadded"><font id="258">{{s.258}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="sys.setprofile">
+<tt class="descclassname">sys.</tt><tt class="descname">setprofile</tt><big>(</big><em>profilefunc</em><big>)</big><a class="headerlink" href="#sys.setprofile" title="Permalink to this definition">¶</a></dt>
+<dd><p id="index-12"><font id="259">{{s.259}}</font><font id="260">{{s.260}}</font><font id="261">{{s.261}}</font><font id="262">{{s.262}}</font><font id="263">{{s.263}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="sys.setrecursionlimit">
+<tt class="descclassname">sys.</tt><tt class="descname">setrecursionlimit</tt><big>(</big><em>limit</em><big>)</big><a class="headerlink" href="#sys.setrecursionlimit" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="264">{{s.264}}</font><font id="265">{{s.265}}</font></p>
+<p><font id="266">{{s.266}}</font><font id="267">{{s.267}}</font><font id="268">{{s.268}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="sys.settrace">
+<tt class="descclassname">sys.</tt><tt class="descname">settrace</tt><big>(</big><em>tracefunc</em><big>)</big><a class="headerlink" href="#sys.settrace" title="Permalink to this definition">¶</a></dt>
+<dd><p id="index-13"><font id="269">{{s.269}}</font><font id="270">{{s.270}}</font><font id="271">{{s.271}}</font></p>
+<p><font id="272">{{s.272}}</font><font id="273">{{s.273}}</font><font id="274">{{s.274}}</font><font id="275">{{s.275}}</font></p>
+<p><font id="276">{{s.276}}</font><font id="277">{{s.277}}</font></p>
+<p><font id="278">{{s.278}}</font></p>
+<p><font id="279">{{s.279}}</font></p>
+<dl class="docutils">
+<dt><tt class="docutils literal"><span class="pre">'call'</span></tt></dt>
+<dd><font id="406">{{s.406}}</font><font id="407">{{s.407}}</font></dd>
+<dt><tt class="docutils literal"><span class="pre">'line'</span></tt></dt>
+<dd><font id="408">{{s.408}}</font><font id="409">{{s.409}}</font><font id="410">{{s.410}}</font></dd>
+<dt><tt class="docutils literal"><span class="pre">'return'</span></tt></dt>
+<dd><font id="411">{{s.411}}</font><font id="412">{{s.412}}</font><font id="413">{{s.413}}</font></dd>
+<dt><tt class="docutils literal"><span class="pre">'exception'</span></tt></dt>
+<dd><font id="414">{{s.414}}</font><font id="415">{{s.415}}</font></dd>
+<dt><tt class="docutils literal"><span class="pre">'c_call'</span></tt></dt>
+<dd><font id="416">{{s.416}}</font><font id="417">{{s.417}}</font></dd>
+<dt><tt class="docutils literal"><span class="pre">'c_return'</span></tt></dt>
+<dd><font id="418">{{s.418}}</font></dd>
+<dt><tt class="docutils literal"><span class="pre">'c_exception'</span></tt></dt>
+<dd><font id="419">{{s.419}}</font></dd>
+</dl>
+<p><font id="280">{{s.280}}</font></p>
+<p><font id="281">{{s.281}}</font></p>
+<div class="impl-detail compound">
+<p><font id="282">{{s.282}}</font><font id="283">{{s.283}}</font><font id="284">{{s.284}}</font></p>
+</div>
+</dd></dl>
+<dl class="function">
+<dt id="sys.settscdump">
+<tt class="descclassname">sys.</tt><tt class="descname">settscdump</tt><big>(</big><em>on_flag</em><big>)</big><a class="headerlink" href="#sys.settscdump" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="285">{{s.285}}</font><font id="286">{{s.286}}</font><font id="287">{{s.287}}</font><font id="288">{{s.288}}</font></p>
+<p class="versionadded"><font id="289">{{s.289}}</font></p>
+<div class="impl-detail compound">
+<p><font id="290">{{s.290}}</font><font id="291">{{s.291}}</font></p>
+</div>
+</dd></dl>
+<dl class="data">
+<dt id="sys.stdin">
+<tt class="descclassname">sys.</tt><tt class="descname">stdin</tt><a class="headerlink" href="#sys.stdin" title="Permalink to this definition">¶</a></dt>
+<dt id="sys.stdout">
+<tt class="descclassname">sys.</tt><tt class="descname">stdout</tt><a class="headerlink" href="#sys.stdout" title="Permalink to this definition">¶</a></dt>
+<dt id="sys.stderr">
+<tt class="descclassname">sys.</tt><tt class="descname">stderr</tt><a class="headerlink" href="#sys.stderr" title="Permalink to this definition">¶</a></dt>
+<dd><p id="index-14"><font id="292">{{s.292}}</font><font id="293">{{s.293}}</font><font id="294">{{s.294}}</font><font id="295">{{s.295}}</font><font id="296">{{s.296}}</font><font id="297">{{s.297}}</font></p>
+</dd></dl>
+<dl class="data">
+<dt id="sys.__stdin__">
+<tt class="descclassname">sys.</tt><tt class="descname">__stdin__</tt><a class="headerlink" href="#sys.__stdin__" title="Permalink to this definition">¶</a></dt>
+<dt id="sys.__stdout__">
+<tt class="descclassname">sys.</tt><tt class="descname">__stdout__</tt><a class="headerlink" href="#sys.__stdout__" title="Permalink to this definition">¶</a></dt>
+<dt id="sys.__stderr__">
+<tt class="descclassname">sys.</tt><tt class="descname">__stderr__</tt><a class="headerlink" href="#sys.__stderr__" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="298">{{s.298}}</font><font id="299">{{s.299}}</font></p>
+<p><font id="300">{{s.300}}</font><font id="301">{{s.301}}</font></p>
+</dd></dl>
+<dl class="data">
+<dt id="sys.subversion">
+<tt class="descclassname">sys.</tt><tt class="descname">subversion</tt><a class="headerlink" href="#sys.subversion" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="302">{{s.302}}</font><font id="303">{{s.303}}</font><font id="304">{{s.304}}</font><font id="305">{{s.305}}</font><font id="306">{{s.306}}</font><font id="307">{{s.307}}</font><font id="308">{{s.308}}</font></p>
+<p class="versionadded"><font id="309">{{s.309}}</font></p>
+<div class="admonition note">
+<p class="first admonition-title"><font id="310">{{s.310}}</font></p>
+<p class="last"><font id="311">{{s.311}}</font><font id="312">{{s.312}}</font><font id="313">{{s.313}}</font></p>
+</div>
+</dd></dl>
+<dl class="data">
+<dt id="sys.tracebacklimit">
+<tt class="descclassname">sys.</tt><tt class="descname">tracebacklimit</tt><a class="headerlink" href="#sys.tracebacklimit" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="314">{{s.314}}</font><font id="315">{{s.315}}</font><font id="316">{{s.316}}</font></p>
+</dd></dl>
+<dl class="data">
+<dt id="sys.version">
+<tt class="descclassname">sys.</tt><tt class="descname">version</tt><a class="headerlink" href="#sys.version" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="317">{{s.317}}</font><font id="318">{{s.318}}</font><font id="319">{{s.319}}</font></p>
+</dd></dl>
+<dl class="data">
+<dt id="sys.api_version">
+<tt class="descclassname">sys.</tt><tt class="descname">api_version</tt><a class="headerlink" href="#sys.api_version" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="320">{{s.320}}</font><font id="321">{{s.321}}</font></p>
+<p class="versionadded"><font id="322">{{s.322}}</font></p>
+</dd></dl>
+<dl class="data">
+<dt id="sys.version_info">
+<tt class="descclassname">sys.</tt><tt class="descname">version_info</tt><a class="headerlink" href="#sys.version_info" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="323">{{s.323}}</font><font id="324">{{s.324}}</font><font id="325">{{s.325}}</font><font id="326">{{s.326}}</font><font id="327">{{s.327}}</font></p>
+<p class="versionadded"><font id="328">{{s.328}}</font></p>
+<p class="versionchanged"><font id="329">{{s.329}}</font><font id="330">{{s.330}}</font></p>
+</dd></dl>
+<dl class="data">
+<dt id="sys.warnoptions">
+<tt class="descclassname">sys.</tt><tt class="descname">warnoptions</tt><a class="headerlink" href="#sys.warnoptions" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="331">{{s.331}}</font><font id="332">{{s.332}}</font><font id="333">{{s.333}}</font></p>
+</dd></dl>
+<dl class="data">
+<dt id="sys.winver">
+<tt class="descclassname">sys.</tt><tt class="descname">winver</tt><a class="headerlink" href="#sys.winver" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="334">{{s.334}}</font><font id="335">{{s.335}}</font><font id="336">{{s.336}}</font><font id="337">{{s.337}}</font><font id="338">{{s.338}}</font><font id="339">{{s.339}}</font></p>
+</dd></dl>
+<p class="rubric"><font id="340">{{s.340}}</font></p>
+<table class="docutils citation" frame="void" id="c99" rules="none">
+<colgroup><col class="label"></col><col></col></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[C99]</a></td><td>ISO/IEC 9899:1999.  “Programming languages – C.”  A public draft of this standard is available at <a class="reference external" href="http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1256.pdf">http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1256.pdf</a>.</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="sphinxsidebar">
+<div class="sphinxsidebarwrapper">
+<h4><font id="349">{{s.349}}</font></h4>
+<p class="topless"><font id="341">{{s.341}}</font></p>
+<h4><font id="350">{{s.350}}</font></h4>
+<p class="topless"><font id="342">{{s.342}}</font></p>
+<h3><font id="346">{{s.346}}</font></h3>
+<ul class="this-page-menu">
+<li><a href="#" onclick="showOriginTexts();return false;">中英文对照</a></li>
+<li><a href="#" onclick="hideOriginTexts();return false;">中文</a></li>
+</ul>
+</div>
+</div>
+<div class="clearer"></div>
+</div>
+<div class="related">
+<h3><font id="348">{{s.348}}</font></h3>
+<ul>
+<li class="right" style="margin-right: 10px">
+<a href="../genindex.html" title="General Index"><font id="362">{{s.362}}</font></a></li>
+<li class="right">
+<a href="../py-modindex.html" title="Python Module Index"><font id="363">{{s.363}}</font></a> |</li>
+<li class="right">
+<a href="sysconfig.html" title="27.2. sysconfig — Provide access to Python’s configuration information"><font id="364">{{s.364}}</font></a> |</li>
+<li class="right">
+<a href="python.html" title="27. Python Runtime Services"><font id="365">{{s.365}}</font></a> |</li>
+<li class="right">
+<a href="#" onclick="hideOriginTexts();return false;">中文</a> |</li>
+<li class="right">
+<a href="#" onclick="showOriginTexts();return false;">中英文对照</a> |</li>
+<li><img alt="" src="../_static/py.png" style="vertical-align: middle; margin-top: -1px"/></li>
+<li><a href="http://www.python.org/"><font id="366">{{s.366}}</font></a> »</li>
+<li>
+<span class="version_switcher_placeholder">2.7.8</span>
+<a href="../index.html"><font id="367">{{s.367}}</font></a> »
+        </li>
+<li><a href="index.html"><font id="368">{{s.368}}</font></a> »</li>
+<li><a href="python.html"><font id="369">{{s.369}}</font></a> »</li>
+</ul>
+</div>
+<br><div id="disqus_thread"></div>
+<div class="footer">
+    © <a href="../copyright.html">Copyright</a> 1990-2014, Python Software Foundation.
+    <br/>
+    The Python Software Foundation is a non-profit corporation.
+    <a href="http://www.python.org/psf/donations/">Please donate.</a>
+<br/>
+    Last updated on Jul 27, 2014.
+    <a href="../bugs.html">Found a bug</a>?
+    <br/>
+    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'thepythontutorial2'; // required: replace example with your forum shortname
+    var disqus_identifier = '/python2/library/sys.html';
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+<link href="../_static/ms_translator.css" rel="stylesheet" type="text/css"/>
+<script src="../_static/ms_translator.js" type="text/javascript"></script>
+{% include "python_278/ms_translator.html" %}
+</body>
+</html>

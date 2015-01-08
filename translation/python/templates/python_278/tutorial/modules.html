@@ -1,0 +1,446 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<title>6. 模块 — Python v2.7.8 中文文档</title>
+<link href="../_static/default.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2.7.8',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+<script src="../_static/jquery.js" type="text/javascript"></script>
+<script src="../_static/underscore.js" type="text/javascript"></script>
+<script src="../_static/doctools.js" type="text/javascript"></script>
+<script src="../_static/sidebar.js" type="text/javascript"></script>
+<link href="../_static/opensearch.xml" rel="search" title="Search within Python v2.7.8 documentation" type="application/opensearchdescription+xml"/>
+<link href="../about.html" rel="author" title="About these documents"/>
+<link href="../copyright.html" rel="copyright" title="Copyright"/>
+<link href="../index.html" rel="top" title="Python v2.7.8 documentation"/>
+<link href="index.html" rel="up" title="The Python Tutorial"/>
+<link href="inputoutput.html" rel="next" title="7. Input and Output"/>
+<link href="datastructures.html" rel="prev" title="5. Data Structures"/>
+<link href="../_static/py.png" rel="shortcut icon" type="image/png"/>
+<script src="../_static/copybutton.js" type="text/javascript"></script>
+<script src="../_static/version_switch.js" type="text/javascript"></script>
+</head>
+<body>
+<div class="related">
+<h3><font id="158">{{s.158}}</font></h3>
+<ul>
+<li class="right" style="margin-right: 10px"><font id="171">{{s.171}}</font></li>
+<li class="right"><font id="172">{{s.172}}</font></li>
+<li class="right"><font id="173">{{s.173}}</font></li>
+<li class="right"><font id="174">{{s.174}}</font></li>
+<li class="right">
+<a href="#" onClick="hideOriginTexts();return false;">中文</a> |</li>
+<li class="right">
+<a href="#" onClick="showOriginTexts();return false;">中英文对照</a> |</li>
+<li><font id="175">{{s.175}}</font></li>
+<li><font id="176">{{s.176}}</font><font id="177">{{s.177}}</font></li>
+<li><font id="178">{{s.178}}</font><font id="179">{{s.179}}</font></li>
+<li><font id="180">{{s.180}}</font><font id="181">{{s.181}}</font></li>
+</ul>
+</div>
+<div class="document">
+<div class="documentwrapper">
+<div class="bodywrapper">
+<div class="body">
+<div class="section" id="modules">
+<span id="tut-modules"></span><h1><font id="153">{{s.153}}</font></h1>
+<p><font id="1">{{s.1}}</font><font id="2">{{s.2}}</font><font id="3">{{s.3}}</font><font id="4">{{s.4}}</font><font id="5">{{s.5}}</font></p>
+<p><font id="6">{{s.6}}</font><font id="7">{{s.7}}</font><font id="8">{{s.8}}</font></p>
+<p><font id="9">{{s.9}}</font><font id="10">{{s.10}}</font><font id="11">{{s.11}}</font><font id="12">{{s.12}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># Fibonacci numbers module</span>
+
+<span class="k">def</span> <span class="nf">fib</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>    <span class="c"># write Fibonacci series up to n</span>
+    <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span>
+    <span class="k">while</span> <span class="n">b</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">:</span>
+        <span class="k">print</span> <span class="n">b</span><span class="p">,</span>
+        <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">b</span><span class="p">,</span> <span class="n">a</span><span class="o">+</span><span class="n">b</span>
+
+<span class="k">def</span> <span class="nf">fib2</span><span class="p">(</span><span class="n">n</span><span class="p">):</span> <span class="c"># return Fibonacci series up to n</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span>
+    <span class="k">while</span> <span class="n">b</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">:</span>
+        <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+        <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">b</span><span class="p">,</span> <span class="n">a</span><span class="o">+</span><span class="n">b</span>
+    <span class="k">return</span> <span class="n">result</span>
+</pre></div>
+</div>
+<p><font id="13">{{s.13}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">fibo</span>
+</pre></div>
+</div>
+<p><font id="14">{{s.14}}</font><font id="15">{{s.15}}</font><font id="16">{{s.16}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">fibo</span><span class="o">.</span><span class="n">fib</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
+<span class="go">1 1 2 3 5 8 13 21 34 55 89 144 233 377 610 987</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fibo</span><span class="o">.</span><span class="n">fib2</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<span class="go">[1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fibo</span><span class="o">.</span><span class="n">__name__</span>
+<span class="go">'fibo'</span>
+</pre></div>
+</div>
+<p><font id="17">{{s.17}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">fib</span> <span class="o">=</span> <span class="n">fibo</span><span class="o">.</span><span class="n">fib</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fib</span><span class="p">(</span><span class="mi">500</span><span class="p">)</span>
+<span class="go">1 1 2 3 5 8 13 21 34 55 89 144 233 377</span>
+</pre></div>
+</div>
+<div class="section" id="more-on-modules">
+<span id="tut-moremodules"></span><h2><font id="154">{{s.154}}</font></h2>
+<p><font id="18">{{s.18}}</font><font id="19">{{s.19}}</font><font id="20">{{s.20}}</font><font id="21">{{s.21}}</font></p>
+<p><font id="22">{{s.22}}</font><font id="23">{{s.23}}</font><font id="24">{{s.24}}</font></p>
+<p><font id="25">{{s.25}}</font><font id="26">{{s.26}}</font><font id="27">{{s.27}}</font></p>
+<p><font id="28">{{s.28}}</font><font id="29">{{s.29}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">fibo</span> <span class="kn">import</span> <span class="n">fib</span><span class="p">,</span> <span class="n">fib2</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fib</span><span class="p">(</span><span class="mi">500</span><span class="p">)</span>
+<span class="go">1 1 2 3 5 8 13 21 34 55 89 144 233 377</span>
+</pre></div>
+</div>
+<p><font id="30">{{s.30}}</font></p>
+<p><font id="31">{{s.31}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">fibo</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fib</span><span class="p">(</span><span class="mi">500</span><span class="p">)</span>
+<span class="go">1 1 2 3 5 8 13 21 34 55 89 144 233 377</span>
+</pre></div>
+</div>
+<p><font id="32">{{s.32}}</font></p>
+<p><font id="33">{{s.33}}</font><font id="34">{{s.34}}</font></p>
+<div class="admonition note">
+<p class="first admonition-title"><font id="35">{{s.35}}</font></p>
+<p class="last"><font id="36">{{s.36}}</font><font id="37">{{s.37}}</font></p>
+</div>
+<div class="section" id="executing-modules-as-scripts">
+<span id="tut-modulesasscripts"></span><h3><font id="159">{{s.159}}</font></h3>
+<p><font id="38">{{s.38}}</font></p>
+<div class="highlight-python"><pre>python fibo.py &lt;arguments&gt;</pre>
+</div>
+<p><font id="212">{{s.212}}</font><font id="213">{{s.213}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">"__main__"</span><span class="p">:</span>
+    <span class="kn">import</span> <span class="nn">sys</span>
+    <span class="n">fib</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+</pre></div>
+</div>
+<p><font id="39">{{s.39}}</font></p>
+<div class="highlight-python"><pre>$ python fibo.py 50
+1 1 2 3 5 8 13 21 34</pre>
+</div>
+<p><font id="40">{{s.40}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">fibo</span>
+<span class="go">&gt;&gt;&gt;</span>
+</pre></div>
+</div>
+<p><font id="41">{{s.41}}</font></p>
+</div>
+<div class="section" id="the-module-search-path">
+<span id="tut-searchpath"></span><h3><font id="160">{{s.160}}</font></h3>
+<p id="index-0"><font id="42">{{s.42}}</font><font id="43">{{s.43}}</font><font id="44">{{s.44}}</font></p>
+<ul class="simple">
+<li><font id="182">{{s.182}}</font></li>
+<li><font id="183">{{s.183}}</font></li>
+<li><font id="184">{{s.184}}</font></li>
+</ul>
+<p><font id="45">{{s.45}}</font><font id="46">{{s.46}}</font><font id="47">{{s.47}}</font><font id="48">{{s.48}}</font><font id="49">{{s.49}}</font></p>
+</div>
+<div class="section" id="compiled-python-files">
+<h3><font id="161">{{s.161}}</font></h3>
+<p><font id="50">{{s.50}}</font><font id="51">{{s.51}}</font></p>
+<p><font id="52">{{s.52}}</font><font id="53">{{s.53}}</font><font id="54">{{s.54}}</font><font id="55">{{s.55}}</font><font id="56">{{s.56}}</font></p>
+<p><font id="57">{{s.57}}</font></p>
+<ul>
+<li><font id="185">{{s.185}}</font></li>
+<li><font id="186">{{s.186}}</font></li>
+<li><font id="187">{{s.187}}</font></li>
+<li><font id="188">{{s.188}}</font></li>
+<li><font id="189">{{s.189}}</font></li>
+<li id="index-3"><font id="190">{{s.190}}</font></li>
+</ul>
+</div>
+</div>
+<div class="section" id="standard-modules">
+<span id="tut-standardmodules"></span><h2><font id="155">{{s.155}}</font></h2>
+<p id="index-4"><font id="74">{{s.74}}</font><font id="75">{{s.75}}</font><font id="76">{{s.76}}</font><font id="77">{{s.77}}</font><font id="78">{{s.78}}</font><font id="79">{{s.79}}</font><font id="80">{{s.80}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">sys</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sys</span><span class="o">.</span><span class="n">ps1</span>
+<span class="go">'&gt;&gt;&gt; '</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sys</span><span class="o">.</span><span class="n">ps2</span>
+<span class="go">'... '</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sys</span><span class="o">.</span><span class="n">ps1</span> <span class="o">=</span> <span class="s">'C&gt; '</span>
+<span class="go">C&gt; print 'Yuck!'</span>
+<span class="go">Yuck!</span>
+<span class="go">C&gt;</span>
+</pre></div>
+</div>
+<p><font id="81">{{s.81}}</font></p>
+<p><font id="82">{{s.82}}</font><font id="83">{{s.83}}</font><font id="84">{{s.84}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">sys</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s">'/ufs/guido/lib/python'</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="the-dir-function">
+<span id="tut-dir"></span><h2><font id="156">{{s.156}}</font></h2>
+<p><font id="85">{{s.85}}</font><font id="86">{{s.86}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">fibo</span><span class="o">,</span> <span class="nn">sys</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">dir</span><span class="p">(</span><span class="n">fibo</span><span class="p">)</span>
+<span class="go">['__name__', 'fib', 'fib2']</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">dir</span><span class="p">(</span><span class="n">sys</span><span class="p">)</span>  
+<span class="go">['__displayhook__', '__doc__', '__excepthook__', '__name__', '__package__',</span>
+<span class="go"> '__stderr__', '__stdin__', '__stdout__', '_clear_type_cache',</span>
+<span class="go"> '_current_frames', '_getframe', '_mercurial', 'api_version', 'argv',</span>
+<span class="go"> 'builtin_module_names', 'byteorder', 'call_tracing', 'callstats',</span>
+<span class="go"> 'copyright', 'displayhook', 'dont_write_bytecode', 'exc_clear', 'exc_info',</span>
+<span class="go"> 'exc_traceback', 'exc_type', 'exc_value', 'excepthook', 'exec_prefix',</span>
+<span class="go"> 'executable', 'exit', 'flags', 'float_info', 'float_repr_style',</span>
+<span class="go"> 'getcheckinterval', 'getdefaultencoding', 'getdlopenflags',</span>
+<span class="go"> 'getfilesystemencoding', 'getobjects', 'getprofile', 'getrecursionlimit',</span>
+<span class="go"> 'getrefcount', 'getsizeof', 'gettotalrefcount', 'gettrace', 'hexversion',</span>
+<span class="go"> 'long_info', 'maxint', 'maxsize', 'maxunicode', 'meta_path', 'modules',</span>
+<span class="go"> 'path', 'path_hooks', 'path_importer_cache', 'platform', 'prefix', 'ps1',</span>
+<span class="go"> 'py3kwarning', 'setcheckinterval', 'setdlopenflags', 'setprofile',</span>
+<span class="go"> 'setrecursionlimit', 'settrace', 'stderr', 'stdin', 'stdout', 'subversion',</span>
+<span class="go"> 'version', 'version_info', 'warnoptions']</span>
+</pre></div>
+</div>
+<p><font id="87">{{s.87}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">fibo</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fib</span> <span class="o">=</span> <span class="n">fibo</span><span class="o">.</span><span class="n">fib</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">dir</span><span class="p">()</span>
+<span class="go">['__builtins__', '__name__', '__package__', 'a', 'fib', 'fibo', 'sys']</span>
+</pre></div>
+</div>
+<p><font id="88">{{s.88}}</font></p>
+<p id="index-7"><font id="89">{{s.89}}</font><font id="90">{{s.90}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">__builtin__</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">dir</span><span class="p">(</span><span class="n">__builtin__</span><span class="p">)</span>  
+<span class="go">['ArithmeticError', 'AssertionError', 'AttributeError', 'BaseException',</span>
+<span class="go"> 'BufferError', 'BytesWarning', 'DeprecationWarning', 'EOFError',</span>
+<span class="go"> 'Ellipsis', 'EnvironmentError', 'Exception', 'False', 'FloatingPointError',</span>
+<span class="go"> 'FutureWarning', 'GeneratorExit', 'IOError', 'ImportError', 'ImportWarning',</span>
+<span class="go"> 'IndentationError', 'IndexError', 'KeyError', 'KeyboardInterrupt',</span>
+<span class="go"> 'LookupError', 'MemoryError', 'NameError', 'None', 'NotImplemented',</span>
+<span class="go"> 'NotImplementedError', 'OSError', 'OverflowError',</span>
+<span class="go"> 'PendingDeprecationWarning', 'ReferenceError', 'RuntimeError',</span>
+<span class="go"> 'RuntimeWarning', 'StandardError', 'StopIteration', 'SyntaxError',</span>
+<span class="go"> 'SyntaxWarning', 'SystemError', 'SystemExit', 'TabError', 'True',</span>
+<span class="go"> 'TypeError', 'UnboundLocalError', 'UnicodeDecodeError',</span>
+<span class="go"> 'UnicodeEncodeError', 'UnicodeError', 'UnicodeTranslateError',</span>
+<span class="go"> 'UnicodeWarning', 'UserWarning', 'ValueError', 'Warning',</span>
+<span class="go"> 'ZeroDivisionError', '_', '__debug__', '__doc__', '__import__',</span>
+<span class="go"> '__name__', '__package__', 'abs', 'all', 'any', 'apply', 'basestring',</span>
+<span class="go"> 'bin', 'bool', 'buffer', 'bytearray', 'bytes', 'callable', 'chr',</span>
+<span class="go"> 'classmethod', 'cmp', 'coerce', 'compile', 'complex', 'copyright',</span>
+<span class="go"> 'credits', 'delattr', 'dict', 'dir', 'divmod', 'enumerate', 'eval',</span>
+<span class="go"> 'execfile', 'exit', 'file', 'filter', 'float', 'format', 'frozenset',</span>
+<span class="go"> 'getattr', 'globals', 'hasattr', 'hash', 'help', 'hex', 'id', 'input',</span>
+<span class="go"> 'int', 'intern', 'isinstance', 'issubclass', 'iter', 'len', 'license',</span>
+<span class="go"> 'list', 'locals', 'long', 'map', 'max', 'memoryview', 'min', 'next',</span>
+<span class="go"> 'object', 'oct', 'open', 'ord', 'pow', 'print', 'property', 'quit',</span>
+<span class="go"> 'range', 'raw_input', 'reduce', 'reload', 'repr', 'reversed', 'round',</span>
+<span class="go"> 'set', 'setattr', 'slice', 'sorted', 'staticmethod', 'str', 'sum', 'super',</span>
+<span class="go"> 'tuple', 'type', 'unichr', 'unicode', 'vars', 'xrange', 'zip']</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="packages">
+<span id="tut-packages"></span><h2><font id="157">{{s.157}}</font></h2>
+<p><font id="91">{{s.91}}</font><font id="92">{{s.92}}</font><font id="93">{{s.93}}</font></p>
+<p><font id="94">{{s.94}}</font><font id="95">{{s.95}}</font><font id="96">{{s.96}}</font><font id="97">{{s.97}}</font></p>
+<div class="highlight-text"><div class="highlight"><pre>sound/                          Top-level package
+      __init__.py               Initialize the sound package
+      formats/                  Subpackage for file format conversions
+              __init__.py
+              wavread.py
+              wavwrite.py
+              aiffread.py
+              aiffwrite.py
+              auread.py
+              auwrite.py
+              ...
+      effects/                  Subpackage for sound effects
+              __init__.py
+              echo.py
+              surround.py
+              reverse.py
+              ...
+      filters/                  Subpackage for filters
+              __init__.py
+              equalizer.py
+              vocoder.py
+              karaoke.py
+              ...
+</pre></div>
+</div>
+<p><font id="98">{{s.98}}</font></p>
+<p><font id="99">{{s.99}}</font><font id="100">{{s.100}}</font><font id="101">{{s.101}}</font></p>
+<p><font id="102">{{s.102}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">sound.effects.echo</span>
+</pre></div>
+</div>
+<p><font id="103">{{s.103}}</font><font id="104">{{s.104}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">sound</span><span class="o">.</span><span class="n">effects</span><span class="o">.</span><span class="n">echo</span><span class="o">.</span><span class="n">echofilter</span><span class="p">(</span><span class="nb">input</span><span class="p">,</span> <span class="n">output</span><span class="p">,</span> <span class="n">delay</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span> <span class="n">atten</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><font id="105">{{s.105}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">sound.effects</span> <span class="kn">import</span> <span class="n">echo</span>
+</pre></div>
+</div>
+<p><font id="106">{{s.106}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">echo</span><span class="o">.</span><span class="n">echofilter</span><span class="p">(</span><span class="nb">input</span><span class="p">,</span> <span class="n">output</span><span class="p">,</span> <span class="n">delay</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span> <span class="n">atten</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><font id="107">{{s.107}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">sound.effects.echo</span> <span class="kn">import</span> <span class="n">echofilter</span>
+</pre></div>
+</div>
+<p><font id="108">{{s.108}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">echofilter</span><span class="p">(</span><span class="nb">input</span><span class="p">,</span> <span class="n">output</span><span class="p">,</span> <span class="n">delay</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span> <span class="n">atten</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><font id="109">{{s.109}}</font><font id="110">{{s.110}}</font><font id="111">{{s.111}}</font><font id="112">{{s.112}}</font></p>
+<p><font id="113">{{s.113}}</font><font id="114">{{s.114}}</font></p>
+<div class="section" id="importing-from-a-package">
+<span id="tut-pkg-import-star"></span><h3><font id="162">{{s.162}}</font></h3>
+<p id="index-8"><font id="115">{{s.115}}</font><font id="116">{{s.116}}</font><font id="117">{{s.117}}</font></p>
+<p><font id="118">{{s.118}}</font><font id="119">{{s.119}}</font><font id="120">{{s.120}}</font><font id="121">{{s.121}}</font><font id="122">{{s.122}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s">"echo"</span><span class="p">,</span> <span class="s">"surround"</span><span class="p">,</span> <span class="s">"reverse"</span><span class="p">]</span>
+</pre></div>
+</div>
+<p><font id="123">{{s.123}}</font></p>
+<p><font id="124">{{s.124}}</font><font id="125">{{s.125}}</font><font id="126">{{s.126}}</font><font id="127">{{s.127}}</font><font id="128">{{s.128}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">sound.effects.echo</span>
+<span class="kn">import</span> <span class="nn">sound.effects.surround</span>
+<span class="kn">from</span> <span class="nn">sound.effects</span> <span class="kn">import</span> <span class="o">*</span>
+</pre></div>
+</div>
+<p><font id="129">{{s.129}}</font><font id="130">{{s.130}}</font></p>
+<p><font id="131">{{s.131}}</font></p>
+<p><font id="132">{{s.132}}</font><font id="133">{{s.133}}</font></p>
+</div>
+<div class="section" id="intra-package-references">
+<h3><font id="163">{{s.163}}</font></h3>
+<p><font id="134">{{s.134}}</font><font id="135">{{s.135}}</font><font id="136">{{s.136}}</font><font id="137">{{s.137}}</font><font id="138">{{s.138}}</font></p>
+<p><font id="139">{{s.139}}</font><font id="140">{{s.140}}</font></p>
+<p><font id="141">{{s.141}}</font><font id="142">{{s.142}}</font><font id="143">{{s.143}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">echo</span>
+<span class="kn">from</span> <span class="nn">..</span> <span class="kn">import</span> <span class="n">formats</span>
+<span class="kn">from</span> <span class="nn">..filters</span> <span class="kn">import</span> <span class="n">equalizer</span>
+</pre></div>
+</div>
+<p><font id="214">{{s.214}}</font><font id="215">{{s.215}}</font></p>
+</div>
+<div class="section" id="packages-in-multiple-directories">
+<h3><font id="164">{{s.164}}</font></h3>
+<p><font id="144">{{s.144}}</font><font id="145">{{s.145}}</font><font id="146">{{s.146}}</font><font id="147">{{s.147}}</font></p>
+<p><font id="148">{{s.148}}</font></p>
+<p class="rubric"><font id="149">{{s.149}}</font></p>
+<table class="docutils footnote" frame="void" id="id2" rules="none">
+<colgroup><col class="label"></col><col></col></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td>In fact function definitions are also ‘statements’ that are ‘executed’; the
+execution of a module-level function definition enters the function name in
+the module’s global symbol table.</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sphinxsidebar">
+<div class="sphinxsidebarwrapper">
+<!-- <h3><font id="165">{{s.165}}</font></h3> -->
+<ul>
+<li><a class="reference internal" href="#"><font id="216">{{s.216}}</font></a><ul>
+<li><a class="reference internal" href="#more-on-modules"><font id="217">{{s.217}}</font></a><ul>
+<li><font id="191">{{s.191}}</font></li>
+<li><font id="192">{{s.192}}</font></li>
+<li><font id="193">{{s.193}}</font></li>
+</ul>
+</li>
+<li><font id="194">{{s.194}}</font></li>
+<li><font id="195">{{s.195}}</font></li>
+<li><a class="reference internal" href="#packages"><font id="218">{{s.218}}</font></a><ul>
+<li><font id="196">{{s.196}}</font></li>
+<li><font id="197">{{s.197}}</font></li>
+<li><font id="198">{{s.198}}</font></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4><font id="169">{{s.169}}</font></h4>
+<p class="topless"><font id="150">{{s.150}}</font></p>
+<h4><font id="170">{{s.170}}</font></h4>
+<p class="topless"><font id="151">{{s.151}}</font></p>
+<h3><font id="166">{{s.166}}</font></h3>
+<ul class="this-page-menu">
+<li><a href="#" onClick="showOriginTexts();return false;">中英文对照</a></li>
+<li><a href="#" onClick="hideOriginTexts();return false;">中文</a></li>
+</ul>
+</div>
+</div>
+<div class="clearer"></div>
+</div>
+<div class="related">
+<h3><font id="168">{{s.168}}</font></h3>
+<ul>
+<li class="right" style="margin-right: 10px"><font id="201">{{s.201}}</font></li>
+<li class="right"><font id="202">{{s.202}}</font></li>
+<li class="right"><font id="203">{{s.203}}</font></li>
+<li class="right"><font id="204">{{s.204}}</font></li>
+<li class="right">
+<a href="#" onClick="hideOriginTexts();return false;">中文</a> |</li>
+<li class="right">
+<a href="#" onClick="showOriginTexts();return false;">中英文对照</a> |</li>
+<li><font id="205">{{s.205}}</font></li>
+<li><font id="206">{{s.206}}</font><font id="207">{{s.207}}</font></li>
+<li><font id="208">{{s.208}}</font><font id="209">{{s.209}}</font></li>
+<li><font id="210">{{s.210}}</font><font id="211">{{s.211}}</font></li>
+</ul>
+</div>
+
+<br><div id="disqus_thread"></div>
+
+<div class="footer">
+    © <a href="../copyright.html">Copyright</a> 1990-2014, Python Software Foundation.
+    <br/>
+    The Python Software Foundation is a non-profit corporation.
+    <a href="http://www.python.org/psf/donations/">Please donate.</a>
+<br/>
+    Last updated on Jun 29, 2014.
+    <a href="../bugs.html">Found a bug</a>?
+    <br/>
+    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+</div>
+
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'thepythontutorial2'; // required: replace example with your forum shortname
+    var disqus_identifier = '/python2/tutorial/modules';
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+<link href="../_static/ms_translator.css" rel="stylesheet" type="text/css"/>
+<script src="../_static/ms_translator.js" type="text/javascript"></script>
+{% include "python_278/ms_translator.html" %}
+</body>
+</html>

@@ -1,0 +1,1617 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<title>15.4. argparse — Parser for command-line options, arguments and sub-commands — Python v2.7.8 documentation</title>
+<link href="../_static/default.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2.7.8',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+<script src="../_static/jquery.js" type="text/javascript"></script>
+<script src="../_static/underscore.js" type="text/javascript"></script>
+<script src="../_static/doctools.js" type="text/javascript"></script>
+<script src="../_static/sidebar.js" type="text/javascript"></script>
+<link href="../_static/opensearch.xml" rel="search" title="Search within Python v2.7.8 documentation" type="application/opensearchdescription+xml"/>
+<link href="../about.html" rel="author" title="About these documents"/>
+<link href="../copyright.html" rel="copyright" title="Copyright"/>
+<link href="../index.html" rel="top" title="Python v2.7.8 documentation"/>
+<link href="allos.html" rel="up" title="15. Generic Operating System Services"/>
+<link href="optparse.html" rel="next" title="15.5. optparse — Parser for command line options"/>
+<link href="time.html" rel="prev" title="15.3. time — Time access and conversions"/>
+<link href="../_static/py.png" rel="shortcut icon" type="image/png"/>
+<script src="../_static/copybutton.js" type="text/javascript"></script>
+<script src="../_static/version_switch.js" type="text/javascript"></script>
+</head>
+<body>
+<div class="related">
+<h3><font id="320">{{s.320}}</font></h3>
+<ul>
+<li class="right" style="margin-right: 10px">
+<a accesskey="I" href="../genindex.html" title="General Index"><font id="367">{{s.367}}</font></a></li>
+<li class="right">
+<a href="../py-modindex.html" title="Python Module Index"><font id="368">{{s.368}}</font></a> |</li>
+<li class="right">
+<a accesskey="N" href="optparse.html" title="15.5. optparse — Parser for command line options"><font id="369">{{s.369}}</font></a> |</li>
+<li class="right">
+<a accesskey="P" href="time.html" title="15.3. time — Time access and conversions"><font id="370">{{s.370}}</font></a> |</li>
+<li><img alt="" src="../_static/py.png" style="vertical-align: middle; margin-top: -1px"/></li>
+<li><a href="http://www.python.org/"><font id="371">{{s.371}}</font></a> »</li>
+<li>
+<span class="version_switcher_placeholder">2.7.8</span>
+<a href="../index.html"><font id="372">{{s.372}}</font></a> »
+        </li>
+<li><a href="index.html"><font id="373">{{s.373}}</font></a> »</li>
+<li><a accesskey="U" href="allos.html"><font id="374">{{s.374}}</font></a> »</li>
+</ul>
+</div>
+<div class="document">
+<div class="documentwrapper">
+<div class="bodywrapper">
+<div class="body">
+<div class="section" id="module-argparse">
+<span id="argparse-parser-for-command-line-options-arguments-and-sub-commands"></span><h1><font id="313">{{s.313}}</font><a class="headerlink" href="#module-argparse" title="Permalink to this headline">¶</a></h1>
+<p class="versionadded"><font id="1">{{s.1}}</font></p>
+<p><font id="2">{{s.2}}</font><font id="3">{{s.3}}</font></p>
+<hr class="docutils"/>
+<div class="sidebar">
+<p class="first sidebar-title"><font id="4">{{s.4}}</font></p>
+<p class="last"><font id="5">{{s.5}}</font><font id="6">{{s.6}}</font></p>
+</div>
+<p><font id="7">{{s.7}}</font><font id="8">{{s.8}}</font><font id="9">{{s.9}}</font></p>
+<div class="section" id="example">
+<h2><font id="314">{{s.314}}</font><a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
+<p><font id="10">{{s.10}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">argparse</span>
+
+<span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s">'Process some integers.'</span><span class="p">)</span>
+<span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">'integers'</span><span class="p">,</span> <span class="n">metavar</span><span class="o">=</span><span class="s">'N'</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">nargs</span><span class="o">=</span><span class="s">'+'</span><span class="p">,</span>
+                   <span class="n">help</span><span class="o">=</span><span class="s">'an integer for the accumulator'</span><span class="p">)</span>
+<span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">'--sum'</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="s">'accumulate'</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s">'store_const'</span><span class="p">,</span>
+                   <span class="n">const</span><span class="o">=</span><span class="nb">sum</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="nb">max</span><span class="p">,</span>
+                   <span class="n">help</span><span class="o">=</span><span class="s">'sum the integers (default: find the max)'</span><span class="p">)</span>
+
+<span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
+<span class="k">print</span> <span class="n">args</span><span class="o">.</span><span class="n">accumulate</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">integers</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><font id="11">{{s.11}}</font></p>
+<div class="highlight-python"><pre>$ python prog.py -h
+usage: prog.py [-h] [--sum] N [N ...]
+
+Process some integers.
+
+positional arguments:
+ N           an integer for the accumulator
+
+optional arguments:
+ -h, --help  show this help message and exit
+ --sum       sum the integers (default: find the max)</pre>
+</div>
+<p><font id="12">{{s.12}}</font></p>
+<div class="highlight-python"><pre>$ python prog.py 1 2 3 4
+4
+
+$ python prog.py 1 2 3 4 --sum
+10</pre>
+</div>
+<p><font id="13">{{s.13}}</font></p>
+<div class="highlight-python"><pre>$ python prog.py a b c
+usage: prog.py [-h] [--sum] N [N ...]
+prog.py: error: argument N: invalid int value: 'a'</pre>
+</div>
+<p><font id="14">{{s.14}}</font></p>
+<div class="section" id="creating-a-parser">
+<h3><font id="321">{{s.321}}</font><a class="headerlink" href="#creating-a-parser" title="Permalink to this headline">¶</a></h3>
+<p><font id="15">{{s.15}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s">'Process some integers.'</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><font id="16">{{s.16}}</font></p>
+</div>
+<div class="section" id="adding-arguments">
+<h3><font id="322">{{s.322}}</font><a class="headerlink" href="#adding-arguments" title="Permalink to this headline">¶</a></h3>
+<p><font id="17">{{s.17}}</font><font id="18">{{s.18}}</font><font id="19">{{s.19}}</font><font id="20">{{s.20}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">'integers'</span><span class="p">,</span> <span class="n">metavar</span><span class="o">=</span><span class="s">'N'</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">nargs</span><span class="o">=</span><span class="s">'+'</span><span class="p">,</span>
+<span class="gp">... </span>                    <span class="n">help</span><span class="o">=</span><span class="s">'an integer for the accumulator'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">'--sum'</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="s">'accumulate'</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s">'store_const'</span><span class="p">,</span>
+<span class="gp">... </span>                    <span class="n">const</span><span class="o">=</span><span class="nb">sum</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="nb">max</span><span class="p">,</span>
+<span class="gp">... </span>                    <span class="n">help</span><span class="o">=</span><span class="s">'sum the integers (default: find the max)'</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><font id="21">{{s.21}}</font><font id="22">{{s.22}}</font></p>
+</div>
+<div class="section" id="parsing-arguments">
+<h3><font id="323">{{s.323}}</font><a class="headerlink" href="#parsing-arguments" title="Permalink to this headline">¶</a></h3>
+<p><font id="23">{{s.23}}</font><font id="24">{{s.24}}</font><font id="25">{{s.25}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">([</span><span class="s">'--sum'</span><span class="p">,</span> <span class="s">'7'</span><span class="p">,</span> <span class="s">'-1'</span><span class="p">,</span> <span class="s">'42'</span><span class="p">])</span>
+<span class="go">Namespace(accumulate=&lt;built-in function sum&gt;, integers=[7, -1, 42])</span>
+</pre></div>
+</div>
+<p><font id="26">{{s.26}}</font></p>
+</div>
+</div>
+<div class="section" id="argumentparser-objects">
+<h2><font id="315">{{s.315}}</font><a class="headerlink" href="#argumentparser-objects" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="argparse.ArgumentParser">
+<em class="property">class </em><tt class="descclassname">argparse.</tt><tt class="descname">ArgumentParser</tt><big>(</big><em>prog=None</em>, <em>usage=None</em>, <em>description=None</em>, <em>epilog=None</em>, <em>parents=</em><span class="optional">[</span><span class="optional">]</span>, <em>formatter_class=argparse.HelpFormatter</em>, <em>prefix_chars='-'</em>, <em>fromfile_prefix_chars=None</em>, <em>argument_default=None</em>, <em>conflict_handler='error'</em>, <em>add_help=True</em><big>)</big><a class="headerlink" href="#argparse.ArgumentParser" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="27">{{s.27}}</font><font id="28">{{s.28}}</font><font id="29">{{s.29}}</font></p>
+<ul class="simple">
+<li><a class="reference internal" href="#prog">prog</a> - <font id="375">{{s.375}}</font></li>
+<li><a class="reference internal" href="#usage">usage</a> - <font id="376">{{s.376}}</font></li>
+<li><a class="reference internal" href="#description">description</a> - <font id="377">{{s.377}}</font></li>
+<li><a class="reference internal" href="#epilog">epilog</a> - <font id="378">{{s.378}}</font></li>
+<li><a class="reference internal" href="#parents">parents</a> - <font id="379">{{s.379}}</font></li>
+<li><a class="reference internal" href="#formatter-class">formatter_class</a> - <font id="381">{{s.381}}</font></li>
+<li><a class="reference internal" href="#prefix-chars">prefix_chars</a> - <font id="382">{{s.382}}</font></li>
+<li><a class="reference internal" href="#fromfile-prefix-chars">fromfile_prefix_chars</a> - <font id="383">{{s.383}}</font></li>
+<li><a class="reference internal" href="#argument-default">argument_default</a> - <font id="384">{{s.384}}</font></li>
+<li><a class="reference internal" href="#conflict-handler">conflict_handler</a> - <font id="385">{{s.385}}</font></li>
+<li><a class="reference internal" href="#add-help">add_help</a> - <font id="386">{{s.386}}</font></li>
+</ul>
+</dd></dl>
+<p><font id="30">{{s.30}}</font></p>
+<div class="section" id="prog">
+<h3><font id="324">{{s.324}}</font><a class="headerlink" href="#prog" title="Permalink to this headline">¶</a></h3>
+<p><font id="31">{{s.31}}</font><font id="32">{{s.32}}</font><font id="33">{{s.33}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">argparse</span>
+<span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">()</span>
+<span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">'--foo'</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s">'foo help'</span><span class="p">)</span>
+<span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><font id="34">{{s.34}}</font></p>
+<div class="highlight-python"><pre>$ python myprogram.py --help
+usage: myprogram.py [-h] [--foo FOO]
+
+optional arguments:
+ -h, --help  show this help message and exit
+ --foo FOO   foo help
+$ cd ..
+$ python subdir\myprogram.py --help
+usage: myprogram.py [-h] [--foo FOO]
+
+optional arguments:
+ -h, --help  show this help message and exit
+ --foo FOO   foo help</pre>
+</div>
+<p><font id="35">{{s.35}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">prog</span><span class="o">=</span><span class="s">'myprogram'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">print_help</span><span class="p">()</span>
+<span class="go">usage: myprogram [-h]</span>
+
+<span class="go">optional arguments:</span>
+<span class="go"> -h, --help  show this help message and exit</span>
+</pre></div>
+</div>
+<p><font id="36">{{s.36}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">prog</span><span class="o">=</span><span class="s">'myprogram'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">'--foo'</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s">'foo of the </span><span class="si">%(prog)s</span><span class="s"> program'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">print_help</span><span class="p">()</span>
+<span class="go">usage: myprogram [-h] [--foo FOO]</span>
+
+<span class="go">optional arguments:</span>
+<span class="go"> -h, --help  show this help message and exit</span>
+<span class="go"> --foo FOO   foo of the myprogram program</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="usage">
+<h3><font id="325">{{s.325}}</font><a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h3>
+<p><font id="37">{{s.37}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">prog</span><span class="o">=</span><span class="s">'PROG'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">'--foo'</span><span class="p">,</span> <span class="n">nargs</span><span class="o">=</span><span class="s">'?'</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s">'foo help'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">'bar'</span><span class="p">,</span> <span class="n">nargs</span><span class="o">=</span><span class="s">'+'</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s">'bar help'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">print_help</span><span class="p">()</span>
+<span class="go">usage: PROG [-h] [--foo [FOO]] bar [bar ...]</span>
+
+<span class="go">positional arguments:</span>
+<span class="go"> bar          bar help</span>
+
+<span class="go">optional arguments:</span>
+<span class="go"> -h, --help   show this help message and exit</span>
+<span class="go"> --foo [FOO]  foo help</span>
+</pre></div>
+</div>
+<p><font id="38">{{s.38}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">prog</span><span class="o">=</span><span class="s">'PROG'</span><span class="p">,</span> <span class="n">usage</span><span class="o">=</span><span class="s">'</span><span class="si">%(prog)s</span><span class="s"> [options]'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">'--foo'</span><span class="p">,</span> <span class="n">nargs</span><span class="o">=</span><span class="s">'?'</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s">'foo help'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">'bar'</span><span class="p">,</span> <span class="n">nargs</span><span class="o">=</span><span class="s">'+'</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s">'bar help'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">print_help</span><span class="p">()</span>
+<span class="go">usage: PROG [options]</span>
+
+<span class="go">positional arguments:</span>
+<span class="go"> bar          bar help</span>
+
+<span class="go">optional arguments:</span>
+<span class="go"> -h, --help   show this help message and exit</span>
+<span class="go"> --foo [FOO]  foo help</span>
+</pre></div>
+</div>
+<p><font id="39">{{s.39}}</font></p>
+</div>
+<div class="section" id="description">
+<h3><font id="326">{{s.326}}</font><a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h3>
+<p><font id="40">{{s.40}}</font><font id="41">{{s.41}}</font><font id="42">{{s.42}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s">'A foo that bars'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">print_help</span><span class="p">()</span>
+<span class="go">usage: argparse.py [-h]</span>
+
+<span class="go">A foo that bars</span>
+
+<span class="go">optional arguments:</span>
+<span class="go"> -h, --help  show this help message and exit</span>
+</pre></div>
+</div>
+<p><font id="43">{{s.43}}</font><font id="44">{{s.44}}</font></p>
+</div>
+<div class="section" id="epilog">
+<h3><font id="327">{{s.327}}</font><a class="headerlink" href="#epilog" title="Permalink to this headline">¶</a></h3>
+<p><font id="45">{{s.45}}</font><font id="46">{{s.46}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">description</span><span class="o">=</span><span class="s">'A foo that bars'</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">epilog</span><span class="o">=</span><span class="s">"And that's how you'd foo a bar"</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">print_help</span><span class="p">()</span>
+<span class="go">usage: argparse.py [-h]</span>
+
+<span class="go">A foo that bars</span>
+
+<span class="go">optional arguments:</span>
+<span class="go"> -h, --help  show this help message and exit</span>
+
+<span class="go">And that's how you'd foo a bar</span>
+</pre></div>
+</div>
+<p><font id="47">{{s.47}}</font></p>
+</div>
+<div class="section" id="parents">
+<h3><font id="328">{{s.328}}</font><a class="headerlink" href="#parents" title="Permalink to this headline">¶</a></h3>
+<p><font id="48">{{s.48}}</font><font id="49">{{s.49}}</font><font id="50">{{s.50}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">parent_parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">add_help</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parent_parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">'--parent'</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">foo_parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">parents</span><span class="o">=</span><span class="p">[</span><span class="n">parent_parser</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">foo_parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">'foo'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">foo_parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">([</span><span class="s">'--parent'</span><span class="p">,</span> <span class="s">'2'</span><span class="p">,</span> <span class="s">'XXX'</span><span class="p">])</span>
+<span class="go">Namespace(foo='XXX', parent=2)</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">bar_parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">parents</span><span class="o">=</span><span class="p">[</span><span class="n">parent_parser</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">bar_parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">'--bar'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">bar_parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">([</span><span class="s">'--bar'</span><span class="p">,</span> <span class="s">'YYY'</span><span class="p">])</span>
+<span class="go">Namespace(bar='YYY', parent=None)</span>
+</pre></div>
+</div>
+<p><font id="51">{{s.51}}</font><font id="52">{{s.52}}</font></p>
+<div class="admonition note">
+<p class="first admonition-title"><font id="53">{{s.53}}</font></p>
+<p class="last"><font id="54">{{s.54}}</font><font id="55">{{s.55}}</font></p>
+</div>
+</div>
+<div class="section" id="formatter-class">
+<h3><font id="329">{{s.329}}</font><a class="headerlink" href="#formatter-class" title="Permalink to this headline">¶</a></h3>
+<p><font id="56">{{s.56}}</font><font id="57">{{s.57}}</font></p>
+<dl class="class">
+<dt id="argparse.RawDescriptionHelpFormatter">
+<em class="property">class </em><tt class="descclassname">argparse.</tt><tt class="descname">RawDescriptionHelpFormatter</tt><a class="headerlink" href="#argparse.RawDescriptionHelpFormatter" title="Permalink to this definition">¶</a></dt>
+<dt id="argparse.RawTextHelpFormatter">
+<em class="property">class </em><tt class="descclassname">argparse.</tt><tt class="descname">RawTextHelpFormatter</tt><a class="headerlink" href="#argparse.RawTextHelpFormatter" title="Permalink to this definition">¶</a></dt>
+<dt id="argparse.ArgumentDefaultsHelpFormatter">
+<em class="property">class </em><tt class="descclassname">argparse.</tt><tt class="descname">ArgumentDefaultsHelpFormatter</tt><a class="headerlink" href="#argparse.ArgumentDefaultsHelpFormatter" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+<p><font id="58">{{s.58}}</font></p>
+<p><font id="59">{{s.59}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">prog</span><span class="o">=</span><span class="s">'PROG'</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">description</span><span class="o">=</span><span class="s">'''this description</span>
+<span class="gp">... </span><span class="s">        was indented weird</span>
+<span class="gp">... </span><span class="s">            but that is okay'''</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">epilog</span><span class="o">=</span><span class="s">'''</span>
+<span class="gp">... </span><span class="s">            likewise for this epilog whose whitespace will</span>
+<span class="gp">... </span><span class="s">        be cleaned up and whose words will be wrapped</span>
+<span class="gp">... </span><span class="s">        across a couple lines'''</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">print_help</span><span class="p">()</span>
+<span class="go">usage: PROG [-h]</span>
+
+<span class="go">this description was indented weird but that is okay</span>
+
+<span class="go">optional arguments:</span>
+<span class="go"> -h, --help  show this help message and exit</span>
+
+<span class="go">likewise for this epilog whose whitespace will be cleaned up and whose words</span>
+<span class="go">will be wrapped across a couple lines</span>
+</pre></div>
+</div>
+<p><font id="60">{{s.60}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">prog</span><span class="o">=</span><span class="s">'PROG'</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">formatter_class</span><span class="o">=</span><span class="n">argparse</span><span class="o">.</span><span class="n">RawDescriptionHelpFormatter</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">description</span><span class="o">=</span><span class="n">textwrap</span><span class="o">.</span><span class="n">dedent</span><span class="p">(</span><span class="s">'''</span><span class="se">\</span>
+<span class="gp">... </span><span class="s">        Please do not mess up this text!</span>
+<span class="gp">... </span><span class="s">        --------------------------------</span>
+<span class="gp">... </span><span class="s">            I have indented it</span>
+<span class="gp">... </span><span class="s">            exactly the way</span>
+<span class="gp">... </span><span class="s">            I want it</span>
+<span class="gp">... </span><span class="s">        '''</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">print_help</span><span class="p">()</span>
+<span class="go">usage: PROG [-h]</span>
+
+<span class="go">Please do not mess up this text!</span>
+<span class="go">--------------------------------</span>
+<span class="go">   I have indented it</span>
+<span class="go">   exactly the way</span>
+<span class="go">   I want it</span>
+
+<span class="go">optional arguments:</span>
+<span class="go"> -h, --help  show this help message and exit</span>
+</pre></div>
+</div>
+<p><font id="61">{{s.61}}</font></p>
+<p><font id="62">{{s.62}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">prog</span><span class="o">=</span><span class="s">'PROG'</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">formatter_class</span><span class="o">=</span><span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentDefaultsHelpFormatter</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">'--foo'</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s">'FOO!'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">'bar'</span><span class="p">,</span> <span class="n">nargs</span><span class="o">=</span><span class="s">'*'</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="n">help</span><span class="o">=</span><span class="s">'BAR!'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">print_help</span><span class="p">()</span>
+<span class="go">usage: PROG [-h] [--foo FOO] [bar [bar ...]]</span>
+
+<span class="go">positional arguments:</span>
+<span class="go"> bar         BAR! (default: [1, 2, 3])</span>
+
+<span class="go">optional arguments:</span>
+<span class="go"> -h, --help  show this help message and exit</span>
+<span class="go"> --foo FOO   FOO! (default: 42)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="prefix-chars">
+<h3><font id="330">{{s.330}}</font><a class="headerlink" href="#prefix-chars" title="Permalink to this headline">¶</a></h3>
+<p><font id="63">{{s.63}}</font><font id="64">{{s.64}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">prog</span><span class="o">=</span><span class="s">'PROG'</span><span class="p">,</span> <span class="n">prefix_chars</span><span class="o">=</span><span class="s">'-+'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">'+f'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">'++bar'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">(</span><span class="s">'+f X ++bar Y'</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+<span class="go">Namespace(bar='Y', f='X')</span>
+</pre></div>
+</div>
+<p><font id="65">{{s.65}}</font><font id="66">{{s.66}}</font></p>
+</div>
+<div class="section" id="fromfile-prefix-chars">
+<h3><font id="331">{{s.331}}</font><a class="headerlink" href="#fromfile-prefix-chars" title="Permalink to this headline">¶</a></h3>
+<p><font id="67">{{s.67}}</font><font id="68">{{s.68}}</font><font id="69">{{s.69}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">'args.txt'</span><span class="p">,</span> <span class="s">'w'</span><span class="p">)</span> <span class="k">as</span> <span class="n">fp</span><span class="p">:</span>
+<span class="gp">... </span>   <span class="n">fp</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">'-f</span><span class="se">\n</span><span class="s">bar'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">fromfile_prefix_chars</span><span class="o">=</span><span class="s">'@'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">'-f'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">([</span><span class="s">'-f'</span><span class="p">,</span> <span class="s">'foo'</span><span class="p">,</span> <span class="s">'@args.txt'</span><span class="p">])</span>
+<span class="go">Namespace(f='bar')</span>
+</pre></div>
+</div>
+<p><font id="70">{{s.70}}</font><font id="71">{{s.71}}</font></p>
+<p><font id="72">{{s.72}}</font></p>
+</div>
+<div class="section" id="argument-default">
+<h3><font id="332">{{s.332}}</font><a class="headerlink" href="#argument-default" title="Permalink to this headline">¶</a></h3>
+<p><font id="73">{{s.73}}</font><font id="74">{{s.74}}</font><font id="75">{{s.75}}</font><font id="76">{{s.76}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">argument_default</span><span class="o">=</span><span class="n">argparse</span><span class="o">.</span><span class="n">SUPPRESS</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">'--foo'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">'bar'</span><span class="p">,</span> <span class="n">nargs</span><span class="o">=</span><span class="s">'?'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">([</span><span class="s">'--foo'</span><span class="p">,</span> <span class="s">'1'</span><span class="p">,</span> <span class="s">'BAR'</span><span class="p">])</span>
+<span class="go">Namespace(bar='BAR', foo='1')</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">([])</span>
+<span class="go">Namespace()</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="conflict-handler">
+<h3><font id="333">{{s.333}}</font><a class="headerlink" href="#conflict-handler" title="Permalink to this headline">¶</a></h3>
+<p><font id="77">{{s.77}}</font><font id="78">{{s.78}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">prog</span><span class="o">=</span><span class="s">'PROG'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">'-f'</span><span class="p">,</span> <span class="s">'--foo'</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s">'old foo help'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">'--foo'</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s">'new foo help'</span><span class="p">)</span>
+<span class="gt">Traceback (most recent call last):</span>
+<span class="c"> ..</span>
+<span class="nc">ArgumentError: argument --foo: conflicting option string(s)</span>: <span class="n-Identifier">--foo</span>
+</pre></div>
+</div>
+<p><font id="79">{{s.79}}</font><font id="80">{{s.80}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">prog</span><span class="o">=</span><span class="s">'PROG'</span><span class="p">,</span> <span class="n">conflict_handler</span><span class="o">=</span><span class="s">'resolve'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">'-f'</span><span class="p">,</span> <span class="s">'--foo'</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s">'old foo help'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">'--foo'</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s">'new foo help'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">print_help</span><span class="p">()</span>
+<span class="go">usage: PROG [-h] [-f FOO] [--foo FOO]</span>
+
+<span class="go">optional arguments:</span>
+<span class="go"> -h, --help  show this help message and exit</span>
+<span class="go"> -f FOO      old foo help</span>
+<span class="go"> --foo FOO   new foo help</span>
+</pre></div>
+</div>
+<p><font id="81">{{s.81}}</font><font id="82">{{s.82}}</font></p>
+</div>
+<div class="section" id="add-help">
+<h3><font id="334">{{s.334}}</font><a class="headerlink" href="#add-help" title="Permalink to this headline">¶</a></h3>
+<p><font id="83">{{s.83}}</font><font id="84">{{s.84}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">argparse</span>
+<span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">()</span>
+<span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">'--foo'</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s">'foo help'</span><span class="p">)</span>
+<span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><font id="85">{{s.85}}</font></p>
+<div class="highlight-python"><pre>$ python myprogram.py --help
+usage: myprogram.py [-h] [--foo FOO]
+
+optional arguments:
+ -h, --help  show this help message and exit
+ --foo FOO   foo help</pre>
+</div>
+<p><font id="86">{{s.86}}</font><font id="87">{{s.87}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">prog</span><span class="o">=</span><span class="s">'PROG'</span><span class="p">,</span> <span class="n">add_help</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">'--foo'</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s">'foo help'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">print_help</span><span class="p">()</span>
+<span class="go">usage: PROG [--foo FOO]</span>
+
+<span class="go">optional arguments:</span>
+<span class="go"> --foo FOO  foo help</span>
+</pre></div>
+</div>
+<p><font id="88">{{s.88}}</font><font id="89">{{s.89}}</font><font id="90">{{s.90}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">prog</span><span class="o">=</span><span class="s">'PROG'</span><span class="p">,</span> <span class="n">prefix_chars</span><span class="o">=</span><span class="s">'+/'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">print_help</span><span class="p">()</span>
+<span class="go">usage: PROG [+h]</span>
+
+<span class="go">optional arguments:</span>
+<span class="go">  +h, ++help  show this help message and exit</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="the-add-argument-method">
+<h2><font id="316">{{s.316}}</font><a class="headerlink" href="#the-add-argument-method" title="Permalink to this headline">¶</a></h2>
+<dl class="method">
+<dt id="argparse.ArgumentParser.add_argument">
+<tt class="descclassname">ArgumentParser.</tt><tt class="descname">add_argument</tt><big>(</big><em>name or flags...</em><span class="optional">[</span>, <em>action</em><span class="optional">]</span><span class="optional">[</span>, <em>nargs</em><span class="optional">]</span><span class="optional">[</span>, <em>const</em><span class="optional">]</span><span class="optional">[</span>, <em>default</em><span class="optional">]</span><span class="optional">[</span>, <em>type</em><span class="optional">]</span><span class="optional">[</span>, <em>choices</em><span class="optional">]</span><span class="optional">[</span>, <em>required</em><span class="optional">]</span><span class="optional">[</span>, <em>help</em><span class="optional">]</span><span class="optional">[</span>, <em>metavar</em><span class="optional">]</span><span class="optional">[</span>, <em>dest</em><span class="optional">]</span><big>)</big><a class="headerlink" href="#argparse.ArgumentParser.add_argument" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="91">{{s.91}}</font><font id="92">{{s.92}}</font></p>
+<ul class="simple">
+<li><a class="reference internal" href="#name-or-flags">name or flags</a> - <font id="387">{{s.387}}</font></li>
+<li><a class="reference internal" href="#action">action</a> - <font id="388">{{s.388}}</font></li>
+<li><a class="reference internal" href="#nargs">nargs</a> - <font id="389">{{s.389}}</font></li>
+<li><a class="reference internal" href="#const">const</a> - <font id="390">{{s.390}}</font></li>
+<li><a class="reference internal" href="#default">default</a> - <font id="393">{{s.393}}</font></li>
+<li><a class="reference internal" href="#type">type</a> - <font id="394">{{s.394}}</font></li>
+<li><a class="reference internal" href="#choices">choices</a> - <font id="395">{{s.395}}</font></li>
+<li><a class="reference internal" href="#required">required</a> - <font id="396">{{s.396}}</font></li>
+<li><a class="reference internal" href="#help">help</a> - <font id="397">{{s.397}}</font></li>
+<li><a class="reference internal" href="#metavar">metavar</a> - <font id="398">{{s.398}}</font></li>
+<li><a class="reference internal" href="#dest">dest</a> - <font id="399">{{s.399}}</font></li>
+</ul>
+</dd></dl>
+<p><font id="93">{{s.93}}</font></p>
+<div class="section" id="name-or-flags">
+<h3><font id="335">{{s.335}}</font><a class="headerlink" href="#name-or-flags" title="Permalink to this headline">¶</a></h3>
+<p><font id="94">{{s.94}}</font><font id="95">{{s.95}}</font><font id="96">{{s.96}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">'-f'</span><span class="p">,</span> <span class="s">'--foo'</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><font id="97">{{s.97}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">'bar'</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><font id="98">{{s.98}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">prog</span><span class="o">=</span><span class="s">'PROG'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">'-f'</span><span class="p">,</span> <span class="s">'--foo'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">'bar'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">([</span><span class="s">'BAR'</span><span class="p">])</span>
+<span class="go">Namespace(bar='BAR', foo=None)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">([</span><span class="s">'BAR'</span><span class="p">,</span> <span class="s">'--foo'</span><span class="p">,</span> <span class="s">'FOO'</span><span class="p">])</span>
+<span class="go">Namespace(bar='BAR', foo='FOO')</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">([</span><span class="s">'--foo'</span><span class="p">,</span> <span class="s">'FOO'</span><span class="p">])</span>
+<span class="go">usage: PROG [-h] [-f FOO] bar</span>
+<span class="go">PROG: error: too few arguments</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="action">
+<h3><font id="336">{{s.336}}</font><a class="headerlink" href="#action" title="Permalink to this headline">¶</a></h3>
+<p><font id="99">{{s.99}}</font><font id="100">{{s.100}}</font><font id="101">{{s.101}}</font><font id="102">{{s.102}}</font></p>
+<ul>
+<li><p class="first"><font id="103">{{s.103}}</font><font id="104">{{s.104}}</font><font id="105">{{s.105}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">'--foo'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">(</span><span class="s">'--foo 1'</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+<span class="go">Namespace(foo='1')</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first"><font id="106">{{s.106}}</font><font id="107">{{s.107}}</font><font id="108">{{s.108}}</font><font id="109">{{s.109}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">'--foo'</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s">'store_const'</span><span class="p">,</span> <span class="n">const</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">(</span><span class="s">'--foo'</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+<span class="go">Namespace(foo=42)</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first"><font id="110">{{s.110}}</font><font id="111">{{s.111}}</font><font id="112">{{s.112}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">'--foo'</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s">'store_true'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">'--bar'</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s">'store_false'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">'--baz'</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s">'store_false'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">(</span><span class="s">'--foo --bar'</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+<span class="go">Namespace(bar=False, baz=True, foo=True)</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first"><font id="113">{{s.113}}</font><font id="114">{{s.114}}</font><font id="115">{{s.115}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">'--foo'</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s">'append'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">(</span><span class="s">'--foo 1 --foo 2'</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+<span class="go">Namespace(foo=['1', '2'])</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first"><font id="116">{{s.116}}</font><font id="117">{{s.117}}</font><font id="118">{{s.118}}</font><font id="119">{{s.119}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">'--str'</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="s">'types'</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s">'append_const'</span><span class="p">,</span> <span class="n">const</span><span class="o">=</span><span class="nb">str</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">'--int'</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="s">'types'</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s">'append_const'</span><span class="p">,</span> <span class="n">const</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">(</span><span class="s">'--str --int'</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+<span class="go">Namespace(types=[&lt;type 'str'&gt;, &lt;type 'int'&gt;])</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first"><font id="120">{{s.120}}</font><font id="121">{{s.121}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">'--verbose'</span><span class="p">,</span> <span class="s">'-v'</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s">'count'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">(</span><span class="s">'-vvv'</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+<span class="go">Namespace(verbose=3)</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first"><font id="122">{{s.122}}</font><font id="123">{{s.123}}</font><font id="124">{{s.124}}</font></p>
+</li>
+<li><p class="first"><font id="125">{{s.125}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">argparse</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">prog</span><span class="o">=</span><span class="s">'PROG'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">'--version'</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s">'version'</span><span class="p">,</span> <span class="n">version</span><span class="o">=</span><span class="s">'</span><span class="si">%(prog)s</span><span class="s"> 2.0'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">([</span><span class="s">'--version'</span><span class="p">])</span>
+<span class="go">PROG 2.0</span>
+</pre></div>
+</div>
+</li>
+</ul>
+<p><font id="126">{{s.126}}</font><font id="127">{{s.127}}</font><font id="129">{{s.129}}</font></p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">parser</span></tt> - <font id="472">{{s.472}}</font></li>
+<li><tt class="docutils literal"><span class="pre">namespace</span></tt> - <font id="473">{{s.473}}</font></li>
+<li><tt class="docutils literal"><span class="pre">values</span></tt> - <font id="474">{{s.474}}</font></li>
+<li><tt class="docutils literal"><span class="pre">option_string</span></tt> - <font id="475">{{s.475}}</font></li>
+</ul>
+<p><font id="130">{{s.130}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">class</span> <span class="nc">FooAction</span><span class="p">(</span><span class="n">argparse</span><span class="o">.</span><span class="n">Action</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="k">def</span> <span class="nf">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parser</span><span class="p">,</span> <span class="n">namespace</span><span class="p">,</span> <span class="n">values</span><span class="p">,</span> <span class="n">option_string</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+<span class="gp">... </span>        <span class="k">print</span> <span class="s">'</span><span class="si">%r</span><span class="s"> </span><span class="si">%r</span><span class="s"> </span><span class="si">%r</span><span class="s">'</span> <span class="o">%</span> <span class="p">(</span><span class="n">namespace</span><span class="p">,</span> <span class="n">values</span><span class="p">,</span> <span class="n">option_string</span><span class="p">)</span>
+<span class="gp">... </span>        <span class="nb">setattr</span><span class="p">(</span><span class="n">namespace</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">dest</span><span class="p">,</span> <span class="n">values</span><span class="p">)</span>
+<span class="gp">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">'--foo'</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="n">FooAction</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">'bar'</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="n">FooAction</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">(</span><span class="s">'1 --foo 2'</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+<span class="go">Namespace(bar=None, foo=None) '1' None</span>
+<span class="go">Namespace(bar='1', foo=None) '2' '--foo'</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">args</span>
+<span class="go">Namespace(bar='1', foo='2')</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="nargs">
+<h3><font id="337">{{s.337}}</font><a class="headerlink" href="#nargs" title="Permalink to this headline">¶</a></h3>
+<p><font id="131">{{s.131}}</font><font id="132">{{s.132}}</font><font id="133">{{s.133}}</font></p>
+<ul>
+<li><p class="first"><font id="134">{{s.134}}</font><font id="135">{{s.135}}</font><font id="136">{{s.136}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">'--foo'</span><span class="p">,</span> <span class="n">nargs</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">'bar'</span><span class="p">,</span> <span class="n">nargs</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">(</span><span class="s">'c --foo a b'</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+<span class="go">Namespace(bar=['c'], foo=['a', 'b'])</span>
+</pre></div>
+</div>
+<p><font id="137">{{s.137}}</font><font id="138">{{s.138}}</font></p>
+</li>
+<li><p class="first"><font id="139">{{s.139}}</font><font id="140">{{s.140}}</font><font id="141">{{s.141}}</font><font id="142">{{s.142}}</font><font id="143">{{s.143}}</font><font id="144">{{s.144}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">'--foo'</span><span class="p">,</span> <span class="n">nargs</span><span class="o">=</span><span class="s">'?'</span><span class="p">,</span> <span class="n">const</span><span class="o">=</span><span class="s">'c'</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s">'d'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">'bar'</span><span class="p">,</span> <span class="n">nargs</span><span class="o">=</span><span class="s">'?'</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s">'d'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">(</span><span class="s">'XX --foo YY'</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+<span class="go">Namespace(bar='XX', foo='YY')</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">(</span><span class="s">'XX --foo'</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+<span class="go">Namespace(bar='XX', foo='c')</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">(</span><span class="s">''</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+<span class="go">Namespace(bar='d', foo='d')</span>
+</pre></div>
+</div>
+<p><font id="145">{{s.145}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">'infile'</span><span class="p">,</span> <span class="n">nargs</span><span class="o">=</span><span class="s">'?'</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="n">argparse</span><span class="o">.</span><span class="n">FileType</span><span class="p">(</span><span class="s">'r'</span><span class="p">),</span>
+<span class="gp">... </span>                    <span class="n">default</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">stdin</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">'outfile'</span><span class="p">,</span> <span class="n">nargs</span><span class="o">=</span><span class="s">'?'</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="n">argparse</span><span class="o">.</span><span class="n">FileType</span><span class="p">(</span><span class="s">'w'</span><span class="p">),</span>
+<span class="gp">... </span>                    <span class="n">default</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">([</span><span class="s">'input.txt'</span><span class="p">,</span> <span class="s">'output.txt'</span><span class="p">])</span>
+<span class="go">Namespace(infile=&lt;open file 'input.txt', mode 'r' at 0x...&gt;,</span>
+<span class="go">          outfile=&lt;open file 'output.txt', mode 'w' at 0x...&gt;)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">([])</span>
+<span class="go">Namespace(infile=&lt;open file '&lt;stdin&gt;', mode 'r' at 0x...&gt;,</span>
+<span class="go">          outfile=&lt;open file '&lt;stdout&gt;', mode 'w' at 0x...&gt;)</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first"><font id="146">{{s.146}}</font><font id="147">{{s.147}}</font><font id="148">{{s.148}}</font><font id="149">{{s.149}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">'--foo'</span><span class="p">,</span> <span class="n">nargs</span><span class="o">=</span><span class="s">'*'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">'--bar'</span><span class="p">,</span> <span class="n">nargs</span><span class="o">=</span><span class="s">'*'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">'baz'</span><span class="p">,</span> <span class="n">nargs</span><span class="o">=</span><span class="s">'*'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">(</span><span class="s">'a b --foo x y --bar 1 2'</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+<span class="go">Namespace(bar=['1', '2'], baz=['a', 'b'], foo=['x', 'y'])</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first"><font id="150">{{s.150}}</font><font id="151">{{s.151}}</font><font id="152">{{s.152}}</font><font id="153">{{s.153}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">prog</span><span class="o">=</span><span class="s">'PROG'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">'foo'</span><span class="p">,</span> <span class="n">nargs</span><span class="o">=</span><span class="s">'+'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">(</span><span class="s">'a b'</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+<span class="go">Namespace(foo=['a', 'b'])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">(</span><span class="s">''</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+<span class="go">usage: PROG [-h] foo [foo ...]</span>
+<span class="go">PROG: error: too few arguments</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first"><font id="154">{{s.154}}</font><font id="156">{{s.156}}</font><font id="157">{{s.157}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">prog</span><span class="o">=</span><span class="s">'PROG'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">'--foo'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">'command'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">'args'</span><span class="p">,</span> <span class="n">nargs</span><span class="o">=</span><span class="n">argparse</span><span class="o">.</span><span class="n">REMAINDER</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">(</span><span class="s">'--foo B cmd --arg1 XX ZZ'</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+<span class="go">Namespace(args=['--arg1', 'XX', 'ZZ'], command='cmd', foo='B')</span>
+</pre></div>
+</div>
+</li>
+</ul>
+<p><font id="158">{{s.158}}</font><font id="159">{{s.159}}</font></p>
+</div>
+<div class="section" id="const">
+<h3><font id="338">{{s.338}}</font><a class="headerlink" href="#const" title="Permalink to this headline">¶</a></h3>
+<p><font id="160">{{s.160}}</font><font id="161">{{s.161}}</font></p>
+<ul class="simple">
+<li><font id="405">{{s.405}}</font><font id="406">{{s.406}}</font><font id="407">{{s.407}}</font></li>
+<li><font id="408">{{s.408}}</font><font id="409">{{s.409}}</font><font id="476">{{s.476}}</font><font id="477">{{s.477}}</font></li>
+</ul>
+<p><font id="162">{{s.162}}</font></p>
+</div>
+<div class="section" id="default">
+<h3><font id="339">{{s.339}}</font><a class="headerlink" href="#default" title="Permalink to this headline">¶</a></h3>
+<p><font id="163">{{s.163}}</font><font id="164">{{s.164}}</font><font id="165">{{s.165}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">'--foo'</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">(</span><span class="s">'--foo 2'</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+<span class="go">Namespace(foo='2')</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">(</span><span class="s">''</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+<span class="go">Namespace(foo=42)</span>
+</pre></div>
+</div>
+<p><font id="166">{{s.166}}</font><font id="167">{{s.167}}</font><font id="168">{{s.168}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">'--length'</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s">'10'</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">'--width'</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mf">10.5</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
+<span class="go">Namespace(length=10, width=10.5)</span>
+</pre></div>
+</div>
+<p><font id="169">{{s.169}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">'foo'</span><span class="p">,</span> <span class="n">nargs</span><span class="o">=</span><span class="s">'?'</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">(</span><span class="s">'a'</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+<span class="go">Namespace(foo='a')</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">(</span><span class="s">''</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+<span class="go">Namespace(foo=42)</span>
+</pre></div>
+</div>
+<p><font id="170">{{s.170}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">'--foo'</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="n">argparse</span><span class="o">.</span><span class="n">SUPPRESS</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">([])</span>
+<span class="go">Namespace()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">([</span><span class="s">'--foo'</span><span class="p">,</span> <span class="s">'1'</span><span class="p">])</span>
+<span class="go">Namespace(foo='1')</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="type">
+<h3><font id="340">{{s.340}}</font><a class="headerlink" href="#type" title="Permalink to this headline">¶</a></h3>
+<p><font id="172">{{s.172}}</font><font id="173">{{s.173}}</font><font id="174">{{s.174}}</font><font id="175">{{s.175}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">'foo'</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">'bar'</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">file</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">(</span><span class="s">'2 temp.txt'</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+<span class="go">Namespace(bar=&lt;open file 'temp.txt', mode 'r' at 0x...&gt;, foo=2)</span>
+</pre></div>
+</div>
+<p><font id="176">{{s.176}}</font></p>
+<p><font id="177">{{s.177}}</font><font id="178">{{s.178}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">'bar'</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="n">argparse</span><span class="o">.</span><span class="n">FileType</span><span class="p">(</span><span class="s">'w'</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">([</span><span class="s">'out.txt'</span><span class="p">])</span>
+<span class="go">Namespace(bar=&lt;open file 'out.txt', mode 'w' at 0x...&gt;)</span>
+</pre></div>
+</div>
+<p><font id="179">{{s.179}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">perfect_square</span><span class="p">(</span><span class="n">string</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="n">value</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">string</span><span class="p">)</span>
+<span class="gp">... </span>    <span class="n">sqrt</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+<span class="gp">... </span>    <span class="k">if</span> <span class="n">sqrt</span> <span class="o">!=</span> <span class="nb">int</span><span class="p">(</span><span class="n">sqrt</span><span class="p">):</span>
+<span class="gp">... </span>        <span class="n">msg</span> <span class="o">=</span> <span class="s">"</span><span class="si">%r</span><span class="s"> is not a perfect square"</span> <span class="o">%</span> <span class="n">string</span>
+<span class="gp">... </span>        <span class="k">raise</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentTypeError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+<span class="gp">... </span>    <span class="k">return</span> <span class="n">value</span>
+<span class="gp">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">prog</span><span class="o">=</span><span class="s">'PROG'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">'foo'</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="n">perfect_square</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">(</span><span class="s">'9'</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+<span class="go">Namespace(foo=9)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">(</span><span class="s">'7'</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+<span class="go">usage: PROG [-h] foo</span>
+<span class="go">PROG: error: argument foo: '7' is not a perfect square</span>
+</pre></div>
+</div>
+<p><font id="180">{{s.180}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">prog</span><span class="o">=</span><span class="s">'PROG'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">'foo'</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">choices</span><span class="o">=</span><span class="nb">xrange</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">(</span><span class="s">'7'</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+<span class="go">Namespace(foo=7)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">(</span><span class="s">'11'</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+<span class="go">usage: PROG [-h] {5,6,7,8,9}</span>
+<span class="go">PROG: error: argument foo: invalid choice: 11 (choose from 5, 6, 7, 8, 9)</span>
+</pre></div>
+</div>
+<p><font id="181">{{s.181}}</font></p>
+</div>
+<div class="section" id="choices">
+<h3><font id="341">{{s.341}}</font><a class="headerlink" href="#choices" title="Permalink to this headline">¶</a></h3>
+<p><font id="182">{{s.182}}</font><font id="183">{{s.183}}</font><font id="184">{{s.184}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">prog</span><span class="o">=</span><span class="s">'game.py'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">'move'</span><span class="p">,</span> <span class="n">choices</span><span class="o">=</span><span class="p">[</span><span class="s">'rock'</span><span class="p">,</span> <span class="s">'paper'</span><span class="p">,</span> <span class="s">'scissors'</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">([</span><span class="s">'rock'</span><span class="p">])</span>
+<span class="go">Namespace(move='rock')</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">([</span><span class="s">'fire'</span><span class="p">])</span>
+<span class="go">usage: game.py [-h] {rock,paper,scissors}</span>
+<span class="go">game.py: error: argument move: invalid choice: 'fire' (choose from 'rock',</span>
+<span class="go">'paper', 'scissors')</span>
+</pre></div>
+</div>
+<p><font id="185">{{s.185}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">prog</span><span class="o">=</span><span class="s">'doors.py'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">'door'</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">choices</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">([</span><span class="s">'3'</span><span class="p">]))</span>
+<span class="go">Namespace(door=3)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">([</span><span class="s">'4'</span><span class="p">])</span>
+<span class="go">usage: doors.py [-h] {1,2,3}</span>
+<span class="go">doors.py: error: argument door: invalid choice: 4 (choose from 1, 2, 3)</span>
+</pre></div>
+</div>
+<p><font id="186">{{s.186}}</font></p>
+</div>
+<div class="section" id="required">
+<h3><font id="342">{{s.342}}</font><a class="headerlink" href="#required" title="Permalink to this headline">¶</a></h3>
+<p><font id="187">{{s.187}}</font><font id="188">{{s.188}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">'--foo'</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">([</span><span class="s">'--foo'</span><span class="p">,</span> <span class="s">'BAR'</span><span class="p">])</span>
+<span class="go">Namespace(foo='BAR')</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">([])</span>
+<span class="go">usage: argparse.py [-h] [--foo FOO]</span>
+<span class="go">argparse.py: error: option --foo is required</span>
+</pre></div>
+</div>
+<p><font id="189">{{s.189}}</font></p>
+<div class="admonition note">
+<p class="first admonition-title"><font id="190">{{s.190}}</font></p>
+<p class="last"><font id="191">{{s.191}}</font></p>
+</div>
+</div>
+<div class="section" id="help">
+<h3><font id="343">{{s.343}}</font><a class="headerlink" href="#help" title="Permalink to this headline">¶</a></h3>
+<p><font id="192">{{s.192}}</font><font id="193">{{s.193}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">prog</span><span class="o">=</span><span class="s">'frobble'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">'--foo'</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s">'store_true'</span><span class="p">,</span>
+<span class="gp">... </span>        <span class="n">help</span><span class="o">=</span><span class="s">'foo the bars before frobbling'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">'bar'</span><span class="p">,</span> <span class="n">nargs</span><span class="o">=</span><span class="s">'+'</span><span class="p">,</span>
+<span class="gp">... </span>        <span class="n">help</span><span class="o">=</span><span class="s">'one of the bars to be frobbled'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">(</span><span class="s">'-h'</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+<span class="go">usage: frobble [-h] [--foo] bar [bar ...]</span>
+
+<span class="go">positional arguments:</span>
+<span class="go"> bar     one of the bars to be frobbled</span>
+
+<span class="go">optional arguments:</span>
+<span class="go"> -h, --help  show this help message and exit</span>
+<span class="go"> --foo   foo the bars before frobbling</span>
+</pre></div>
+</div>
+<p><font id="194">{{s.194}}</font><font id="195">{{s.195}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">prog</span><span class="o">=</span><span class="s">'frobble'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">'bar'</span><span class="p">,</span> <span class="n">nargs</span><span class="o">=</span><span class="s">'?'</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span>
+<span class="gp">... </span>        <span class="n">help</span><span class="o">=</span><span class="s">'the bar to </span><span class="si">%(prog)s</span><span class="s"> (default: </span><span class="si">%(default)s</span><span class="s">)'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">print_help</span><span class="p">()</span>
+<span class="go">usage: frobble [-h] [bar]</span>
+
+<span class="go">positional arguments:</span>
+<span class="go"> bar     the bar to frobble (default: 42)</span>
+
+<span class="go">optional arguments:</span>
+<span class="go"> -h, --help  show this help message and exit</span>
+</pre></div>
+</div>
+<p><font id="196">{{s.196}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">prog</span><span class="o">=</span><span class="s">'frobble'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">'--foo'</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="n">argparse</span><span class="o">.</span><span class="n">SUPPRESS</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">print_help</span><span class="p">()</span>
+<span class="go">usage: frobble [-h]</span>
+
+<span class="go">optional arguments:</span>
+<span class="go">  -h, --help  show this help message and exit</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="metavar">
+<h3><font id="344">{{s.344}}</font><a class="headerlink" href="#metavar" title="Permalink to this headline">¶</a></h3>
+<p><font id="198">{{s.198}}</font><font id="199">{{s.199}}</font><font id="200">{{s.200}}</font><font id="201">{{s.201}}</font><font id="202">{{s.202}}</font><font id="203">{{s.203}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">'--foo'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">'bar'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">(</span><span class="s">'X --foo Y'</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+<span class="go">Namespace(bar='X', foo='Y')</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">print_help</span><span class="p">()</span>
+<span class="go">usage:  [-h] [--foo FOO] bar</span>
+
+<span class="go">positional arguments:</span>
+<span class="go"> bar</span>
+
+<span class="go">optional arguments:</span>
+<span class="go"> -h, --help  show this help message and exit</span>
+<span class="go"> --foo FOO</span>
+</pre></div>
+</div>
+<p><font id="204">{{s.204}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">'--foo'</span><span class="p">,</span> <span class="n">metavar</span><span class="o">=</span><span class="s">'YYY'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">'bar'</span><span class="p">,</span> <span class="n">metavar</span><span class="o">=</span><span class="s">'XXX'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">(</span><span class="s">'X --foo Y'</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+<span class="go">Namespace(bar='X', foo='Y')</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">print_help</span><span class="p">()</span>
+<span class="go">usage:  [-h] [--foo YYY] XXX</span>
+
+<span class="go">positional arguments:</span>
+<span class="go"> XXX</span>
+
+<span class="go">optional arguments:</span>
+<span class="go"> -h, --help  show this help message and exit</span>
+<span class="go"> --foo YYY</span>
+</pre></div>
+</div>
+<p><font id="205">{{s.205}}</font></p>
+<p><font id="206">{{s.206}}</font><font id="207">{{s.207}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">prog</span><span class="o">=</span><span class="s">'PROG'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">'-x'</span><span class="p">,</span> <span class="n">nargs</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">'--foo'</span><span class="p">,</span> <span class="n">nargs</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">metavar</span><span class="o">=</span><span class="p">(</span><span class="s">'bar'</span><span class="p">,</span> <span class="s">'baz'</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">print_help</span><span class="p">()</span>
+<span class="go">usage: PROG [-h] [-x X X] [--foo bar baz]</span>
+
+<span class="go">optional arguments:</span>
+<span class="go"> -h, --help     show this help message and exit</span>
+<span class="go"> -x X X</span>
+<span class="go"> --foo bar baz</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="dest">
+<h3><font id="345">{{s.345}}</font><a class="headerlink" href="#dest" title="Permalink to this headline">¶</a></h3>
+<p><font id="208">{{s.208}}</font><font id="209">{{s.209}}</font><font id="210">{{s.210}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">'bar'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">(</span><span class="s">'XXX'</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+<span class="go">Namespace(bar='XXX')</span>
+</pre></div>
+</div>
+<p><font id="211">{{s.211}}</font><font id="212">{{s.212}}</font><font id="213">{{s.213}}</font><font id="214">{{s.214}}</font><font id="215">{{s.215}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">'-f'</span><span class="p">,</span> <span class="s">'--foo-bar'</span><span class="p">,</span> <span class="s">'--foo'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">'-x'</span><span class="p">,</span> <span class="s">'-y'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">(</span><span class="s">'-f 1 -x 2'</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+<span class="go">Namespace(foo_bar='1', x='2')</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">(</span><span class="s">'--foo 1 -y 2'</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+<span class="go">Namespace(foo_bar='1', x='2')</span>
+</pre></div>
+</div>
+<p><font id="216">{{s.216}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">'--foo'</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="s">'bar'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">(</span><span class="s">'--foo XXX'</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+<span class="go">Namespace(bar='XXX')</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="the-parse-args-method">
+<h2><font id="317">{{s.317}}</font><a class="headerlink" href="#the-parse-args-method" title="Permalink to this headline">¶</a></h2>
+<dl class="method">
+<dt id="argparse.ArgumentParser.parse_args">
+<tt class="descclassname">ArgumentParser.</tt><tt class="descname">parse_args</tt><big>(</big><em>args=None</em>, <em>namespace=None</em><big>)</big><a class="headerlink" href="#argparse.ArgumentParser.parse_args" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="217">{{s.217}}</font><font id="218">{{s.218}}</font></p>
+<p><font id="219">{{s.219}}</font><font id="220">{{s.220}}</font></p>
+<p><font id="221">{{s.221}}</font></p>
+</dd></dl>
+<div class="section" id="option-value-syntax">
+<h3><font id="346">{{s.346}}</font><a class="headerlink" href="#option-value-syntax" title="Permalink to this headline">¶</a></h3>
+<p><font id="222">{{s.222}}</font><font id="223">{{s.223}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">prog</span><span class="o">=</span><span class="s">'PROG'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">'-x'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">'--foo'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">(</span><span class="s">'-x X'</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+<span class="go">Namespace(foo=None, x='X')</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">(</span><span class="s">'--foo FOO'</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+<span class="go">Namespace(foo='FOO', x=None)</span>
+</pre></div>
+</div>
+<p><font id="224">{{s.224}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">(</span><span class="s">'--foo=FOO'</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+<span class="go">Namespace(foo='FOO', x=None)</span>
+</pre></div>
+</div>
+<p><font id="225">{{s.225}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">(</span><span class="s">'-xX'</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+<span class="go">Namespace(foo=None, x='X')</span>
+</pre></div>
+</div>
+<p><font id="226">{{s.226}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">prog</span><span class="o">=</span><span class="s">'PROG'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">'-x'</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s">'store_true'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">'-y'</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s">'store_true'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">'-z'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">(</span><span class="s">'-xyzZ'</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+<span class="go">Namespace(x=True, y=True, z='Z')</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="invalid-arguments">
+<h3><font id="347">{{s.347}}</font><a class="headerlink" href="#invalid-arguments" title="Permalink to this headline">¶</a></h3>
+<p><font id="227">{{s.227}}</font><font id="228">{{s.228}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">prog</span><span class="o">=</span><span class="s">'PROG'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">'--foo'</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">'bar'</span><span class="p">,</span> <span class="n">nargs</span><span class="o">=</span><span class="s">'?'</span><span class="p">)</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="c"># invalid type</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">([</span><span class="s">'--foo'</span><span class="p">,</span> <span class="s">'spam'</span><span class="p">])</span>
+<span class="go">usage: PROG [-h] [--foo FOO] [bar]</span>
+<span class="go">PROG: error: argument --foo: invalid int value: 'spam'</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="c"># invalid option</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">([</span><span class="s">'--bar'</span><span class="p">])</span>
+<span class="go">usage: PROG [-h] [--foo FOO] [bar]</span>
+<span class="go">PROG: error: no such option: --bar</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="c"># wrong number of arguments</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">([</span><span class="s">'spam'</span><span class="p">,</span> <span class="s">'badger'</span><span class="p">])</span>
+<span class="go">usage: PROG [-h] [--foo FOO] [bar]</span>
+<span class="go">PROG: error: extra arguments found: badger</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="arguments-containing">
+<h3><font id="348">{{s.348}}</font><tt class="docutils literal"><span class="pre">-</span></tt></h3>
+<p><font id="229">{{s.229}}</font><font id="230">{{s.230}}</font><font id="231">{{s.231}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">prog</span><span class="o">=</span><span class="s">'PROG'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">'-x'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">'foo'</span><span class="p">,</span> <span class="n">nargs</span><span class="o">=</span><span class="s">'?'</span><span class="p">)</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="c"># no negative number options, so -1 is a positional argument</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">([</span><span class="s">'-x'</span><span class="p">,</span> <span class="s">'-1'</span><span class="p">])</span>
+<span class="go">Namespace(foo=None, x='-1')</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="c"># no negative number options, so -1 and -5 are positional arguments</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">([</span><span class="s">'-x'</span><span class="p">,</span> <span class="s">'-1'</span><span class="p">,</span> <span class="s">'-5'</span><span class="p">])</span>
+<span class="go">Namespace(foo='-5', x='-1')</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">prog</span><span class="o">=</span><span class="s">'PROG'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">'-1'</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="s">'one'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">'foo'</span><span class="p">,</span> <span class="n">nargs</span><span class="o">=</span><span class="s">'?'</span><span class="p">)</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="c"># negative number options present, so -1 is an option</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">([</span><span class="s">'-1'</span><span class="p">,</span> <span class="s">'X'</span><span class="p">])</span>
+<span class="go">Namespace(foo=None, one='X')</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="c"># negative number options present, so -2 is an option</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">([</span><span class="s">'-2'</span><span class="p">])</span>
+<span class="go">usage: PROG [-h] [-1 ONE] [foo]</span>
+<span class="go">PROG: error: no such option: -2</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="c"># negative number options present, so both -1s are options</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">([</span><span class="s">'-1'</span><span class="p">,</span> <span class="s">'-1'</span><span class="p">])</span>
+<span class="go">usage: PROG [-h] [-1 ONE] [foo]</span>
+<span class="go">PROG: error: argument -1: expected one argument</span>
+</pre></div>
+</div>
+<p><font id="232">{{s.232}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">([</span><span class="s">'--'</span><span class="p">,</span> <span class="s">'-f'</span><span class="p">])</span>
+<span class="go">Namespace(foo='-f', one=None)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="argument-abbreviations-prefix-matching">
+<span id="prefix-matching"></span><h3><font id="349">{{s.349}}</font><a class="headerlink" href="#argument-abbreviations-prefix-matching" title="Permalink to this headline">¶</a></h3>
+<p><font id="233">{{s.233}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">prog</span><span class="o">=</span><span class="s">'PROG'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">'-bacon'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">'-badger'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">(</span><span class="s">'-bac MMM'</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+<span class="go">Namespace(bacon='MMM', badger=None)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">(</span><span class="s">'-bad WOOD'</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+<span class="go">Namespace(bacon=None, badger='WOOD')</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">(</span><span class="s">'-ba BA'</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+<span class="go">usage: PROG [-h] [-bacon BACON] [-badger BADGER]</span>
+<span class="go">PROG: error: ambiguous option: -ba could match -badger, -bacon</span>
+</pre></div>
+</div>
+<p><font id="234">{{s.234}}</font></p>
+</div>
+<div class="section" id="beyond-sys-argv">
+<h3><font id="350">{{s.350}}</font><tt class="docutils literal"><span class="pre">sys.argv</span></tt></h3>
+<p><font id="235">{{s.235}}</font><font id="236">{{s.236}}</font><font id="237">{{s.237}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="s">'integers'</span><span class="p">,</span> <span class="n">metavar</span><span class="o">=</span><span class="s">'int'</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">choices</span><span class="o">=</span><span class="nb">xrange</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span>
+<span class="gp">... </span> <span class="n">nargs</span><span class="o">=</span><span class="s">'+'</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s">'an integer in the range 0..9'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="s">'--sum'</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="s">'accumulate'</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s">'store_const'</span><span class="p">,</span> <span class="n">const</span><span class="o">=</span><span class="nb">sum</span><span class="p">,</span>
+<span class="gp">... </span>  <span class="n">default</span><span class="o">=</span><span class="nb">max</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s">'sum the integers (default: find the max)'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">([</span><span class="s">'1'</span><span class="p">,</span> <span class="s">'2'</span><span class="p">,</span> <span class="s">'3'</span><span class="p">,</span> <span class="s">'4'</span><span class="p">])</span>
+<span class="go">Namespace(accumulate=&lt;built-in function max&gt;, integers=[1, 2, 3, 4])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">(</span><span class="s">'1 2 3 4 --sum'</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+<span class="go">Namespace(accumulate=&lt;built-in function sum&gt;, integers=[1, 2, 3, 4])</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="the-namespace-object">
+<h3><font id="351">{{s.351}}</font><a class="headerlink" href="#the-namespace-object" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="argparse.Namespace">
+<em class="property">class </em><tt class="descclassname">argparse.</tt><tt class="descname">Namespace</tt><a class="headerlink" href="#argparse.Namespace" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="238">{{s.238}}</font></p>
+</dd></dl>
+<p><font id="239">{{s.239}}</font><font id="240">{{s.240}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">'--foo'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">([</span><span class="s">'--foo'</span><span class="p">,</span> <span class="s">'BAR'</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">vars</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
+<span class="go">{'foo': 'BAR'}</span>
+</pre></div>
+</div>
+<p><font id="241">{{s.241}}</font><font id="242">{{s.242}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">class</span> <span class="nc">C</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="k">pass</span>
+<span class="gp">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">c</span> <span class="o">=</span> <span class="n">C</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">'--foo'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">(</span><span class="n">args</span><span class="o">=</span><span class="p">[</span><span class="s">'--foo'</span><span class="p">,</span> <span class="s">'BAR'</span><span class="p">],</span> <span class="n">namespace</span><span class="o">=</span><span class="n">c</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">c</span><span class="o">.</span><span class="n">foo</span>
+<span class="go">'BAR'</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="other-utilities">
+<h2><font id="318">{{s.318}}</font><a class="headerlink" href="#other-utilities" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="sub-commands">
+<h3><font id="352">{{s.352}}</font><a class="headerlink" href="#sub-commands" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="argparse.ArgumentParser.add_subparsers">
+<tt class="descclassname">ArgumentParser.</tt><tt class="descname">add_subparsers</tt><big>(</big><span class="optional">[</span><em>title</em><span class="optional">]</span><span class="optional">[</span>, <em>description</em><span class="optional">]</span><span class="optional">[</span>, <em>prog</em><span class="optional">]</span><span class="optional">[</span>, <em>parser_class</em><span class="optional">]</span><span class="optional">[</span>, <em>action</em><span class="optional">]</span><span class="optional">[</span>, <em>option_string</em><span class="optional">]</span><span class="optional">[</span>, <em>dest</em><span class="optional">]</span><span class="optional">[</span>, <em>help</em><span class="optional">]</span><span class="optional">[</span>, <em>metavar</em><span class="optional">]</span><big>)</big><a class="headerlink" href="#argparse.ArgumentParser.add_subparsers" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="243">{{s.243}}</font><font id="244">{{s.244}}</font><font id="245">{{s.245}}</font><font id="246">{{s.246}}</font><font id="247">{{s.247}}</font></p>
+<p><font id="248">{{s.248}}</font></p>
+<ul class="simple">
+<li>title - <font id="485">{{s.485}}</font></li>
+<li>description - <font id="486">{{s.486}}</font></li>
+<li>prog - <font id="487">{{s.487}}</font></li>
+<li>parser_class - <font id="488">{{s.488}}</font></li>
+<li>dest - <font id="489">{{s.489}}</font></li>
+<li>help - <font id="490">{{s.490}}</font></li>
+<li>metavar - <font id="491">{{s.491}}</font></li>
+</ul>
+<p><font id="249">{{s.249}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="c"># create the top-level parser</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">prog</span><span class="o">=</span><span class="s">'PROG'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">'--foo'</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s">'store_true'</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s">'foo help'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">subparsers</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">add_subparsers</span><span class="p">(</span><span class="n">help</span><span class="o">=</span><span class="s">'sub-command help'</span><span class="p">)</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c"># create the parser for the "a" command</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser_a</span> <span class="o">=</span> <span class="n">subparsers</span><span class="o">.</span><span class="n">add_parser</span><span class="p">(</span><span class="s">'a'</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s">'a help'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser_a</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">'bar'</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s">'bar help'</span><span class="p">)</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c"># create the parser for the "b" command</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser_b</span> <span class="o">=</span> <span class="n">subparsers</span><span class="o">.</span><span class="n">add_parser</span><span class="p">(</span><span class="s">'b'</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s">'b help'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser_b</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">'--baz'</span><span class="p">,</span> <span class="n">choices</span><span class="o">=</span><span class="s">'XYZ'</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s">'baz help'</span><span class="p">)</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c"># parse some argument lists</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">([</span><span class="s">'a'</span><span class="p">,</span> <span class="s">'12'</span><span class="p">])</span>
+<span class="go">Namespace(bar=12, foo=False)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">([</span><span class="s">'--foo'</span><span class="p">,</span> <span class="s">'b'</span><span class="p">,</span> <span class="s">'--baz'</span><span class="p">,</span> <span class="s">'Z'</span><span class="p">])</span>
+<span class="go">Namespace(baz='Z', foo=True)</span>
+</pre></div>
+</div>
+<p><font id="250">{{s.250}}</font><font id="251">{{s.251}}</font></p>
+<p><font id="252">{{s.252}}</font><font id="253">{{s.253}}</font><font id="254">{{s.254}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">([</span><span class="s">'--help'</span><span class="p">])</span>
+<span class="go">usage: PROG [-h] [--foo] {a,b} ...</span>
+
+<span class="go">positional arguments:</span>
+<span class="go">  {a,b}   sub-command help</span>
+<span class="go">    a     a help</span>
+<span class="go">    b     b help</span>
+
+<span class="go">optional arguments:</span>
+<span class="go">  -h, --help  show this help message and exit</span>
+<span class="go">  --foo   foo help</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">([</span><span class="s">'a'</span><span class="p">,</span> <span class="s">'--help'</span><span class="p">])</span>
+<span class="go">usage: PROG a [-h] bar</span>
+
+<span class="go">positional arguments:</span>
+<span class="go">  bar     bar help</span>
+
+<span class="go">optional arguments:</span>
+<span class="go">  -h, --help  show this help message and exit</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">([</span><span class="s">'b'</span><span class="p">,</span> <span class="s">'--help'</span><span class="p">])</span>
+<span class="go">usage: PROG b [-h] [--baz {X,Y,Z}]</span>
+
+<span class="go">optional arguments:</span>
+<span class="go">  -h, --help     show this help message and exit</span>
+<span class="go">  --baz {X,Y,Z}  baz help</span>
+</pre></div>
+</div>
+<p><font id="255">{{s.255}}</font><font id="256">{{s.256}}</font><font id="257">{{s.257}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">subparsers</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">add_subparsers</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s">'subcommands'</span><span class="p">,</span>
+<span class="gp">... </span>                                   <span class="n">description</span><span class="o">=</span><span class="s">'valid subcommands'</span><span class="p">,</span>
+<span class="gp">... </span>                                   <span class="n">help</span><span class="o">=</span><span class="s">'additional help'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">subparsers</span><span class="o">.</span><span class="n">add_parser</span><span class="p">(</span><span class="s">'foo'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">subparsers</span><span class="o">.</span><span class="n">add_parser</span><span class="p">(</span><span class="s">'bar'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">([</span><span class="s">'-h'</span><span class="p">])</span>
+<span class="go">usage:  [-h] {foo,bar} ...</span>
+
+<span class="go">optional arguments:</span>
+<span class="go">  -h, --help  show this help message and exit</span>
+
+<span class="go">subcommands:</span>
+<span class="go">  valid subcommands</span>
+
+<span class="go">  {foo,bar}   additional help</span>
+</pre></div>
+</div>
+<p><font id="258">{{s.258}}</font><font id="259">{{s.259}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="c"># sub-command functions</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">foo</span><span class="p">(</span><span class="n">args</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="k">print</span> <span class="n">args</span><span class="o">.</span><span class="n">x</span> <span class="o">*</span> <span class="n">args</span><span class="o">.</span><span class="n">y</span>
+<span class="gp">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">bar</span><span class="p">(</span><span class="n">args</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="k">print</span> <span class="s">'((</span><span class="si">%s</span><span class="s">))'</span> <span class="o">%</span> <span class="n">args</span><span class="o">.</span><span class="n">z</span>
+<span class="gp">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c"># create the top-level parser</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">subparsers</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">add_subparsers</span><span class="p">()</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c"># create the parser for the "foo" command</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser_foo</span> <span class="o">=</span> <span class="n">subparsers</span><span class="o">.</span><span class="n">add_parser</span><span class="p">(</span><span class="s">'foo'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser_foo</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">'-x'</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser_foo</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">'y'</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser_foo</span><span class="o">.</span><span class="n">set_defaults</span><span class="p">(</span><span class="n">func</span><span class="o">=</span><span class="n">foo</span><span class="p">)</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c"># create the parser for the "bar" command</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser_bar</span> <span class="o">=</span> <span class="n">subparsers</span><span class="o">.</span><span class="n">add_parser</span><span class="p">(</span><span class="s">'bar'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser_bar</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">'z'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser_bar</span><span class="o">.</span><span class="n">set_defaults</span><span class="p">(</span><span class="n">func</span><span class="o">=</span><span class="n">bar</span><span class="p">)</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c"># parse the args and call whatever function was selected</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">(</span><span class="s">'foo 1 -x 2'</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">args</span><span class="o">.</span><span class="n">func</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
+<span class="go">2.0</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c"># parse the args and call whatever function was selected</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">(</span><span class="s">'bar XYZYX'</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">args</span><span class="o">.</span><span class="n">func</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
+<span class="go">((XYZYX))</span>
+</pre></div>
+</div>
+<p><font id="260">{{s.260}}</font><font id="261">{{s.261}}</font><font id="262">{{s.262}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">subparsers</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">add_subparsers</span><span class="p">(</span><span class="n">dest</span><span class="o">=</span><span class="s">'subparser_name'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">subparser1</span> <span class="o">=</span> <span class="n">subparsers</span><span class="o">.</span><span class="n">add_parser</span><span class="p">(</span><span class="s">'1'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">subparser1</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">'-x'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">subparser2</span> <span class="o">=</span> <span class="n">subparsers</span><span class="o">.</span><span class="n">add_parser</span><span class="p">(</span><span class="s">'2'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">subparser2</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">'y'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">([</span><span class="s">'2'</span><span class="p">,</span> <span class="s">'frobble'</span><span class="p">])</span>
+<span class="go">Namespace(subparser_name='2', y='frobble')</span>
+</pre></div>
+</div>
+</dd></dl>
+</div>
+<div class="section" id="filetype-objects">
+<h3><font id="353">{{s.353}}</font><a class="headerlink" href="#filetype-objects" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="argparse.FileType">
+<em class="property">class </em><tt class="descclassname">argparse.</tt><tt class="descname">FileType</tt><big>(</big><em>mode='r'</em>, <em>bufsize=None</em><big>)</big><a class="headerlink" href="#argparse.FileType" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="263">{{s.263}}</font><font id="264">{{s.264}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">'--output'</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="n">argparse</span><span class="o">.</span><span class="n">FileType</span><span class="p">(</span><span class="s">'wb'</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">([</span><span class="s">'--output'</span><span class="p">,</span> <span class="s">'out'</span><span class="p">])</span>
+<span class="go">Namespace(output=&lt;open file 'out', mode 'wb' at 0x...&gt;)</span>
+</pre></div>
+</div>
+<p><font id="265">{{s.265}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">'infile'</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="n">argparse</span><span class="o">.</span><span class="n">FileType</span><span class="p">(</span><span class="s">'r'</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">([</span><span class="s">'-'</span><span class="p">])</span>
+<span class="go">Namespace(infile=&lt;open file '&lt;stdin&gt;', mode 'r' at 0x...&gt;)</span>
+</pre></div>
+</div>
+</dd></dl>
+</div>
+<div class="section" id="argument-groups">
+<h3><font id="354">{{s.354}}</font><a class="headerlink" href="#argument-groups" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="argparse.ArgumentParser.add_argument_group">
+<tt class="descclassname">ArgumentParser.</tt><tt class="descname">add_argument_group</tt><big>(</big><em>title=None</em>, <em>description=None</em><big>)</big><a class="headerlink" href="#argparse.ArgumentParser.add_argument_group" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="266">{{s.266}}</font><font id="267">{{s.267}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">prog</span><span class="o">=</span><span class="s">'PROG'</span><span class="p">,</span> <span class="n">add_help</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">group</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">add_argument_group</span><span class="p">(</span><span class="s">'group'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">group</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">'--foo'</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s">'foo help'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">group</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">'bar'</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s">'bar help'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">print_help</span><span class="p">()</span>
+<span class="go">usage: PROG [--foo FOO] bar</span>
+
+<span class="go">group:</span>
+<span class="go">  bar    bar help</span>
+<span class="go">  --foo FOO  foo help</span>
+</pre></div>
+</div>
+<p><font id="268">{{s.268}}</font><font id="269">{{s.269}}</font><font id="270">{{s.270}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">prog</span><span class="o">=</span><span class="s">'PROG'</span><span class="p">,</span> <span class="n">add_help</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">group1</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">add_argument_group</span><span class="p">(</span><span class="s">'group1'</span><span class="p">,</span> <span class="s">'group1 description'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">group1</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">'foo'</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s">'foo help'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">group2</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">add_argument_group</span><span class="p">(</span><span class="s">'group2'</span><span class="p">,</span> <span class="s">'group2 description'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">group2</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">'--bar'</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s">'bar help'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">print_help</span><span class="p">()</span>
+<span class="go">usage: PROG [--bar BAR] foo</span>
+
+<span class="go">group1:</span>
+<span class="go">  group1 description</span>
+
+<span class="go">  foo    foo help</span>
+
+<span class="go">group2:</span>
+<span class="go">  group2 description</span>
+
+<span class="go">  --bar BAR  bar help</span>
+</pre></div>
+</div>
+<p><font id="271">{{s.271}}</font></p>
+</dd></dl>
+</div>
+<div class="section" id="mutual-exclusion">
+<h3><font id="355">{{s.355}}</font><a class="headerlink" href="#mutual-exclusion" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="argparse.ArgumentParser.add_mutually_exclusive_group">
+<tt class="descclassname">ArgumentParser.</tt><tt class="descname">add_mutually_exclusive_group</tt><big>(</big><em>required=False</em><big>)</big><a class="headerlink" href="#argparse.ArgumentParser.add_mutually_exclusive_group" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="272">{{s.272}}</font><font id="273">{{s.273}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">prog</span><span class="o">=</span><span class="s">'PROG'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">group</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">add_mutually_exclusive_group</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">group</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">'--foo'</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s">'store_true'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">group</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">'--bar'</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s">'store_false'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">([</span><span class="s">'--foo'</span><span class="p">])</span>
+<span class="go">Namespace(bar=True, foo=True)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">([</span><span class="s">'--bar'</span><span class="p">])</span>
+<span class="go">Namespace(bar=False, foo=False)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">([</span><span class="s">'--foo'</span><span class="p">,</span> <span class="s">'--bar'</span><span class="p">])</span>
+<span class="go">usage: PROG [-h] [--foo | --bar]</span>
+<span class="go">PROG: error: argument --bar: not allowed with argument --foo</span>
+</pre></div>
+</div>
+<p><font id="274">{{s.274}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">prog</span><span class="o">=</span><span class="s">'PROG'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">group</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">add_mutually_exclusive_group</span><span class="p">(</span><span class="n">required</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">group</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">'--foo'</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s">'store_true'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">group</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">'--bar'</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s">'store_false'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">([])</span>
+<span class="go">usage: PROG [-h] (--foo | --bar)</span>
+<span class="go">PROG: error: one of the arguments --foo --bar is required</span>
+</pre></div>
+</div>
+<p><font id="275">{{s.275}}</font></p>
+</dd></dl>
+</div>
+<div class="section" id="parser-defaults">
+<h3><font id="356">{{s.356}}</font><a class="headerlink" href="#parser-defaults" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="argparse.ArgumentParser.set_defaults">
+<tt class="descclassname">ArgumentParser.</tt><tt class="descname">set_defaults</tt><big>(</big><em>**kwargs</em><big>)</big><a class="headerlink" href="#argparse.ArgumentParser.set_defaults" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="276">{{s.276}}</font><font id="277">{{s.277}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">'foo'</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">set_defaults</span><span class="p">(</span><span class="n">bar</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span> <span class="n">baz</span><span class="o">=</span><span class="s">'badger'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">([</span><span class="s">'736'</span><span class="p">])</span>
+<span class="go">Namespace(bar=42, baz='badger', foo=736)</span>
+</pre></div>
+</div>
+<p><font id="278">{{s.278}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">'--foo'</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s">'bar'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">set_defaults</span><span class="p">(</span><span class="n">foo</span><span class="o">=</span><span class="s">'spam'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">([])</span>
+<span class="go">Namespace(foo='spam')</span>
+</pre></div>
+</div>
+<p><font id="279">{{s.279}}</font><font id="280">{{s.280}}</font></p>
+</dd></dl>
+<dl class="method">
+<dt id="argparse.ArgumentParser.get_default">
+<tt class="descclassname">ArgumentParser.</tt><tt class="descname">get_default</tt><big>(</big><em>dest</em><big>)</big><a class="headerlink" href="#argparse.ArgumentParser.get_default" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="281">{{s.281}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">'--foo'</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s">'badger'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">get_default</span><span class="p">(</span><span class="s">'foo'</span><span class="p">)</span>
+<span class="go">'badger'</span>
+</pre></div>
+</div>
+</dd></dl>
+</div>
+<div class="section" id="printing-help">
+<h3><font id="357">{{s.357}}</font><a class="headerlink" href="#printing-help" title="Permalink to this headline">¶</a></h3>
+<p><font id="282">{{s.282}}</font><font id="283">{{s.283}}</font></p>
+<dl class="method">
+<dt id="argparse.ArgumentParser.print_usage">
+<tt class="descclassname">ArgumentParser.</tt><tt class="descname">print_usage</tt><big>(</big><em>file=None</em><big>)</big><a class="headerlink" href="#argparse.ArgumentParser.print_usage" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="284">{{s.284}}</font><font id="285">{{s.285}}</font></p>
+</dd></dl>
+<dl class="method">
+<dt id="argparse.ArgumentParser.print_help">
+<tt class="descclassname">ArgumentParser.</tt><tt class="descname">print_help</tt><big>(</big><em>file=None</em><big>)</big><a class="headerlink" href="#argparse.ArgumentParser.print_help" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="286">{{s.286}}</font><font id="287">{{s.287}}</font></p>
+</dd></dl>
+<p><font id="288">{{s.288}}</font></p>
+<dl class="method">
+<dt id="argparse.ArgumentParser.format_usage">
+<tt class="descclassname">ArgumentParser.</tt><tt class="descname">format_usage</tt><big>(</big><big>)</big><a class="headerlink" href="#argparse.ArgumentParser.format_usage" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="289">{{s.289}}</font></p>
+</dd></dl>
+<dl class="method">
+<dt id="argparse.ArgumentParser.format_help">
+<tt class="descclassname">ArgumentParser.</tt><tt class="descname">format_help</tt><big>(</big><big>)</big><a class="headerlink" href="#argparse.ArgumentParser.format_help" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="290">{{s.290}}</font></p>
+</dd></dl>
+</div>
+<div class="section" id="partial-parsing">
+<h3><font id="358">{{s.358}}</font><a class="headerlink" href="#partial-parsing" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="argparse.ArgumentParser.parse_known_args">
+<tt class="descclassname">ArgumentParser.</tt><tt class="descname">parse_known_args</tt><big>(</big><em>args=None</em>, <em>namespace=None</em><big>)</big><a class="headerlink" href="#argparse.ArgumentParser.parse_known_args" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+<p><font id="291">{{s.291}}</font><font id="292">{{s.292}}</font><font id="293">{{s.293}}</font><font id="294">{{s.294}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">'--foo'</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s">'store_true'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">'bar'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">parse_known_args</span><span class="p">([</span><span class="s">'--foo'</span><span class="p">,</span> <span class="s">'--badger'</span><span class="p">,</span> <span class="s">'BAR'</span><span class="p">,</span> <span class="s">'spam'</span><span class="p">])</span>
+<span class="go">(Namespace(bar='BAR', foo=True), ['--badger', 'spam'])</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title"><font id="295">{{s.295}}</font></p>
+<p class="last"><font id="296">{{s.296}}</font><font id="297">{{s.297}}</font></p>
+</div>
+</div>
+<div class="section" id="customizing-file-parsing">
+<h3><font id="359">{{s.359}}</font><a class="headerlink" href="#customizing-file-parsing" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="argparse.ArgumentParser.convert_arg_line_to_args">
+<tt class="descclassname">ArgumentParser.</tt><tt class="descname">convert_arg_line_to_args</tt><big>(</big><em>arg_line</em><big>)</big><a class="headerlink" href="#argparse.ArgumentParser.convert_arg_line_to_args" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="298">{{s.298}}</font><font id="299">{{s.299}}</font></p>
+<p><font id="300">{{s.300}}</font><font id="301">{{s.301}}</font><font id="302">{{s.302}}</font></p>
+<p><font id="303">{{s.303}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">convert_arg_line_to_args</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">arg_line</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">arg</span> <span class="ow">in</span> <span class="n">arg_line</span><span class="o">.</span><span class="n">split</span><span class="p">():</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">arg</span><span class="o">.</span><span class="n">strip</span><span class="p">():</span>
+            <span class="k">continue</span>
+        <span class="k">yield</span> <span class="n">arg</span>
+</pre></div>
+</div>
+</dd></dl>
+</div>
+<div class="section" id="exiting-methods">
+<h3><font id="360">{{s.360}}</font><a class="headerlink" href="#exiting-methods" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="argparse.ArgumentParser.exit">
+<tt class="descclassname">ArgumentParser.</tt><tt class="descname">exit</tt><big>(</big><em>status=0</em>, <em>message=None</em><big>)</big><a class="headerlink" href="#argparse.ArgumentParser.exit" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="304">{{s.304}}</font></p>
+</dd></dl>
+<dl class="method">
+<dt id="argparse.ArgumentParser.error">
+<tt class="descclassname">ArgumentParser.</tt><tt class="descname">error</tt><big>(</big><em>message</em><big>)</big><a class="headerlink" href="#argparse.ArgumentParser.error" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="305">{{s.305}}</font></p>
+</dd></dl>
+</div>
+</div>
+<div class="section" id="upgrading-optparse-code">
+<span id="argparse-from-optparse"></span><h2><font id="319">{{s.319}}</font><a class="headerlink" href="#upgrading-optparse-code" title="Permalink to this headline">¶</a></h2>
+<p><font id="306">{{s.306}}</font><font id="307">{{s.307}}</font><font id="308">{{s.308}}</font></p>
+<p><font id="309">{{s.309}}</font></p>
+<ul class="simple">
+<li><font id="478">{{s.478}}</font></li>
+<li><font id="479">{{s.479}}</font></li>
+<li><font id="480">{{s.480}}</font></li>
+<li><font id="481">{{s.481}}</font></li>
+<li><font id="482">{{s.482}}</font></li>
+<li><font id="483">{{s.483}}</font></li>
+<li><font id="484">{{s.484}}</font></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sphinxsidebar">
+<div class="sphinxsidebarwrapper">
+<h3><font id="361">{{s.361}}</font></h3>
+<ul>
+<li><a class="reference internal" href="#"><font id="415">{{s.415}}</font></a><ul>
+<li><a class="reference internal" href="#example"><font id="416">{{s.416}}</font></a><ul>
+<li><a class="reference internal" href="#creating-a-parser"><font id="417">{{s.417}}</font></a></li>
+<li><a class="reference internal" href="#adding-arguments"><font id="418">{{s.418}}</font></a></li>
+<li><a class="reference internal" href="#parsing-arguments"><font id="419">{{s.419}}</font></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#argumentparser-objects"><font id="420">{{s.420}}</font></a><ul>
+<li><a class="reference internal" href="#prog"><font id="421">{{s.421}}</font></a></li>
+<li><a class="reference internal" href="#usage"><font id="422">{{s.422}}</font></a></li>
+<li><a class="reference internal" href="#description"><font id="423">{{s.423}}</font></a></li>
+<li><a class="reference internal" href="#epilog"><font id="424">{{s.424}}</font></a></li>
+<li><a class="reference internal" href="#parents"><font id="425">{{s.425}}</font></a></li>
+<li><a class="reference internal" href="#formatter-class"><font id="426">{{s.426}}</font></a></li>
+<li><a class="reference internal" href="#prefix-chars"><font id="427">{{s.427}}</font></a></li>
+<li><a class="reference internal" href="#fromfile-prefix-chars"><font id="428">{{s.428}}</font></a></li>
+<li><a class="reference internal" href="#argument-default"><font id="429">{{s.429}}</font></a></li>
+<li><a class="reference internal" href="#conflict-handler"><font id="430">{{s.430}}</font></a></li>
+<li><a class="reference internal" href="#add-help"><font id="431">{{s.431}}</font></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#the-add-argument-method"><font id="432">{{s.432}}</font></a><ul>
+<li><a class="reference internal" href="#name-or-flags"><font id="433">{{s.433}}</font></a></li>
+<li><a class="reference internal" href="#action"><font id="434">{{s.434}}</font></a></li>
+<li><a class="reference internal" href="#nargs"><font id="435">{{s.435}}</font></a></li>
+<li><a class="reference internal" href="#const"><font id="436">{{s.436}}</font></a></li>
+<li><a class="reference internal" href="#default"><font id="437">{{s.437}}</font></a></li>
+<li><a class="reference internal" href="#type"><font id="438">{{s.438}}</font></a></li>
+<li><a class="reference internal" href="#choices"><font id="439">{{s.439}}</font></a></li>
+<li><a class="reference internal" href="#required"><font id="440">{{s.440}}</font></a></li>
+<li><a class="reference internal" href="#help"><font id="441">{{s.441}}</font></a></li>
+<li><a class="reference internal" href="#metavar"><font id="442">{{s.442}}</font></a></li>
+<li><a class="reference internal" href="#dest"><font id="443">{{s.443}}</font></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#the-parse-args-method"><font id="444">{{s.444}}</font></a><ul>
+<li><a class="reference internal" href="#option-value-syntax"><font id="445">{{s.445}}</font></a></li>
+<li><a class="reference internal" href="#invalid-arguments"><font id="446">{{s.446}}</font></a></li>
+<li><a class="reference internal" href="#arguments-containing"><font id="447">{{s.447}}</font></a></li>
+<li><a class="reference internal" href="#argument-abbreviations-prefix-matching"><font id="448">{{s.448}}</font></a></li>
+<li><a class="reference internal" href="#beyond-sys-argv"><font id="449">{{s.449}}</font></a></li>
+<li><a class="reference internal" href="#the-namespace-object"><font id="450">{{s.450}}</font></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#other-utilities"><font id="451">{{s.451}}</font></a><ul>
+<li><a class="reference internal" href="#sub-commands"><font id="452">{{s.452}}</font></a></li>
+<li><a class="reference internal" href="#filetype-objects"><font id="453">{{s.453}}</font></a></li>
+<li><a class="reference internal" href="#argument-groups"><font id="454">{{s.454}}</font></a></li>
+<li><a class="reference internal" href="#mutual-exclusion"><font id="455">{{s.455}}</font></a></li>
+<li><a class="reference internal" href="#parser-defaults"><font id="456">{{s.456}}</font></a></li>
+<li><a class="reference internal" href="#printing-help"><font id="457">{{s.457}}</font></a></li>
+<li><a class="reference internal" href="#partial-parsing"><font id="458">{{s.458}}</font></a></li>
+<li><a class="reference internal" href="#customizing-file-parsing"><font id="459">{{s.459}}</font></a></li>
+<li><a class="reference internal" href="#exiting-methods"><font id="460">{{s.460}}</font></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#upgrading-optparse-code"><font id="461">{{s.461}}</font></a></li>
+</ul>
+</li>
+</ul>
+<h4><font id="365">{{s.365}}</font></h4>
+<p class="topless"><font id="310">{{s.310}}</font></p>
+<h4><font id="366">{{s.366}}</font></h4>
+<p class="topless"><font id="311">{{s.311}}</font></p>
+<h3><font id="362">{{s.362}}</font></h3>
+<ul class="this-page-menu">
+<li><a href="../bugs.html"><font id="462">{{s.462}}</font></a></li>
+<li><a href="../_sources/library/argparse.txt" rel="nofollow"><font id="463">{{s.463}}</font></a></li>
+</ul>
+<div id="searchbox" style="display: none">
+<h3><font id="363">{{s.363}}</font></h3>
+<form action="../search.html" class="search" method="get">
+<input name="q" size="18" type="text"/>
+<input type="submit" value="Go"/>
+<input name="check_keywords" type="hidden" value="yes"/>
+<input name="area" type="hidden" value="default"/>
+</form>
+<p class="searchtip" style="font-size: 90%"><font id="312">{{s.312}}</font></p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+</div>
+</div>
+<div class="clearer"></div>
+</div>
+<div class="related">
+<h3><font id="364">{{s.364}}</font></h3>
+<ul>
+<li class="right" style="margin-right: 10px">
+<a href="../genindex.html" title="General Index"><font id="464">{{s.464}}</font></a></li>
+<li class="right">
+<a href="../py-modindex.html" title="Python Module Index"><font id="465">{{s.465}}</font></a> |</li>
+<li class="right">
+<a href="optparse.html" title="15.5. optparse — Parser for command line options"><font id="466">{{s.466}}</font></a> |</li>
+<li class="right">
+<a href="time.html" title="15.3. time — Time access and conversions"><font id="467">{{s.467}}</font></a> |</li>
+<li><img alt="" src="../_static/py.png" style="vertical-align: middle; margin-top: -1px"/></li>
+<li><a href="http://www.python.org/"><font id="468">{{s.468}}</font></a> »</li>
+<li>
+<span class="version_switcher_placeholder">2.7.8</span>
+<a href="../index.html"><font id="469">{{s.469}}</font></a> »
+        </li>
+<li><a href="index.html"><font id="470">{{s.470}}</font></a> »</li>
+<li><a href="allos.html"><font id="471">{{s.471}}</font></a> »</li>
+</ul>
+</div>
+<br><div id="disqus_thread"></div>
+<div class="footer">
+    © <a href="../copyright.html">Copyright</a> 1990-2014, Python Software Foundation.
+    <br/>
+    The Python Software Foundation is a non-profit corporation.
+    <a href="http://www.python.org/psf/donations/">Please donate.</a>
+<br/>
+    Last updated on Jul 27, 2014.
+    <a href="../bugs.html">Found a bug</a>?
+    <br/>
+    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+    <script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'thepythontutorial2'; // required: replace example with your forum shortname
+    var disqus_identifier = '/python2/library/argparse';
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+<link href="../_static/ms_translator.css" rel="stylesheet" type="text/css"/>
+<script src="../_static/ms_translator.js" type="text/javascript"></script>
+{% include "python_278/ms_translator.html" %}
+</body>
+</html>

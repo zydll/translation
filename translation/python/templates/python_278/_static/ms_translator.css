@@ -1,0 +1,228 @@
+#MicrosoftTranslatorCommunity {
+    background-color: #E6E6E5;
+    color: #000000;
+    font-weight: normal;
+    margin: 0;
+    padding: 0;
+}
+#MicrosoftTranslatorCommunity * {
+    -moz-box-sizing: content-box;
+    background-attachment: scroll;
+    background-color: rgba(0, 0, 0, 0);
+    background-image: none;
+    border-style: none;
+    border-width: 0;
+    clip: auto;
+    float: none;
+    font-family: Arial,Helvetica,Sans-Serif;
+    font-size: 12px;
+    font-style: normal;
+    font-variant: normal;
+    letter-spacing: normal;
+    line-height: normal;
+    margin: 0;
+    outline-style: none;
+    overflow: visible;
+    padding: 0;
+    position: static;
+    text-decoration: none;
+    vertical-align: top;
+    white-space: normal;
+    word-spacing: normal;
+}
+#MicrosoftTranslatorCommunity #MSTCContent {
+}
+#MicrosoftTranslatorCommunity #MSTCContent a, #MicrosoftTranslatorCommunity #MSTCContent a:link, #MicrosoftTranslatorCommunity #MSTCContent a:visited, #MicrosoftTranslatorCommunity #MSTCContent a:hover, #MicrosoftTranslatorCommunity #MSTCContent a:active {
+    color: #5599FF;
+    cursor: pointer;
+    text-decoration: none;
+}
+#MicrosoftTranslatorCommunity #MSTCContent #MSTCExpandLink {
+    background-color: #D9D9D9;
+    display: block;
+    padding: 2px 4px;
+}
+#MicrosoftTranslatorCommunity #MSTCContent #MSTCExpandLink img {
+    display: inline-block;
+    margin: 5px 3px 0;
+}
+#MicrosoftTranslatorCommunity #MSTCContent #MSTCRootPanel {
+    background-color: #FFFFFF;
+}
+#MicrosoftTranslatorCommunity #MSTCContent #MSTCLoading {
+    display: none;
+    margin: 0 4px;
+}
+#MicrosoftTranslatorCommunity #MSTCContent .MSTCTransPanel {
+    border-top: 1px solid #D9D9D9;
+    cursor: pointer;
+    width: 100%;
+}
+#MicrosoftTranslatorCommunity #MSTCContent .MSTCTransPanelHover {
+    background-color: #D1E6F4;
+}
+#MicrosoftTranslatorCommunity #MSTCContent .MSTCTransEdit {
+    background-color: #FFFFFF;
+    padding: 2px;
+}
+#MicrosoftTranslatorCommunity #MSTCContent .MSTCStatsTab {
+    color: #FFFFFF;
+    position: absolute;
+    min-width: 40px;
+}
+#MicrosoftTranslatorCommunity #MSTCContent .MSTCVoteCount span, #MicrosoftTranslatorCommunity #MSTCContent .MSTCFlagCount span {
+    display: inline-block;
+    height: 24px;
+    min-width: 22px;
+}
+#MicrosoftTranslatorCommunity #MSTCContent .MSTCVoteCount span {
+    background-color: #3D98CD;
+}
+#MicrosoftTranslatorCommunity #MSTCContent .MSTCFlagCount span {
+    background-color: #BF2A2D;
+}
+#MicrosoftTranslatorCommunity #MSTCContent .MSTCVoteCount img #MicrosoftTranslatorCommunity #MSTCContent .MSTCFlagCount img {
+    display: inline-block;
+}
+#MicrosoftTranslatorCommunity #MSTCContent #MSTCPrevNextPanel {
+    padding: 4px;
+    border-top-width: 1px;
+    border-top-style: solid;
+    border-top-color: rgb(217, 217, 217);
+}
+#MicrosoftTranslatorCommunity #MSTCContent #MSTCPrevLink, #MicrosoftTranslatorCommunity #MSTCContent #MSTCNextLink {
+    display: inline-block;
+}
+#MicrosoftTranslatorCommunity #MSTCContent #MSTCPrevLink {
+    margin: 0 4px;
+}
+#MicrosoftTranslatorCommunity #MSTCContent #MSTCFooterPanel {
+    border-top: 1px solid #D9D9D9;
+    padding: 4px 8px;
+}
+#MicrosoftTranslatorCommunity #MSTCContent .MSTCSpacer {
+    display: inline-block;
+    margin: 0 4px;
+}
+#MicrosoftTranslatorCommunity #MSTCContent #MSTCSubmitting {
+    padding: 32px 4px;
+}
+#MicrosoftTranslatorCommunity #MSTCContent #MSTCButtonPanel {
+    position: absolute;
+}
+#MicrosoftTranslatorCommunity #MSTCContent #MSTCButtonPanel a {
+    color: #FFFFFF;
+    display: block;
+    margin-bottom: 1px;
+}
+#MicrosoftTranslatorCommunity #MSTCContent .MSTCButtonIcon {
+    border-style: solid;
+    border-width: 1px 0;
+    display: inline-block;
+    height: 21px;
+    text-align: center;
+    width: 20px;
+}
+#MicrosoftTranslatorCommunity #MSTCContent .MSTCButtonIcon img {
+    display: inline-block;
+}
+#MicrosoftTranslatorCommunity #MSTCContent .MSTCButtonLabel {
+    border-style: solid;
+    border-width: 1px;
+    display: inline-block;
+    height: 18px;
+    padding-top: 3px;
+    text-align: center;
+    width: 78px;
+}
+#MicrosoftTranslatorCommunity #MSTCContent .MSTCBlueButton .MSTCButtonIcon, #MicrosoftTranslatorCommunity #MSTCContent .MSTCBlueButton .MSTCButtonLabel {
+    background-color: #3D98CD;
+    border-color: #3D98CD;
+}
+#MicrosoftTranslatorCommunity #MSTCContent .MSTCRedButton .MSTCButtonIcon, #MicrosoftTranslatorCommunity #MSTCContent .MSTCRedButton .MSTCButtonLabel {
+    background-color: #BF2A2D;
+    border-color: #BF2A2D;
+}
+.MSTCltr #MSTCContent {
+    direction: ltr;
+    text-align: left;
+}
+.MSTCrtl #MSTCContent {
+    direction: rtl;
+    text-align: right;
+}
+.MSTCltr #MSTCContent .MSTCTransBox {
+    padding: 32px 45px 32px 8px;
+}
+.MSTCltr #MSTCContent #MSTCPrevNextPanel {
+    text-align: right;
+    border-top-width: 1px;
+    border-top-style: solid;
+    border-top-color: rgb(217, 217, 217);
+}
+.MSTCrtl #MSTCContent #MSTCPrevNextPanel {
+    text-align: left;
+    border-top-width: 1px;
+    border-top-style: solid;
+    border-top-color: rgb(217, 217, 217);
+}
+.MSTCltr #MSTCContent #MSTCSignInBox {
+    float: right;
+}
+.MSTCrtl #MSTCContent #MSTCSignInBox {
+    float: left;
+}
+.MSTCltr #MSTCContent .MSTCStatsTab {
+    right: 0;
+    text-align: right;
+    min-width: 40px;
+}
+.MSTCrtl #MSTCContent .MSTCStatsTab {
+    left: 0;
+    text-align: left;
+    min-width: 40px;
+}
+.MSTCltr #MSTCContent #MSTCButtonPanel {
+    right: 0;
+    text-align: right;
+}
+.MSTCrtl #MSTCContent #MSTCButtonPanel {
+    left: 0;
+    text-align: left;
+}
+#MSTCContent #MSTCTransPanelError {
+    background-color: #D1D1D1;
+    border: 5px solid #808080;
+    display: block;
+    opacity: 0.93;
+    padding: 5px;
+    position: absolute;
+    z-index: 1;
+}
+#MSTCContent #MSTCTransPanelError span {
+}
+#MSTCContent #MSTCTransPanelError .MSTCTransPanelExc {
+    padding: 0 10px;
+    vertical-align: middle;
+}
+#MSTCContent #MSTCTransPanelError .MSTCErrorButtons {
+    padding: 0 5px;
+}
+#MSTCContent .MSTCTableCell {
+    display: table-cell;
+}
+#MSTCContent .MSTCTableRow {
+    display: table-row;
+}
+.MSTCltr #MSTCContent .MSTCNormHoriz {
+    text-align: left;
+}
+.MSTCrtl #MSTCContent .MSTCNormHoriz {
+    text-align: right;
+}
+.MSTCltr #MSTCContent .MSTCFlipHoriz {
+    text-align: right;
+}
+.MSTCrtl #MSTCContent .MSTCFlipHoriz {
+    text-align: left;
+}

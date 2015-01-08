@@ -1,0 +1,383 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<title>5. Embedding Python in Another Application — Python v2.7.8 documentation</title>
+<link href="../_static/default.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2.7.8',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+<script src="../_static/jquery.js" type="text/javascript"></script>
+<script src="../_static/underscore.js" type="text/javascript"></script>
+<script src="../_static/doctools.js" type="text/javascript"></script>
+<script src="../_static/sidebar.js" type="text/javascript"></script>
+<link href="../_static/opensearch.xml" rel="search" title="Search within Python v2.7.8 documentation" type="application/opensearchdescription+xml"/>
+<link href="../about.html" rel="author" title="About these documents"/>
+<link href="../copyright.html" rel="copyright" title="Copyright"/>
+<link href="../index.html" rel="top" title="Python v2.7.8 documentation"/>
+<link href="index.html" rel="up" title="Extending and Embedding the Python Interpreter"/>
+<link href="../c-api/index.html" rel="next" title="Python/C API Reference Manual"/>
+<link href="windows.html" rel="prev" title="4. Building C and C++ Extensions on Windows"/>
+<link href="../_static/py.png" rel="shortcut icon" type="image/png"/>
+<script src="../_static/copybutton.js" type="text/javascript"></script>
+<script src="../_static/version_switch.js" type="text/javascript"></script>
+</head>
+<body>
+<div class="related">
+<h3><font id="92">{{s.92}}</font></h3>
+<ul>
+<li class="right" style="margin-right: 10px">
+<a accesskey="I" href="../genindex.html" title="General Index"><font id="99">{{s.99}}</font></a></li>
+<li class="right">
+<a href="../py-modindex.html" title="Python Module Index"><font id="100">{{s.100}}</font></a> |</li>
+<li class="right">
+<a accesskey="N" href="../c-api/index.html" title="Python/C API Reference Manual"><font id="101">{{s.101}}</font></a> |</li>
+<li class="right">
+<a accesskey="P" href="windows.html" title="4. Building C and C++ Extensions on Windows"><font id="102">{{s.102}}</font></a> |</li>
+<li><img alt="" src="../_static/py.png" style="vertical-align: middle; margin-top: -1px"/></li>
+<li><a href="http://www.python.org/"><font id="103">{{s.103}}</font></a> »</li>
+<li>
+<span class="version_switcher_placeholder">2.7.8</span>
+<a href="../index.html"><font id="104">{{s.104}}</font></a> »
+        </li>
+<li><a accesskey="U" href="index.html"><font id="105">{{s.105}}</font></a> »</li>
+</ul>
+</div>
+<div class="document">
+<div class="documentwrapper">
+<div class="bodywrapper">
+<div class="body">
+<div class="section" id="embedding-python-in-another-application">
+<span id="embedding"></span><h1><font id="85">{{s.85}}</font><a class="headerlink" href="#embedding-python-in-another-application" title="Permalink to this headline">¶</a></h1>
+<p><font id="1">{{s.1}}</font><font id="2">{{s.2}}</font><font id="3">{{s.3}}</font><font id="4">{{s.4}}</font><font id="5">{{s.5}}</font><font id="6">{{s.6}}</font></p>
+<p><font id="7">{{s.7}}</font><font id="8">{{s.8}}</font></p>
+<p><font id="9">{{s.9}}</font><font id="10">{{s.10}}</font><font id="11">{{s.11}}</font><font id="12">{{s.12}}</font><font id="13">{{s.13}}</font></p>
+<p><font id="14">{{s.14}}</font><font id="15">{{s.15}}</font></p>
+<p><font id="16">{{s.16}}</font></p>
+<div class="admonition-see-also admonition seealso">
+<p class="first admonition-title"><font id="17">{{s.17}}</font></p>
+<dl class="last docutils">
+<dt><a class="reference internal" href="../c-api/index.html#c-api-index"><em>Python/C API Reference Manual</em></a></dt>
+<dd>The details of Python’s C interface are given in this manual. A great deal of
+necessary information can be found here.</dd>
+</dl>
+</div>
+<div class="section" id="very-high-level-embedding">
+<span id="high-level-embedding"></span><h2><font id="86">{{s.86}}</font><a class="headerlink" href="#very-high-level-embedding" title="Permalink to this headline">¶</a></h2>
+<p><font id="18">{{s.18}}</font><font id="19">{{s.19}}</font><font id="20">{{s.20}}</font></p>
+<div class="highlight-c"><div class="highlight"><pre><span class="cp">#include &lt;Python.h&gt;</span>
+
+<span class="kt">int</span>
+<span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[])</span>
+<span class="p">{</span>
+  <span class="n">Py_SetProgramName</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>  <span class="cm">/* optional but recommended */</span>
+  <span class="n">Py_Initialize</span><span class="p">();</span>
+  <span class="n">PyRun_SimpleString</span><span class="p">(</span><span class="s">"from time import time,ctime</span><span class="se">\n</span><span class="s">"</span>
+                     <span class="s">"print 'Today is',ctime(time())</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+  <span class="n">Py_Finalize</span><span class="p">();</span>
+  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><font id="21">{{s.21}}</font><font id="22">{{s.22}}</font><font id="23">{{s.23}}</font><font id="24">{{s.24}}</font><font id="25">{{s.25}}</font></p>
+</div>
+<div class="section" id="beyond-very-high-level-embedding-an-overview">
+<span id="lower-level-embedding"></span><h2><font id="87">{{s.87}}</font><a class="headerlink" href="#beyond-very-high-level-embedding-an-overview" title="Permalink to this headline">¶</a></h2>
+<p><font id="26">{{s.26}}</font><font id="27">{{s.27}}</font><font id="28">{{s.28}}</font></p>
+<p><font id="29">{{s.29}}</font><font id="30">{{s.30}}</font><font id="31">{{s.31}}</font></p>
+<ol class="arabic simple">
+<li>Convert data values from Python to C,</li>
+<li>Perform a function call to a C routine using the converted values, and</li>
+<li>Convert the data values from the call from C to Python.</li>
+</ol>
+<p><font id="32">{{s.32}}</font></p>
+<ol class="arabic simple">
+<li>Convert data values from C to Python,</li>
+<li>Perform a function call to a Python interface routine using the converted
+values, and</li>
+<li>Convert the data values from the call from Python to C.</li>
+</ol>
+<p><font id="33">{{s.33}}</font><font id="34">{{s.34}}</font><font id="35">{{s.35}}</font></p>
+<p><font id="36">{{s.36}}</font><font id="37">{{s.37}}</font><font id="38">{{s.38}}</font></p>
+</div>
+<div class="section" id="pure-embedding">
+<span id="id1"></span><h2><font id="88">{{s.88}}</font><a class="headerlink" href="#pure-embedding" title="Permalink to this headline">¶</a></h2>
+<p><font id="39">{{s.39}}</font><font id="40">{{s.40}}</font></p>
+<p><font id="41">{{s.41}}</font></p>
+<div class="highlight-c"><div class="highlight"><pre><span class="cp">#include &lt;Python.h&gt;</span>
+
+<span class="kt">int</span>
+<span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[])</span>
+<span class="p">{</span>
+    <span class="n">PyObject</span> <span class="o">*</span><span class="n">pName</span><span class="p">,</span> <span class="o">*</span><span class="n">pModule</span><span class="p">,</span> <span class="o">*</span><span class="n">pDict</span><span class="p">,</span> <span class="o">*</span><span class="n">pFunc</span><span class="p">;</span>
+    <span class="n">PyObject</span> <span class="o">*</span><span class="n">pArgs</span><span class="p">,</span> <span class="o">*</span><span class="n">pValue</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">argc</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span><span class="s">"Usage: call pythonfile funcname [args]</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+        <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="n">Py_Initialize</span><span class="p">();</span>
+    <span class="n">pName</span> <span class="o">=</span> <span class="n">PyString_FromString</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>
+    <span class="cm">/* Error checking of pName left out */</span>
+
+    <span class="n">pModule</span> <span class="o">=</span> <span class="n">PyImport_Import</span><span class="p">(</span><span class="n">pName</span><span class="p">);</span>
+    <span class="n">Py_DECREF</span><span class="p">(</span><span class="n">pName</span><span class="p">);</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">pModule</span> <span class="o">!=</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">pFunc</span> <span class="o">=</span> <span class="n">PyObject_GetAttrString</span><span class="p">(</span><span class="n">pModule</span><span class="p">,</span> <span class="n">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">]);</span>
+        <span class="cm">/* pFunc is a new reference */</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="n">pFunc</span> <span class="o">&amp;&amp;</span> <span class="n">PyCallable_Check</span><span class="p">(</span><span class="n">pFunc</span><span class="p">))</span> <span class="p">{</span>
+            <span class="n">pArgs</span> <span class="o">=</span> <span class="n">PyTuple_New</span><span class="p">(</span><span class="n">argc</span> <span class="o">-</span> <span class="mi">3</span><span class="p">);</span>
+            <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">argc</span> <span class="o">-</span> <span class="mi">3</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">pValue</span> <span class="o">=</span> <span class="n">PyInt_FromLong</span><span class="p">(</span><span class="n">atoi</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">3</span><span class="p">]));</span>
+                <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">pValue</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="n">Py_DECREF</span><span class="p">(</span><span class="n">pArgs</span><span class="p">);</span>
+                    <span class="n">Py_DECREF</span><span class="p">(</span><span class="n">pModule</span><span class="p">);</span>
+                    <span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s">"Cannot convert argument</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+                    <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
+                <span class="p">}</span>
+                <span class="cm">/* pValue reference stolen here: */</span>
+                <span class="n">PyTuple_SetItem</span><span class="p">(</span><span class="n">pArgs</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">pValue</span><span class="p">);</span>
+            <span class="p">}</span>
+            <span class="n">pValue</span> <span class="o">=</span> <span class="n">PyObject_CallObject</span><span class="p">(</span><span class="n">pFunc</span><span class="p">,</span> <span class="n">pArgs</span><span class="p">);</span>
+            <span class="n">Py_DECREF</span><span class="p">(</span><span class="n">pArgs</span><span class="p">);</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">pValue</span> <span class="o">!=</span> <span class="nb">NULL</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">printf</span><span class="p">(</span><span class="s">"Result of call: %ld</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">PyInt_AsLong</span><span class="p">(</span><span class="n">pValue</span><span class="p">));</span>
+                <span class="n">Py_DECREF</span><span class="p">(</span><span class="n">pValue</span><span class="p">);</span>
+            <span class="p">}</span>
+            <span class="k">else</span> <span class="p">{</span>
+                <span class="n">Py_DECREF</span><span class="p">(</span><span class="n">pFunc</span><span class="p">);</span>
+                <span class="n">Py_DECREF</span><span class="p">(</span><span class="n">pModule</span><span class="p">);</span>
+                <span class="n">PyErr_Print</span><span class="p">();</span>
+                <span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span><span class="s">"Call failed</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+                <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="k">else</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">PyErr_Occurred</span><span class="p">())</span>
+                <span class="n">PyErr_Print</span><span class="p">();</span>
+            <span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s">"Cannot find function </span><span class="se">\"</span><span class="s">%s</span><span class="se">\"\n</span><span class="s">"</span><span class="p">,</span> <span class="n">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">]);</span>
+        <span class="p">}</span>
+        <span class="n">Py_XDECREF</span><span class="p">(</span><span class="n">pFunc</span><span class="p">);</span>
+        <span class="n">Py_DECREF</span><span class="p">(</span><span class="n">pModule</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">else</span> <span class="p">{</span>
+        <span class="n">PyErr_Print</span><span class="p">();</span>
+        <span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s">"Failed to load </span><span class="se">\"</span><span class="s">%s</span><span class="se">\"\n</span><span class="s">"</span><span class="p">,</span> <span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>
+        <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="n">Py_Finalize</span><span class="p">();</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><font id="42">{{s.42}}</font><font id="43">{{s.43}}</font><font id="44">{{s.44}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">multiply</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">):</span>
+    <span class="k">print</span> <span class="s">"Will compute"</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="s">"times"</span><span class="p">,</span> <span class="n">b</span>
+    <span class="n">c</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">a</span><span class="p">):</span>
+        <span class="n">c</span> <span class="o">=</span> <span class="n">c</span> <span class="o">+</span> <span class="n">b</span>
+    <span class="k">return</span> <span class="n">c</span>
+</pre></div>
+</div>
+<p><font id="45">{{s.45}}</font></p>
+<div class="highlight-c"><pre>$ call multiply multiply 3 2
+Will compute 3 times 2
+Result of call: 6</pre>
+</div>
+<p><font id="46">{{s.46}}</font><font id="47">{{s.47}}</font></p>
+<div class="highlight-c"><div class="highlight"><pre><span class="n">Py_Initialize</span><span class="p">();</span>
+<span class="n">pName</span> <span class="o">=</span> <span class="n">PyString_FromString</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>
+<span class="cm">/* Error checking of pName left out */</span>
+<span class="n">pModule</span> <span class="o">=</span> <span class="n">PyImport_Import</span><span class="p">(</span><span class="n">pName</span><span class="p">);</span>
+</pre></div>
+</div>
+<p><font id="48">{{s.48}}</font><font id="49">{{s.49}}</font></p>
+<div class="highlight-c"><div class="highlight"><pre><span class="n">pFunc</span> <span class="o">=</span> <span class="n">PyObject_GetAttrString</span><span class="p">(</span><span class="n">pModule</span><span class="p">,</span> <span class="n">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">]);</span>
+<span class="cm">/* pFunc is a new reference */</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="n">pFunc</span> <span class="o">&amp;&amp;</span> <span class="n">PyCallable_Check</span><span class="p">(</span><span class="n">pFunc</span><span class="p">))</span> <span class="p">{</span>
+    <span class="p">...</span>
+<span class="p">}</span>
+<span class="n">Py_XDECREF</span><span class="p">(</span><span class="n">pFunc</span><span class="p">);</span>
+</pre></div>
+</div>
+<p><font id="50">{{s.50}}</font><font id="51">{{s.51}}</font><font id="52">{{s.52}}</font><font id="53">{{s.53}}</font></p>
+<div class="highlight-c"><div class="highlight"><pre><span class="n">pValue</span> <span class="o">=</span> <span class="n">PyObject_CallObject</span><span class="p">(</span><span class="n">pFunc</span><span class="p">,</span> <span class="n">pArgs</span><span class="p">);</span>
+</pre></div>
+</div>
+<p><font id="54">{{s.54}}</font><font id="55">{{s.55}}</font></p>
+</div>
+<div class="section" id="extending-embedded-python">
+<span id="extending-with-embedding"></span><h2><font id="89">{{s.89}}</font><a class="headerlink" href="#extending-embedded-python" title="Permalink to this headline">¶</a></h2>
+<p><font id="56">{{s.56}}</font><font id="57">{{s.57}}</font><font id="58">{{s.58}}</font><font id="59">{{s.59}}</font><font id="60">{{s.60}}</font><font id="61">{{s.61}}</font><font id="62">{{s.62}}</font></p>
+<div class="highlight-c"><div class="highlight"><pre><span class="k">static</span> <span class="kt">int</span> <span class="n">numargs</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+
+<span class="cm">/* Return the number of arguments of the application command line */</span>
+<span class="k">static</span> <span class="n">PyObject</span><span class="o">*</span>
+<span class="nf">emb_numargs</span><span class="p">(</span><span class="n">PyObject</span> <span class="o">*</span><span class="n">self</span><span class="p">,</span> <span class="n">PyObject</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">PyArg_ParseTuple</span><span class="p">(</span><span class="n">args</span><span class="p">,</span> <span class="s">":numargs"</span><span class="p">))</span>
+        <span class="k">return</span> <span class="nb">NULL</span><span class="p">;</span>
+    <span class="k">return</span> <span class="n">Py_BuildValue</span><span class="p">(</span><span class="s">"i"</span><span class="p">,</span> <span class="n">numargs</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="k">static</span> <span class="n">PyMethodDef</span> <span class="n">EmbMethods</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="p">{</span><span class="s">"numargs"</span><span class="p">,</span> <span class="n">emb_numargs</span><span class="p">,</span> <span class="n">METH_VARARGS</span><span class="p">,</span>
+     <span class="s">"Return the number of arguments received by the process."</span><span class="p">},</span>
+    <span class="p">{</span><span class="nb">NULL</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">}</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<p><font id="63">{{s.63}}</font><font id="64">{{s.64}}</font></p>
+<div class="highlight-c"><div class="highlight"><pre><span class="n">numargs</span> <span class="o">=</span> <span class="n">argc</span><span class="p">;</span>
+<span class="n">Py_InitModule</span><span class="p">(</span><span class="s">"emb"</span><span class="p">,</span> <span class="n">EmbMethods</span><span class="p">);</span>
+</pre></div>
+</div>
+<p><font id="65">{{s.65}}</font><font id="66">{{s.66}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">emb</span>
+<span class="k">print</span> <span class="s">"Number of arguments"</span><span class="p">,</span> <span class="n">emb</span><span class="o">.</span><span class="n">numargs</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><font id="67">{{s.67}}</font></p>
+</div>
+<div class="section" id="embedding-python-in-c">
+<span id="embeddingincplusplus"></span><h2><font id="90">{{s.90}}</font><a class="headerlink" href="#embedding-python-in-c" title="Permalink to this headline">¶</a></h2>
+<p><font id="68">{{s.68}}</font><font id="69">{{s.69}}</font><font id="70">{{s.70}}</font><font id="71">{{s.71}}</font></p>
+</div>
+<div class="section" id="compiling-and-linking-under-unix-like-systems">
+<span id="link-reqs"></span><h2><font id="91">{{s.91}}</font><a class="headerlink" href="#compiling-and-linking-under-unix-like-systems" title="Permalink to this headline">¶</a></h2>
+<p><font id="72">{{s.72}}</font></p>
+<p><font id="73">{{s.73}}</font><font id="74">{{s.74}}</font></p>
+<ul>
+<li><p class="first"><font id="75">{{s.75}}</font></p>
+<div class="highlight-c"><pre>$ /opt/bin/python2.7-config --cflags
+-I/opt/include/python2.7 -fno-strict-aliasing -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes</pre>
+</div>
+</li>
+<li><p class="first"><font id="76">{{s.76}}</font></p>
+<div class="highlight-c"><pre>$ /opt/bin/python2.7-config --ldflags
+-L/opt/lib/python2.7/config -lpthread -ldl -lutil -lm -lpython2.7 -Xlinker -export-dynamic</pre>
+</div>
+</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title"><font id="77">{{s.77}}</font></p>
+<p class="last"><font id="78">{{s.78}}</font></p>
+</div>
+<p><font id="79">{{s.79}}</font><font id="80">{{s.80}}</font><font id="81">{{s.81}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">sysconfig</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sysconfig</span><span class="o">.</span><span class="n">get_config_var</span><span class="p">(</span><span class="s">'LIBS'</span><span class="p">)</span>
+<span class="go">'-lpthread -ldl  -lutil'</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sysconfig</span><span class="o">.</span><span class="n">get_config_var</span><span class="p">(</span><span class="s">'LINKFORSHARED'</span><span class="p">)</span>
+<span class="go">'-Xlinker -export-dynamic'</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sphinxsidebar">
+<div class="sphinxsidebarwrapper">
+<h3><font id="93">{{s.93}}</font></h3>
+<ul>
+<li><a class="reference internal" href="#"><font id="106">{{s.106}}</font></a><ul>
+<li><a class="reference internal" href="#very-high-level-embedding"><font id="107">{{s.107}}</font></a></li>
+<li><a class="reference internal" href="#beyond-very-high-level-embedding-an-overview"><font id="108">{{s.108}}</font></a></li>
+<li><a class="reference internal" href="#pure-embedding"><font id="109">{{s.109}}</font></a></li>
+<li><a class="reference internal" href="#extending-embedded-python"><font id="110">{{s.110}}</font></a></li>
+<li><a class="reference internal" href="#embedding-python-in-c"><font id="111">{{s.111}}</font></a></li>
+<li><a class="reference internal" href="#compiling-and-linking-under-unix-like-systems"><font id="112">{{s.112}}</font></a></li>
+</ul>
+</li>
+</ul>
+<h4><font id="97">{{s.97}}</font></h4>
+<p class="topless"><font id="82">{{s.82}}</font></p>
+<h4><font id="98">{{s.98}}</font></h4>
+<p class="topless"><font id="83">{{s.83}}</font></p>
+<h3><font id="94">{{s.94}}</font></h3>
+<ul class="this-page-menu">
+<li><a href="../bugs.html"><font id="113">{{s.113}}</font></a></li>
+<li><a href="../_sources/extending/embedding.txt" rel="nofollow"><font id="114">{{s.114}}</font></a></li>
+</ul>
+<div id="searchbox" style="display: none">
+<h3><font id="95">{{s.95}}</font></h3>
+<form action="../search.html" class="search" method="get">
+<input name="q" size="18" type="text"/>
+<input type="submit" value="Go"/>
+<input name="check_keywords" type="hidden" value="yes"/>
+<input name="area" type="hidden" value="default"/>
+</form>
+<p class="searchtip" style="font-size: 90%"><font id="84">{{s.84}}</font></p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+</div>
+</div>
+<div class="clearer"></div>
+</div>
+<div class="related">
+<h3><font id="96">{{s.96}}</font></h3>
+<ul>
+<li class="right" style="margin-right: 10px">
+<a href="../genindex.html" title="General Index"><font id="115">{{s.115}}</font></a></li>
+<li class="right">
+<a href="../py-modindex.html" title="Python Module Index"><font id="116">{{s.116}}</font></a> |</li>
+<li class="right">
+<a href="../c-api/index.html" title="Python/C API Reference Manual"><font id="117">{{s.117}}</font></a> |</li>
+<li class="right">
+<a href="windows.html" title="4. Building C and C++ Extensions on Windows"><font id="118">{{s.118}}</font></a> |</li>
+<li><img alt="" src="../_static/py.png" style="vertical-align: middle; margin-top: -1px"/></li>
+<li><a href="http://www.python.org/"><font id="119">{{s.119}}</font></a> »</li>
+<li>
+<span class="version_switcher_placeholder">2.7.8</span>
+<a href="../index.html"><font id="120">{{s.120}}</font></a> »
+        </li>
+<li><a href="index.html"><font id="121">{{s.121}}</font></a> »</li>
+</ul>
+</div>
+<br><div id="disqus_thread"></div>
+<div class="footer">
+    © <a href="../copyright.html">Copyright</a> 1990-2014, Python Software Foundation.
+    <br/>
+    The Python Software Foundation is a non-profit corporation.
+    <a href="http://www.python.org/psf/donations/">Please donate.</a>
+<br/>
+    Last updated on Jul 27, 2014.
+    <a href="../bugs.html">Found a bug</a>?
+    <br/>
+    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+    
+    <script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'thepythontutorial2'; // required: replace example with your forum shortname
+    var disqus_identifier = '/python2/extending/embedding';
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+<link href="../_static/ms_translator.css" rel="stylesheet" type="text/css"/>
+<script src="../_static/ms_translator.js" type="text/javascript"></script>
+{% include "python_278/ms_translator.html" %}
+</body>
+</html>

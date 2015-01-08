@@ -1,0 +1,224 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<title>13. 交互式输入的编辑和历史记录 — Python v2.7.8 中文文档</title>
+<link href="../_static/default.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2.7.8',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+<script src="../_static/jquery.js" type="text/javascript"></script>
+<script src="../_static/underscore.js" type="text/javascript"></script>
+<script src="../_static/doctools.js" type="text/javascript"></script>
+<script src="../_static/sidebar.js" type="text/javascript"></script>
+<link href="../_static/opensearch.xml" rel="search" title="Search within Python v2.7.8 documentation" type="application/opensearchdescription+xml"/>
+<link href="../about.html" rel="author" title="About these documents"/>
+<link href="../copyright.html" rel="copyright" title="Copyright"/>
+<link href="../index.html" rel="top" title="Python v2.7.8 documentation"/>
+<link href="index.html" rel="up" title="The Python Tutorial"/>
+<link href="floatingpoint.html" rel="next" title="14. Floating Point Arithmetic: Issues and Limitations"/>
+<link href="whatnow.html" rel="prev" title="12. What Now?"/>
+<link href="../_static/py.png" rel="shortcut icon" type="image/png"/>
+<script src="../_static/copybutton.js" type="text/javascript"></script>
+<script src="../_static/version_switch.js" type="text/javascript"></script>
+</head>
+<body>
+<div class="related">
+<h3><font id="58">{{s.58}}</font></h3>
+<ul>
+<li class="right" style="margin-right: 10px"><font id="65">{{s.65}}</font></li>
+<li class="right"><font id="66">{{s.66}}</font></li>
+<li class="right"><font id="67">{{s.67}}</font></li>
+<li class="right"><font id="68">{{s.68}}</font></li>
+<li class="right">
+<a href="#" onClick="hideOriginTexts();return false;">中文</a> |</li>
+<li class="right">
+<a href="#" onClick="showOriginTexts();return false;">中英文对照</a> |</li>
+<li><font id="69">{{s.69}}</font></li>
+<li><font id="70">{{s.70}}</font><font id="71">{{s.71}}</font></li>
+<li><font id="72">{{s.72}}</font><font id="73">{{s.73}}</font></li>
+<li><font id="74">{{s.74}}</font><font id="75">{{s.75}}</font></li>
+</ul>
+</div>
+<div class="document">
+<div class="documentwrapper">
+<div class="bodywrapper">
+<div class="body">
+<div class="section" id="interactive-input-editing-and-history-substitution">
+<span id="tut-interacting"></span><h1><font id="53">{{s.53}}</font></h1>
+<p><font id="1">{{s.1}}</font><font id="2">{{s.2}}</font><font id="3">{{s.3}}</font><font id="4">{{s.4}}</font><font id="5">{{s.5}}</font></p>
+<p><font id="6">{{s.6}}</font><font id="7">{{s.7}}</font></p>
+<div class="section" id="line-editing">
+<span id="tut-lineediting"></span><h2><font id="54">{{s.54}}</font></h2>
+<p><font id="8">{{s.8}}</font><font id="9">{{s.9}}</font><font id="10">{{s.10}}</font><font id="11">{{s.11}}</font><font id="12">{{s.12}}</font><font id="13">{{s.13}}</font><font id="14">{{s.14}}</font></p>
+</div>
+<div class="section" id="history-substitution">
+<span id="tut-history"></span><h2><font id="55">{{s.55}}</font></h2>
+<p><font id="15">{{s.15}}</font><font id="16">{{s.16}}</font><font id="17">{{s.17}}</font><font id="18">{{s.18}}</font><font id="19">{{s.19}}</font><font id="20">{{s.20}}</font><font id="21">{{s.21}}</font><font id="22">{{s.22}}</font></p>
+</div>
+<div class="section" id="key-bindings">
+<span id="tut-keybindings"></span><h2><font id="56">{{s.56}}</font></h2>
+<p><font id="23">{{s.23}}</font><font id="24">{{s.24}}</font></p>
+<div class="highlight-python"><pre>key-name: function-name</pre>
+</div>
+<p><font id="25">{{s.25}}</font></p>
+<div class="highlight-python"><pre>"string": function-name</pre>
+</div>
+<p><font id="26">{{s.26}}</font></p>
+<div class="highlight-python"><pre>set option-name value</pre>
+</div>
+<p><font id="27">{{s.27}}</font></p>
+<div class="highlight-python"><pre># I prefer vi-style editing:
+set editing-mode vi
+
+# Edit using a single line:
+set horizontal-scroll-mode On
+
+# Rebind some keys:
+Meta-h: backward-kill-word
+"\C-u": universal-argument
+"\C-x\C-r": re-read-init-file</pre>
+</div>
+<p><font id="28">{{s.28}}</font><font id="29">{{s.29}}</font></p>
+<div class="highlight-python"><pre>Tab: complete</pre>
+</div>
+<p><font id="30">{{s.30}}</font><font id="31">{{s.31}}</font></p>
+<p id="index-0"><font id="32">{{s.32}}</font><font id="33">{{s.33}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">rlcompleter</span><span class="o">,</span> <span class="nn">readline</span>
+<span class="n">readline</span><span class="o">.</span><span class="n">parse_and_bind</span><span class="p">(</span><span class="s">'tab: complete'</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><font id="34">{{s.34}}</font><font id="35">{{s.35}}</font><font id="36">{{s.36}}</font><font id="37">{{s.37}}</font></p>
+<p><font id="38">{{s.38}}</font><font id="39">{{s.39}}</font><font id="40">{{s.40}}</font><font id="41">{{s.41}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># Add auto-completion and a stored history file of commands to your Python</span>
+<span class="c"># interactive interpreter. Requires Python 2.0+, readline. Autocomplete is</span>
+<span class="c"># bound to the Esc key by default (you can change it - see readline docs).</span>
+<span class="c">#</span>
+<span class="c"># Store the file in ~/.pystartup, and set an environment variable to point</span>
+<span class="c"># to it:  "export PYTHONSTARTUP=~/.pystartup" in bash.</span>
+
+<span class="kn">import</span> <span class="nn">atexit</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">readline</span>
+<span class="kn">import</span> <span class="nn">rlcompleter</span>
+
+<span class="n">historyPath</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">expanduser</span><span class="p">(</span><span class="s">"~/.pyhistory"</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">save_history</span><span class="p">(</span><span class="n">historyPath</span><span class="o">=</span><span class="n">historyPath</span><span class="p">):</span>
+    <span class="kn">import</span> <span class="nn">readline</span>
+    <span class="n">readline</span><span class="o">.</span><span class="n">write_history_file</span><span class="p">(</span><span class="n">historyPath</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">historyPath</span><span class="p">):</span>
+    <span class="n">readline</span><span class="o">.</span><span class="n">read_history_file</span><span class="p">(</span><span class="n">historyPath</span><span class="p">)</span>
+
+<span class="n">atexit</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">save_history</span><span class="p">)</span>
+<span class="k">del</span> <span class="n">os</span><span class="p">,</span> <span class="n">atexit</span><span class="p">,</span> <span class="n">readline</span><span class="p">,</span> <span class="n">rlcompleter</span><span class="p">,</span> <span class="n">save_history</span><span class="p">,</span> <span class="n">historyPath</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="alternatives-to-the-interactive-interpreter">
+<span id="tut-commentary"></span><h2><font id="57">{{s.57}}</font></h2>
+<p><font id="42">{{s.42}}</font><font id="43">{{s.43}}</font><font id="44">{{s.44}}</font><font id="45">{{s.45}}</font></p>
+<p><font id="46">{{s.46}}</font><font id="47">{{s.47}}</font><font id="48">{{s.48}}</font></p>
+<p class="rubric"><font id="49">{{s.49}}</font></p>
+<table class="docutils footnote" frame="void" id="id2" rules="none">
+<colgroup><col class="label"></col><col></col></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td>Python will execute the contents of a file identified by the
+<span class="target" id="index-1"></span><a class="reference internal" href="../using/cmdline.html#envvar-PYTHONSTARTUP"><tt class="xref std std-envvar docutils literal"><span class="pre">PYTHONSTARTUP</span></tt></a> environment variable when you start an interactive
+interpreter.  To customize Python even for non-interactive mode, see
+<a class="reference internal" href="interpreter.html#tut-customize"><em>The Customization Modules</em></a>.</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sphinxsidebar">
+<div class="sphinxsidebarwrapper">
+<!-- <h3><font id="59">{{s.59}}</font></h3> -->
+<ul>
+<li><font id="93">{{s.93}}</font><ul>
+<li><font id="76">{{s.76}}</font></li>
+<li><font id="77">{{s.77}}</font></li>
+<li><font id="78">{{s.78}}</font></li>
+<li><font id="79">{{s.79}}</font></li>
+</ul>
+</li>
+</ul>
+<h4><font id="63">{{s.63}}</font></h4>
+<p class="topless"><font id="50">{{s.50}}</font></p>
+<h4><font id="64">{{s.64}}</font></h4>
+<p class="topless"><font id="51">{{s.51}}</font></p>
+<h3><font id="60">{{s.60}}</font></h3>
+<ul class="this-page-menu">
+<li><a href="#" onClick="showOriginTexts();return false;">中英文对照</a></li>
+<li><a href="#" onClick="hideOriginTexts();return false;">中文</a></li>
+</ul>
+</div>
+</div>
+<div class="clearer"></div>
+</div>
+<div class="related">
+<h3><font id="62">{{s.62}}</font></h3>
+<ul>
+<li class="right" style="margin-right: 10px"><font id="82">{{s.82}}</font></li>
+<li class="right"><font id="83">{{s.83}}</font></li>
+<li class="right"><font id="84">{{s.84}}</font></li>
+<li class="right"><font id="85">{{s.85}}</font></li>
+<li class="right">
+<a href="#" onClick="hideOriginTexts();return false;">中文</a> |</li>
+<li class="right">
+<a href="#" onClick="showOriginTexts();return false;">中英文对照</a> |</li>
+<li><font id="86">{{s.86}}</font></li>
+<li><font id="87">{{s.87}}</font><font id="88">{{s.88}}</font></li>
+<li><font id="89">{{s.89}}</font><font id="90">{{s.90}}</font></li>
+<li><font id="91">{{s.91}}</font><font id="92">{{s.92}}</font></li>
+</ul>
+</div>
+
+<br><div id="disqus_thread"></div>
+
+<div class="footer">
+    © <a href="../copyright.html">Copyright</a> 1990-2014, Python Software Foundation.
+    <br/>
+    The Python Software Foundation is a non-profit corporation.
+    <a href="http://www.python.org/psf/donations/">Please donate.</a>
+<br/>
+    Last updated on Jun 29, 2014.
+    <a href="../bugs.html">Found a bug</a>?
+    <br/>
+    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+</div>
+
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'thepythontutorial2'; // required: replace example with your forum shortname
+    var disqus_identifier = '/python2/tutorial/interactive';
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+<link href="../_static/ms_translator.css" rel="stylesheet" type="text/css"/>
+<script src="../_static/ms_translator.js" type="text/javascript"></script>
+{% include "python_278/ms_translator.html" %}
+</body>
+</html>

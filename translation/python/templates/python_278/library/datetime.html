@@ -1,0 +1,1694 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<title>8.1. datetime — Basic date and time types — Python v2.7.8 documentation</title>
+<link href="../_static/default.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2.7.8',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+<script src="../_static/jquery.js" type="text/javascript"></script>
+<script src="../_static/underscore.js" type="text/javascript"></script>
+<script src="../_static/doctools.js" type="text/javascript"></script>
+<script src="../_static/sidebar.js" type="text/javascript"></script>
+<link href="../_static/opensearch.xml" rel="search" title="Search within Python v2.7.8 documentation" type="application/opensearchdescription+xml"/>
+<link href="../about.html" rel="author" title="About these documents"/>
+<link href="../copyright.html" rel="copyright" title="Copyright"/>
+<link href="../index.html" rel="top" title="Python v2.7.8 documentation"/>
+<link href="datatypes.html" rel="up" title="8. Data Types"/>
+<link href="calendar.html" rel="next" title="8.2. calendar — General calendar-related functions"/>
+<link href="datatypes.html" rel="prev" title="8. Data Types"/>
+<link href="../_static/py.png" rel="shortcut icon" type="image/png"/>
+<script src="../_static/copybutton.js" type="text/javascript"></script>
+<script src="../_static/version_switch.js" type="text/javascript"></script>
+</head>
+<body>
+<div class="related">
+<h3><font id="427">{{s.427}}</font></h3>
+<ul>
+<li class="right" style="margin-right: 10px">
+<a accesskey="I" href="../genindex.html" title="General Index"><font id="434">{{s.434}}</font></a></li>
+<li class="right">
+<a href="../py-modindex.html" title="Python Module Index"><font id="435">{{s.435}}</font></a> |</li>
+<li class="right">
+<a accesskey="N" href="calendar.html" title="8.2. calendar — General calendar-related functions"><font id="436">{{s.436}}</font></a> |</li>
+<li class="right">
+<a accesskey="P" href="datatypes.html" title="8. Data Types"><font id="437">{{s.437}}</font></a> |</li>
+<li class="right">
+<a href="#" onclick="hideOriginTexts();return false;">中文</a> |</li>
+<li class="right">
+<a href="#" onclick="showOriginTexts();return false;">中英文对照</a> |</li>
+<li><img alt="" src="../_static/py.png" style="vertical-align: middle; margin-top: -1px"/></li>
+<li><a href="http://www.python.org/"><font id="438">{{s.438}}</font></a> »</li>
+<li>
+<span class="version_switcher_placeholder">2.7.8</span>
+<a href="../index.html"><font id="439">{{s.439}}</font></a> »
+        </li>
+<li><a href="index.html"><font id="440">{{s.440}}</font></a> »</li>
+<li><a accesskey="U" href="datatypes.html"><font id="441">{{s.441}}</font></a> »</li>
+</ul>
+</div>
+<div class="document">
+<div class="documentwrapper">
+<div class="bodywrapper">
+<div class="body">
+<div class="section" id="module-datetime">
+<span id="datetime-basic-date-and-time-types"></span><h1><font id="419">{{s.419}}</font><a class="reference internal" href="#module-datetime" title="datetime: Basic date and time types."><tt class="xref py py-mod docutils literal"><span class="pre">datetime</span></tt></a></h1>
+<p class="versionadded"><font id="1">{{s.1}}</font></p>
+<p><font id="2">{{s.2}}</font><font id="3">{{s.3}}</font><font id="4">{{s.4}}</font></p>
+<p><font id="5">{{s.5}}</font></p>
+<p><font id="6">{{s.6}}</font><font id="7">{{s.7}}</font></p>
+<p><font id="8">{{s.8}}</font><font id="9">{{s.9}}</font><font id="10">{{s.10}}</font></p>
+<p><font id="11">{{s.11}}</font><font id="12">{{s.12}}</font><font id="13">{{s.13}}</font><font id="14">{{s.14}}</font><font id="15">{{s.15}}</font></p>
+<p><font id="16">{{s.16}}</font></p>
+<dl class="data">
+<dt id="datetime.MINYEAR">
+<tt class="descclassname">datetime.</tt><tt class="descname">MINYEAR</tt><a class="headerlink" href="#datetime.MINYEAR" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="17">{{s.17}}</font><font id="18">{{s.18}}</font></p>
+</dd></dl>
+<dl class="data">
+<dt id="datetime.MAXYEAR">
+<tt class="descclassname">datetime.</tt><tt class="descname">MAXYEAR</tt><a class="headerlink" href="#datetime.MAXYEAR" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="19">{{s.19}}</font><font id="20">{{s.20}}</font></p>
+</dd></dl>
+<div class="admonition-see-also admonition seealso">
+<p class="first admonition-title"><font id="21">{{s.21}}</font></p>
+<dl class="last docutils">
+<dt>Module <a class="reference internal" href="calendar.html#module-calendar" title="calendar: Functions for working with calendars, including some emulation of the Unix cal program."><tt class="xref py py-mod docutils literal"><span class="pre">calendar</span></tt></a></dt>
+<dd>General calendar related functions.</dd>
+<dt>Module <a class="reference internal" href="time.html#module-time" title="time: Time access and conversions."><tt class="xref py py-mod docutils literal"><span class="pre">time</span></tt></a></dt>
+<dd>Time access and conversions.</dd>
+</dl>
+</div>
+<div class="section" id="available-types">
+<h2><font id="420">{{s.420}}</font><a class="headerlink" href="#available-types" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt>
+<em class="property">class </em><tt class="descclassname">datetime.</tt><tt class="descname">date</tt></dt>
+<dd><p><font id="22">{{s.22}}</font><font id="23">{{s.23}}</font></p>
+</dd></dl>
+<dl class="class">
+<dt>
+<em class="property">class </em><tt class="descclassname">datetime.</tt><tt class="descname">time</tt></dt>
+<dd><p><font id="24">{{s.24}}</font><font id="25">{{s.25}}</font></p>
+</dd></dl>
+<dl class="class">
+<dt>
+<em class="property">class </em><tt class="descclassname">datetime.</tt><tt class="descname">datetime</tt></dt>
+<dd><p><font id="26">{{s.26}}</font><font id="27">{{s.27}}</font></p>
+</dd></dl>
+<dl class="class">
+<dt>
+<em class="property">class </em><tt class="descclassname">datetime.</tt><tt class="descname">timedelta</tt></dt>
+<dd><p><font id="28">{{s.28}}</font></p>
+</dd></dl>
+<dl class="class">
+<dt id="datetime.tzinfo">
+<em class="property">class </em><tt class="descclassname">datetime.</tt><tt class="descname">tzinfo</tt><a class="headerlink" href="#datetime.tzinfo" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="29">{{s.29}}</font><font id="30">{{s.30}}</font></p>
+</dd></dl>
+<p><font id="31">{{s.31}}</font></p>
+<p><font id="32">{{s.32}}</font></p>
+<p><font id="33">{{s.33}}</font><font id="34">{{s.34}}</font><font id="35">{{s.35}}</font><font id="36">{{s.36}}</font><font id="37">{{s.37}}</font></p>
+<p><font id="38">{{s.38}}</font></p>
+<p><font id="39">{{s.39}}</font></p>
+<div class="highlight-python"><pre>object
+    timedelta
+    tzinfo
+    time
+    date
+        datetime</pre>
+</div>
+</div>
+<div class="section" id="timedelta-objects">
+<span id="datetime-timedelta"></span><h2><font id="421">{{s.421}}</font><a class="reference internal" href="#datetime.timedelta" title="datetime.timedelta"><tt class="xref py py-class docutils literal"><span class="pre">timedelta</span></tt></a></h2>
+<p><font id="40">{{s.40}}</font></p>
+<dl class="class">
+<dt id="datetime.timedelta">
+<em class="property">class </em><tt class="descclassname">datetime.</tt><tt class="descname">timedelta</tt><big>(</big><span class="optional">[</span><em>days</em><span class="optional">[</span>, <em>seconds</em><span class="optional">[</span>, <em>microseconds</em><span class="optional">[</span>, <em>milliseconds</em><span class="optional">[</span>, <em>minutes</em><span class="optional">[</span>, <em>hours</em><span class="optional">[</span>, <em>weeks</em><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><big>)</big><a class="headerlink" href="#datetime.timedelta" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="41">{{s.41}}</font><font id="42">{{s.42}}</font></p>
+<p><font id="43">{{s.43}}</font><font id="44">{{s.44}}</font></p>
+<ul class="simple">
+<li>A millisecond is converted to 1000 microseconds.</li>
+<li>A minute is converted to 60 seconds.</li>
+<li>An hour is converted to 3600 seconds.</li>
+<li>A week is converted to 7 days.</li>
+</ul>
+<p><font id="45">{{s.45}}</font></p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">0</span> <span class="pre">&lt;=</span> <span class="pre">microseconds</span> <span class="pre">&lt;</span> <span class="pre">1000000</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">0</span> <span class="pre">&lt;=</span> <span class="pre">seconds</span> <span class="pre">&lt;</span> <span class="pre">3600*24</span></tt> (the number of seconds in one day)</li>
+<li><tt class="docutils literal"><span class="pre">-999999999</span> <span class="pre">&lt;=</span> <span class="pre">days</span> <span class="pre">&lt;=</span> <span class="pre">999999999</span></tt></li>
+</ul>
+<p><font id="46">{{s.46}}</font><font id="47">{{s.47}}</font></p>
+<p><font id="48">{{s.48}}</font></p>
+<p><font id="49">{{s.49}}</font><font id="50">{{s.50}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">timedelta</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">d</span> <span class="o">=</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">microseconds</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">days</span><span class="p">,</span> <span class="n">d</span><span class="o">.</span><span class="n">seconds</span><span class="p">,</span> <span class="n">d</span><span class="o">.</span><span class="n">microseconds</span><span class="p">)</span>
+<span class="go">(-1, 86399, 999999)</span>
+</pre></div>
+</div>
+</dd></dl>
+<p><font id="51">{{s.51}}</font></p>
+<dl class="attribute">
+<dt id="datetime.timedelta.min">
+<tt class="descclassname">timedelta.</tt><tt class="descname">min</tt><a class="headerlink" href="#datetime.timedelta.min" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="52">{{s.52}}</font></p>
+</dd></dl>
+<dl class="attribute">
+<dt id="datetime.timedelta.max">
+<tt class="descclassname">timedelta.</tt><tt class="descname">max</tt><a class="headerlink" href="#datetime.timedelta.max" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="53">{{s.53}}</font></p>
+</dd></dl>
+<dl class="attribute">
+<dt id="datetime.timedelta.resolution">
+<tt class="descclassname">timedelta.</tt><tt class="descname">resolution</tt><a class="headerlink" href="#datetime.timedelta.resolution" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="54">{{s.54}}</font></p>
+</dd></dl>
+<p><font id="55">{{s.55}}</font><font id="56">{{s.56}}</font></p>
+<p><font id="57">{{s.57}}</font></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="29%"></col>
+<col width="71%"></col>
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">Attribute</th>
+<th class="head">Value</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td><tt class="docutils literal"><span class="pre">days</span></tt></td>
+<td>Between -999999999 and 999999999 inclusive</td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">seconds</span></tt></td>
+<td>Between 0 and 86399 inclusive</td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">microseconds</span></tt></td>
+<td>Between 0 and 999999 inclusive</td>
+</tr>
+</tbody>
+</table>
+<p><font id="58">{{s.58}}</font></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="41%"></col>
+<col width="59%"></col>
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">Operation</th>
+<th class="head">Result</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td><tt class="docutils literal"><span class="pre">t1</span> <span class="pre">=</span> <span class="pre">t2</span> <span class="pre">+</span> <span class="pre">t3</span></tt></td>
+<td>Sum of <em>t2</em> and <em>t3</em>. Afterwards <em>t1</em>-<em>t2</em> ==
+<em>t3</em> and <em>t1</em>-<em>t3</em> == <em>t2</em> are true. (1)</td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">t1</span> <span class="pre">=</span> <span class="pre">t2</span> <span class="pre">-</span> <span class="pre">t3</span></tt></td>
+<td>Difference of <em>t2</em> and <em>t3</em>. Afterwards <em>t1</em>
+== <em>t2</em> - <em>t3</em> and <em>t2</em> == <em>t1</em> + <em>t3</em> are
+true. (1)</td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">t1</span> <span class="pre">=</span> <span class="pre">t2</span> <span class="pre">*</span> <span class="pre">i</span> <span class="pre">or</span> <span class="pre">t1</span> <span class="pre">=</span> <span class="pre">i</span> <span class="pre">*</span> <span class="pre">t2</span></tt></td>
+<td>Delta multiplied by an integer or long.
+Afterwards <em>t1</em> // i == <em>t2</em> is true,
+provided <tt class="docutils literal"><span class="pre">i</span> <span class="pre">!=</span> <span class="pre">0</span></tt>.</td>
+</tr>
+<tr><td> </td>
+<td>In general, <em>t1</em> * i == <em>t1</em> * (i-1) + <em>t1</em>
+is true. (1)</td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">t1</span> <span class="pre">=</span> <span class="pre">t2</span> <span class="pre">//</span> <span class="pre">i</span></tt></td>
+<td>The floor is computed and the remainder (if
+any) is thrown away. (3)</td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">+t1</span></tt></td>
+<td>Returns a <a class="reference internal" href="#datetime.timedelta" title="datetime.timedelta"><tt class="xref py py-class docutils literal"><span class="pre">timedelta</span></tt></a> object with the
+same value. (2)</td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">-t1</span></tt></td>
+<td>equivalent to <a class="reference internal" href="#datetime.timedelta" title="datetime.timedelta"><tt class="xref py py-class docutils literal"><span class="pre">timedelta</span></tt></a>(-<em>t1.days</em>, -<em>t1.seconds</em>,
+-<em>t1.microseconds</em>), and to <em>t1</em>* -1. (1)(4)</td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">abs(t)</span></tt></td>
+<td>equivalent to +<em>t</em> when <tt class="docutils literal"><span class="pre">t.days</span> <span class="pre">&gt;=</span> <span class="pre">0</span></tt>, and
+to -<em>t</em> when <tt class="docutils literal"><span class="pre">t.days</span> <span class="pre">&lt;</span> <span class="pre">0</span></tt>. (2)</td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">str(t)</span></tt></td>
+<td>Returns a string in the form
+<tt class="docutils literal"><span class="pre">[D</span> <span class="pre">day[s],</span> <span class="pre">][H]H:MM:SS[.UUUUUU]</span></tt>, where D
+is negative for negative <tt class="docutils literal"><span class="pre">t</span></tt>. (5)</td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">repr(t)</span></tt></td>
+<td>Returns a string in the form
+<tt class="docutils literal"><span class="pre">datetime.timedelta(D[,</span> <span class="pre">S[,</span> <span class="pre">U]])</span></tt>, where D
+is negative for negative <tt class="docutils literal"><span class="pre">t</span></tt>. (5)</td>
+</tr>
+</tbody>
+</table>
+<p><font id="59">{{s.59}}</font></p>
+<ol class="arabic">
+<li><p class="first"><font id="60">{{s.60}}</font></p>
+</li>
+<li><p class="first"><font id="61">{{s.61}}</font></p>
+</li>
+<li><p class="first"><font id="62">{{s.62}}</font></p>
+</li>
+<li><p class="first"><font id="63">{{s.63}}</font></p>
+</li>
+<li><p class="first"><font id="64">{{s.64}}</font><font id="65">{{s.65}}</font><font id="66">{{s.66}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">timedelta</span><span class="p">(</span><span class="n">hours</span><span class="o">=-</span><span class="mi">5</span><span class="p">)</span>
+<span class="go">datetime.timedelta(-1, 68400)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">_</span><span class="p">)</span>
+<span class="go">-1 day, 19:00:00</span>
+</pre></div>
+</div>
+</li>
+</ol>
+<p><font id="67">{{s.67}}</font></p>
+<p><font id="68">{{s.68}}</font><font id="69">{{s.69}}</font><font id="70">{{s.70}}</font></p>
+<p><font id="71">{{s.71}}</font></p>
+<p><font id="72">{{s.72}}</font></p>
+<dl class="method">
+<dt id="datetime.timedelta.total_seconds">
+<tt class="descclassname">timedelta.</tt><tt class="descname">total_seconds</tt><big>(</big><big>)</big><a class="headerlink" href="#datetime.timedelta.total_seconds" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="73">{{s.73}}</font><font id="74">{{s.74}}</font></p>
+<p><font id="75">{{s.75}}</font></p>
+<p class="versionadded"><font id="76">{{s.76}}</font></p>
+</dd></dl>
+<p><font id="77">{{s.77}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">timedelta</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">year</span> <span class="o">=</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="mi">365</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">another_year</span> <span class="o">=</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">weeks</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span> <span class="n">days</span><span class="o">=</span><span class="mi">84</span><span class="p">,</span> <span class="n">hours</span><span class="o">=</span><span class="mi">23</span><span class="p">,</span>
+<span class="gp">... </span>                         <span class="n">minutes</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">seconds</span><span class="o">=</span><span class="mi">600</span><span class="p">)</span>  <span class="c"># adds up to 365 days</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">year</span><span class="o">.</span><span class="n">total_seconds</span><span class="p">()</span>
+<span class="go">31536000.0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">year</span> <span class="o">==</span> <span class="n">another_year</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ten_years</span> <span class="o">=</span> <span class="mi">10</span> <span class="o">*</span> <span class="n">year</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ten_years</span><span class="p">,</span> <span class="n">ten_years</span><span class="o">.</span><span class="n">days</span> <span class="o">//</span> <span class="mi">365</span>
+<span class="go">(datetime.timedelta(3650), 10)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">nine_years</span> <span class="o">=</span> <span class="n">ten_years</span> <span class="o">-</span> <span class="n">year</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">nine_years</span><span class="p">,</span> <span class="n">nine_years</span><span class="o">.</span><span class="n">days</span> <span class="o">//</span> <span class="mi">365</span>
+<span class="go">(datetime.timedelta(3285), 9)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">three_years</span> <span class="o">=</span> <span class="n">nine_years</span> <span class="o">//</span> <span class="mi">3</span><span class="p">;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">three_years</span><span class="p">,</span> <span class="n">three_years</span><span class="o">.</span><span class="n">days</span> <span class="o">//</span> <span class="mi">365</span>
+<span class="go">(datetime.timedelta(1095), 3)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">abs</span><span class="p">(</span><span class="n">three_years</span> <span class="o">-</span> <span class="n">ten_years</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">three_years</span> <span class="o">+</span> <span class="n">year</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="date-objects">
+<span id="datetime-date"></span><h2><font id="422">{{s.422}}</font><a class="reference internal" href="#datetime.date" title="datetime.date"><tt class="xref py py-class docutils literal"><span class="pre">date</span></tt></a></h2>
+<p><font id="78">{{s.78}}</font><font id="79">{{s.79}}</font><font id="80">{{s.80}}</font><font id="81">{{s.81}}</font></p>
+<dl class="class">
+<dt id="datetime.date">
+<em class="property">class </em><tt class="descclassname">datetime.</tt><tt class="descname">date</tt><big>(</big><em>year</em>, <em>month</em>, <em>day</em><big>)</big><a class="headerlink" href="#datetime.date" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="82">{{s.82}}</font><font id="83">{{s.83}}</font></p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">MINYEAR</span> <span class="pre">&lt;=</span> <span class="pre">year</span> <span class="pre">&lt;=</span> <span class="pre">MAXYEAR</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">1</span> <span class="pre">&lt;=</span> <span class="pre">month</span> <span class="pre">&lt;=</span> <span class="pre">12</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">1</span> <span class="pre">&lt;=</span> <span class="pre">day</span> <span class="pre">&lt;=</span> <span class="pre">number</span> <span class="pre">of</span> <span class="pre">days</span> <span class="pre">in</span> <span class="pre">the</span> <span class="pre">given</span> <span class="pre">month</span> <span class="pre">and</span> <span class="pre">year</span></tt></li>
+</ul>
+<p><font id="84">{{s.84}}</font></p>
+</dd></dl>
+<p><font id="85">{{s.85}}</font></p>
+<dl class="classmethod">
+<dt id="datetime.date.today">
+<em class="property">classmethod </em><tt class="descclassname">date.</tt><tt class="descname">today</tt><big>(</big><big>)</big><a class="headerlink" href="#datetime.date.today" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="86">{{s.86}}</font><font id="87">{{s.87}}</font></p>
+</dd></dl>
+<dl class="classmethod">
+<dt id="datetime.date.fromtimestamp">
+<em class="property">classmethod </em><tt class="descclassname">date.</tt><tt class="descname">fromtimestamp</tt><big>(</big><em>timestamp</em><big>)</big><a class="headerlink" href="#datetime.date.fromtimestamp" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="88">{{s.88}}</font><font id="89">{{s.89}}</font><font id="90">{{s.90}}</font><font id="91">{{s.91}}</font></p>
+</dd></dl>
+<dl class="classmethod">
+<dt id="datetime.date.fromordinal">
+<em class="property">classmethod </em><tt class="descclassname">date.</tt><tt class="descname">fromordinal</tt><big>(</big><em>ordinal</em><big>)</big><a class="headerlink" href="#datetime.date.fromordinal" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="92">{{s.92}}</font><font id="93">{{s.93}}</font><font id="94">{{s.94}}</font></p>
+</dd></dl>
+<p><font id="95">{{s.95}}</font></p>
+<dl class="attribute">
+<dt id="datetime.date.min">
+<tt class="descclassname">date.</tt><tt class="descname">min</tt><a class="headerlink" href="#datetime.date.min" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="96">{{s.96}}</font></p>
+</dd></dl>
+<dl class="attribute">
+<dt id="datetime.date.max">
+<tt class="descclassname">date.</tt><tt class="descname">max</tt><a class="headerlink" href="#datetime.date.max" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="97">{{s.97}}</font></p>
+</dd></dl>
+<dl class="attribute">
+<dt id="datetime.date.resolution">
+<tt class="descclassname">date.</tt><tt class="descname">resolution</tt><a class="headerlink" href="#datetime.date.resolution" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="98">{{s.98}}</font></p>
+</dd></dl>
+<p><font id="99">{{s.99}}</font></p>
+<dl class="attribute">
+<dt id="datetime.date.year">
+<tt class="descclassname">date.</tt><tt class="descname">year</tt><a class="headerlink" href="#datetime.date.year" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="100">{{s.100}}</font></p>
+</dd></dl>
+<dl class="attribute">
+<dt id="datetime.date.month">
+<tt class="descclassname">date.</tt><tt class="descname">month</tt><a class="headerlink" href="#datetime.date.month" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="101">{{s.101}}</font></p>
+</dd></dl>
+<dl class="attribute">
+<dt id="datetime.date.day">
+<tt class="descclassname">date.</tt><tt class="descname">day</tt><a class="headerlink" href="#datetime.date.day" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="102">{{s.102}}</font></p>
+</dd></dl>
+<p><font id="103">{{s.103}}</font></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="40%"></col>
+<col width="60%"></col>
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">Operation</th>
+<th class="head">Result</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td><tt class="docutils literal"><span class="pre">date2</span> <span class="pre">=</span> <span class="pre">date1</span> <span class="pre">+</span> <span class="pre">timedelta</span></tt></td>
+<td><em>date2</em> is <tt class="docutils literal"><span class="pre">timedelta.days</span></tt> days removed
+from <em>date1</em>.  (1)</td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">date2</span> <span class="pre">=</span> <span class="pre">date1</span> <span class="pre">-</span> <span class="pre">timedelta</span></tt></td>
+<td>Computes <em>date2</em> such that <tt class="docutils literal"><span class="pre">date2</span> <span class="pre">+</span>
+<span class="pre">timedelta</span> <span class="pre">==</span> <span class="pre">date1</span></tt>. (2)</td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">timedelta</span> <span class="pre">=</span> <span class="pre">date1</span> <span class="pre">-</span> <span class="pre">date2</span></tt></td>
+<td>(3)</td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">date1</span> <span class="pre">&lt;</span> <span class="pre">date2</span></tt></td>
+<td><em>date1</em> is considered less than <em>date2</em> when
+<em>date1</em> precedes <em>date2</em> in time. (4)</td>
+</tr>
+</tbody>
+</table>
+<p><font id="104">{{s.104}}</font></p>
+<ol class="arabic simple">
+<li><em>date2</em> is moved forward in time if <tt class="docutils literal"><span class="pre">timedelta.days</span> <span class="pre">&gt;</span> <span class="pre">0</span></tt>, or backward if
+<tt class="docutils literal"><span class="pre">timedelta.days</span> <span class="pre">&lt;</span> <span class="pre">0</span></tt>.  Afterward <tt class="docutils literal"><span class="pre">date2</span> <span class="pre">-</span> <span class="pre">date1</span> <span class="pre">==</span> <span class="pre">timedelta.days</span></tt>.
+<tt class="docutils literal"><span class="pre">timedelta.seconds</span></tt> and <tt class="docutils literal"><span class="pre">timedelta.microseconds</span></tt> are ignored.
+<a class="reference internal" href="exceptions.html#exceptions.OverflowError" title="exceptions.OverflowError"><font id="442">{{s.442}}</font></a> is raised if <tt class="docutils literal"><span class="pre">date2.year</span></tt> would be smaller than
+<a class="reference internal" href="#datetime.MINYEAR" title="datetime.MINYEAR"><font id="443">{{s.443}}</font></a> or larger than <a class="reference internal" href="#datetime.MAXYEAR" title="datetime.MAXYEAR"><font id="444">{{s.444}}</font></a>.</li>
+<li>This isn’t quite equivalent to date1 + (-timedelta), because -timedelta in
+isolation can overflow in cases where date1 - timedelta does not.
+<tt class="docutils literal"><span class="pre">timedelta.seconds</span></tt> and <tt class="docutils literal"><span class="pre">timedelta.microseconds</span></tt> are ignored.</li>
+<li>This is exact, and cannot overflow.  timedelta.seconds and
+timedelta.microseconds are 0, and date2 + timedelta == date1 after.</li>
+<li>In other words, <tt class="docutils literal"><span class="pre">date1</span> <span class="pre">&lt;</span> <span class="pre">date2</span></tt> if and only if <tt class="docutils literal"><span class="pre">date1.toordinal()</span> <span class="pre">&lt;</span>
+<span class="pre">date2.toordinal()</span></tt>. In order to stop comparison from falling back to the
+default scheme of comparing object addresses, date comparison normally raises
+<a class="reference internal" href="exceptions.html#exceptions.TypeError" title="exceptions.TypeError"><font id="445">{{s.445}}</font></a> if the other comparand isn’t also a <a class="reference internal" href="#datetime.date" title="datetime.date"><font id="446">{{s.446}}</font></a> object.
+However, <tt class="docutils literal"><span class="pre">NotImplemented</span></tt> is returned instead if the other comparand has a
+<tt class="xref py py-meth docutils literal"><span class="pre">timetuple()</span></tt> attribute.  This hook gives other kinds of date objects a
+chance at implementing mixed-type comparison. If not, when a <a class="reference internal" href="#datetime.date" title="datetime.date"><font id="447">{{s.447}}</font></a>
+object is compared to an object of a different type, <a class="reference internal" href="exceptions.html#exceptions.TypeError" title="exceptions.TypeError"><font id="448">{{s.448}}</font></a> is raised
+unless the comparison is <tt class="docutils literal"><span class="pre">==</span></tt> or <tt class="docutils literal"><span class="pre">!=</span></tt>.  The latter cases return
+<a class="reference internal" href="constants.html#False" title="False"><font id="449">{{s.449}}</font></a> or <a class="reference internal" href="constants.html#True" title="True"><font id="450">{{s.450}}</font></a>, respectively.</li>
+</ol>
+<p><font id="105">{{s.105}}</font><font id="106">{{s.106}}</font></p>
+<p><font id="107">{{s.107}}</font></p>
+<dl class="method">
+<dt id="datetime.date.replace">
+<tt class="descclassname">date.</tt><tt class="descname">replace</tt><big>(</big><em>year</em>, <em>month</em>, <em>day</em><big>)</big><a class="headerlink" href="#datetime.date.replace" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="108">{{s.108}}</font><font id="109">{{s.109}}</font></p>
+</dd></dl>
+<dl class="method">
+<dt id="datetime.date.timetuple">
+<tt class="descclassname">date.</tt><tt class="descname">timetuple</tt><big>(</big><big>)</big><a class="headerlink" href="#datetime.date.timetuple" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="110">{{s.110}}</font><font id="111">{{s.111}}</font><font id="112">{{s.112}}</font></p>
+</dd></dl>
+<dl class="method">
+<dt id="datetime.date.toordinal">
+<tt class="descclassname">date.</tt><tt class="descname">toordinal</tt><big>(</big><big>)</big><a class="headerlink" href="#datetime.date.toordinal" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="113">{{s.113}}</font><font id="114">{{s.114}}</font></p>
+</dd></dl>
+<dl class="method">
+<dt id="datetime.date.weekday">
+<tt class="descclassname">date.</tt><tt class="descname">weekday</tt><big>(</big><big>)</big><a class="headerlink" href="#datetime.date.weekday" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="115">{{s.115}}</font><font id="116">{{s.116}}</font><font id="117">{{s.117}}</font></p>
+</dd></dl>
+<dl class="method">
+<dt id="datetime.date.isoweekday">
+<tt class="descclassname">date.</tt><tt class="descname">isoweekday</tt><big>(</big><big>)</big><a class="headerlink" href="#datetime.date.isoweekday" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="118">{{s.118}}</font><font id="119">{{s.119}}</font><font id="120">{{s.120}}</font></p>
+</dd></dl>
+<dl class="method">
+<dt id="datetime.date.isocalendar">
+<tt class="descclassname">date.</tt><tt class="descname">isocalendar</tt><big>(</big><big>)</big><a class="headerlink" href="#datetime.date.isocalendar" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="121">{{s.121}}</font></p>
+<p><font id="122">{{s.122}}</font><font id="123">{{s.123}}</font></p>
+<p><font id="124">{{s.124}}</font><font id="125">{{s.125}}</font><font id="126">{{s.126}}</font></p>
+<p><font id="127">{{s.127}}</font></p>
+</dd></dl>
+<dl class="method">
+<dt id="datetime.date.isoformat">
+<tt class="descclassname">date.</tt><tt class="descname">isoformat</tt><big>(</big><big>)</big><a class="headerlink" href="#datetime.date.isoformat" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="128">{{s.128}}</font><font id="129">{{s.129}}</font></p>
+</dd></dl>
+<dl class="method">
+<dt id="datetime.date.__str__">
+<tt class="descclassname">date.</tt><tt class="descname">__str__</tt><big>(</big><big>)</big><a class="headerlink" href="#datetime.date.__str__" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="130">{{s.130}}</font></p>
+</dd></dl>
+<dl class="method">
+<dt id="datetime.date.ctime">
+<tt class="descclassname">date.</tt><tt class="descname">ctime</tt><big>(</big><big>)</big><a class="headerlink" href="#datetime.date.ctime" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="131">{{s.131}}</font><font id="132">{{s.132}}</font></p>
+</dd></dl>
+<dl class="method">
+<dt id="datetime.date.strftime">
+<tt class="descclassname">date.</tt><tt class="descname">strftime</tt><big>(</big><em>format</em><big>)</big><a class="headerlink" href="#datetime.date.strftime" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="133">{{s.133}}</font><font id="134">{{s.134}}</font><font id="135">{{s.135}}</font></p>
+</dd></dl>
+<dl class="method">
+<dt id="datetime.date.__format__">
+<tt class="descclassname">date.</tt><tt class="descname">__format__</tt><big>(</big><em>format</em><big>)</big><a class="headerlink" href="#datetime.date.__format__" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="136">{{s.136}}</font><font id="137">{{s.137}}</font><font id="138">{{s.138}}</font></p>
+</dd></dl>
+<p><font id="139">{{s.139}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">time</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">date</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">today</span> <span class="o">=</span> <span class="n">date</span><span class="o">.</span><span class="n">today</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">today</span>
+<span class="go">datetime.date(2007, 12, 5)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">today</span> <span class="o">==</span> <span class="n">date</span><span class="o">.</span><span class="n">fromtimestamp</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">())</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">my_birthday</span> <span class="o">=</span> <span class="n">date</span><span class="p">(</span><span class="n">today</span><span class="o">.</span><span class="n">year</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">24</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">if</span> <span class="n">my_birthday</span> <span class="o">&lt;</span> <span class="n">today</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="n">my_birthday</span> <span class="o">=</span> <span class="n">my_birthday</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">year</span><span class="o">=</span><span class="n">today</span><span class="o">.</span><span class="n">year</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">my_birthday</span>
+<span class="go">datetime.date(2008, 6, 24)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">time_to_birthday</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">my_birthday</span> <span class="o">-</span> <span class="n">today</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">time_to_birthday</span><span class="o">.</span><span class="n">days</span>
+<span class="go">202</span>
+</pre></div>
+</div>
+<p><font id="140">{{s.140}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">date</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">d</span> <span class="o">=</span> <span class="n">date</span><span class="o">.</span><span class="n">fromordinal</span><span class="p">(</span><span class="mi">730920</span><span class="p">)</span> <span class="c"># 730920th day after 1. 1. 0001</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">d</span>
+<span class="go">datetime.date(2002, 3, 11)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">t</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">timetuple</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">t</span><span class="p">:</span>     
+<span class="gp">... </span>    <span class="k">print</span> <span class="n">i</span>
+<span class="go">2002                # year</span>
+<span class="go">3                   # month</span>
+<span class="go">11                  # day</span>
+<span class="go">0</span>
+<span class="go">0</span>
+<span class="go">0</span>
+<span class="go">0                   # weekday (0 = Monday)</span>
+<span class="go">70                  # 70th day in the year</span>
+<span class="go">-1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ic</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">isocalendar</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">ic</span><span class="p">:</span>    
+<span class="gp">... </span>    <span class="k">print</span> <span class="n">i</span>
+<span class="go">2002                # ISO year</span>
+<span class="go">11                  # ISO week number</span>
+<span class="go">1                   # ISO day number ( 1 = Monday )</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">d</span><span class="o">.</span><span class="n">isoformat</span><span class="p">()</span>
+<span class="go">'2002-03-11'</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">d</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s">"</span><span class="si">%d</span><span class="s">/%m/%y"</span><span class="p">)</span>
+<span class="go">'11/03/02'</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">d</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s">"%A </span><span class="si">%d</span><span class="s">. %B %Y"</span><span class="p">)</span>
+<span class="go">'Monday 11. March 2002'</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="s">'The {1} is {0:</span><span class="si">%d</span><span class="s">}, the {2} is {0:%B}.'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="s">"day"</span><span class="p">,</span> <span class="s">"month"</span><span class="p">)</span>
+<span class="go">'The day is 11, the month is March.'</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="datetime-objects">
+<span id="datetime-datetime"></span><h2><font id="423">{{s.423}}</font><a class="reference internal" href="#module-datetime" title="datetime: Basic date and time types."><tt class="xref py py-class docutils literal"><span class="pre">datetime</span></tt></a></h2>
+<p><font id="141">{{s.141}}</font><font id="142">{{s.142}}</font><font id="143">{{s.143}}</font></p>
+<p><font id="144">{{s.144}}</font></p>
+<dl class="class">
+<dt id="datetime.datetime">
+<em class="property">class </em><tt class="descclassname">datetime.</tt><tt class="descname">datetime</tt><big>(</big><em>year</em>, <em>month</em>, <em>day</em><span class="optional">[</span>, <em>hour</em><span class="optional">[</span>, <em>minute</em><span class="optional">[</span>, <em>second</em><span class="optional">[</span>, <em>microsecond</em><span class="optional">[</span>, <em>tzinfo</em><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><big>)</big><a class="headerlink" href="#datetime.datetime" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="145">{{s.145}}</font><font id="146">{{s.146}}</font><font id="147">{{s.147}}</font></p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">MINYEAR</span> <span class="pre">&lt;=</span> <span class="pre">year</span> <span class="pre">&lt;=</span> <span class="pre">MAXYEAR</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">1</span> <span class="pre">&lt;=</span> <span class="pre">month</span> <span class="pre">&lt;=</span> <span class="pre">12</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">1</span> <span class="pre">&lt;=</span> <span class="pre">day</span> <span class="pre">&lt;=</span> <span class="pre">number</span> <span class="pre">of</span> <span class="pre">days</span> <span class="pre">in</span> <span class="pre">the</span> <span class="pre">given</span> <span class="pre">month</span> <span class="pre">and</span> <span class="pre">year</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">0</span> <span class="pre">&lt;=</span> <span class="pre">hour</span> <span class="pre">&lt;</span> <span class="pre">24</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">0</span> <span class="pre">&lt;=</span> <span class="pre">minute</span> <span class="pre">&lt;</span> <span class="pre">60</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">0</span> <span class="pre">&lt;=</span> <span class="pre">second</span> <span class="pre">&lt;</span> <span class="pre">60</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">0</span> <span class="pre">&lt;=</span> <span class="pre">microsecond</span> <span class="pre">&lt;</span> <span class="pre">1000000</span></tt></li>
+</ul>
+<p><font id="148">{{s.148}}</font></p>
+</dd></dl>
+<p><font id="149">{{s.149}}</font></p>
+<dl class="classmethod">
+<dt id="datetime.datetime.today">
+<em class="property">classmethod </em><tt class="descclassname">datetime.</tt><tt class="descname">today</tt><big>(</big><big>)</big><a class="headerlink" href="#datetime.datetime.today" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="150">{{s.150}}</font><font id="151">{{s.151}}</font><font id="152">{{s.152}}</font></p>
+</dd></dl>
+<dl class="classmethod">
+<dt id="datetime.datetime.now">
+<em class="property">classmethod </em><tt class="descclassname">datetime.</tt><tt class="descname">now</tt><big>(</big><span class="optional">[</span><em>tz</em><span class="optional">]</span><big>)</big><a class="headerlink" href="#datetime.datetime.now" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="153">{{s.153}}</font><font id="154">{{s.154}}</font></p>
+<p><font id="155">{{s.155}}</font><font id="156">{{s.156}}</font><font id="157">{{s.157}}</font></p>
+</dd></dl>
+<dl class="classmethod">
+<dt id="datetime.datetime.utcnow">
+<em class="property">classmethod </em><tt class="descclassname">datetime.</tt><tt class="descname">utcnow</tt><big>(</big><big>)</big><a class="headerlink" href="#datetime.datetime.utcnow" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="158">{{s.158}}</font><font id="159">{{s.159}}</font><font id="160">{{s.160}}</font></p>
+</dd></dl>
+<dl class="classmethod">
+<dt id="datetime.datetime.fromtimestamp">
+<em class="property">classmethod </em><tt class="descclassname">datetime.</tt><tt class="descname">fromtimestamp</tt><big>(</big><em>timestamp</em><span class="optional">[</span>, <em>tz</em><span class="optional">]</span><big>)</big><a class="headerlink" href="#datetime.datetime.fromtimestamp" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="161">{{s.161}}</font><font id="162">{{s.162}}</font></p>
+<p><font id="163">{{s.163}}</font><font id="164">{{s.164}}</font></p>
+<p><font id="165">{{s.165}}</font><font id="166">{{s.166}}</font><font id="167">{{s.167}}</font><font id="168">{{s.168}}</font></p>
+</dd></dl>
+<dl class="classmethod">
+<dt id="datetime.datetime.utcfromtimestamp">
+<em class="property">classmethod </em><tt class="descclassname">datetime.</tt><tt class="descname">utcfromtimestamp</tt><big>(</big><em>timestamp</em><big>)</big><a class="headerlink" href="#datetime.datetime.utcfromtimestamp" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="169">{{s.169}}</font><font id="170">{{s.170}}</font><font id="171">{{s.171}}</font><font id="172">{{s.172}}</font></p>
+</dd></dl>
+<dl class="classmethod">
+<dt id="datetime.datetime.fromordinal">
+<em class="property">classmethod </em><tt class="descclassname">datetime.</tt><tt class="descname">fromordinal</tt><big>(</big><em>ordinal</em><big>)</big><a class="headerlink" href="#datetime.datetime.fromordinal" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="173">{{s.173}}</font><font id="174">{{s.174}}</font><font id="175">{{s.175}}</font></p>
+</dd></dl>
+<dl class="classmethod">
+<dt id="datetime.datetime.combine">
+<em class="property">classmethod </em><tt class="descclassname">datetime.</tt><tt class="descname">combine</tt><big>(</big><em>date</em>, <em>time</em><big>)</big><a class="headerlink" href="#datetime.datetime.combine" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="176">{{s.176}}</font><font id="177">{{s.177}}</font><font id="178">{{s.178}}</font></p>
+</dd></dl>
+<dl class="classmethod">
+<dt id="datetime.datetime.strptime">
+<em class="property">classmethod </em><tt class="descclassname">datetime.</tt><tt class="descname">strptime</tt><big>(</big><em>date_string</em>, <em>format</em><big>)</big><a class="headerlink" href="#datetime.datetime.strptime" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="179">{{s.179}}</font><font id="180">{{s.180}}</font><font id="181">{{s.181}}</font><font id="182">{{s.182}}</font></p>
+<p class="versionadded"><font id="183">{{s.183}}</font></p>
+</dd></dl>
+<p><font id="184">{{s.184}}</font></p>
+<dl class="attribute">
+<dt id="datetime.datetime.min">
+<tt class="descclassname">datetime.</tt><tt class="descname">min</tt><a class="headerlink" href="#datetime.datetime.min" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="185">{{s.185}}</font></p>
+</dd></dl>
+<dl class="attribute">
+<dt id="datetime.datetime.max">
+<tt class="descclassname">datetime.</tt><tt class="descname">max</tt><a class="headerlink" href="#datetime.datetime.max" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="186">{{s.186}}</font></p>
+</dd></dl>
+<dl class="attribute">
+<dt id="datetime.datetime.resolution">
+<tt class="descclassname">datetime.</tt><tt class="descname">resolution</tt><a class="headerlink" href="#datetime.datetime.resolution" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="187">{{s.187}}</font></p>
+</dd></dl>
+<p><font id="188">{{s.188}}</font></p>
+<dl class="attribute">
+<dt id="datetime.datetime.year">
+<tt class="descclassname">datetime.</tt><tt class="descname">year</tt><a class="headerlink" href="#datetime.datetime.year" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="189">{{s.189}}</font></p>
+</dd></dl>
+<dl class="attribute">
+<dt id="datetime.datetime.month">
+<tt class="descclassname">datetime.</tt><tt class="descname">month</tt><a class="headerlink" href="#datetime.datetime.month" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="190">{{s.190}}</font></p>
+</dd></dl>
+<dl class="attribute">
+<dt id="datetime.datetime.day">
+<tt class="descclassname">datetime.</tt><tt class="descname">day</tt><a class="headerlink" href="#datetime.datetime.day" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="191">{{s.191}}</font></p>
+</dd></dl>
+<dl class="attribute">
+<dt id="datetime.datetime.hour">
+<tt class="descclassname">datetime.</tt><tt class="descname">hour</tt><a class="headerlink" href="#datetime.datetime.hour" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="192">{{s.192}}</font></p>
+</dd></dl>
+<dl class="attribute">
+<dt id="datetime.datetime.minute">
+<tt class="descclassname">datetime.</tt><tt class="descname">minute</tt><a class="headerlink" href="#datetime.datetime.minute" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="193">{{s.193}}</font></p>
+</dd></dl>
+<dl class="attribute">
+<dt id="datetime.datetime.second">
+<tt class="descclassname">datetime.</tt><tt class="descname">second</tt><a class="headerlink" href="#datetime.datetime.second" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="194">{{s.194}}</font></p>
+</dd></dl>
+<dl class="attribute">
+<dt id="datetime.datetime.microsecond">
+<tt class="descclassname">datetime.</tt><tt class="descname">microsecond</tt><a class="headerlink" href="#datetime.datetime.microsecond" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="195">{{s.195}}</font></p>
+</dd></dl>
+<dl class="attribute">
+<dt id="datetime.datetime.tzinfo">
+<tt class="descclassname">datetime.</tt><tt class="descname">tzinfo</tt><a class="headerlink" href="#datetime.datetime.tzinfo" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="196">{{s.196}}</font></p>
+</dd></dl>
+<p><font id="197">{{s.197}}</font></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="55%"></col>
+<col width="45%"></col>
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">Operation</th>
+<th class="head">Result</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td><tt class="docutils literal"><span class="pre">datetime2</span> <span class="pre">=</span> <span class="pre">datetime1</span> <span class="pre">+</span> <span class="pre">timedelta</span></tt></td>
+<td>(1)</td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">datetime2</span> <span class="pre">=</span> <span class="pre">datetime1</span> <span class="pre">-</span> <span class="pre">timedelta</span></tt></td>
+<td>(2)</td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">timedelta</span> <span class="pre">=</span> <span class="pre">datetime1</span> <span class="pre">-</span> <span class="pre">datetime2</span></tt></td>
+<td>(3)</td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">datetime1</span> <span class="pre">&lt;</span> <span class="pre">datetime2</span></tt></td>
+<td>Compares <a class="reference internal" href="#datetime.datetime" title="datetime.datetime"><tt class="xref py py-class docutils literal"><span class="pre">datetime</span></tt></a> to
+<a class="reference internal" href="#datetime.datetime" title="datetime.datetime"><tt class="xref py py-class docutils literal"><span class="pre">datetime</span></tt></a>. (4)</td>
+</tr>
+</tbody>
+</table>
+<ol class="arabic">
+<li><p class="first"><font id="198">{{s.198}}</font><font id="199">{{s.199}}</font><font id="200">{{s.200}}</font><font id="201">{{s.201}}</font></p>
+</li>
+<li><p class="first"><font id="202">{{s.202}}</font><font id="203">{{s.203}}</font><font id="204">{{s.204}}</font></p>
+</li>
+<li><p class="first"><font id="205">{{s.205}}</font><font id="206">{{s.206}}</font></p>
+<p><font id="207">{{s.207}}</font><font id="208">{{s.208}}</font></p>
+<p><font id="209">{{s.209}}</font><font id="210">{{s.210}}</font></p>
+</li>
+<li><p class="first"><font id="211">{{s.211}}</font></p>
+<p><font id="212">{{s.212}}</font><font id="213">{{s.213}}</font><font id="214">{{s.214}}</font></p>
+<div class="admonition note">
+<p class="first admonition-title"><font id="215">{{s.215}}</font></p>
+<p class="last"><font id="216">{{s.216}}</font><font id="217">{{s.217}}</font><font id="218">{{s.218}}</font><font id="219">{{s.219}}</font><font id="220">{{s.220}}</font></p>
+</div>
+</li>
+</ol>
+<p><font id="221">{{s.221}}</font><font id="222">{{s.222}}</font></p>
+<p><font id="223">{{s.223}}</font></p>
+<dl class="method">
+<dt id="datetime.datetime.date">
+<tt class="descclassname">datetime.</tt><tt class="descname">date</tt><big>(</big><big>)</big><a class="headerlink" href="#datetime.datetime.date" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="224">{{s.224}}</font></p>
+</dd></dl>
+<dl class="method">
+<dt id="datetime.datetime.time">
+<tt class="descclassname">datetime.</tt><tt class="descname">time</tt><big>(</big><big>)</big><a class="headerlink" href="#datetime.datetime.time" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="225">{{s.225}}</font><font id="226">{{s.226}}</font><font id="227">{{s.227}}</font></p>
+</dd></dl>
+<dl class="method">
+<dt id="datetime.datetime.timetz">
+<tt class="descclassname">datetime.</tt><tt class="descname">timetz</tt><big>(</big><big>)</big><a class="headerlink" href="#datetime.datetime.timetz" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="228">{{s.228}}</font><font id="229">{{s.229}}</font></p>
+</dd></dl>
+<dl class="method">
+<dt id="datetime.datetime.replace">
+<tt class="descclassname">datetime.</tt><tt class="descname">replace</tt><big>(</big><span class="optional">[</span><em>year</em><span class="optional">[</span>, <em>month</em><span class="optional">[</span>, <em>day</em><span class="optional">[</span>, <em>hour</em><span class="optional">[</span>, <em>minute</em><span class="optional">[</span>, <em>second</em><span class="optional">[</span>, <em>microsecond</em><span class="optional">[</span>, <em>tzinfo</em><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><big>)</big><a class="headerlink" href="#datetime.datetime.replace" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="230">{{s.230}}</font><font id="231">{{s.231}}</font></p>
+</dd></dl>
+<dl class="method">
+<dt id="datetime.datetime.astimezone">
+<tt class="descclassname">datetime.</tt><tt class="descname">astimezone</tt><big>(</big><em>tz</em><big>)</big><a class="headerlink" href="#datetime.datetime.astimezone" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="232">{{s.232}}</font></p>
+<p><font id="233">{{s.233}}</font><font id="234">{{s.234}}</font></p>
+<p><font id="235">{{s.235}}</font><font id="236">{{s.236}}</font><font id="237">{{s.237}}</font></p>
+<p><font id="238">{{s.238}}</font><font id="239">{{s.239}}</font></p>
+<p><font id="240">{{s.240}}</font><font id="241">{{s.241}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">astimezone</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tz</span><span class="p">):</span>
+    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">tzinfo</span> <span class="ow">is</span> <span class="n">tz</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span>
+    <span class="c"># Convert self to UTC, and attach the new time zone object.</span>
+    <span class="n">utc</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">utcoffset</span><span class="p">())</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">tzinfo</span><span class="o">=</span><span class="n">tz</span><span class="p">)</span>
+    <span class="c"># Convert from UTC to tz's local time.</span>
+    <span class="k">return</span> <span class="n">tz</span><span class="o">.</span><span class="n">fromutc</span><span class="p">(</span><span class="n">utc</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+<dl class="method">
+<dt id="datetime.datetime.utcoffset">
+<tt class="descclassname">datetime.</tt><tt class="descname">utcoffset</tt><big>(</big><big>)</big><a class="headerlink" href="#datetime.datetime.utcoffset" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="242">{{s.242}}</font></p>
+</dd></dl>
+<dl class="method">
+<dt id="datetime.datetime.dst">
+<tt class="descclassname">datetime.</tt><tt class="descname">dst</tt><big>(</big><big>)</big><a class="headerlink" href="#datetime.datetime.dst" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="243">{{s.243}}</font></p>
+</dd></dl>
+<dl class="method">
+<dt id="datetime.datetime.tzname">
+<tt class="descclassname">datetime.</tt><tt class="descname">tzname</tt><big>(</big><big>)</big><a class="headerlink" href="#datetime.datetime.tzname" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="244">{{s.244}}</font></p>
+</dd></dl>
+<dl class="method">
+<dt id="datetime.datetime.timetuple">
+<tt class="descclassname">datetime.</tt><tt class="descname">timetuple</tt><big>(</big><big>)</big><a class="headerlink" href="#datetime.datetime.timetuple" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="245">{{s.245}}</font><font id="246">{{s.246}}</font><font id="247">{{s.247}}</font><font id="248">{{s.248}}</font><font id="249">{{s.249}}</font></p>
+</dd></dl>
+<dl class="method">
+<dt id="datetime.datetime.utctimetuple">
+<tt class="descclassname">datetime.</tt><tt class="descname">utctimetuple</tt><big>(</big><big>)</big><a class="headerlink" href="#datetime.datetime.utctimetuple" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="250">{{s.250}}</font><font id="251">{{s.251}}</font></p>
+<p><font id="252">{{s.252}}</font><font id="253">{{s.253}}</font><font id="254">{{s.254}}</font></p>
+</dd></dl>
+<dl class="method">
+<dt id="datetime.datetime.toordinal">
+<tt class="descclassname">datetime.</tt><tt class="descname">toordinal</tt><big>(</big><big>)</big><a class="headerlink" href="#datetime.datetime.toordinal" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="255">{{s.255}}</font><font id="256">{{s.256}}</font></p>
+</dd></dl>
+<dl class="method">
+<dt id="datetime.datetime.weekday">
+<tt class="descclassname">datetime.</tt><tt class="descname">weekday</tt><big>(</big><big>)</big><a class="headerlink" href="#datetime.datetime.weekday" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="257">{{s.257}}</font><font id="258">{{s.258}}</font><font id="259">{{s.259}}</font></p>
+</dd></dl>
+<dl class="method">
+<dt id="datetime.datetime.isoweekday">
+<tt class="descclassname">datetime.</tt><tt class="descname">isoweekday</tt><big>(</big><big>)</big><a class="headerlink" href="#datetime.datetime.isoweekday" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="260">{{s.260}}</font><font id="261">{{s.261}}</font><font id="262">{{s.262}}</font></p>
+</dd></dl>
+<dl class="method">
+<dt id="datetime.datetime.isocalendar">
+<tt class="descclassname">datetime.</tt><tt class="descname">isocalendar</tt><big>(</big><big>)</big><a class="headerlink" href="#datetime.datetime.isocalendar" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="263">{{s.263}}</font><font id="264">{{s.264}}</font></p>
+</dd></dl>
+<dl class="method">
+<dt id="datetime.datetime.isoformat">
+<tt class="descclassname">datetime.</tt><tt class="descname">isoformat</tt><big>(</big><span class="optional">[</span><em>sep</em><span class="optional">]</span><big>)</big><a class="headerlink" href="#datetime.datetime.isoformat" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="265">{{s.265}}</font></p>
+<p><font id="266">{{s.266}}</font></p>
+<p><font id="267">{{s.267}}</font><font id="268">{{s.268}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">tzinfo</span><span class="p">,</span> <span class="n">timedelta</span><span class="p">,</span> <span class="n">datetime</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">class</span> <span class="nc">TZ</span><span class="p">(</span><span class="n">tzinfo</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="k">def</span> <span class="nf">utcoffset</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dt</span><span class="p">):</span> <span class="k">return</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">minutes</span><span class="o">=-</span><span class="mi">399</span><span class="p">)</span>
+<span class="gp">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">datetime</span><span class="p">(</span><span class="mi">2002</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="n">tzinfo</span><span class="o">=</span><span class="n">TZ</span><span class="p">())</span><span class="o">.</span><span class="n">isoformat</span><span class="p">(</span><span class="s">' '</span><span class="p">)</span>
+<span class="go">'2002-12-25 00:00:00-06:39'</span>
+</pre></div>
+</div>
+</dd></dl>
+<dl class="method">
+<dt id="datetime.datetime.__str__">
+<tt class="descclassname">datetime.</tt><tt class="descname">__str__</tt><big>(</big><big>)</big><a class="headerlink" href="#datetime.datetime.__str__" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="269">{{s.269}}</font></p>
+</dd></dl>
+<dl class="method">
+<dt id="datetime.datetime.ctime">
+<tt class="descclassname">datetime.</tt><tt class="descname">ctime</tt><big>(</big><big>)</big><a class="headerlink" href="#datetime.datetime.ctime" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="270">{{s.270}}</font><font id="271">{{s.271}}</font></p>
+</dd></dl>
+<dl class="method">
+<dt id="datetime.datetime.strftime">
+<tt class="descclassname">datetime.</tt><tt class="descname">strftime</tt><big>(</big><em>format</em><big>)</big><a class="headerlink" href="#datetime.datetime.strftime" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="272">{{s.272}}</font><font id="273">{{s.273}}</font></p>
+</dd></dl>
+<dl class="method">
+<dt id="datetime.datetime.__format__">
+<tt class="descclassname">datetime.</tt><tt class="descname">__format__</tt><big>(</big><em>format</em><big>)</big><a class="headerlink" href="#datetime.datetime.__format__" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="274">{{s.274}}</font><font id="275">{{s.275}}</font><font id="276">{{s.276}}</font></p>
+</dd></dl>
+<p><font id="277">{{s.277}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span><span class="p">,</span> <span class="n">date</span><span class="p">,</span> <span class="n">time</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c"># Using datetime.combine()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">d</span> <span class="o">=</span> <span class="n">date</span><span class="p">(</span><span class="mi">2005</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">14</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">t</span> <span class="o">=</span> <span class="n">time</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">datetime</span><span class="o">.</span><span class="n">combine</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span>
+<span class="go">datetime.datetime(2005, 7, 14, 12, 30)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c"># Using datetime.now() or datetime.utcnow()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>   
+<span class="go">datetime.datetime(2007, 12, 6, 16, 29, 43, 79043)   # GMT +1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">datetime</span><span class="o">.</span><span class="n">utcnow</span><span class="p">()</span>   
+<span class="go">datetime.datetime(2007, 12, 6, 15, 29, 43, 79060)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c"># Using datetime.strptime()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dt</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="s">"21/11/06 16:30"</span><span class="p">,</span> <span class="s">"</span><span class="si">%d</span><span class="s">/%m/%y %H:%M"</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dt</span>
+<span class="go">datetime.datetime(2006, 11, 21, 16, 30)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c"># Using datetime.timetuple() to get tuple of all attributes</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">tt</span> <span class="o">=</span> <span class="n">dt</span><span class="o">.</span><span class="n">timetuple</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">it</span> <span class="ow">in</span> <span class="n">tt</span><span class="p">:</span>   
+<span class="gp">... </span>    <span class="k">print</span> <span class="n">it</span>
+<span class="gp">...</span>
+<span class="go">2006    # year</span>
+<span class="go">11      # month</span>
+<span class="go">21      # day</span>
+<span class="go">16      # hour</span>
+<span class="go">30      # minute</span>
+<span class="go">0       # second</span>
+<span class="go">1       # weekday (0 = Monday)</span>
+<span class="go">325     # number of days since 1st January</span>
+<span class="go">-1      # dst - method tzinfo.dst() returned None</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c"># Date in ISO format</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ic</span> <span class="o">=</span> <span class="n">dt</span><span class="o">.</span><span class="n">isocalendar</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">it</span> <span class="ow">in</span> <span class="n">ic</span><span class="p">:</span>   
+<span class="gp">... </span>    <span class="k">print</span> <span class="n">it</span>
+<span class="gp">...</span>
+<span class="go">2006    # ISO year</span>
+<span class="go">47      # ISO week</span>
+<span class="go">2       # ISO weekday</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c"># Formatting datetime</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dt</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s">"%A, </span><span class="si">%d</span><span class="s">. %B %Y %I:%M%p"</span><span class="p">)</span>
+<span class="go">'Tuesday, 21. November 2006 04:30PM'</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="s">'The {1} is {0:</span><span class="si">%d</span><span class="s">}, the {2} is {0:%B}, the {3} is {0:%I:%M%p}.'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">dt</span><span class="p">,</span> <span class="s">"day"</span><span class="p">,</span> <span class="s">"month"</span><span class="p">,</span> <span class="s">"time"</span><span class="p">)</span>
+<span class="go">'The day is 21, the month is November, the time is 04:30PM.'</span>
+</pre></div>
+</div>
+<p><font id="278">{{s.278}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">timedelta</span><span class="p">,</span> <span class="n">datetime</span><span class="p">,</span> <span class="n">tzinfo</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">class</span> <span class="nc">GMT1</span><span class="p">(</span><span class="n">tzinfo</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="k">def</span> <span class="nf">utcoffset</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dt</span><span class="p">):</span>
+<span class="gp">... </span>        <span class="k">return</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">hours</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">dst</span><span class="p">(</span><span class="n">dt</span><span class="p">)</span>
+<span class="gp">... </span>    <span class="k">def</span> <span class="nf">dst</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dt</span><span class="p">):</span>
+<span class="gp">... </span>        <span class="c"># DST starts last Sunday in March</span>
+<span class="gp">... </span>        <span class="n">d</span> <span class="o">=</span> <span class="n">datetime</span><span class="p">(</span><span class="n">dt</span><span class="o">.</span><span class="n">year</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>   <span class="c"># ends last Sunday in October</span>
+<span class="gp">... </span>        <span class="bp">self</span><span class="o">.</span><span class="n">dston</span> <span class="o">=</span> <span class="n">d</span> <span class="o">-</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="n">d</span><span class="o">.</span><span class="n">weekday</span><span class="p">()</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+<span class="gp">... </span>        <span class="n">d</span> <span class="o">=</span> <span class="n">datetime</span><span class="p">(</span><span class="n">dt</span><span class="o">.</span><span class="n">year</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="gp">... </span>        <span class="bp">self</span><span class="o">.</span><span class="n">dstoff</span> <span class="o">=</span> <span class="n">d</span> <span class="o">-</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="n">d</span><span class="o">.</span><span class="n">weekday</span><span class="p">()</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+<span class="gp">... </span>        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">dston</span> <span class="o">&lt;=</span>  <span class="n">dt</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">tzinfo</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">dstoff</span><span class="p">:</span>
+<span class="gp">... </span>            <span class="k">return</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">hours</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="gp">... </span>        <span class="k">else</span><span class="p">:</span>
+<span class="gp">... </span>            <span class="k">return</span> <span class="n">timedelta</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="gp">... </span>    <span class="k">def</span> <span class="nf">tzname</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">dt</span><span class="p">):</span>
+<span class="gp">... </span>         <span class="k">return</span> <span class="s">"GMT +1"</span>
+<span class="gp">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">class</span> <span class="nc">GMT2</span><span class="p">(</span><span class="n">tzinfo</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="k">def</span> <span class="nf">utcoffset</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dt</span><span class="p">):</span>
+<span class="gp">... </span>        <span class="k">return</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">hours</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">dst</span><span class="p">(</span><span class="n">dt</span><span class="p">)</span>
+<span class="gp">... </span>    <span class="k">def</span> <span class="nf">dst</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dt</span><span class="p">):</span>
+<span class="gp">... </span>        <span class="n">d</span> <span class="o">=</span> <span class="n">datetime</span><span class="p">(</span><span class="n">dt</span><span class="o">.</span><span class="n">year</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="gp">... </span>        <span class="bp">self</span><span class="o">.</span><span class="n">dston</span> <span class="o">=</span> <span class="n">d</span> <span class="o">-</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="n">d</span><span class="o">.</span><span class="n">weekday</span><span class="p">()</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+<span class="gp">... </span>        <span class="n">d</span> <span class="o">=</span> <span class="n">datetime</span><span class="p">(</span><span class="n">dt</span><span class="o">.</span><span class="n">year</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="gp">... </span>        <span class="bp">self</span><span class="o">.</span><span class="n">dstoff</span> <span class="o">=</span> <span class="n">d</span> <span class="o">-</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="n">d</span><span class="o">.</span><span class="n">weekday</span><span class="p">()</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+<span class="gp">... </span>        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">dston</span> <span class="o">&lt;=</span>  <span class="n">dt</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">tzinfo</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">dstoff</span><span class="p">:</span>
+<span class="gp">... </span>            <span class="k">return</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">hours</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="gp">... </span>        <span class="k">else</span><span class="p">:</span>
+<span class="gp">... </span>            <span class="k">return</span> <span class="n">timedelta</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="gp">... </span>    <span class="k">def</span> <span class="nf">tzname</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">dt</span><span class="p">):</span>
+<span class="gp">... </span>        <span class="k">return</span> <span class="s">"GMT +2"</span>
+<span class="gp">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">gmt1</span> <span class="o">=</span> <span class="n">GMT1</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c"># Daylight Saving Time</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dt1</span> <span class="o">=</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2006</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="n">tzinfo</span><span class="o">=</span><span class="n">gmt1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dt1</span><span class="o">.</span><span class="n">dst</span><span class="p">()</span>
+<span class="go">datetime.timedelta(0)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dt1</span><span class="o">.</span><span class="n">utcoffset</span><span class="p">()</span>
+<span class="go">datetime.timedelta(0, 3600)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dt2</span> <span class="o">=</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2006</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">tzinfo</span><span class="o">=</span><span class="n">gmt1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dt2</span><span class="o">.</span><span class="n">dst</span><span class="p">()</span>
+<span class="go">datetime.timedelta(0, 3600)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dt2</span><span class="o">.</span><span class="n">utcoffset</span><span class="p">()</span>
+<span class="go">datetime.timedelta(0, 7200)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c"># Convert datetime to another time zone</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dt3</span> <span class="o">=</span> <span class="n">dt2</span><span class="o">.</span><span class="n">astimezone</span><span class="p">(</span><span class="n">GMT2</span><span class="p">())</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dt3</span>     
+<span class="go">datetime.datetime(2006, 6, 14, 14, 0, tzinfo=&lt;GMT2 object at 0x...&gt;)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dt2</span>     
+<span class="go">datetime.datetime(2006, 6, 14, 13, 0, tzinfo=&lt;GMT1 object at 0x...&gt;)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dt2</span><span class="o">.</span><span class="n">utctimetuple</span><span class="p">()</span> <span class="o">==</span> <span class="n">dt3</span><span class="o">.</span><span class="n">utctimetuple</span><span class="p">()</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="time-objects">
+<span id="datetime-time"></span><h2><font id="424">{{s.424}}</font><a class="reference internal" href="time.html#module-time" title="time: Time access and conversions."><tt class="xref py py-class docutils literal"><span class="pre">time</span></tt></a></h2>
+<p><font id="279">{{s.279}}</font></p>
+<dl class="class">
+<dt id="datetime.time">
+<em class="property">class </em><tt class="descclassname">datetime.</tt><tt class="descname">time</tt><big>(</big><span class="optional">[</span><em>hour</em><span class="optional">[</span>, <em>minute</em><span class="optional">[</span>, <em>second</em><span class="optional">[</span>, <em>microsecond</em><span class="optional">[</span>, <em>tzinfo</em><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><big>)</big><a class="headerlink" href="#datetime.time" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="280">{{s.280}}</font><font id="281">{{s.281}}</font><font id="282">{{s.282}}</font></p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">0</span> <span class="pre">&lt;=</span> <span class="pre">hour</span> <span class="pre">&lt;</span> <span class="pre">24</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">0</span> <span class="pre">&lt;=</span> <span class="pre">minute</span> <span class="pre">&lt;</span> <span class="pre">60</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">0</span> <span class="pre">&lt;=</span> <span class="pre">second</span> <span class="pre">&lt;</span> <span class="pre">60</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">0</span> <span class="pre">&lt;=</span> <span class="pre">microsecond</span> <span class="pre">&lt;</span> <span class="pre">1000000</span></tt>.</li>
+</ul>
+<p><font id="283">{{s.283}}</font><font id="284">{{s.284}}</font></p>
+</dd></dl>
+<p><font id="285">{{s.285}}</font></p>
+<dl class="attribute">
+<dt id="datetime.time.min">
+<tt class="descclassname">time.</tt><tt class="descname">min</tt><a class="headerlink" href="#datetime.time.min" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="286">{{s.286}}</font></p>
+</dd></dl>
+<dl class="attribute">
+<dt id="datetime.time.max">
+<tt class="descclassname">time.</tt><tt class="descname">max</tt><a class="headerlink" href="#datetime.time.max" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="287">{{s.287}}</font></p>
+</dd></dl>
+<dl class="attribute">
+<dt id="datetime.time.resolution">
+<tt class="descclassname">time.</tt><tt class="descname">resolution</tt><a class="headerlink" href="#datetime.time.resolution" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="288">{{s.288}}</font></p>
+</dd></dl>
+<p><font id="289">{{s.289}}</font></p>
+<dl class="attribute">
+<dt id="datetime.time.hour">
+<tt class="descclassname">time.</tt><tt class="descname">hour</tt><a class="headerlink" href="#datetime.time.hour" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="290">{{s.290}}</font></p>
+</dd></dl>
+<dl class="attribute">
+<dt id="datetime.time.minute">
+<tt class="descclassname">time.</tt><tt class="descname">minute</tt><a class="headerlink" href="#datetime.time.minute" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="291">{{s.291}}</font></p>
+</dd></dl>
+<dl class="attribute">
+<dt id="datetime.time.second">
+<tt class="descclassname">time.</tt><tt class="descname">second</tt><a class="headerlink" href="#datetime.time.second" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="292">{{s.292}}</font></p>
+</dd></dl>
+<dl class="attribute">
+<dt id="datetime.time.microsecond">
+<tt class="descclassname">time.</tt><tt class="descname">microsecond</tt><a class="headerlink" href="#datetime.time.microsecond" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="293">{{s.293}}</font></p>
+</dd></dl>
+<dl class="attribute">
+<dt id="datetime.time.tzinfo">
+<tt class="descclassname">time.</tt><tt class="descname">tzinfo</tt><a class="headerlink" href="#datetime.time.tzinfo" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="294">{{s.294}}</font></p>
+</dd></dl>
+<p><font id="295">{{s.295}}</font></p>
+<ul class="simple">
+<li>comparison of <a class="reference internal" href="#datetime.time" title="datetime.time"><font id="451">{{s.451}}</font></a> to <a class="reference internal" href="#datetime.time" title="datetime.time"><font id="452">{{s.452}}</font></a>, where <em>a</em> is considered less
+than <em>b</em> when <em>a</em> precedes <em>b</em> in time.  If one comparand is naive and the other
+is aware, <a class="reference internal" href="exceptions.html#exceptions.TypeError" title="exceptions.TypeError"><font id="453">{{s.453}}</font></a> is raised.  If both comparands are aware, and have
+the same <a class="reference internal" href="#datetime.tzinfo" title="datetime.tzinfo"><font id="454">{{s.454}}</font></a> attribute, the common <a class="reference internal" href="#datetime.tzinfo" title="datetime.tzinfo"><font id="455">{{s.455}}</font></a> attribute is
+ignored and the base times are compared.  If both comparands are aware and
+have different <a class="reference internal" href="#datetime.tzinfo" title="datetime.tzinfo"><font id="456">{{s.456}}</font></a> attributes, the comparands are first adjusted by
+subtracting their UTC offsets (obtained from <tt class="docutils literal"><span class="pre">self.utcoffset()</span></tt>). In order
+to stop mixed-type comparisons from falling back to the default comparison by
+object address, when a <a class="reference internal" href="#datetime.time" title="datetime.time"><font id="457">{{s.457}}</font></a> object is compared to an object of a
+different type, <a class="reference internal" href="exceptions.html#exceptions.TypeError" title="exceptions.TypeError"><font id="458">{{s.458}}</font></a> is raised unless the comparison is <tt class="docutils literal"><span class="pre">==</span></tt> or
+<tt class="docutils literal"><span class="pre">!=</span></tt>.  The latter cases return <a class="reference internal" href="constants.html#False" title="False"><font id="459">{{s.459}}</font></a> or <a class="reference internal" href="constants.html#True" title="True"><font id="460">{{s.460}}</font></a>, respectively.</li>
+<li>hash, use as dict key</li>
+<li>efficient pickling</li>
+<li>in Boolean contexts, a <a class="reference internal" href="#datetime.time" title="datetime.time"><font id="461">{{s.461}}</font></a> object is considered to be true if and
+only if, after converting it to minutes and subtracting <tt class="xref py py-meth docutils literal"><span class="pre">utcoffset()</span></tt> (or
+<tt class="docutils literal"><span class="pre">0</span></tt> if that’s <tt class="xref docutils literal"><span class="pre">None</span></tt>), the result is non-zero.</li>
+</ul>
+<p><font id="296">{{s.296}}</font></p>
+<dl class="method">
+<dt id="datetime.time.replace">
+<tt class="descclassname">time.</tt><tt class="descname">replace</tt><big>(</big><span class="optional">[</span><em>hour</em><span class="optional">[</span>, <em>minute</em><span class="optional">[</span>, <em>second</em><span class="optional">[</span>, <em>microsecond</em><span class="optional">[</span>, <em>tzinfo</em><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><big>)</big><a class="headerlink" href="#datetime.time.replace" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="297">{{s.297}}</font><font id="298">{{s.298}}</font></p>
+</dd></dl>
+<dl class="method">
+<dt id="datetime.time.isoformat">
+<tt class="descclassname">time.</tt><tt class="descname">isoformat</tt><big>(</big><big>)</big><a class="headerlink" href="#datetime.time.isoformat" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="299">{{s.299}}</font></p>
+</dd></dl>
+<dl class="method">
+<dt id="datetime.time.__str__">
+<tt class="descclassname">time.</tt><tt class="descname">__str__</tt><big>(</big><big>)</big><a class="headerlink" href="#datetime.time.__str__" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="300">{{s.300}}</font></p>
+</dd></dl>
+<dl class="method">
+<dt id="datetime.time.strftime">
+<tt class="descclassname">time.</tt><tt class="descname">strftime</tt><big>(</big><em>format</em><big>)</big><a class="headerlink" href="#datetime.time.strftime" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="301">{{s.301}}</font><font id="302">{{s.302}}</font></p>
+</dd></dl>
+<dl class="method">
+<dt id="datetime.time.__format__">
+<tt class="descclassname">time.</tt><tt class="descname">__format__</tt><big>(</big><em>format</em><big>)</big><a class="headerlink" href="#datetime.time.__format__" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="303">{{s.303}}</font><font id="304">{{s.304}}</font><font id="305">{{s.305}}</font></p>
+</dd></dl>
+<dl class="method">
+<dt id="datetime.time.utcoffset">
+<tt class="descclassname">time.</tt><tt class="descname">utcoffset</tt><big>(</big><big>)</big><a class="headerlink" href="#datetime.time.utcoffset" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="306">{{s.306}}</font></p>
+</dd></dl>
+<dl class="method">
+<dt id="datetime.time.dst">
+<tt class="descclassname">time.</tt><tt class="descname">dst</tt><big>(</big><big>)</big><a class="headerlink" href="#datetime.time.dst" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="307">{{s.307}}</font></p>
+</dd></dl>
+<dl class="method">
+<dt id="datetime.time.tzname">
+<tt class="descclassname">time.</tt><tt class="descname">tzname</tt><big>(</big><big>)</big><a class="headerlink" href="#datetime.time.tzname" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="308">{{s.308}}</font></p>
+</dd></dl>
+<p><font id="309">{{s.309}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">time</span><span class="p">,</span> <span class="n">tzinfo</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">class</span> <span class="nc">GMT1</span><span class="p">(</span><span class="n">tzinfo</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="k">def</span> <span class="nf">utcoffset</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dt</span><span class="p">):</span>
+<span class="gp">... </span>        <span class="k">return</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">hours</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="gp">... </span>    <span class="k">def</span> <span class="nf">dst</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dt</span><span class="p">):</span>
+<span class="gp">... </span>        <span class="k">return</span> <span class="n">timedelta</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="gp">... </span>    <span class="k">def</span> <span class="nf">tzname</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">dt</span><span class="p">):</span>
+<span class="gp">... </span>        <span class="k">return</span> <span class="s">"Europe/Prague"</span>
+<span class="gp">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">t</span> <span class="o">=</span> <span class="n">time</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="n">tzinfo</span><span class="o">=</span><span class="n">GMT1</span><span class="p">())</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">t</span>                               
+<span class="go">datetime.time(12, 10, 30, tzinfo=&lt;GMT1 object at 0x...&gt;)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">gmt</span> <span class="o">=</span> <span class="n">GMT1</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">t</span><span class="o">.</span><span class="n">isoformat</span><span class="p">()</span>
+<span class="go">'12:10:30+01:00'</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">t</span><span class="o">.</span><span class="n">dst</span><span class="p">()</span>
+<span class="go">datetime.timedelta(0)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">t</span><span class="o">.</span><span class="n">tzname</span><span class="p">()</span>
+<span class="go">'Europe/Prague'</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">t</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s">"%H:%M:%S %Z"</span><span class="p">)</span>
+<span class="go">'12:10:30 Europe/Prague'</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="s">'The {} is {:%H:%M}.'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s">"time"</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span>
+<span class="go">'The time is 12:10.'</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="tzinfo-objects">
+<span id="datetime-tzinfo"></span><h2><font id="425">{{s.425}}</font><a class="reference internal" href="#datetime.tzinfo" title="datetime.tzinfo"><tt class="xref py py-class docutils literal"><span class="pre">tzinfo</span></tt></a></h2>
+<p><font id="310">{{s.310}}</font><font id="311">{{s.311}}</font><font id="312">{{s.312}}</font></p>
+<p><font id="313">{{s.313}}</font><font id="314">{{s.314}}</font></p>
+<p><font id="315">{{s.315}}</font><font id="316">{{s.316}}</font></p>
+<p><font id="317">{{s.317}}</font><font id="318">{{s.318}}</font><font id="319">{{s.319}}</font></p>
+<dl class="method">
+<dt id="datetime.tzinfo.utcoffset">
+<tt class="descclassname">tzinfo.</tt><tt class="descname">utcoffset</tt><big>(</big><em>self</em>, <em>dt</em><big>)</big><a class="headerlink" href="#datetime.tzinfo.utcoffset" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="320">{{s.320}}</font><font id="321">{{s.321}}</font><font id="322">{{s.322}}</font><font id="323">{{s.323}}</font><font id="324">{{s.324}}</font><font id="325">{{s.325}}</font><font id="326">{{s.326}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">return</span> <span class="n">CONSTANT</span>                 <span class="c"># fixed-offset class</span>
+<span class="k">return</span> <span class="n">CONSTANT</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">dst</span><span class="p">(</span><span class="n">dt</span><span class="p">)</span>  <span class="c"># daylight-aware class</span>
+</pre></div>
+</div>
+<p><font id="327">{{s.327}}</font></p>
+<p><font id="328">{{s.328}}</font></p>
+</dd></dl>
+<dl class="method">
+<dt id="datetime.tzinfo.dst">
+<tt class="descclassname">tzinfo.</tt><tt class="descname">dst</tt><big>(</big><em>self</em>, <em>dt</em><big>)</big><a class="headerlink" href="#datetime.tzinfo.dst" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="329">{{s.329}}</font><font id="330">{{s.330}}</font><font id="331">{{s.331}}</font><font id="332">{{s.332}}</font><font id="333">{{s.333}}</font></p>
+<p><font id="334">{{s.334}}</font></p>
+<p><font id="335">{{s.335}}</font></p>
+<p><font id="336">{{s.336}}</font><font id="337">{{s.337}}</font><font id="338">{{s.338}}</font><font id="339">{{s.339}}</font></p>
+<p><font id="340">{{s.340}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">dst</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dt</span><span class="p">):</span>
+    <span class="c"># a fixed-offset class:  doesn't account for DST</span>
+    <span class="k">return</span> <span class="n">timedelta</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><font id="341">{{s.341}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">dst</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dt</span><span class="p">):</span>
+    <span class="c"># Code to set dston and dstoff to the time zone's DST</span>
+    <span class="c"># transition times based on the input dt.year, and expressed</span>
+    <span class="c"># in standard local time.  Then</span>
+
+    <span class="k">if</span> <span class="n">dston</span> <span class="o">&lt;=</span> <span class="n">dt</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">tzinfo</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">dstoff</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">hours</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">timedelta</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><font id="342">{{s.342}}</font></p>
+</dd></dl>
+<dl class="method">
+<dt id="datetime.tzinfo.tzname">
+<tt class="descclassname">tzinfo.</tt><tt class="descname">tzname</tt><big>(</big><em>self</em>, <em>dt</em><big>)</big><a class="headerlink" href="#datetime.tzinfo.tzname" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="343">{{s.343}}</font><font id="344">{{s.344}}</font><font id="345">{{s.345}}</font><font id="346">{{s.346}}</font><font id="347">{{s.347}}</font></p>
+<p><font id="348">{{s.348}}</font></p>
+</dd></dl>
+<p><font id="349">{{s.349}}</font><font id="350">{{s.350}}</font><font id="351">{{s.351}}</font></p>
+<p><font id="352">{{s.352}}</font><font id="353">{{s.353}}</font><font id="354">{{s.354}}</font></p>
+<p><font id="355">{{s.355}}</font><font id="356">{{s.356}}</font><font id="357">{{s.357}}</font></p>
+<p><font id="358">{{s.358}}</font></p>
+<dl class="method">
+<dt id="datetime.tzinfo.fromutc">
+<tt class="descclassname">tzinfo.</tt><tt class="descname">fromutc</tt><big>(</big><em>self</em>, <em>dt</em><big>)</big><a class="headerlink" href="#datetime.tzinfo.fromutc" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="359">{{s.359}}</font><font id="360">{{s.360}}</font><font id="361">{{s.361}}</font></p>
+<p><font id="362">{{s.362}}</font><font id="363">{{s.363}}</font><font id="364">{{s.364}}</font><font id="365">{{s.365}}</font></p>
+<p><font id="366">{{s.366}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">fromutc</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dt</span><span class="p">):</span>
+    <span class="c"># raise ValueError error if dt.tzinfo is not self</span>
+    <span class="n">dtoff</span> <span class="o">=</span> <span class="n">dt</span><span class="o">.</span><span class="n">utcoffset</span><span class="p">()</span>
+    <span class="n">dtdst</span> <span class="o">=</span> <span class="n">dt</span><span class="o">.</span><span class="n">dst</span><span class="p">()</span>
+    <span class="c"># raise ValueError if dtoff is None or dtdst is None</span>
+    <span class="n">delta</span> <span class="o">=</span> <span class="n">dtoff</span> <span class="o">-</span> <span class="n">dtdst</span>  <span class="c"># this is self's standard offset</span>
+    <span class="k">if</span> <span class="n">delta</span><span class="p">:</span>
+        <span class="n">dt</span> <span class="o">+=</span> <span class="n">delta</span>   <span class="c"># convert to standard local time</span>
+        <span class="n">dtdst</span> <span class="o">=</span> <span class="n">dt</span><span class="o">.</span><span class="n">dst</span><span class="p">()</span>
+        <span class="c"># raise ValueError if dtdst is None</span>
+    <span class="k">if</span> <span class="n">dtdst</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">dt</span> <span class="o">+</span> <span class="n">dtdst</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">dt</span>
+</pre></div>
+</div>
+</dd></dl>
+<p><font id="367">{{s.367}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">tzinfo</span><span class="p">,</span> <span class="n">timedelta</span><span class="p">,</span> <span class="n">datetime</span>
+
+<span class="n">ZERO</span> <span class="o">=</span> <span class="n">timedelta</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">HOUR</span> <span class="o">=</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">hours</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c"># A UTC class.</span>
+
+<span class="k">class</span> <span class="nc">UTC</span><span class="p">(</span><span class="n">tzinfo</span><span class="p">):</span>
+    <span class="sd">"""UTC"""</span>
+
+    <span class="k">def</span> <span class="nf">utcoffset</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dt</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">ZERO</span>
+
+    <span class="k">def</span> <span class="nf">tzname</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dt</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s">"UTC"</span>
+
+    <span class="k">def</span> <span class="nf">dst</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dt</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">ZERO</span>
+
+<span class="n">utc</span> <span class="o">=</span> <span class="n">UTC</span><span class="p">()</span>
+
+<span class="c"># A class building tzinfo objects for fixed-offset time zones.</span>
+<span class="c"># Note that FixedOffset(0, "UTC") is a different way to build a</span>
+<span class="c"># UTC tzinfo object.</span>
+
+<span class="k">class</span> <span class="nc">FixedOffset</span><span class="p">(</span><span class="n">tzinfo</span><span class="p">):</span>
+    <span class="sd">"""Fixed offset in minutes east from UTC."""</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">offset</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__offset</span> <span class="o">=</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">minutes</span> <span class="o">=</span> <span class="n">offset</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__name</span> <span class="o">=</span> <span class="n">name</span>
+
+    <span class="k">def</span> <span class="nf">utcoffset</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dt</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__offset</span>
+
+    <span class="k">def</span> <span class="nf">tzname</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dt</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__name</span>
+
+    <span class="k">def</span> <span class="nf">dst</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dt</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">ZERO</span>
+
+<span class="c"># A class capturing the platform's idea of local time.</span>
+
+<span class="kn">import</span> <span class="nn">time</span> <span class="kn">as</span> <span class="nn">_time</span>
+
+<span class="n">STDOFFSET</span> <span class="o">=</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">seconds</span> <span class="o">=</span> <span class="o">-</span><span class="n">_time</span><span class="o">.</span><span class="n">timezone</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">_time</span><span class="o">.</span><span class="n">daylight</span><span class="p">:</span>
+    <span class="n">DSTOFFSET</span> <span class="o">=</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">seconds</span> <span class="o">=</span> <span class="o">-</span><span class="n">_time</span><span class="o">.</span><span class="n">altzone</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">DSTOFFSET</span> <span class="o">=</span> <span class="n">STDOFFSET</span>
+
+<span class="n">DSTDIFF</span> <span class="o">=</span> <span class="n">DSTOFFSET</span> <span class="o">-</span> <span class="n">STDOFFSET</span>
+
+<span class="k">class</span> <span class="nc">LocalTimezone</span><span class="p">(</span><span class="n">tzinfo</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="nf">utcoffset</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dt</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_isdst</span><span class="p">(</span><span class="n">dt</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">DSTOFFSET</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">STDOFFSET</span>
+
+    <span class="k">def</span> <span class="nf">dst</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dt</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_isdst</span><span class="p">(</span><span class="n">dt</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">DSTDIFF</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">ZERO</span>
+
+    <span class="k">def</span> <span class="nf">tzname</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dt</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">_time</span><span class="o">.</span><span class="n">tzname</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_isdst</span><span class="p">(</span><span class="n">dt</span><span class="p">)]</span>
+
+    <span class="k">def</span> <span class="nf">_isdst</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dt</span><span class="p">):</span>
+        <span class="n">tt</span> <span class="o">=</span> <span class="p">(</span><span class="n">dt</span><span class="o">.</span><span class="n">year</span><span class="p">,</span> <span class="n">dt</span><span class="o">.</span><span class="n">month</span><span class="p">,</span> <span class="n">dt</span><span class="o">.</span><span class="n">day</span><span class="p">,</span>
+              <span class="n">dt</span><span class="o">.</span><span class="n">hour</span><span class="p">,</span> <span class="n">dt</span><span class="o">.</span><span class="n">minute</span><span class="p">,</span> <span class="n">dt</span><span class="o">.</span><span class="n">second</span><span class="p">,</span>
+              <span class="n">dt</span><span class="o">.</span><span class="n">weekday</span><span class="p">(),</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="n">stamp</span> <span class="o">=</span> <span class="n">_time</span><span class="o">.</span><span class="n">mktime</span><span class="p">(</span><span class="n">tt</span><span class="p">)</span>
+        <span class="n">tt</span> <span class="o">=</span> <span class="n">_time</span><span class="o">.</span><span class="n">localtime</span><span class="p">(</span><span class="n">stamp</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">tt</span><span class="o">.</span><span class="n">tm_isdst</span> <span class="o">&gt;</span> <span class="mi">0</span>
+
+<span class="n">Local</span> <span class="o">=</span> <span class="n">LocalTimezone</span><span class="p">()</span>
+
+
+<span class="c"># A complete implementation of current DST rules for major US time zones.</span>
+
+<span class="k">def</span> <span class="nf">first_sunday_on_or_after</span><span class="p">(</span><span class="n">dt</span><span class="p">):</span>
+    <span class="n">days_to_go</span> <span class="o">=</span> <span class="mi">6</span> <span class="o">-</span> <span class="n">dt</span><span class="o">.</span><span class="n">weekday</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">days_to_go</span><span class="p">:</span>
+        <span class="n">dt</span> <span class="o">+=</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">days_to_go</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">dt</span>
+
+
+<span class="c"># US DST Rules</span>
+<span class="c">#</span>
+<span class="c"># This is a simplified (i.e., wrong for a few cases) set of rules for US</span>
+<span class="c"># DST start and end times. For a complete and up-to-date set of DST rules</span>
+<span class="c"># and timezone definitions, visit the Olson Database (or try pytz):</span>
+<span class="c"># http://www.twinsun.com/tz/tz-link.htm</span>
+<span class="c"># http://sourceforge.net/projects/pytz/ (might not be up-to-date)</span>
+<span class="c">#</span>
+<span class="c"># In the US, since 2007, DST starts at 2am (standard time) on the second</span>
+<span class="c"># Sunday in March, which is the first Sunday on or after Mar 8.</span>
+<span class="n">DSTSTART_2007</span> <span class="o">=</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="c"># and ends at 2am (DST time; 1am standard time) on the first Sunday of Nov.</span>
+<span class="n">DSTEND_2007</span> <span class="o">=</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="c"># From 1987 to 2006, DST used to start at 2am (standard time) on the first</span>
+<span class="c"># Sunday in April and to end at 2am (DST time; 1am standard time) on the last</span>
+<span class="c"># Sunday of October, which is the first Sunday on or after Oct 25.</span>
+<span class="n">DSTSTART_1987_2006</span> <span class="o">=</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">DSTEND_1987_2006</span> <span class="o">=</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="c"># From 1967 to 1986, DST used to start at 2am (standard time) on the last</span>
+<span class="c"># Sunday in April (the one on or after April 24) and to end at 2am (DST time;</span>
+<span class="c"># 1am standard time) on the last Sunday of October, which is the first Sunday</span>
+<span class="c"># on or after Oct 25.</span>
+<span class="n">DSTSTART_1967_1986</span> <span class="o">=</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">DSTEND_1967_1986</span> <span class="o">=</span> <span class="n">DSTEND_1987_2006</span>
+
+<span class="k">class</span> <span class="nc">USTimeZone</span><span class="p">(</span><span class="n">tzinfo</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">hours</span><span class="p">,</span> <span class="n">reprname</span><span class="p">,</span> <span class="n">stdname</span><span class="p">,</span> <span class="n">dstname</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">stdoffset</span> <span class="o">=</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">hours</span><span class="o">=</span><span class="n">hours</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">reprname</span> <span class="o">=</span> <span class="n">reprname</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">stdname</span> <span class="o">=</span> <span class="n">stdname</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dstname</span> <span class="o">=</span> <span class="n">dstname</span>
+
+    <span class="k">def</span> <span class="nf">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">reprname</span>
+
+    <span class="k">def</span> <span class="nf">tzname</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dt</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">dst</span><span class="p">(</span><span class="n">dt</span><span class="p">):</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">dstname</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">stdname</span>
+
+    <span class="k">def</span> <span class="nf">utcoffset</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dt</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">stdoffset</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">dst</span><span class="p">(</span><span class="n">dt</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">dst</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dt</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">dt</span> <span class="ow">is</span> <span class="bp">None</span> <span class="ow">or</span> <span class="n">dt</span><span class="o">.</span><span class="n">tzinfo</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="c"># An exception may be sensible here, in one or both cases.</span>
+            <span class="c"># It depends on how you want to treat them.  The default</span>
+            <span class="c"># fromutc() implementation (called by the default astimezone()</span>
+            <span class="c"># implementation) passes a datetime with dt.tzinfo is self.</span>
+            <span class="k">return</span> <span class="n">ZERO</span>
+        <span class="k">assert</span> <span class="n">dt</span><span class="o">.</span><span class="n">tzinfo</span> <span class="ow">is</span> <span class="bp">self</span>
+
+        <span class="c"># Find start and end times for US DST. For years before 1967, return</span>
+        <span class="c"># ZERO for no DST.</span>
+        <span class="k">if</span> <span class="mi">2006</span> <span class="o">&lt;</span> <span class="n">dt</span><span class="o">.</span><span class="n">year</span><span class="p">:</span>
+            <span class="n">dststart</span><span class="p">,</span> <span class="n">dstend</span> <span class="o">=</span> <span class="n">DSTSTART_2007</span><span class="p">,</span> <span class="n">DSTEND_2007</span>
+        <span class="k">elif</span> <span class="mi">1986</span> <span class="o">&lt;</span> <span class="n">dt</span><span class="o">.</span><span class="n">year</span> <span class="o">&lt;</span> <span class="mi">2007</span><span class="p">:</span>
+            <span class="n">dststart</span><span class="p">,</span> <span class="n">dstend</span> <span class="o">=</span> <span class="n">DSTSTART_1987_2006</span><span class="p">,</span> <span class="n">DSTEND_1987_2006</span>
+        <span class="k">elif</span> <span class="mi">1966</span> <span class="o">&lt;</span> <span class="n">dt</span><span class="o">.</span><span class="n">year</span> <span class="o">&lt;</span> <span class="mi">1987</span><span class="p">:</span>
+            <span class="n">dststart</span><span class="p">,</span> <span class="n">dstend</span> <span class="o">=</span> <span class="n">DSTSTART_1967_1986</span><span class="p">,</span> <span class="n">DSTEND_1967_1986</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">ZERO</span>
+
+        <span class="n">start</span> <span class="o">=</span> <span class="n">first_sunday_on_or_after</span><span class="p">(</span><span class="n">dststart</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">year</span><span class="o">=</span><span class="n">dt</span><span class="o">.</span><span class="n">year</span><span class="p">))</span>
+        <span class="n">end</span> <span class="o">=</span> <span class="n">first_sunday_on_or_after</span><span class="p">(</span><span class="n">dstend</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">year</span><span class="o">=</span><span class="n">dt</span><span class="o">.</span><span class="n">year</span><span class="p">))</span>
+
+        <span class="c"># Can't compare naive to aware objects, so strip the timezone from</span>
+        <span class="c"># dt first.</span>
+        <span class="k">if</span> <span class="n">start</span> <span class="o">&lt;=</span> <span class="n">dt</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">tzinfo</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">end</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">HOUR</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">ZERO</span>
+
+<span class="n">Eastern</span>  <span class="o">=</span> <span class="n">USTimeZone</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="s">"Eastern"</span><span class="p">,</span>  <span class="s">"EST"</span><span class="p">,</span> <span class="s">"EDT"</span><span class="p">)</span>
+<span class="n">Central</span>  <span class="o">=</span> <span class="n">USTimeZone</span><span class="p">(</span><span class="o">-</span><span class="mi">6</span><span class="p">,</span> <span class="s">"Central"</span><span class="p">,</span>  <span class="s">"CST"</span><span class="p">,</span> <span class="s">"CDT"</span><span class="p">)</span>
+<span class="n">Mountain</span> <span class="o">=</span> <span class="n">USTimeZone</span><span class="p">(</span><span class="o">-</span><span class="mi">7</span><span class="p">,</span> <span class="s">"Mountain"</span><span class="p">,</span> <span class="s">"MST"</span><span class="p">,</span> <span class="s">"MDT"</span><span class="p">)</span>
+<span class="n">Pacific</span>  <span class="o">=</span> <span class="n">USTimeZone</span><span class="p">(</span><span class="o">-</span><span class="mi">8</span><span class="p">,</span> <span class="s">"Pacific"</span><span class="p">,</span>  <span class="s">"PST"</span><span class="p">,</span> <span class="s">"PDT"</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><font id="368">{{s.368}}</font><font id="369">{{s.369}}</font></p>
+<div class="highlight-python"><pre>  UTC   3:MM  4:MM  5:MM  6:MM  7:MM  8:MM
+  EST  22:MM 23:MM  0:MM  1:MM  2:MM  3:MM
+  EDT  23:MM  0:MM  1:MM  2:MM  3:MM  4:MM
+
+start  22:MM 23:MM  0:MM  1:MM  3:MM  4:MM
+
+  end  23:MM  0:MM  1:MM  1:MM  2:MM  3:MM</pre>
+</div>
+<p><font id="370">{{s.370}}</font><font id="371">{{s.371}}</font><font id="372">{{s.372}}</font></p>
+<p><font id="373">{{s.373}}</font><font id="374">{{s.374}}</font><font id="375">{{s.375}}</font><font id="376">{{s.376}}</font><font id="377">{{s.377}}</font><font id="378">{{s.378}}</font><font id="379">{{s.379}}</font><font id="380">{{s.380}}</font></p>
+<p><font id="381">{{s.381}}</font><font id="382">{{s.382}}</font></p>
+<div class="admonition-see-also admonition seealso">
+<p class="first admonition-title"><font id="383">{{s.383}}</font></p>
+<dl class="last docutils">
+<dt><a class="reference external" href="http://pypi.python.org/pypi/pytz/">pytz</a></dt>
+<dd><p class="first"><font id="384">{{s.384}}</font></p>
+<p class="last"><font id="385">{{s.385}}</font></p>
+</dd>
+<dt><a class="reference external" href="http://www.iana.org/time-zones">IANA timezone database</a></dt>
+<dd>The Time Zone Database (often called tz or zoneinfo) contains code and
+data that represent the history of local time for many representative
+locations around the globe. It is updated periodically to reflect changes
+made by political bodies to time zone boundaries, UTC offsets, and
+daylight-saving rules.</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="strftime-and-strptime-behavior">
+<span id="strftime-strptime-behavior"></span><h2><font id="426">{{s.426}}</font><tt class="xref py py-meth docutils literal"><span class="pre">strftime()</span></tt></h2>
+<p><font id="386">{{s.386}}</font><font id="387">{{s.387}}</font></p>
+<p><font id="388">{{s.388}}</font><font id="389">{{s.389}}</font></p>
+<p><font id="390">{{s.390}}</font><font id="391">{{s.391}}</font></p>
+<p><font id="392">{{s.392}}</font><font id="393">{{s.393}}</font></p>
+<p><font id="394">{{s.394}}</font><font id="395">{{s.395}}</font></p>
+<p><font id="396">{{s.396}}</font><font id="397">{{s.397}}</font></p>
+<p><font id="398">{{s.398}}</font><font id="399">{{s.399}}</font></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="15%"></col>
+<col width="43%"></col>
+<col width="32%"></col>
+<col width="9%"></col>
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">Directive</th>
+<th class="head">Meaning</th>
+<th class="head">Example</th>
+<th class="head">Notes</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td><tt class="docutils literal"><span class="pre">%a</span></tt></td>
+<td>Weekday as locale’s
+abbreviated name.</td>
+<td><div class="first last line-block">
+<div class="line">Sun, Mon, ..., Sat
+(en_US);</div>
+<div class="line">So, Mo, ..., Sa
+(de_DE)</div>
+</div>
+</td>
+<td>(1)</td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">%A</span></tt></td>
+<td>Weekday as locale’s full name.</td>
+<td><div class="first last line-block">
+<div class="line">Sunday, Monday, ...,
+Saturday (en_US);</div>
+<div class="line">Sonntag, Montag, ...,
+Samstag (de_DE)</div>
+</div>
+</td>
+<td>(1)</td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">%w</span></tt></td>
+<td>Weekday as a decimal number,
+where 0 is Sunday and 6 is
+Saturday.</td>
+<td>0, 1, ..., 6</td>
+<td> </td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">%d</span></tt></td>
+<td>Day of the month as a
+zero-padded decimal number.</td>
+<td>01, 02, ..., 31</td>
+<td> </td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">%b</span></tt></td>
+<td>Month as locale’s abbreviated
+name.</td>
+<td><div class="first last line-block">
+<div class="line">Jan, Feb, ..., Dec
+(en_US);</div>
+<div class="line">Jan, Feb, ..., Dez
+(de_DE)</div>
+</div>
+</td>
+<td>(1)</td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">%B</span></tt></td>
+<td>Month as locale’s full name.</td>
+<td><div class="first last line-block">
+<div class="line">January, February,
+..., December (en_US);</div>
+<div class="line">Januar, Februar, ...,
+Dezember (de_DE)</div>
+</div>
+</td>
+<td>(1)</td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">%m</span></tt></td>
+<td>Month as a zero-padded
+decimal number.</td>
+<td>01, 02, ..., 12</td>
+<td> </td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">%y</span></tt></td>
+<td>Year without century as a
+zero-padded decimal number.</td>
+<td>00, 01, ..., 99</td>
+<td> </td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">%Y</span></tt></td>
+<td>Year with century as a decimal
+number.</td>
+<td>1970, 1988, 2001, 2013</td>
+<td> </td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">%H</span></tt></td>
+<td>Hour (24-hour clock) as a
+zero-padded decimal number.</td>
+<td>00, 01, ..., 23</td>
+<td> </td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">%I</span></tt></td>
+<td>Hour (12-hour clock) as a
+zero-padded decimal number.</td>
+<td>01, 02, ..., 12</td>
+<td> </td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">%p</span></tt></td>
+<td>Locale’s equivalent of either
+AM or PM.</td>
+<td><div class="first last line-block">
+<div class="line">AM, PM (en_US);</div>
+<div class="line">am, pm (de_DE)</div>
+</div>
+</td>
+<td>(1),
+(2)</td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">%M</span></tt></td>
+<td>Minute as a zero-padded
+decimal number.</td>
+<td>00, 01, ..., 59</td>
+<td> </td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">%S</span></tt></td>
+<td>Second as a zero-padded
+decimal number.</td>
+<td>00, 01, ..., 59</td>
+<td>(3)</td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">%f</span></tt></td>
+<td>Microsecond as a decimal
+number, zero-padded on the
+left.</td>
+<td>000000, 000001, ...,
+999999</td>
+<td>(4)</td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">%z</span></tt></td>
+<td>UTC offset in the form +HHMM
+or -HHMM (empty string if the
+the object is naive).</td>
+<td>(empty), +0000, -0400,
++1030</td>
+<td>(5)</td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">%Z</span></tt></td>
+<td>Time zone name (empty string
+if the object is naive).</td>
+<td>(empty), UTC, EST, CST</td>
+<td> </td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">%j</span></tt></td>
+<td>Day of the year as a
+zero-padded decimal number.</td>
+<td>001, 002, ..., 366</td>
+<td> </td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">%U</span></tt></td>
+<td>Week number of the year
+(Sunday as the first day of
+the week) as a zero padded
+decimal number. All days in a
+new year preceding the first
+Sunday are considered to be in
+week 0.</td>
+<td>00, 01, ..., 53</td>
+<td>(6)</td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">%W</span></tt></td>
+<td>Week number of the year
+(Monday as the first day of
+the week) as a decimal number.
+All days in a new year
+preceding the first Monday
+are considered to be in
+week 0.</td>
+<td>00, 01, ..., 53</td>
+<td>(6)</td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">%c</span></tt></td>
+<td>Locale’s appropriate date and
+time representation.</td>
+<td><div class="first last line-block">
+<div class="line">Tue Aug 16 21:30:00
+1988 (en_US);</div>
+<div class="line">Di 16 Aug 21:30:00
+1988 (de_DE)</div>
+</div>
+</td>
+<td>(1)</td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">%x</span></tt></td>
+<td>Locale’s appropriate date
+representation.</td>
+<td><div class="first last line-block">
+<div class="line">08/16/88 (None);</div>
+<div class="line">08/16/1988 (en_US);</div>
+<div class="line">16.08.1988 (de_DE)</div>
+</div>
+</td>
+<td>(1)</td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">%X</span></tt></td>
+<td>Locale’s appropriate time
+representation.</td>
+<td><div class="first last line-block">
+<div class="line">21:30:00 (en_US);</div>
+<div class="line">21:30:00 (de_DE)</div>
+</div>
+</td>
+<td>(1)</td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">%%</span></tt></td>
+<td>A literal <tt class="docutils literal"><span class="pre">'%'</span></tt> character.</td>
+<td>%</td>
+<td> </td>
+</tr>
+</tbody>
+</table>
+<p><font id="400">{{s.400}}</font></p>
+<ol class="arabic">
+<li><p class="first"><font id="401">{{s.401}}</font><font id="402">{{s.402}}</font></p>
+</li>
+<li><p class="first"><font id="403">{{s.403}}</font></p>
+</li>
+<li><p class="first"><font id="404">{{s.404}}</font></p>
+</li>
+<li><p class="first"><font id="405">{{s.405}}</font><font id="406">{{s.406}}</font></p>
+<p class="versionadded"><font id="407">{{s.407}}</font></p>
+</li>
+<li><p class="first"><font id="408">{{s.408}}</font></p>
+<p><font id="409">{{s.409}}</font></p>
+<dl class="docutils">
+<dt><tt class="docutils literal"><span class="pre">%z</span></tt></dt>
+<dd><p class="first last"><font id="410">{{s.410}}</font><font id="411">{{s.411}}</font></p>
+</dd>
+<dt><tt class="docutils literal"><span class="pre">%Z</span></tt></dt>
+<dd><p class="first last"><font id="412">{{s.412}}</font><font id="413">{{s.413}}</font></p>
+</dd>
+</dl>
+</li>
+<li><p class="first"><font id="414">{{s.414}}</font></p>
+</li>
+</ol>
+<p class="rubric"><font id="415">{{s.415}}</font></p>
+<table class="docutils footnote" frame="void" id="id2" rules="none">
+<colgroup><col class="label"></col><col></col></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td>If, that is, we ignore the effects of Relativity</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sphinxsidebar">
+<div class="sphinxsidebarwrapper">
+<h3><font id="428">{{s.428}}</font></h3>
+<ul>
+<li><a class="reference internal" href="#"><font id="462">{{s.462}}</font></a><ul>
+<li><a class="reference internal" href="#available-types"><font id="463">{{s.463}}</font></a></li>
+<li><a class="reference internal" href="#timedelta-objects"><font id="464">{{s.464}}</font></a></li>
+<li><a class="reference internal" href="#date-objects"><font id="465">{{s.465}}</font></a></li>
+<li><a class="reference internal" href="#datetime-objects"><font id="466">{{s.466}}</font></a></li>
+<li><a class="reference internal" href="#time-objects"><font id="467">{{s.467}}</font></a></li>
+<li><a class="reference internal" href="#tzinfo-objects"><font id="468">{{s.468}}</font></a></li>
+<li><a class="reference internal" href="#strftime-and-strptime-behavior"><font id="469">{{s.469}}</font></a></li>
+</ul>
+</li>
+</ul>
+<h4><font id="432">{{s.432}}</font></h4>
+<p class="topless"><font id="416">{{s.416}}</font></p>
+<h4><font id="433">{{s.433}}</font></h4>
+<p class="topless"><font id="417">{{s.417}}</font></p>
+<h3><font id="429">{{s.429}}</font></h3>
+<ul class="this-page-menu">
+<li><a href="#" onclick="showOriginTexts();return false;">中英文对照</a></li>
+<li><a href="#" onclick="hideOriginTexts();return false;">中文</a></li>
+</ul>
+</div>
+</div>
+<div class="clearer"></div>
+</div>
+<div class="related">
+<h3><font id="431">{{s.431}}</font></h3>
+<ul>
+<li class="right" style="margin-right: 10px">
+<a href="../genindex.html" title="General Index"><font id="472">{{s.472}}</font></a></li>
+<li class="right">
+<a href="../py-modindex.html" title="Python Module Index"><font id="473">{{s.473}}</font></a> |</li>
+<li class="right">
+<a href="calendar.html" title="8.2. calendar — General calendar-related functions"><font id="474">{{s.474}}</font></a> |</li>
+<li class="right">
+<a href="datatypes.html" title="8. Data Types"><font id="475">{{s.475}}</font></a> |</li>
+<li class="right">
+<a href="#" onclick="hideOriginTexts();return false;">中文</a> |</li>
+<li class="right">
+<a href="#" onclick="showOriginTexts();return false;">中英文对照</a> |</li>
+<li><img alt="" src="../_static/py.png" style="vertical-align: middle; margin-top: -1px"/></li>
+<li><a href="http://www.python.org/"><font id="476">{{s.476}}</font></a> »</li>
+<li>
+<span class="version_switcher_placeholder">2.7.8</span>
+<a href="../index.html"><font id="477">{{s.477}}</font></a> »
+        </li>
+<li><a href="index.html"><font id="478">{{s.478}}</font></a> »</li>
+<li><a href="datatypes.html"><font id="479">{{s.479}}</font></a> »</li>
+</ul>
+</div>
+<br><div id="disqus_thread"></div>
+<div class="footer">
+    © <a href="../copyright.html">Copyright</a> 1990-2014, Python Software Foundation.
+    <br/>
+    The Python Software Foundation is a non-profit corporation.
+    <a href="http://www.python.org/psf/donations/">Please donate.</a>
+<br/>
+    Last updated on Jul 27, 2014.
+    <a href="../bugs.html">Found a bug</a>?
+    <br/>
+    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+    <script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'thepythontutorial2'; // required: replace example with your forum shortname
+    var disqus_identifier = '/python2/library/datetime';
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+<link href="../_static/ms_translator.css" rel="stylesheet" type="text/css"/>
+<script src="../_static/ms_translator.js" type="text/javascript"></script>
+{% include "python_278/ms_translator.html" %}
+</body>
+</html>

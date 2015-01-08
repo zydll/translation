@@ -1,0 +1,404 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<title>7. 输入和输出 — Python v3.4.1 中文文档</title>
+<link href="../_static/pydoctheme.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '3.4.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+<script src="../_static/jquery.js" type="text/javascript"></script>
+<script src="../_static/underscore.js" type="text/javascript"></script>
+<script src="../_static/doctools.js" type="text/javascript"></script>
+<script src="../_static/sidebar.js" type="text/javascript"></script>
+<link href="../_static/opensearch.xml" rel="search" title="Search within Python v3.4.1 documentation" type="application/opensearchdescription+xml"/>
+<link href="../about.html" rel="author" title="About these documents"/>
+<link href="../copyright.html" rel="copyright" title="Copyright"/>
+<link href="../index.html" rel="top" title="Python v3.4.1 documentation"/>
+<link href="index.html" rel="up" title="The Python Tutorial"/>
+<link href="errors.html" rel="next" title="8. Errors and Exceptions"/>
+<link href="modules.html" rel="prev" title="6. Modules"/>
+<link href="../_static/py.png" rel="shortcut icon" type="image/png"/>
+<script src="../_static/copybutton.js" type="text/javascript"></script>
+<script src="../_static/version_switch.js" type="text/javascript"></script>
+</head>
+<body>
+<div class="related">
+<h3><font id="118">{{s.118}}</font></h3>
+<ul>
+<li class="right" style="margin-right: 10px"><font id="128">{{s.128}}</font></li>
+<li class="right"><font id="129">{{s.129}}</font></li>
+<li class="right"><font id="130">{{s.130}}</font></li>
+<li class="right"><font id="131">{{s.131}}</font></li>
+<li><font id="132">{{s.132}}</font></li>
+<li><font id="133">{{s.133}}</font><font id="134">{{s.134}}</font></li>
+<li><font id="135">{{s.135}}</font><font id="136">{{s.136}}</font></li>
+<li><font id="137">{{s.137}}</font><font id="138">{{s.138}}</font></li>
+</ul>
+</div>
+<div class="document">
+<div class="documentwrapper">
+<div class="bodywrapper">
+<div class="body">
+<div class="section" id="input-and-output">
+<span id="tut-io"></span><h1><font id="115">{{s.115}}</font></h1>
+<p><font id="1">{{s.1}}</font><font id="2">{{s.2}}</font><font id="3">{{s.3}}</font></p>
+<div class="section" id="fancier-output-formatting">
+<span id="tut-formatting"></span><h2><font id="116">{{s.116}}</font></h2>
+<p><font id="4">{{s.4}}</font><font id="5">{{s.5}}</font><font id="6">{{s.6}}</font></p>
+<p><font id="7">{{s.7}}</font><font id="8">{{s.8}}</font><font id="9">{{s.9}}</font><font id="10">{{s.10}}</font><font id="11">{{s.11}}</font><font id="12">{{s.12}}</font><font id="13">{{s.13}}</font></p>
+<p><font id="14">{{s.14}}</font></p>
+<p><font id="15">{{s.15}}</font><font id="16">{{s.16}}</font></p>
+<p><font id="17">{{s.17}}</font><font id="18">{{s.18}}</font><font id="19">{{s.19}}</font><font id="20">{{s.20}}</font></p>
+<p><font id="21">{{s.21}}</font></p>
+<div class="highlight-python3"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span> <span class="o">=</span> <span class="s">&#39;Hello, world.&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">str</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+<span class="go">&#39;Hello, world.&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">repr</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+<span class="go">&quot;&#39;Hello, world.&#39;&quot;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">str</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">7</span><span class="p">)</span>
+<span class="go">&#39;0.14285714285714285&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="mi">10</span> <span class="o">*</span> <span class="mf">3.25</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="mi">200</span> <span class="o">*</span> <span class="mi">200</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s</span> <span class="o">=</span> <span class="s">&#39;The value of x is &#39;</span> <span class="o">+</span> <span class="nb">repr</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="s">&#39;, and y is &#39;</span> <span class="o">+</span> <span class="nb">repr</span><span class="p">(</span><span class="n">y</span><span class="p">)</span> <span class="o">+</span> <span class="s">&#39;...&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+<span class="go">The value of x is 32.5, and y is 40000...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c"># The repr() of a string adds string quotes and backslashes:</span>
+<span class="gp">... </span><span class="n">hello</span> <span class="o">=</span> <span class="s">&#39;hello, world</span><span class="se">\n</span><span class="s">&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">hellos</span> <span class="o">=</span> <span class="nb">repr</span><span class="p">(</span><span class="n">hello</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">hellos</span><span class="p">)</span>
+<span class="go">&#39;hello, world\n&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c"># The argument to repr() may be any Python object:</span>
+<span class="gp">... </span><span class="nb">repr</span><span class="p">((</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="p">(</span><span class="s">&#39;spam&#39;</span><span class="p">,</span> <span class="s">&#39;eggs&#39;</span><span class="p">)))</span>
+<span class="go">&quot;(32.5, 40000, (&#39;spam&#39;, &#39;eggs&#39;))&quot;</span>
+</pre></div>
+</div>
+<p><font id="22">{{s.22}}</font></p>
+<div class="highlight-python3"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">11</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="nb">repr</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">rjust</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span> <span class="nb">repr</span><span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">rjust</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span> <span class="n">end</span><span class="o">=</span><span class="s">&#39; &#39;</span><span class="p">)</span>
+<span class="gp">... </span>    <span class="c"># Note use of &#39;end&#39; on previous line</span>
+<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="nb">repr</span><span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="n">x</span><span class="o">*</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">rjust</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span>
+<span class="gp">...</span>
+<span class="go"> 1   1    1</span>
+<span class="go"> 2   4    8</span>
+<span class="go"> 3   9   27</span>
+<span class="go"> 4  16   64</span>
+<span class="go"> 5  25  125</span>
+<span class="go"> 6  36  216</span>
+<span class="go"> 7  49  343</span>
+<span class="go"> 8  64  512</span>
+<span class="go"> 9  81  729</span>
+<span class="go">10 100 1000</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">11</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="s">&#39;{0:2d} {1:3d} {2:4d}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">x</span><span class="o">*</span><span class="n">x</span><span class="p">,</span> <span class="n">x</span><span class="o">*</span><span class="n">x</span><span class="o">*</span><span class="n">x</span><span class="p">))</span>
+<span class="gp">...</span>
+<span class="go"> 1   1    1</span>
+<span class="go"> 2   4    8</span>
+<span class="go"> 3   9   27</span>
+<span class="go"> 4  16   64</span>
+<span class="go"> 5  25  125</span>
+<span class="go"> 6  36  216</span>
+<span class="go"> 7  49  343</span>
+<span class="go"> 8  64  512</span>
+<span class="go"> 9  81  729</span>
+<span class="go">10 100 1000</span>
+</pre></div>
+</div>
+<p><font id="23">{{s.23}}</font></p>
+<p><font id="24">{{s.24}}</font><font id="25">{{s.25}}</font><font id="26">{{s.26}}</font><font id="27">{{s.27}}</font><font id="28">{{s.28}}</font><font id="29">{{s.29}}</font></p>
+<p><font id="30">{{s.30}}</font><font id="31">{{s.31}}</font></p>
+<div class="highlight-python3"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="s">'12'</span><span class="o">.</span><span class="n">zfill</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="go">'00012'</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="s">'-3.14'</span><span class="o">.</span><span class="n">zfill</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>
+<span class="go">'-003.14'</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="s">'3.14159265359'</span><span class="o">.</span><span class="n">zfill</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="go">'3.14159265359'</span>
+</pre></div>
+</div>
+<p><font id="32">{{s.32}}</font></p>
+<div class="highlight-python3"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="s">&#39;We are the {} who say &quot;{}!&quot;&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s">&#39;knights&#39;</span><span class="p">,</span> <span class="s">&#39;Ni&#39;</span><span class="p">))</span>
+<span class="go">We are the knights who say &quot;Ni!&quot;</span>
+</pre></div>
+</div>
+<p><font id="33">{{s.33}}</font><font id="34">{{s.34}}</font></p>
+<div class="highlight-python3"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="s">&#39;{0} and {1}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s">&#39;spam&#39;</span><span class="p">,</span> <span class="s">&#39;eggs&#39;</span><span class="p">))</span>
+<span class="go">spam and eggs</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="s">&#39;{1} and {0}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s">&#39;spam&#39;</span><span class="p">,</span> <span class="s">&#39;eggs&#39;</span><span class="p">))</span>
+<span class="go">eggs and spam</span>
+</pre></div>
+</div>
+<p><font id="35">{{s.35}}</font></p>
+<div class="highlight-python3"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="s">&#39;This {food} is {adjective}.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+<span class="gp">... </span>      <span class="n">food</span><span class="o">=</span><span class="s">&#39;spam&#39;</span><span class="p">,</span> <span class="n">adjective</span><span class="o">=</span><span class="s">&#39;absolutely horrible&#39;</span><span class="p">))</span>
+<span class="go">This spam is absolutely horrible.</span>
+</pre></div>
+</div>
+<p><font id="36">{{s.36}}</font></p>
+<div class="highlight-python3"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="s">&#39;The story of {0}, {1}, and {other}.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s">&#39;Bill&#39;</span><span class="p">,</span> <span class="s">&#39;Manfred&#39;</span><span class="p">,</span>
+<span class="go">                                                       other=&#39;Georg&#39;))</span>
+<span class="go">The story of Bill, Manfred, and Georg.</span>
+</pre></div>
+</div>
+<p><font id="38">{{s.38}}</font></p>
+<div class="highlight-python3"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">math</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="s">&#39;The value of PI is approximately {}.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">))</span>
+<span class="go">The value of PI is approximately 3.14159265359.</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="s">&#39;The value of PI is approximately {!r}.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">))</span>
+<span class="go">The value of PI is approximately 3.141592653589793.</span>
+</pre></div>
+</div>
+<p><font id="39">{{s.39}}</font><font id="40">{{s.40}}</font><font id="41">{{s.41}}</font></p>
+<div class="highlight-python3"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">math</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="s">&#39;The value of PI is approximately {0:.3f}.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">))</span>
+<span class="go">The value of PI is approximately 3.142.</span>
+</pre></div>
+</div>
+<p><font id="42">{{s.42}}</font><font id="43">{{s.43}}</font></p>
+<div class="highlight-python3"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">table</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;Sjoerd&#39;</span><span class="p">:</span> <span class="mi">4127</span><span class="p">,</span> <span class="s">&#39;Jack&#39;</span><span class="p">:</span> <span class="mi">4098</span><span class="p">,</span> <span class="s">&#39;Dcab&#39;</span><span class="p">:</span> <span class="mi">7678</span><span class="p">}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">phone</span> <span class="ow">in</span> <span class="n">table</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="s">&#39;{0:10} ==&gt; {1:10d}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">phone</span><span class="p">))</span>
+<span class="gp">...</span>
+<span class="go">Jack       ==&gt;       4098</span>
+<span class="go">Dcab       ==&gt;       7678</span>
+<span class="go">Sjoerd     ==&gt;       4127</span>
+</pre></div>
+</div>
+<p><font id="44">{{s.44}}</font><font id="45">{{s.45}}</font></p>
+<div class="highlight-python3"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">table</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;Sjoerd&#39;</span><span class="p">:</span> <span class="mi">4127</span><span class="p">,</span> <span class="s">&#39;Jack&#39;</span><span class="p">:</span> <span class="mi">4098</span><span class="p">,</span> <span class="s">&#39;Dcab&#39;</span><span class="p">:</span> <span class="mi">8637678</span><span class="p">}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="s">&#39;Jack: {0[Jack]:d}; Sjoerd: {0[Sjoerd]:d}; &#39;</span>
+<span class="gp">... </span>      <span class="s">&#39;Dcab: {0[Dcab]:d}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">table</span><span class="p">))</span>
+<span class="go">Jack: 4098; Sjoerd: 4127; Dcab: 8637678</span>
+</pre></div>
+</div>
+<p><font id="46">{{s.46}}</font></p>
+<div class="highlight-python3"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">table</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;Sjoerd&#39;</span><span class="p">:</span> <span class="mi">4127</span><span class="p">,</span> <span class="s">&#39;Jack&#39;</span><span class="p">:</span> <span class="mi">4098</span><span class="p">,</span> <span class="s">&#39;Dcab&#39;</span><span class="p">:</span> <span class="mi">8637678</span><span class="p">}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="s">&#39;Jack: {Jack:d}; Sjoerd: {Sjoerd:d}; Dcab: {Dcab:d}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">**</span><span class="n">table</span><span class="p">))</span>
+<span class="go">Jack: 4098; Sjoerd: 4127; Dcab: 8637678</span>
+</pre></div>
+</div>
+<p><font id="47">{{s.47}}</font></p>
+<p><font id="48">{{s.48}}</font></p>
+<div class="section" id="old-string-formatting">
+<h3><font id="119">{{s.119}}</font></h3>
+<p><font id="49">{{s.49}}</font><font id="50">{{s.50}}</font><font id="51">{{s.51}}</font></p>
+<div class="highlight-python3"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">math</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="s">&#39;The value of PI is approximately %5.3f.&#39;</span> <span class="o">%</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span>
+<span class="go">The value of PI is approximately 3.142.</span>
+</pre></div>
+</div>
+<p><font id="52">{{s.52}}</font></p>
+</div>
+</div>
+<div class="section" id="reading-and-writing-files">
+<span id="tut-files"></span><h2><font id="117">{{s.117}}</font></h2>
+<p id="index-0"><font id="53">{{s.53}}</font></p>
+<div class="highlight-python3"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">&#39;workfile&#39;</span><span class="p">,</span> <span class="s">&#39;w&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><font id="54">{{s.54}}</font><font id="55">{{s.55}}</font><font id="56">{{s.56}}</font><font id="57">{{s.57}}</font><font id="58">{{s.58}}</font><font id="59">{{s.59}}</font><font id="60">{{s.60}}</font></p>
+<p><font id="61">{{s.61}}</font><font id="62">{{s.62}}</font><font id="63">{{s.63}}</font></p>
+
+<p><font id="64">{{s.64}}</font><font id="65">{{s.65}}</font><font id="66">{{s.66}}</font><font id="164">{{s.164}}</font></p>
+<div class="section" id="methods-of-file-objects">
+<span id="tut-filemethods"></span><h3><font id="120">{{s.120}}</font></h3>
+<p><font id="67">{{s.67}}</font></p>
+<p><font id="155">{{s.155}}</font><font id="156">{{s.156}}</font><font id="157">{{s.157}}</font><font id="158">{{s.158}}</font><font id="159">{{s.159}}</font></p>
+<div class="highlight-python3"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="go">'This is the entire file.\n'</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="go">''</span>
+</pre></div>
+</div>
+<p><font id="68">{{s.68}}</font><font id="69">{{s.69}}</font><font id="70">{{s.70}}</font><font id="71">{{s.71}}</font></p>
+<div class="highlight-python3"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">f</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
+<span class="go">'This is the first line of the file.\n'</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">f</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
+<span class="go">'Second line of the file\n'</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">f</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
+<span class="go">''</span>
+</pre></div>
+</div>
+<p><font id="72">{{s.72}}</font><font id="73">{{s.73}}</font></p>
+<div class="highlight-python3"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="n">line</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s">&#39;&#39;</span><span class="p">)</span>
+<span class="gp">...</span>
+<span class="go">This is the first line of the file.</span>
+<span class="go">Second line of the file</span>
+</pre></div>
+</div>
+<p><font id="74">{{s.74}}</font></p>
+<p><font id="75">{{s.75}}</font></p>
+<div class="highlight-python3"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&#39;This is a test</span><span class="se">\n</span><span class="s">&#39;</span><span class="p">)</span>
+<span class="go">15</span>
+</pre></div>
+</div>
+<p><font id="76">{{s.76}}</font></p>
+<div class="highlight-python3"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">value</span> <span class="o">=</span> <span class="p">(</span><span class="s">&#39;the answer&#39;</span><span class="p">,</span> <span class="mi">42</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+<span class="go">18</span>
+</pre></div>
+</div>
+<p><font id="77">{{s.77}}</font></p>
+<p><font id="78">{{s.78}}</font><font id="79">{{s.79}}</font><font id="80">{{s.80}}</font><font id="81">{{s.81}}</font><font id="82">{{s.82}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">'workfile'</span><span class="p">,</span> <span class="s">'r+'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">'0123456789abcdef'</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">f</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>     <span class="c"># Go to the 6th byte in the file</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="go">'5'</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">f</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="c"># Go to the 3rd byte before the end</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="go">'d'</span>
+</pre></div>
+</div>
+<p><font id="165">{{s.165}}</font><font id="166">{{s.166}}</font></p>
+<p><font id="83">{{s.83}}</font><font id="84">{{s.84}}</font></p>
+<div class="highlight-python3"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="gt">Traceback (most recent call last):</span>
+  File <span class="nb">&quot;&lt;stdin&gt;&quot;</span>, line <span class="m">1</span>, in <span class="n">?</span>
+<span class="gr">ValueError</span>: <span class="n">I/O operation on closed file</span>
+</pre></div>
+</div>
+<p><font id="85">{{s.85}}</font><font id="86">{{s.86}}</font><font id="87">{{s.87}}</font></p>
+<div class="highlight-python3"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">'workfile'</span><span class="p">,</span> <span class="s">'r'</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="n">read_data</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">f</span><span class="o">.</span><span class="n">closed</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+<p><font id="88">{{s.88}}</font><font id="89">{{s.89}}</font></p>
+</div>
+<div class="section" id="saving-structured-data-with-json">
+<span id="tut-json"></span><h3><font id="121">{{s.121}}</font></h3>
+<p id="index-1"><font id="90">{{s.90}}</font><font id="91">{{s.91}}</font><font id="92">{{s.92}}</font></p>
+<p><font id="93">{{s.93}}</font><font id="94">{{s.94}}</font><font id="95">{{s.95}}</font><font id="96">{{s.96}}</font><font id="97">{{s.97}}</font></p>
+<div class="admonition note">
+<p class="first admonition-title"><font id="98">{{s.98}}</font></p>
+<p class="last"><font id="99">{{s.99}}</font><font id="100">{{s.100}}</font></p>
+</div>
+<p><font id="101">{{s.101}}</font></p>
+<div class="highlight-python3"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="s">'simple'</span><span class="p">,</span> <span class="s">'list'</span><span class="p">])</span>
+<span class="go">'[1, "simple", "list"]'</span>
+</pre></div>
+</div>
+<p><font id="102">{{s.102}}</font><font id="103">{{s.103}}</font></p>
+<div class="highlight-python3"><div class="highlight"><pre><span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><font id="104">{{s.104}}</font></p>
+<div class="highlight-python3"><div class="highlight"><pre><span class="n">x</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><font id="105">{{s.105}}</font><font id="106">{{s.106}}</font></p>
+<div class="admonition seealso">
+<p class="first admonition-title"><font id="107">{{s.107}}</font></p>
+<p><font id="108">{{s.108}}</font></p>
+<p class="last"><font id="109">{{s.109}}</font><font id="110">{{s.110}}</font><font id="111">{{s.111}}</font></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sphinxsidebar">
+<div class="sphinxsidebarwrapper">
+<!-- <h3><font id="122">{{s.122}}</font></h3> -->
+<ul>
+<li><a class="reference internal" href="#"><font id="160">{{s.160}}</font></a><ul>
+<li><a class="reference internal" href="#fancier-output-formatting"><font id="161">{{s.161}}</font></a><ul>
+<li><font id="139">{{s.139}}</font></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#reading-and-writing-files"><font id="162">{{s.162}}</font></a><ul>
+<li><font id="140">{{s.140}}</font></li>
+<li><font id="141">{{s.141}}</font></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4><font id="126">{{s.126}}</font></h4>
+<p class="topless"><font id="112">{{s.112}}</font></p>
+<h4><font id="127">{{s.127}}</font></h4>
+<p class="topless"><font id="113">{{s.113}}</font></p>
+<h3><font id="123">{{s.123}}</font></h3>
+<ul class="this-page-menu">
+<li><font id="142">{{s.142}}</font></li>
+<li><font id="143">{{s.143}}</font></li>
+</ul>
+<div id="searchbox" style="display: none">
+<h3><font id="124">{{s.124}}</font></h3>
+<form action="../search.html" class="search" method="get">
+<input name="q" type="text"/>
+<input type="submit" value="Go"/>
+<input name="check_keywords" type="hidden" value="yes"/>
+<input name="area" type="hidden" value="default"/>
+</form>
+<p class="searchtip" style="font-size: 90%"><font id="114">{{s.114}}</font></p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+</div>
+</div>
+<div class="clearer"></div>
+</div>
+<div class="related">
+<h3><font id="125">{{s.125}}</font></h3>
+<ul>
+<li class="right" style="margin-right: 10px"><font id="144">{{s.144}}</font></li>
+<li class="right"><font id="145">{{s.145}}</font></li>
+<li class="right"><font id="146">{{s.146}}</font></li>
+<li class="right"><font id="147">{{s.147}}</font></li>
+<li><font id="148">{{s.148}}</font></li>
+<li><font id="149">{{s.149}}</font><font id="150">{{s.150}}</font></li>
+<li><font id="151">{{s.151}}</font><font id="152">{{s.152}}</font></li>
+<li><font id="153">{{s.153}}</font><font id="154">{{s.154}}</font></li>
+</ul>
+</div>
+
+<div id="disqus_thread"></div><br>
+
+<div class="footer">
+    © <a href="../copyright.html">Copyright</a> 1990-2014, Python Software Foundation.
+    <br/>
+    The Python Software Foundation is a non-profit corporation.
+    <a href="http://www.python.org/psf/donations/">Please donate.</a>
+<br/>
+    Last updated on Aug 08, 2014.
+    <a href="../bugs.html">Found a bug</a>?
+    <br/>
+    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.2.2.
+</div>
+
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'thepythontutorial3'; // required: replace example with your forum shortname
+    var disqus_identifier = '/python3/tutorial/inputoutput';
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+<link href="../_static/ms_translator.css" rel="stylesheet" type="text/css"/>
+<script src="../_static/ms_translator.js" type="text/javascript"></script>
+{% include "python_278/ms_translator.html" %}
+</body>
+</html>

@@ -1,0 +1,315 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>8.10. Queue — A synchronized queue class &mdash; Python v2.7.8 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2.7.8',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/sidebar.js"></script>
+    <link rel="search" type="application/opensearchdescription+xml"
+          title="Search within Python v2.7.8 documentation"
+          href="../_static/opensearch.xml"/>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="copyright" title="Copyright" href="../copyright.html" />
+    <link rel="top" title="Python v2.7.8 documentation" href="../index.html" />
+    <link rel="up" title="8. Data Types" href="datatypes.html" />
+    <link rel="next" title="8.11. weakref — Weak references" href="weakref.html" />
+    <link rel="prev" title="8.9. mutex — Mutual exclusion support" href="mutex.html" />
+    <link rel="shortcut icon" type="image/png" href="../_static/py.png" />
+    <script type="text/javascript" src="../_static/copybutton.js"></script>
+    <script type="text/javascript" src="../_static/version_switch.js"></script>
+ 
+    
+
+  </head>
+  <body>  
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">索引</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >模块</a> |</li>
+        <li class="right" >
+          <a href="weakref.html" title="8.11. weakref — Weak references"
+             accesskey="N">下一页</a> |</li>
+        <li class="right" >
+          <a href="mutex.html" title="8.9. mutex — Mutual exclusion support"
+             accesskey="P">上一页</a> |</li>
+        <li class="right">
+<a href="#" onclick="hideOriginTexts();return false;">中文</a> |</li>
+<li class="right">
+<a href="#" onclick="showOriginTexts();return false;">中英文对照</a> |</li>
+        <li><img src="../_static/py.png" alt=""
+                 style="vertical-align: middle; margin-top: -1px"/></li>
+        <li><a href="http://www.python.org/">Python</a> &raquo;</li>
+        <li>
+          <span class="version_switcher_placeholder">2.7.8</span>
+          <a href="../index.html">文档</a> &raquo;
+        </li>
+
+          <li><a href="index.html" >Python 标准库</a> &raquo;</li>
+          <li><a href="datatypes.html" accesskey="U">8. Data Types</a> &raquo;</li> 
+      </ul>
+    </div>    
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-Queue">
+<span id="queue-a-synchronized-queue-class"></span><h1>8.10. <a class="reference internal" href="#module-Queue" title="Queue: A synchronized queue class."><tt class="xref py py-mod docutils literal"><span class="pre">Queue</span></tt></a> &#8212; <font id="1">{{s.1}}</font><a class="headerlink" href="#module-Queue" title="Permalink to this headline">¶</a></h1>
+<div class="admonition note">
+<p class="first admonition-title"><font id="2">{{s.2}}</font></p>
+<p class="last"><font id="3">{{s.3}}</font><font id="4">{{s.4}}</font></p>
+</div>
+<p><strong><font id="5">{{s.5}}</font></strong> <a class="reference external" href="http://hg.python.org/cpython/file/2.7/Lib/Queue.py">Lib/Queue.py</a></p>
+<hr class="docutils" />
+<p><font id="6">{{s.6}}</font><font id="7">{{s.7}}</font><font id="8">{{s.8}}</font><font id="9">{{s.9}}</font><font id="10">{{s.10}}</font></p>
+<p><font id="11">{{s.11}}</font><font id="12">{{s.12}}</font><font id="13">{{s.13}}</font><font id="14">{{s.14}}</font></p>
+<p><font id="15">{{s.15}}</font></p>
+<dl class="class">
+<dt id="Queue.Queue">
+<em class="property">class </em><tt class="descclassname">Queue.</tt><tt class="descname">Queue</tt><big>(</big><em>maxsize=0</em><big>)</big><a class="headerlink" href="#Queue.Queue" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="16">{{s.16}}</font><font id="17">{{s.17}}</font><font id="18">{{s.18}}</font><font id="19">{{s.19}}</font></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="Queue.LifoQueue">
+<em class="property">class </em><tt class="descclassname">Queue.</tt><tt class="descname">LifoQueue</tt><big>(</big><em>maxsize=0</em><big>)</big><a class="headerlink" href="#Queue.LifoQueue" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="20">{{s.20}}</font><font id="21">{{s.21}}</font><font id="22">{{s.22}}</font><font id="23">{{s.23}}</font></p>
+<p class="versionadded">
+<span class="versionmodified"><font id="24">{{s.24}}</font></span></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="Queue.PriorityQueue">
+<em class="property">class </em><tt class="descclassname">Queue.</tt><tt class="descname">PriorityQueue</tt><big>(</big><em>maxsize=0</em><big>)</big><a class="headerlink" href="#Queue.PriorityQueue" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="25">{{s.25}}</font><font id="26">{{s.26}}</font><font id="27">{{s.27}}</font><font id="28">{{s.28}}</font></p>
+<p><font id="29">{{s.29}}</font><font id="30">{{s.30}}</font></p>
+<p class="versionadded">
+<span class="versionmodified"><font id="31">{{s.31}}</font></span></p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="Queue.Empty">
+<em class="property">exception </em><tt class="descclassname">Queue.</tt><tt class="descname">Empty</tt><a class="headerlink" href="#Queue.Empty" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="32">{{s.32}}</font></p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="Queue.Full">
+<em class="property">exception </em><tt class="descclassname">Queue.</tt><tt class="descname">Full</tt><a class="headerlink" href="#Queue.Full" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="33">{{s.33}}</font></p>
+</dd></dl>
+
+<div class="admonition-see-also admonition seealso">
+<p class="first admonition-title"><font id="34">{{s.34}}</font></p>
+<p class="last"><a class="reference internal" href="collections.html#collections.deque" title="collections.deque"><font id="35">{{s.35}}</font></p>
+</div>
+<div class="section" id="queue-objects">
+<span id="queueobjects"></span><h2><font id="36">{{s.36}}</font><a class="headerlink" href="#queue-objects" title="Permalink to this headline">¶</a></h2>
+<p><font id="37">{{s.37}}</font></p>
+<dl class="method">
+<dt id="Queue.Queue.qsize">
+<tt class="descclassname">Queue.</tt><tt class="descname">qsize</tt><big>(</big><big>)</big><a class="headerlink" href="#Queue.Queue.qsize" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="38">{{s.38}}</font><font id="39">{{s.39}}</font></p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Queue.Queue.empty">
+<tt class="descclassname">Queue.</tt><tt class="descname">empty</tt><big>(</big><big>)</big><a class="headerlink" href="#Queue.Queue.empty" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="40">{{s.40}}</font><font id="41">{{s.41}}</font><font id="42">{{s.42}}</font></p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Queue.Queue.full">
+<tt class="descclassname">Queue.</tt><tt class="descname">full</tt><big>(</big><big>)</big><a class="headerlink" href="#Queue.Queue.full" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="43">{{s.43}}</font><font id="44">{{s.44}}</font><font id="45">{{s.45}}</font></p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Queue.Queue.put">
+<tt class="descclassname">Queue.</tt><tt class="descname">put</tt><big>(</big><em>item</em><span class="optional">[</span>, <em>block</em><span class="optional">[</span>, <em>timeout</em><span class="optional">]</span><span class="optional">]</span><big>)</big><a class="headerlink" href="#Queue.Queue.put" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="46">{{s.46}}</font><font id="47">{{s.47}}</font><font id="48">{{s.48}}</font><font id="49">{{s.49}}</font></p>
+<p class="versionadded">
+<font id="50">{{s.50}}</font></p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Queue.Queue.put_nowait">
+<tt class="descclassname">Queue.</tt><tt class="descname">put_nowait</tt><big>(</big><em>item</em><big>)</big><a class="headerlink" href="#Queue.Queue.put_nowait" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="51">{{s.51}}</font></p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Queue.Queue.get">
+<tt class="descclassname">Queue.</tt><tt class="descname">get</tt><big>(</big><span class="optional">[</span><em>block</em><span class="optional">[</span>, <em>timeout</em><span class="optional">]</span><span class="optional">]</span><big>)</big><a class="headerlink" href="#Queue.Queue.get" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="52">{{s.52}}</font><font id="53">{{s.53}}</font><font id="54">{{s.54}}</font><font id="55">{{s.55}}</font></p>
+<p class="versionadded">
+<font id="56">{{s.56}}</font></p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Queue.Queue.get_nowait">
+<tt class="descclassname">Queue.</tt><tt class="descname">get_nowait</tt><big>(</big><big>)</big><a class="headerlink" href="#Queue.Queue.get_nowait" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="57">{{s.57}}</font></p>
+</dd></dl>
+
+<p><font id="58">{{s.58}}</font></p>
+<dl class="method">
+<dt id="Queue.Queue.task_done">
+<tt class="descclassname">Queue.</tt><tt class="descname">task_done</tt><big>(</big><big>)</big><a class="headerlink" href="#Queue.Queue.task_done" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="59">{{s.59}}</font><font id="60">{{s.60}}</font><font id="61">{{s.61}}</font></p>
+<p><font id="62">{{s.62}}</font><font id="63">{{s.63}}</font></p>
+<p><font id="64">{{s.64}}</font></p>
+<p class="versionadded">
+<span class="versionmodified"><font id="65">{{s.65}}</font></span></p>
+</dd></dl>
+
+<dl class="method">
+<dt id="Queue.Queue.join">
+<tt class="descclassname">Queue.</tt><tt class="descname">join</tt><big>(</big><big>)</big><a class="headerlink" href="#Queue.Queue.join" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="66">{{s.66}}</font></p>
+<p><font id="67">{{s.67}}</font><font id="68">{{s.68}}</font><font id="69">{{s.69}}</font></p>
+<p class="versionadded">
+<span class="versionmodified"><font id="70">{{s.70}}</font></span></p>
+</dd></dl>
+
+<p><font id="71">{{s.71}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">worker</span><span class="p">():</span>
+    <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+        <span class="n">item</span> <span class="o">=</span> <span class="n">q</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+        <span class="n">do_work</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+        <span class="n">q</span><span class="o">.</span><span class="n">task_done</span><span class="p">()</span>
+
+<span class="n">q</span> <span class="o">=</span> <span class="n">Queue</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_worker_threads</span><span class="p">):</span>
+     <span class="n">t</span> <span class="o">=</span> <span class="n">Thread</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">worker</span><span class="p">)</span>
+     <span class="n">t</span><span class="o">.</span><span class="n">daemon</span> <span class="o">=</span> <span class="bp">True</span>
+     <span class="n">t</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+
+<span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">source</span><span class="p">():</span>
+    <span class="n">q</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+
+<span class="n">q</span><span class="o">.</span><span class="n">join</span><span class="p">()</span>       <span class="c"># block until all tasks are done</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../contents.html">目录</a></h3>
+  <ul>
+<li><a class="reference internal" href="#"><font id="72">{{s.72}}</font></a><ul>
+<li><a class="reference internal" href="#queue-objects"><font id="73">{{s.73}}</font></a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>上一主题</h4>
+  <p class="topless"><a href="mutex.html"
+                        title="previous chapter"><font id="74">{{s.74}}</font></a></p>
+  <h4>下一主题</h4>
+  <p class="topless"><a href="weakref.html"
+                        title="next chapter"><font id="75">{{s.75}}</font></a></p>
+<h3>当前页</h3>
+<ul class="this-page-menu">
+<li><a href="#" onclick="showOriginTexts();return false;">中英文对照</a></li>
+<li><a href="#" onclick="hideOriginTexts();return false;">中文</a></li>
+</ul>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>  
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >索引</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >模块</a> |</li>
+        <li class="right" >
+          <a href="weakref.html" title="8.11. weakref — Weak references"
+             >下一页</a> |</li>
+        <li class="right" >
+          <a href="mutex.html" title="8.9. mutex — Mutual exclusion support"
+             >上一页</a> |</li>
+        <li class="right">
+<a href="#" onclick="hideOriginTexts();return false;">中文</a> |</li>
+<li class="right">
+<a href="#" onclick="showOriginTexts();return false;">中英文对照</a> |</li>
+        <li><img src="../_static/py.png" alt=""
+                 style="vertical-align: middle; margin-top: -1px"/></li>
+        <li><a href="http://www.python.org/">Python</a> &raquo;</li>
+        <li>
+          <span class="version_switcher_placeholder">2.7.8</span>
+          <a href="../index.html">文档</a> &raquo;
+        </li>
+
+          <li><a href="index.html" >Python 标准库</a> &raquo;</li>
+          <li><a href="datatypes.html" >8. Data Types</a> &raquo;</li> 
+      </ul>
+    </div>  
+    
+    <br><div id="disqus_thread"></div>
+    
+    <div class="footer">
+    &copy; <a href="../copyright.html">Copyright</a> 1990-2014, Python Software Foundation.
+    <br />
+    The Python Software Foundation is a non-profit corporation.
+    <a href="http://www.python.org/psf/donations/">Please donate.</a>
+    <br />
+    Last updated on Jul 27, 2014.
+    <a href="../bugs.html">Found a bug</a>?
+    <br />
+    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+    
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'thepythontutorial2'; // required: replace example with your forum shortname
+    var disqus_identifier = '/python2/library/queue';
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+<link href="../_static/ms_translator.css" rel="stylesheet" type="text/css"/>
+<script src="../_static/ms_translator.js" type="text/javascript"></script>
+{% include "python_278/ms_translator.html" %}
+
+  </body>
+</html>

@@ -1,0 +1,638 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>15.3. time — Time access and conversions &mdash; Python v2.7.8 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2.7.8',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/sidebar.js"></script>
+    <link rel="search" type="application/opensearchdescription+xml"
+          title="Search within Python v2.7.8 documentation"
+          href="../_static/opensearch.xml"/>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="copyright" title="Copyright" href="../copyright.html" />
+    <link rel="top" title="Python v2.7.8 documentation" href="../index.html" />
+    <link rel="up" title="15. Generic Operating System Services" href="allos.html" />
+    <link rel="next" title="15.4. argparse — Parser for command-line options, arguments and sub-commands" href="argparse.html" />
+    <link rel="prev" title="15.2. io — Core tools for working with streams" href="io.html" />
+    <link rel="shortcut icon" type="image/png" href="../_static/py.png" />
+    <script type="text/javascript" src="../_static/copybutton.js"></script>
+    <script type="text/javascript" src="../_static/version_switch.js"></script>
+ 
+    
+
+  </head>
+  <body>  
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">索引</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >模块</a> |</li>
+        <li class="right" >
+          <a href="argparse.html" title="15.4. argparse — Parser for command-line options, arguments and sub-commands"
+             accesskey="N">下一页</a> |</li>
+        <li class="right" >
+          <a href="io.html" title="15.2. io — Core tools for working with streams"
+             accesskey="P">上一页</a> |</li>
+        <li class="right">
+<a href="#" onclick="hideOriginTexts();return false;">中文</a> |</li>
+<li class="right">
+<a href="#" onclick="showOriginTexts();return false;">中英文对照</a> |</li>
+        <li><img src="../_static/py.png" alt=""
+                 style="vertical-align: middle; margin-top: -1px"/></li>
+        <li><a href="http://www.python.org/">Python</a> &raquo;</li>
+        <li>
+          <span class="version_switcher_placeholder">2.7.8</span>
+          <a href="../index.html">文档</a> &raquo;
+        </li>
+
+          <li><a href="index.html" >Python 标准库</a> &raquo;</li>
+          <li><a href="allos.html" accesskey="U">15. Generic Operating System Services</a> &raquo;</li> 
+      </ul>
+    </div>    
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-time">
+<span id="time-time-access-and-conversions"></span><h1><font id="1">{{s.1}}</font><a class="headerlink" href="#module-time" title="Permalink to this headline">¶</a></h1>
+<p><font id="2">{{s.2}}</font><font id="3">{{s.3}}</font></p>
+<p><font id="4">{{s.4}}</font><font id="5">{{s.5}}</font><font id="6">{{s.6}}</font></p>
+<p><font id="7">{{s.7}}</font></p>
+<ul class="simple" id="index-0">
+<li><font id="8">{{s.8}}</font><font id="9">{{s.9}}</font><font id="10">{{s.10}}</font><font id="11">{{s.11}}</font></li>
+</ul>
+<ul class="simple" id="index-1">
+<li><font id="12">{{s.12}}</font><font id="13">{{s.13}}</font><font id="14">{{s.14}}</font></li>
+</ul>
+<ul class="simple" id="time-y2kissues">
+<span id="index-2"></span><li><strong><font id="15">{{s.15}}</font></strong><font id="16">{{s.16}}</font><font id="17">{{s.17}}</font><font id="18">{{s.18}}</font><font id="19">{{s.19}}</font><font id="20">{{s.20}}</font><font id="21">{{s.21}}</font><font id="22">{{s.22}}</font><font id="23">{{s.23}}</font><font id="24">{{s.24}}</font><font id="25">{{s.25}}</font></li>
+</ul>
+<ul class="simple" id="index-5">
+<li><font id="26">{{s.26}}</font><font id="27">{{s.27}}</font></li>
+</ul>
+<ul id="index-6">
+<li><p class="first"><font id="28">{{s.28}}</font><font id="29">{{s.29}}</font><font id="30">{{s.30}}</font></p>
+</li>
+<li><p class="first"><font id="31">{{s.31}}</font><font id="32">{{s.32}}</font></p>
+</li>
+<li><p class="first"><font id="33">{{s.33}}</font><font id="34">{{s.34}}</font></p>
+</li>
+<li><p class="first"><font id="35">{{s.35}}</font><font id="36">{{s.36}}</font></p>
+<p><font id="37">{{s.37}}</font></p>
+<p class="versionchanged">
+<span class="versionmodified"><font id="38">{{s.38}}</font></span><font id="39">{{s.39}}</font></p>
+</li>
+<li><p class="first"><font id="40">{{s.40}}</font></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head"><p class="first last">From</p>
+</th>
+<th class="head"><p class="first last">To</p>
+</th>
+<th class="head"><p class="first last">Use</p>
+</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td><p class="first last">seconds since the epoch</p>
+</td>
+<td><p class="first last"><a class="reference internal" href="#time.struct_time" title="time.struct_time"><tt class="xref py py-class docutils literal"><span class="pre">struct_time</span></tt></a> in
+UTC</p>
+</td>
+<td><p class="first last"><a class="reference internal" href="#time.gmtime" title="time.gmtime"><tt class="xref py py-func docutils literal"><span class="pre">gmtime()</span></tt></a></p>
+</td>
+</tr>
+<tr><td><p class="first last">seconds since the epoch</p>
+</td>
+<td><p class="first last"><a class="reference internal" href="#time.struct_time" title="time.struct_time"><tt class="xref py py-class docutils literal"><span class="pre">struct_time</span></tt></a> in
+local time</p>
+</td>
+<td><p class="first last"><a class="reference internal" href="#time.localtime" title="time.localtime"><tt class="xref py py-func docutils literal"><span class="pre">localtime()</span></tt></a></p>
+</td>
+</tr>
+<tr><td><p class="first last"><a class="reference internal" href="#time.struct_time" title="time.struct_time"><tt class="xref py py-class docutils literal"><span class="pre">struct_time</span></tt></a> in
+UTC</p>
+</td>
+<td><p class="first last">seconds since the epoch</p>
+</td>
+<td><p class="first last"><a class="reference internal" href="calendar.html#calendar.timegm" title="calendar.timegm"><tt class="xref py py-func docutils literal"><span class="pre">calendar.timegm()</span></tt></a></p>
+</td>
+</tr>
+<tr><td><p class="first last"><a class="reference internal" href="#time.struct_time" title="time.struct_time"><tt class="xref py py-class docutils literal"><span class="pre">struct_time</span></tt></a> in
+local time</p>
+</td>
+<td><p class="first last">seconds since the epoch</p>
+</td>
+<td><p class="first last"><a class="reference internal" href="#time.mktime" title="time.mktime"><tt class="xref py py-func docutils literal"><span class="pre">mktime()</span></tt></a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<p><font id="41">{{s.41}}</font></p>
+<dl class="data">
+<dt id="time.accept2dyear">
+<tt class="descclassname">time.</tt><tt class="descname">accept2dyear</tt><a class="headerlink" href="#time.accept2dyear" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="42">{{s.42}}</font><font id="43">{{s.43}}</font><font id="44">{{s.44}}</font></p>
+</dd></dl>
+
+<dl class="data">
+<dt id="time.altzone">
+<tt class="descclassname">time.</tt><tt class="descname">altzone</tt><a class="headerlink" href="#time.altzone" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="45">{{s.45}}</font><font id="46">{{s.46}}</font><font id="47">{{s.47}}</font></p>
+</dd></dl>
+
+<dl class="function">
+<dt id="time.asctime">
+<tt class="descclassname">time.</tt><tt class="descname">asctime</tt><big>(</big><span class="optional">[</span><em>t</em><span class="optional">]</span><big>)</big><a class="headerlink" href="#time.asctime" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="48">{{s.48}}</font><font id="49">{{s.49}}</font></p>
+<div class="admonition note">
+<p class="first admonition-title"><font id="50">{{s.50}}</font></p>
+<p class="last"><font id="51">{{s.51}}</font></p>
+</div>
+<p class="versionchanged">
+<span class="versionmodified"><font id="52">{{s.52}}</font></span><font id="53">{{s.53}}</font></p>
+</dd></dl>
+
+<dl class="function">
+<dt id="time.clock">
+<tt class="descclassname">time.</tt><tt class="descname">clock</tt><big>(</big><big>)</big><a class="headerlink" href="#time.clock" title="Permalink to this definition">¶</a></dt>
+<dd><p id="index-8"><font id="54">{{s.54}}</font><font id="55">{{s.55}}</font></p>
+<p><font id="56">{{s.56}}</font><font id="57">{{s.57}}</font></p>
+</dd></dl>
+
+<dl class="function">
+<dt id="time.ctime">
+<tt class="descclassname">time.</tt><tt class="descname">ctime</tt><big>(</big><span class="optional">[</span><em>secs</em><span class="optional">]</span><big>)</big><a class="headerlink" href="#time.ctime" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="58">{{s.58}}</font><font id="59">{{s.59}}</font><font id="60">{{s.60}}</font><font id="61">{{s.61}}</font></p>
+<p class="versionchanged">
+<span class="versionmodified"><font id="62">{{s.62}}</font></span><font id="63">{{s.63}}</font></p>
+<p class="versionchanged">
+<span class="versionmodified"><font id="64">{{s.64}}</font></span><font id="65">{{s.65}}</font></p>
+</dd></dl>
+
+<dl class="data">
+<dt id="time.daylight">
+<tt class="descclassname">time.</tt><tt class="descname">daylight</tt><a class="headerlink" href="#time.daylight" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="66">{{s.66}}</font></p>
+</dd></dl>
+
+<dl class="function">
+<dt id="time.gmtime">
+<tt class="descclassname">time.</tt><tt class="descname">gmtime</tt><big>(</big><span class="optional">[</span><em>secs</em><span class="optional">]</span><big>)</big><a class="headerlink" href="#time.gmtime" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="67">{{s.67}}</font><font id="68">{{s.68}}</font><font id="69">{{s.69}}</font><font id="70">{{s.70}}</font><font id="71">{{s.71}}</font></p>
+<p class="versionchanged">
+<span class="versionmodified"><font id="72">{{s.72}}</font></span><font id="73">{{s.73}}</font></p>
+<p class="versionchanged">
+<span class="versionmodified"><font id="74">{{s.74}}</font></span><font id="75">{{s.75}}</font></p>
+</dd></dl>
+
+<dl class="function">
+<dt id="time.localtime">
+<tt class="descclassname">time.</tt><tt class="descname">localtime</tt><big>(</big><span class="optional">[</span><em>secs</em><span class="optional">]</span><big>)</big><a class="headerlink" href="#time.localtime" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="76">{{s.76}}</font><font id="77">{{s.77}}</font><font id="78">{{s.78}}</font></p>
+<p class="versionchanged">
+<span class="versionmodified"><font id="79">{{s.79}}</font></span><font id="80">{{s.80}}</font></p>
+<p class="versionchanged">
+<span class="versionmodified"><font id="81">{{s.81}}</font></span><font id="82">{{s.82}}</font></p>
+</dd></dl>
+
+<dl class="function">
+<dt id="time.mktime">
+<tt class="descclassname">time.</tt><tt class="descname">mktime</tt><big>(</big><em>t</em><big>)</big><a class="headerlink" href="#time.mktime" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="83">{{s.83}}</font><font id="84">{{s.84}}</font><font id="85">{{s.85}}</font><font id="86">{{s.86}}</font><font id="87">{{s.87}}</font></p>
+</dd></dl>
+
+<dl class="function">
+<dt id="time.sleep">
+<tt class="descclassname">time.</tt><tt class="descname">sleep</tt><big>(</big><em>secs</em><big>)</big><a class="headerlink" href="#time.sleep" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="88">{{s.88}}</font><font id="89">{{s.89}}</font><font id="90">{{s.90}}</font><font id="91">{{s.91}}</font></p>
+</dd></dl>
+
+<dl class="function">
+<dt id="time.strftime">
+<tt class="descclassname">time.</tt><tt class="descname">strftime</tt><big>(</big><em>format</em><span class="optional">[</span>, <em>t</em><span class="optional">]</span><big>)</big><a class="headerlink" href="#time.strftime" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="92">{{s.92}}</font><font id="93">{{s.93}}</font><font id="94">{{s.94}}</font><font id="95">{{s.95}}</font></p>
+<p class="versionchanged">
+<span class="versionmodified"><font id="96">{{s.96}}</font></span><font id="97">{{s.97}}</font></p>
+<p class="versionchanged">
+<span class="versionmodified"><font id="98">{{s.98}}</font></span><font id="99">{{s.99}}</font></p>
+<p class="versionchanged">
+<span class="versionmodified"><font id="100">{{s.100}}</font></span><font id="101">{{s.101}}</font></p>
+<p><font id="102">{{s.102}}</font><font id="103">{{s.103}}</font></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="22%" />
+<col width="64%" />
+<col width="14%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">Directive</th>
+<th class="head">Meaning</th>
+<th class="head">Notes</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td><tt class="docutils literal"><span class="pre">%a</span></tt></td>
+<td><font id="104">{{s.104}}</font></td>
+<td>&nbsp;</td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">%A</span></tt></td>
+<td><font id="105">{{s.105}}</font></td>
+<td>&nbsp;</td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">%b</span></tt></td>
+<td><font id="106">{{s.106}}</font></td>
+<td>&nbsp;</td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">%B</span></tt></td>
+<td><font id="107">{{s.107}}</font></td>
+<td>&nbsp;</td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">%c</span></tt></td>
+<td><font id="108">{{s.108}}</font></td>
+<td>&nbsp;</td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">%d</span></tt></td>
+<td><font id="109">{{s.109}}</font></td>
+<td>&nbsp;</td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">%H</span></tt></td>
+<td><font id="110">{{s.110}}</font></td>
+<td>&nbsp;</td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">%I</span></tt></td>
+<td><font id="111">{{s.111}}</font></td>
+<td>&nbsp;</td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">%j</span></tt></td>
+<td><font id="112">{{s.112}}</font></td>
+<td>&nbsp;</td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">%m</span></tt></td>
+<td><font id="113">{{s.113}}</font></td>
+<td>&nbsp;</td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">%M</span></tt></td>
+<td><font id="114">{{s.114}}</font></td>
+<td>&nbsp;</td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">%p</span></tt></td>
+<td><font id="115">{{s.115}}</font></td>
+<td>(1)</td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">%S</span></tt></td>
+<td><font id="116">{{s.116}}</font></td>
+<td>(2)</td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">%U</span></tt></td>
+<td><font id="117">{{s.117}}</font><font id="118">{{s.118}}</font></td>
+<td>(3)</td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">%w</span></tt></td>
+<td><font id="119">{{s.119}}</font></td>
+<td>&nbsp;</td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">%W</span></tt></td>
+<td><font id="120">{{s.120}}</font><font id="121">{{s.121}}</font></td>
+<td>(3)</td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">%x</span></tt></td>
+<td><font id="122">{{s.122}}</font></td>
+<td>&nbsp;</td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">%X</span></tt></td>
+<td><font id="123">{{s.123}}</font></td>
+<td>&nbsp;</td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">%y</span></tt></td>
+<td><font id="124">{{s.124}}</font></td>
+<td>&nbsp;</td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">%Y</span></tt></td>
+<td><font id="125">{{s.125}}</font></td>
+<td>&nbsp;</td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">%Z</span></tt></td>
+<td><font id="126">{{s.126}}</font></td>
+<td>&nbsp;</td>
+</tr>
+<tr><td><tt class="docutils literal"><span class="pre">%%</span></tt></td>
+<td><font id="127">{{s.127}}</font></td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<p><font id="128">{{s.128}}</font></p>
+<ol class="arabic simple">
+<li><font id="129">{{s.129}}</font></li>
+<li><font id="130">{{s.130}}</font><font id="131">{{s.131}}</font></li>
+<li><font id="132">{{s.132}}</font></li>
+</ol>
+<p><font id="133">{{s.133}}</font><a class="footnote-reference" href="#id2" id="id1">[1]</a></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">time</span> <span class="kn">import</span> <span class="n">gmtime</span><span class="p">,</span> <span class="n">strftime</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">strftime</span><span class="p">(</span><span class="s">&quot;%a, </span><span class="si">%d</span><span class="s"> %b %Y %H:%M:%S +0000&quot;</span><span class="p">,</span> <span class="n">gmtime</span><span class="p">())</span>
+<span class="go">&#39;Thu, 28 Jun 2001 14:17:15 +0000&#39;</span>
+</pre></div>
+</div>
+<p><font id="134">{{s.134}}</font><font id="135">{{s.135}}</font></p>
+<p><font id="136">{{s.136}}</font><font id="137">{{s.137}}</font><font id="138">{{s.138}}</font></p>
+</dd></dl>
+
+<dl class="function">
+<dt id="time.strptime">
+<tt class="descclassname">time.</tt><tt class="descname">strptime</tt><big>(</big><em>string</em><span class="optional">[</span>, <em>format</em><span class="optional">]</span><big>)</big><a class="headerlink" href="#time.strptime" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="144">{{s.144}}</font><font id="145">{{s.145}}</font></p>
+<p><font id="146">{{s.146}}</font><font id="147">{{s.147}}</font><font id="148">{{s.148}}</font><font id="149">{{s.149}}</font></p>
+<p><font id="150">{{s.150}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">time</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">time</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="s">&quot;30 Nov 00&quot;</span><span class="p">,</span> <span class="s">&quot;</span><span class="si">%d</span><span class="s"> %b %y&quot;</span><span class="p">)</span>   
+<span class="go">time.struct_time(tm_year=2000, tm_mon=11, tm_mday=30, tm_hour=0, tm_min=0,</span>
+<span class="go">                 tm_sec=0, tm_wday=3, tm_yday=335, tm_isdst=-1)</span>
+</pre></div>
+</div>
+<p><font id="151">{{s.151}}</font><font id="152">{{s.152}}</font></p>
+<p><font id="153">{{s.153}}</font><font id="154">{{s.154}}</font><font id="155">{{s.155}}</font></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="time.struct_time">
+<em class="property">class </em><tt class="descclassname">time.</tt><tt class="descname">struct_time</tt><a class="headerlink" href="#time.struct_time" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="156">{{s.156}}</font><font id="157">{{s.157}}</font><font id="158">{{s.158}}</font></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="12%" />
+<col width="32%" />
+<col width="56%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">Index</th>
+<th class="head">Attribute</th>
+<th class="head">Values</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td>0</td>
+<td><tt class="xref py py-attr docutils literal"><span class="pre">tm_year</span></tt></td>
+<td>(for example, 1993)</td>
+</tr>
+<tr><td>1</td>
+<td><tt class="xref py py-attr docutils literal"><span class="pre">tm_mon</span></tt></td>
+<td>range [1, 12]</td>
+</tr>
+<tr><td>2</td>
+<td><tt class="xref py py-attr docutils literal"><span class="pre">tm_mday</span></tt></td>
+<td>range [1, 31]</td>
+</tr>
+<tr><td>3</td>
+<td><tt class="xref py py-attr docutils literal"><span class="pre">tm_hour</span></tt></td>
+<td>range [0, 23]</td>
+</tr>
+<tr><td>4</td>
+<td><tt class="xref py py-attr docutils literal"><span class="pre">tm_min</span></tt></td>
+<td>range [0, 59]</td>
+</tr>
+<tr><td>5</td>
+<td><tt class="xref py py-attr docutils literal"><span class="pre">tm_sec</span></tt></td>
+<td>range [0, 61]; see <strong>(2)</strong> in
+<a class="reference internal" href="#time.strftime" title="time.strftime"><tt class="xref py py-func docutils literal"><span class="pre">strftime()</span></tt></a> description</td>
+</tr>
+<tr><td>6</td>
+<td><tt class="xref py py-attr docutils literal"><span class="pre">tm_wday</span></tt></td>
+<td>range [0, 6], Monday is 0</td>
+</tr>
+<tr><td>7</td>
+<td><tt class="xref py py-attr docutils literal"><span class="pre">tm_yday</span></tt></td>
+<td>range [1, 366]</td>
+</tr>
+<tr><td>8</td>
+<td><tt class="xref py py-attr docutils literal"><span class="pre">tm_isdst</span></tt></td>
+<td>0, 1 or -1; see below</td>
+</tr>
+</tbody>
+</table>
+<p class="versionadded">
+<span class="versionmodified"><font id="159">{{s.159}}</font></span></p>
+<p><font id="160">{{s.160}}</font><font id="161">{{s.161}}</font><font id="162">{{s.162}}</font></p>
+<p><font id="163">{{s.163}}</font></p>
+</dd></dl>
+
+<dl class="function">
+<dt id="time.time">
+<tt class="descclassname">time.</tt><tt class="descname">time</tt><big>(</big><big>)</big><a class="headerlink" href="#time.time" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="164">{{s.164}}</font><font id="165">{{s.165}}</font><font id="166">{{s.166}}</font></p>
+</dd></dl>
+
+<dl class="data">
+<dt id="time.timezone">
+<tt class="descclassname">time.</tt><tt class="descname">timezone</tt><a class="headerlink" href="#time.timezone" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="167">{{s.167}}</font></p>
+</dd></dl>
+
+<dl class="data">
+<dt id="time.tzname">
+<tt class="descclassname">time.</tt><tt class="descname">tzname</tt><a class="headerlink" href="#time.tzname" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="168">{{s.168}}</font><font id="169">{{s.169}}</font></p>
+</dd></dl>
+
+<dl class="function">
+<dt id="time.tzset">
+<tt class="descclassname">time.</tt><tt class="descname">tzset</tt><big>(</big><big>)</big><a class="headerlink" href="#time.tzset" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="170">{{s.170}}</font><font id="171">{{s.171}}</font></p>
+<p class="versionadded">
+<span class="versionmodified"><font id="172">{{s.172}}</font></span></p>
+<p><font id="173">{{s.173}}</font></p>
+<div class="admonition note">
+<p class="first admonition-title"><font id="174">{{s.174}}</font></p>
+<p><font id="175">{{s.175}}</font></p>
+<p class="last"><font id="176">{{s.176}}</font></p>
+</div>
+<p><font id="177">{{s.177}}</font></p>
+<div class="highlight-python"><pre>std offset [dst [offset [,start[/time], end[/time]]]]</pre>
+</div>
+<p><font id="178">{{s.178}}</font></p>
+<dl class="docutils">
+<dt><tt class="docutils literal"><span class="pre">std</span></tt> and <tt class="docutils literal"><span class="pre">dst</span></tt></dt>
+<dd><font id="179">{{s.179}}</font><font id="180">{{s.180}}</font></dd>
+<dt><tt class="docutils literal"><span class="pre">offset</span></tt></dt>
+<dd><font id="181">{{s.181}}</font><font id="182">{{s.182}}</font><font id="183">{{s.183}}</font><font id="184">{{s.184}}</font><font id="185">{{s.185}}</font></dd>
+<dt><tt class="docutils literal"><span class="pre">start[/time],</span> <span class="pre">end[/time]</span></tt></dt>
+<dd><p class="first"><font id="186">{{s.186}}</font></p>
+<dl class="docutils">
+<dt><tt class="samp docutils literal"><span class="pre">J</span><em><span class="pre">n</span></em></tt></dt>
+<dd><font id="187">{{s.187}}</font><font id="188">{{s.188}}</font></dd>
+<dt><tt class="samp docutils literal"><em><span class="pre">n</span></em></tt></dt>
+<dd><font id="189">{{s.189}}</font></dd>
+<dt><tt class="samp docutils literal"><span class="pre">M</span><em><span class="pre">m</span></em><span class="pre">.</span><em><span class="pre">n</span></em><span class="pre">.</span><em><span class="pre">d</span></em></tt></dt>
+<dd><font id="190">{{s.190}}</font><font id="191">{{s.191}}</font><font id="192">{{s.192}}</font></dd>
+</dl>
+<p class="last"><tt class="docutils literal"><span class="pre">time</span></tt><font id="193">{{s.193}}</font><font id="194">{{s.194}}</font></p>
+</dd>
+</dl>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s">&#39;TZ&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s">&#39;EST+05EDT,M4.1.0,M10.5.0&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">time</span><span class="o">.</span><span class="n">tzset</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">time</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s">&#39;</span><span class="si">%X</span><span class="s"> </span><span class="si">%x</span><span class="s"> %Z&#39;</span><span class="p">)</span>
+<span class="go">&#39;02:07:36 05/08/03 EDT&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s">&#39;TZ&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s">&#39;AEST-10AEDT-11,M10.5.0,M3.5.0&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">time</span><span class="o">.</span><span class="n">tzset</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">time</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s">&#39;</span><span class="si">%X</span><span class="s"> </span><span class="si">%x</span><span class="s"> %Z&#39;</span><span class="p">)</span>
+<span class="go">&#39;16:08:12 05/08/03 AEST&#39;</span>
+</pre></div>
+</div>
+<p><font id="195">{{s.195}}</font><font id="196">{{s.196}}</font><font id="197">{{s.197}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s">&#39;TZ&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s">&#39;US/Eastern&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">time</span><span class="o">.</span><span class="n">tzset</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">time</span><span class="o">.</span><span class="n">tzname</span>
+<span class="go">(&#39;EST&#39;, &#39;EDT&#39;)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s">&#39;TZ&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s">&#39;Egypt&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">time</span><span class="o">.</span><span class="n">tzset</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">time</span><span class="o">.</span><span class="n">tzname</span>
+<span class="go">(&#39;EET&#39;, &#39;EEST&#39;)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<div class="admonition-see-also admonition seealso">
+<p class="first admonition-title">See also</p>
+<dl class="last docutils">
+<dt>Module <a class="reference internal" href="datetime.html#module-datetime" title="datetime: Basic date and time types."><tt class="xref py py-mod docutils literal"><span class="pre">datetime</span></tt></a></dt>
+<dd>More object-oriented interface to dates and times.</dd>
+<dt>Module <a class="reference internal" href="locale.html#module-locale" title="locale: Internationalization services."><tt class="xref py py-mod docutils literal"><span class="pre">locale</span></tt></a></dt>
+<dd>Internationalization services.  The locale setting affects the interpretation
+of many format specifiers in <a class="reference internal" href="#time.strftime" title="time.strftime"><tt class="xref py py-func docutils literal"><span class="pre">strftime()</span></tt></a> and <a class="reference internal" href="#time.strptime" title="time.strptime"><tt class="xref py py-func docutils literal"><span class="pre">strptime()</span></tt></a>.</dd>
+<dt>Module <a class="reference internal" href="calendar.html#module-calendar" title="calendar: Functions for working with calendars, including some emulation of the Unix cal program."><tt class="xref py py-mod docutils literal"><span class="pre">calendar</span></tt></a></dt>
+<dd>General calendar-related functions.   <a class="reference internal" href="calendar.html#calendar.timegm" title="calendar.timegm"><tt class="xref py py-func docutils literal"><span class="pre">timegm()</span></tt></a> is the
+inverse of <a class="reference internal" href="#time.gmtime" title="time.gmtime"><tt class="xref py py-func docutils literal"><span class="pre">gmtime()</span></tt></a> from this module.</dd>
+</dl>
+</div>
+<p class="rubric">Footnotes</p>
+<table class="docutils footnote" frame="void" id="id2" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td>The use of <tt class="docutils literal"><span class="pre">%Z</span></tt> is now deprecated, but the <tt class="docutils literal"><span class="pre">%z</span></tt> escape that expands to the
+preferred  hour/minute offset is not supported by all ANSI C libraries. Also, a
+strict reading of the original 1982 <span class="target" id="index-15"></span><a class="rfc reference external" href="http://tools.ietf.org/html/rfc822.html"><strong>RFC 822</strong></a> standard calls for a two-digit
+year (%y rather than %Y), but practice moved to 4-digit years long before the
+year 2000.  After that, <span class="target" id="index-16"></span><a class="rfc reference external" href="http://tools.ietf.org/html/rfc822.html"><strong>RFC 822</strong></a> became obsolete and the 4-digit year has
+been first recommended by <span class="target" id="index-17"></span><a class="rfc reference external" href="http://tools.ietf.org/html/rfc1123.html"><strong>RFC 1123</strong></a> and then mandated by <span class="target" id="index-18"></span><a class="rfc reference external" href="http://tools.ietf.org/html/rfc2822.html"><strong>RFC 2822</strong></a>.</td></tr>
+</tbody>
+</table>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>上一主题</h4>
+  <p class="topless"><a href="io.html"
+                        title="previous chapter">15.2. <tt class="docutils literal docutils literal docutils literal"><span class="pre">io</span></tt> &#8212; Core tools for working with streams</a></p>
+  <h4>下一主题</h4>
+  <p class="topless"><a href="argparse.html"
+                        title="next chapter">15.4. <tt class="docutils literal docutils literal docutils literal"><span class="pre">argparse</span></tt> &#8212; Parser for command-line options, arguments and sub-commands</a></p>
+<h3>当前页</h3>
+<ul class="this-page-menu">
+<li><a href="#" onclick="showOriginTexts();return false;">中英文对照</a></li>
+<li><a href="#" onclick="hideOriginTexts();return false;">中文</a></li>
+</ul>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>  
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >索引</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >模块</a> |</li>
+        <li class="right" >
+          <a href="argparse.html" title="15.4. argparse — Parser for command-line options, arguments and sub-commands"
+             >下一页</a> |</li>
+        <li class="right" >
+          <a href="io.html" title="15.2. io — Core tools for working with streams"
+             >上一页</a> |</li>
+        <li class="right">
+<a href="#" onclick="hideOriginTexts();return false;">中文</a> |</li>
+<li class="right">
+<a href="#" onclick="showOriginTexts();return false;">中英文对照</a> |</li>
+        <li><img src="../_static/py.png" alt=""
+                 style="vertical-align: middle; margin-top: -1px"/></li>
+        <li><a href="http://www.python.org/">Python</a> &raquo;</li>
+        <li>
+          <span class="version_switcher_placeholder">2.7.8</span>
+          <a href="../index.html">文档</a> &raquo;
+        </li>
+
+          <li><a href="index.html" >Python 标准库</a> &raquo;</li>
+          <li><a href="allos.html" >15. Generic Operating System Services</a> &raquo;</li> 
+      </ul>
+    </div>
+    
+    <br><div id="disqus_thread"></div>
+    
+    <div class="footer">
+    &copy; <a href="../copyright.html">Copyright</a> 1990-2014, Python Software Foundation.
+    <br />
+    The Python Software Foundation is a non-profit corporation.
+    <a href="http://www.python.org/psf/donations/">Please donate.</a>
+    <br />
+    Last updated on Jul 27, 2014.
+    <a href="../bugs.html">Found a bug</a>?
+    <br />
+    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+    
+    <script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'thepythontutorial2'; // required: replace example with your forum shortname
+    var disqus_identifier = '/python2/library/time';
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+<link href="../_static/ms_translator.css" rel="stylesheet" type="text/css"/>
+<script src="../_static/ms_translator.js" type="text/javascript"></script>
+{% include "python_278/ms_translator.html" %}
+
+  </body>
+</html>

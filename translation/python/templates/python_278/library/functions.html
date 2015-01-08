@@ -1,0 +1,1133 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<title>2. Built-in Functions — Python v2.7.8 documentation</title>
+<link href="../_static/default.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2.7.8',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+<script src="../_static/jquery.js" type="text/javascript"></script>
+<script src="../_static/underscore.js" type="text/javascript"></script>
+<script src="../_static/doctools.js" type="text/javascript"></script>
+<script src="../_static/sidebar.js" type="text/javascript"></script>
+<link href="../_static/opensearch.xml" rel="search" title="Search within Python v2.7.8 documentation" type="application/opensearchdescription+xml"/>
+<link href="../about.html" rel="author" title="About these documents"/>
+<link href="../copyright.html" rel="copyright" title="Copyright"/>
+<link href="../index.html" rel="top" title="Python v2.7.8 documentation"/>
+<link href="index.html" rel="up" title="The Python Standard Library"/>
+<link href="constants.html" rel="next" title="4. Built-in Constants"/>
+<link href="intro.html" rel="prev" title="1. Introduction"/>
+<link href="../_static/py.png" rel="shortcut icon" type="image/png"/>
+<script src="../_static/copybutton.js" type="text/javascript"></script>
+<script src="../_static/version_switch.js" type="text/javascript"></script>
+</head>
+<body>
+<div class="related">
+<h3><font id="681">{{s.681}}</font></h3>
+<ul>
+<li class="right" style="margin-right: 10px">
+<a accesskey="I" href="../genindex.html" title="General Index"><font id="688">{{s.688}}</font></a></li>
+<li class="right">
+<a href="../py-modindex.html" title="Python Module Index"><font id="689">{{s.689}}</font></a> |</li>
+<li class="right">
+<a accesskey="N" href="constants.html" title="4. Built-in Constants"><font id="690">{{s.690}}</font></a> |</li>
+<li class="right">
+<a accesskey="P" href="intro.html" title="1. Introduction"><font id="691">{{s.691}}</font></a> |</li>
+<li class="right">
+<a href="#" onclick="hideOriginTexts();return false;">中文</a> |</li>
+<li class="right">
+<a href="#" onclick="showOriginTexts();return false;">中英文对照</a> |</li>
+<li><img alt="" src="../_static/py.png" style="vertical-align: middle; margin-top: -1px"/></li>
+<li><a href="http://www.python.org/"><font id="692">{{s.692}}</font></a> »</li>
+<li>
+<span class="version_switcher_placeholder">2.7.8</span>
+<a href="../index.html"><font id="693">{{s.693}}</font></a> »
+        </li>
+<li><a accesskey="U" href="index.html"><font id="694">{{s.694}}</font></a> »</li>
+</ul>
+</div>
+<div class="document">
+<div class="documentwrapper">
+<div class="bodywrapper">
+<div class="body">
+<div class="section" id="built-in-functions">
+<span id="built-in-funcs"></span><h1><font id="679">{{s.679}}</font><a class="headerlink" href="#built-in-functions" title="Permalink to this headline">¶</a></h1>
+<p><font id="1">{{s.1}}</font><font id="2">{{s.2}}</font></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="21%"></col>
+<col width="19%"></col>
+<col width="20%"></col>
+<col width="19%"></col>
+<col width="22%"></col>
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head"></th>
+<th class="head"></th>
+<th class="head">Built-in Functions</th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td><a class="reference internal" href="#abs" title="abs"><tt class="xref py py-func docutils literal"><span class="pre">abs()</span></tt></a></td>
+<td><a class="reference internal" href="#divmod" title="divmod"><tt class="xref py py-func docutils literal"><span class="pre">divmod()</span></tt></a></td>
+<td><a class="reference internal" href="#input" title="input"><tt class="xref py py-func docutils literal"><span class="pre">input()</span></tt></a></td>
+<td><a class="reference internal" href="#open" title="open"><tt class="xref py py-func docutils literal"><span class="pre">open()</span></tt></a></td>
+<td><a class="reference internal" href="#staticmethod" title="staticmethod"><tt class="xref py py-func docutils literal"><span class="pre">staticmethod()</span></tt></a></td>
+</tr>
+<tr><td><a class="reference internal" href="#all" title="all"><tt class="xref py py-func docutils literal"><span class="pre">all()</span></tt></a></td>
+<td><a class="reference internal" href="#enumerate" title="enumerate"><tt class="xref py py-func docutils literal"><span class="pre">enumerate()</span></tt></a></td>
+<td><a class="reference internal" href="#int" title="int"><tt class="xref py py-func docutils literal"><span class="pre">int()</span></tt></a></td>
+<td><a class="reference internal" href="#ord" title="ord"><tt class="xref py py-func docutils literal"><span class="pre">ord()</span></tt></a></td>
+<td><a class="reference internal" href="#str" title="str"><tt class="xref py py-func docutils literal"><span class="pre">str()</span></tt></a></td>
+</tr>
+<tr><td><a class="reference internal" href="#any" title="any"><tt class="xref py py-func docutils literal"><span class="pre">any()</span></tt></a></td>
+<td><a class="reference internal" href="#eval" title="eval"><tt class="xref py py-func docutils literal"><span class="pre">eval()</span></tt></a></td>
+<td><a class="reference internal" href="#isinstance" title="isinstance"><tt class="xref py py-func docutils literal"><span class="pre">isinstance()</span></tt></a></td>
+<td><a class="reference internal" href="#pow" title="pow"><tt class="xref py py-func docutils literal"><span class="pre">pow()</span></tt></a></td>
+<td><a class="reference internal" href="#sum" title="sum"><tt class="xref py py-func docutils literal"><span class="pre">sum()</span></tt></a></td>
+</tr>
+<tr><td><a class="reference internal" href="#basestring" title="basestring"><tt class="xref py py-func docutils literal"><span class="pre">basestring()</span></tt></a></td>
+<td><a class="reference internal" href="#execfile" title="execfile"><tt class="xref py py-func docutils literal"><span class="pre">execfile()</span></tt></a></td>
+<td><a class="reference internal" href="#issubclass" title="issubclass"><tt class="xref py py-func docutils literal"><span class="pre">issubclass()</span></tt></a></td>
+<td><a class="reference internal" href="#print" title="print"><tt class="xref py py-func docutils literal"><span class="pre">print()</span></tt></a></td>
+<td><a class="reference internal" href="#super" title="super"><tt class="xref py py-func docutils literal"><span class="pre">super()</span></tt></a></td>
+</tr>
+<tr><td><a class="reference internal" href="#bin" title="bin"><tt class="xref py py-func docutils literal"><span class="pre">bin()</span></tt></a></td>
+<td><a class="reference internal" href="#file" title="file"><tt class="xref py py-func docutils literal"><span class="pre">file()</span></tt></a></td>
+<td><a class="reference internal" href="#iter" title="iter"><tt class="xref py py-func docutils literal"><span class="pre">iter()</span></tt></a></td>
+<td><a class="reference internal" href="#property" title="property"><tt class="xref py py-func docutils literal"><span class="pre">property()</span></tt></a></td>
+<td><a class="reference internal" href="#tuple" title="tuple"><tt class="xref py py-func docutils literal"><span class="pre">tuple()</span></tt></a></td>
+</tr>
+<tr><td><a class="reference internal" href="#bool" title="bool"><tt class="xref py py-func docutils literal"><span class="pre">bool()</span></tt></a></td>
+<td><a class="reference internal" href="#filter" title="filter"><tt class="xref py py-func docutils literal"><span class="pre">filter()</span></tt></a></td>
+<td><a class="reference internal" href="#len" title="len"><tt class="xref py py-func docutils literal"><span class="pre">len()</span></tt></a></td>
+<td><a class="reference internal" href="#range" title="range"><tt class="xref py py-func docutils literal"><span class="pre">range()</span></tt></a></td>
+<td><a class="reference internal" href="#type" title="type"><tt class="xref py py-func docutils literal"><span class="pre">type()</span></tt></a></td>
+</tr>
+<tr><td><a class="reference internal" href="#bytearray" title="bytearray"><tt class="xref py py-func docutils literal"><span class="pre">bytearray()</span></tt></a></td>
+<td><a class="reference internal" href="#float" title="float"><tt class="xref py py-func docutils literal"><span class="pre">float()</span></tt></a></td>
+<td><a class="reference internal" href="#list" title="list"><tt class="xref py py-func docutils literal"><span class="pre">list()</span></tt></a></td>
+<td><a class="reference internal" href="#raw_input" title="raw_input"><tt class="xref py py-func docutils literal"><span class="pre">raw_input()</span></tt></a></td>
+<td><a class="reference internal" href="#unichr" title="unichr"><tt class="xref py py-func docutils literal"><span class="pre">unichr()</span></tt></a></td>
+</tr>
+<tr><td><a class="reference internal" href="#callable" title="callable"><tt class="xref py py-func docutils literal"><span class="pre">callable()</span></tt></a></td>
+<td><a class="reference internal" href="#format" title="format"><tt class="xref py py-func docutils literal"><span class="pre">format()</span></tt></a></td>
+<td><a class="reference internal" href="#locals" title="locals"><tt class="xref py py-func docutils literal"><span class="pre">locals()</span></tt></a></td>
+<td><a class="reference internal" href="#reduce" title="reduce"><tt class="xref py py-func docutils literal"><span class="pre">reduce()</span></tt></a></td>
+<td><a class="reference internal" href="#unicode" title="unicode"><tt class="xref py py-func docutils literal"><span class="pre">unicode()</span></tt></a></td>
+</tr>
+<tr><td><a class="reference internal" href="#chr" title="chr"><tt class="xref py py-func docutils literal"><span class="pre">chr()</span></tt></a></td>
+<td><a class="reference internal" href="#func-frozenset"><tt class="docutils literal"><span class="pre">frozenset()</span></tt></a></td>
+<td><a class="reference internal" href="#long" title="long"><tt class="xref py py-func docutils literal"><span class="pre">long()</span></tt></a></td>
+<td><a class="reference internal" href="#reload" title="reload"><tt class="xref py py-func docutils literal"><span class="pre">reload()</span></tt></a></td>
+<td><a class="reference internal" href="#vars" title="vars"><tt class="xref py py-func docutils literal"><span class="pre">vars()</span></tt></a></td>
+</tr>
+<tr><td><a class="reference internal" href="#classmethod" title="classmethod"><tt class="xref py py-func docutils literal"><span class="pre">classmethod()</span></tt></a></td>
+<td><a class="reference internal" href="#getattr" title="getattr"><tt class="xref py py-func docutils literal"><span class="pre">getattr()</span></tt></a></td>
+<td><a class="reference internal" href="#map" title="map"><tt class="xref py py-func docutils literal"><span class="pre">map()</span></tt></a></td>
+<td><a class="reference internal" href="#func-repr"><tt class="docutils literal"><span class="pre">repr()</span></tt></a></td>
+<td><a class="reference internal" href="#xrange" title="xrange"><tt class="xref py py-func docutils literal"><span class="pre">xrange()</span></tt></a></td>
+</tr>
+<tr><td><a class="reference internal" href="#cmp" title="cmp"><tt class="xref py py-func docutils literal"><span class="pre">cmp()</span></tt></a></td>
+<td><a class="reference internal" href="#globals" title="globals"><tt class="xref py py-func docutils literal"><span class="pre">globals()</span></tt></a></td>
+<td><a class="reference internal" href="#max" title="max"><tt class="xref py py-func docutils literal"><span class="pre">max()</span></tt></a></td>
+<td><a class="reference internal" href="#reversed" title="reversed"><tt class="xref py py-func docutils literal"><span class="pre">reversed()</span></tt></a></td>
+<td><a class="reference internal" href="#zip" title="zip"><tt class="xref py py-func docutils literal"><span class="pre">zip()</span></tt></a></td>
+</tr>
+<tr><td><a class="reference internal" href="#compile" title="compile"><tt class="xref py py-func docutils literal"><span class="pre">compile()</span></tt></a></td>
+<td><a class="reference internal" href="#hasattr" title="hasattr"><tt class="xref py py-func docutils literal"><span class="pre">hasattr()</span></tt></a></td>
+<td><a class="reference internal" href="#func-memoryview"><tt class="docutils literal"><span class="pre">memoryview()</span></tt></a></td>
+<td><a class="reference internal" href="#round" title="round"><tt class="xref py py-func docutils literal"><span class="pre">round()</span></tt></a></td>
+<td><a class="reference internal" href="#__import__" title="__import__"><tt class="xref py py-func docutils literal"><span class="pre">__import__()</span></tt></a></td>
+</tr>
+<tr><td><a class="reference internal" href="#complex" title="complex"><tt class="xref py py-func docutils literal"><span class="pre">complex()</span></tt></a></td>
+<td><a class="reference internal" href="#hash" title="hash"><tt class="xref py py-func docutils literal"><span class="pre">hash()</span></tt></a></td>
+<td><a class="reference internal" href="#min" title="min"><tt class="xref py py-func docutils literal"><span class="pre">min()</span></tt></a></td>
+<td><a class="reference internal" href="#func-set"><tt class="docutils literal"><span class="pre">set()</span></tt></a></td>
+<td><a class="reference internal" href="#apply" title="apply"><tt class="xref py py-func docutils literal"><span class="pre">apply()</span></tt></a></td>
+</tr>
+<tr><td><a class="reference internal" href="#delattr" title="delattr"><tt class="xref py py-func docutils literal"><span class="pre">delattr()</span></tt></a></td>
+<td><a class="reference internal" href="#help" title="help"><tt class="xref py py-func docutils literal"><span class="pre">help()</span></tt></a></td>
+<td><a class="reference internal" href="#next" title="next"><tt class="xref py py-func docutils literal"><span class="pre">next()</span></tt></a></td>
+<td><a class="reference internal" href="#setattr" title="setattr"><tt class="xref py py-func docutils literal"><span class="pre">setattr()</span></tt></a></td>
+<td><a class="reference internal" href="#buffer" title="buffer"><tt class="xref py py-func docutils literal"><span class="pre">buffer()</span></tt></a></td>
+</tr>
+<tr><td><a class="reference internal" href="#func-dict"><tt class="docutils literal"><span class="pre">dict()</span></tt></a></td>
+<td><a class="reference internal" href="#hex" title="hex"><tt class="xref py py-func docutils literal"><span class="pre">hex()</span></tt></a></td>
+<td><a class="reference internal" href="#object" title="object"><tt class="xref py py-func docutils literal"><span class="pre">object()</span></tt></a></td>
+<td><a class="reference internal" href="#slice" title="slice"><tt class="xref py py-func docutils literal"><span class="pre">slice()</span></tt></a></td>
+<td><a class="reference internal" href="#coerce" title="coerce"><tt class="xref py py-func docutils literal"><span class="pre">coerce()</span></tt></a></td>
+</tr>
+<tr><td><a class="reference internal" href="#dir" title="dir"><tt class="xref py py-func docutils literal"><span class="pre">dir()</span></tt></a></td>
+<td><a class="reference internal" href="#id" title="id"><tt class="xref py py-func docutils literal"><span class="pre">id()</span></tt></a></td>
+<td><a class="reference internal" href="#oct" title="oct"><tt class="xref py py-func docutils literal"><span class="pre">oct()</span></tt></a></td>
+<td><a class="reference internal" href="#sorted" title="sorted"><tt class="xref py py-func docutils literal"><span class="pre">sorted()</span></tt></a></td>
+<td><a class="reference internal" href="#intern" title="intern"><tt class="xref py py-func docutils literal"><span class="pre">intern()</span></tt></a></td>
+</tr>
+</tbody>
+</table>
+<dl class="function">
+<dt id="abs">
+<tt class="descname">abs</tt><big>(</big><em>x</em><big>)</big><a class="headerlink" href="#abs" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="3">{{s.3}}</font><font id="4">{{s.4}}</font><font id="5">{{s.5}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="all">
+<tt class="descname">all</tt><big>(</big><em>iterable</em><big>)</big><a class="headerlink" href="#all" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="6">{{s.6}}</font><font id="7">{{s.7}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">all</span><span class="p">(</span><span class="n">iterable</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">iterable</span><span class="p">:</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">element</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">False</span>
+    <span class="k">return</span> <span class="bp">True</span>
+</pre></div>
+</div>
+<p class="versionadded"><font id="8">{{s.8}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="any">
+<tt class="descname">any</tt><big>(</big><em>iterable</em><big>)</big><a class="headerlink" href="#any" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="9">{{s.9}}</font><font id="10">{{s.10}}</font><font id="11">{{s.11}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">any</span><span class="p">(</span><span class="n">iterable</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">iterable</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">element</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">True</span>
+    <span class="k">return</span> <span class="bp">False</span>
+</pre></div>
+</div>
+<p class="versionadded"><font id="12">{{s.12}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="basestring">
+<tt class="descname">basestring</tt><big>(</big><big>)</big><a class="headerlink" href="#basestring" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="13">{{s.13}}</font><font id="14">{{s.14}}</font><font id="15">{{s.15}}</font></p>
+<p class="versionadded"><font id="16">{{s.16}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="bin">
+<tt class="descname">bin</tt><big>(</big><em>x</em><big>)</big><a class="headerlink" href="#bin" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="17">{{s.17}}</font><font id="18">{{s.18}}</font><font id="19">{{s.19}}</font></p>
+<p class="versionadded"><font id="20">{{s.20}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="bool">
+<tt class="descname">bool</tt><big>(</big><span class="optional">[</span><em>x</em><span class="optional">]</span><big>)</big><a class="headerlink" href="#bool" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="21">{{s.21}}</font><font id="22">{{s.22}}</font><font id="23">{{s.23}}</font><font id="24">{{s.24}}</font><font id="25">{{s.25}}</font><font id="26">{{s.26}}</font></p>
+<p class="versionadded" id="index-0"><font id="27">{{s.27}}</font></p>
+<p class="versionchanged"><font id="28">{{s.28}}</font><font id="29">{{s.29}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="bytearray">
+<tt class="descname">bytearray</tt><big>(</big><span class="optional">[</span><em>source</em><span class="optional">[</span>, <em>encoding</em><span class="optional">[</span>, <em>errors</em><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><big>)</big><a class="headerlink" href="#bytearray" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="30">{{s.30}}</font><font id="31">{{s.31}}</font><font id="32">{{s.32}}</font></p>
+<p><font id="33">{{s.33}}</font></p>
+<ul class="simple">
+<li><font id="708">{{s.708}}</font></li>
+<li><font id="709">{{s.709}}</font></li>
+<li><font id="710">{{s.710}}</font></li>
+<li><font id="711">{{s.711}}</font></li>
+</ul>
+<p><font id="34">{{s.34}}</font></p>
+<p class="versionadded"><font id="35">{{s.35}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="callable">
+<tt class="descname">callable</tt><big>(</big><em>object</em><big>)</big><a class="headerlink" href="#callable" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="36">{{s.36}}</font><font id="37">{{s.37}}</font><font id="38">{{s.38}}</font><font id="39">{{s.39}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="chr">
+<tt class="descname">chr</tt><big>(</big><em>i</em><big>)</big><a class="headerlink" href="#chr" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="40">{{s.40}}</font><font id="41">{{s.41}}</font><font id="42">{{s.42}}</font><font id="43">{{s.43}}</font><font id="44">{{s.44}}</font><font id="45">{{s.45}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="classmethod">
+<tt class="descname">classmethod</tt><big>(</big><em>function</em><big>)</big><a class="headerlink" href="#classmethod" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="46">{{s.46}}</font></p>
+<p><font id="47">{{s.47}}</font><font id="48">{{s.48}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">C</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">cls</span><span class="p">,</span> <span class="n">arg1</span><span class="p">,</span> <span class="n">arg2</span><span class="p">,</span> <span class="o">...</span><span class="p">):</span>
+        <span class="o">...</span>
+</pre></div>
+</div>
+<p><font id="49">{{s.49}}</font></p>
+<p><font id="50">{{s.50}}</font><font id="51">{{s.51}}</font><font id="52">{{s.52}}</font></p>
+<p><font id="53">{{s.53}}</font><font id="54">{{s.54}}</font></p>
+<p><font id="55">{{s.55}}</font></p>
+<p class="versionadded"><font id="56">{{s.56}}</font></p>
+<p class="versionchanged"><font id="57">{{s.57}}</font><font id="58">{{s.58}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="cmp">
+<tt class="descname">cmp</tt><big>(</big><em>x</em>, <em>y</em><big>)</big><a class="headerlink" href="#cmp" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="59">{{s.59}}</font><font id="60">{{s.60}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="compile">
+<tt class="descname">compile</tt><big>(</big><em>source</em>, <em>filename</em>, <em>mode</em><span class="optional">[</span>, <em>flags</em><span class="optional">[</span>, <em>dont_inherit</em><span class="optional">]</span><span class="optional">]</span><big>)</big><a class="headerlink" href="#compile" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="61">{{s.61}}</font><font id="62">{{s.62}}</font><font id="63">{{s.63}}</font><font id="64">{{s.64}}</font></p>
+<p><font id="65">{{s.65}}</font><font id="66">{{s.66}}</font></p>
+<p><font id="67">{{s.67}}</font><font id="68">{{s.68}}</font></p>
+<p><font id="69">{{s.69}}</font><font id="70">{{s.70}}</font><font id="71">{{s.71}}</font><font id="72">{{s.72}}</font></p>
+<p><font id="73">{{s.73}}</font><font id="74">{{s.74}}</font></p>
+<p><font id="75">{{s.75}}</font></p>
+<div class="admonition note">
+<p class="first admonition-title"><font id="76">{{s.76}}</font></p>
+<p class="last"><font id="77">{{s.77}}</font><font id="78">{{s.78}}</font></p>
+</div>
+<p class="versionchanged"><font id="79">{{s.79}}</font><font id="80">{{s.80}}</font></p>
+<p class="versionchanged"><font id="81">{{s.81}}</font><font id="82">{{s.82}}</font></p>
+<p class="versionchanged"><font id="83">{{s.83}}</font><font id="84">{{s.84}}</font><font id="85">{{s.85}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="complex">
+<tt class="descname">complex</tt><big>(</big><span class="optional">[</span><em>real</em><span class="optional">[</span>, <em>imag</em><span class="optional">]</span><span class="optional">]</span><big>)</big><a class="headerlink" href="#complex" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="86">{{s.86}}</font><font id="87">{{s.87}}</font><font id="88">{{s.88}}</font><font id="89">{{s.89}}</font><font id="90">{{s.90}}</font><font id="91">{{s.91}}</font></p>
+<div class="admonition note">
+<p class="first admonition-title"><font id="92">{{s.92}}</font></p>
+<p class="last"><font id="93">{{s.93}}</font><font id="94">{{s.94}}</font></p>
+</div>
+<p><font id="95">{{s.95}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="delattr">
+<tt class="descname">delattr</tt><big>(</big><em>object</em>, <em>name</em><big>)</big><a class="headerlink" href="#delattr" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="96">{{s.96}}</font><font id="97">{{s.97}}</font><font id="98">{{s.98}}</font><font id="99">{{s.99}}</font><font id="100">{{s.100}}</font></p>
+</dd></dl>
+<span class="target" id="func-dict"></span><dl class="function">
+<dt>
+<tt class="descname">dict</tt><big>(</big><em>**kwarg</em><big>)</big></dt>
+<dt>
+<tt class="descname">dict</tt><big>(</big><em>mapping</em>, <em>**kwarg</em><big>)</big></dt>
+<dt>
+<tt class="descname">dict</tt><big>(</big><em>iterable</em>, <em>**kwarg</em><big>)</big></dt>
+<dd><p><font id="101">{{s.101}}</font><font id="102">{{s.102}}</font><font id="103">{{s.103}}</font></p>
+<p><font id="104">{{s.104}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="dir">
+<tt class="descname">dir</tt><big>(</big><span class="optional">[</span><em>object</em><span class="optional">]</span><big>)</big><a class="headerlink" href="#dir" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="105">{{s.105}}</font><font id="106">{{s.106}}</font></p>
+<p><font id="107">{{s.107}}</font><font id="108">{{s.108}}</font></p>
+<p><font id="109">{{s.109}}</font><font id="110">{{s.110}}</font></p>
+<p><font id="111">{{s.111}}</font></p>
+<ul class="simple">
+<li><font id="712">{{s.712}}</font></li>
+<li><font id="713">{{s.713}}</font></li>
+<li><font id="714">{{s.714}}</font></li>
+</ul>
+<p><font id="112">{{s.112}}</font><font id="113">{{s.113}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">struct</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">dir</span><span class="p">()</span>   <span class="c"># show the names in the module namespace</span>
+<span class="go">['__builtins__', '__doc__', '__name__', 'struct']</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">dir</span><span class="p">(</span><span class="n">struct</span><span class="p">)</span>   <span class="c"># show the names in the struct module</span>
+<span class="go">['Struct', '__builtins__', '__doc__', '__file__', '__name__',</span>
+<span class="go"> '__package__', '_clearcache', 'calcsize', 'error', 'pack', 'pack_into',</span>
+<span class="go"> 'unpack', 'unpack_from']</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">class</span> <span class="nc">Shape</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<span class="go">        def __dir__(self):</span>
+<span class="go">            return ['area', 'perimeter', 'location']</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s</span> <span class="o">=</span> <span class="n">Shape</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">dir</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+<span class="go">['area', 'perimeter', 'location']</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title"><font id="114">{{s.114}}</font></p>
+<p class="last"><font id="115">{{s.115}}</font><font id="116">{{s.116}}</font></p>
+</div>
+</dd></dl>
+<dl class="function">
+<dt id="divmod">
+<tt class="descname">divmod</tt><big>(</big><em>a</em>, <em>b</em><big>)</big><a class="headerlink" href="#divmod" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="117">{{s.117}}</font><font id="118">{{s.118}}</font><font id="119">{{s.119}}</font><font id="120">{{s.120}}</font><font id="121">{{s.121}}</font></p>
+<p class="versionchanged"><font id="122">{{s.122}}</font><font id="123">{{s.123}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="enumerate">
+<tt class="descname">enumerate</tt><big>(</big><em>sequence</em>, <em>start=0</em><big>)</big><a class="headerlink" href="#enumerate" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="124">{{s.124}}</font><font id="125">{{s.125}}</font><font id="126">{{s.126}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">seasons</span> <span class="o">=</span> <span class="p">[</span><span class="s">'Spring'</span><span class="p">,</span> <span class="s">'Summer'</span><span class="p">,</span> <span class="s">'Fall'</span><span class="p">,</span> <span class="s">'Winter'</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="nb">enumerate</span><span class="p">(</span><span class="n">seasons</span><span class="p">))</span>
+<span class="go">[(0, 'Spring'), (1, 'Summer'), (2, 'Fall'), (3, 'Winter')]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="nb">enumerate</span><span class="p">(</span><span class="n">seasons</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
+<span class="go">[(1, 'Spring'), (2, 'Summer'), (3, 'Fall'), (4, 'Winter')]</span>
+</pre></div>
+</div>
+<p><font id="127">{{s.127}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">enumerate</span><span class="p">(</span><span class="n">sequence</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="n">start</span>
+    <span class="k">for</span> <span class="n">elem</span> <span class="ow">in</span> <span class="n">sequence</span><span class="p">:</span>
+        <span class="k">yield</span> <span class="n">n</span><span class="p">,</span> <span class="n">elem</span>
+        <span class="n">n</span> <span class="o">+=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+<p class="versionadded"><font id="128">{{s.128}}</font></p>
+<p class="versionchanged"><font id="129">{{s.129}}</font><font id="130">{{s.130}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="eval">
+<tt class="descname">eval</tt><big>(</big><em>expression</em><span class="optional">[</span>, <em>globals</em><span class="optional">[</span>, <em>locals</em><span class="optional">]</span><span class="optional">]</span><big>)</big><a class="headerlink" href="#eval" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="131">{{s.131}}</font><font id="132">{{s.132}}</font><font id="133">{{s.133}}</font></p>
+<p class="versionchanged"><font id="134">{{s.134}}</font></p>
+<p><font id="135">{{s.135}}</font><font id="136">{{s.136}}</font><font id="137">{{s.137}}</font><font id="138">{{s.138}}</font><font id="139">{{s.139}}</font><font id="140">{{s.140}}</font><font id="141">{{s.141}}</font><font id="142">{{s.142}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span> <span class="nb">eval</span><span class="p">(</span><span class="s">'x+1'</span><span class="p">)</span>
+<span class="go">2</span>
+</pre></div>
+</div>
+<p><font id="143">{{s.143}}</font><font id="144">{{s.144}}</font><font id="145">{{s.145}}</font></p>
+<p><font id="146">{{s.146}}</font><font id="147">{{s.147}}</font><font id="148">{{s.148}}</font></p>
+<p><font id="149">{{s.149}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="execfile">
+<tt class="descname">execfile</tt><big>(</big><em>filename</em><span class="optional">[</span>, <em>globals</em><span class="optional">[</span>, <em>locals</em><span class="optional">]</span><span class="optional">]</span><big>)</big><a class="headerlink" href="#execfile" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="150">{{s.150}}</font><font id="151">{{s.151}}</font><font id="152">{{s.152}}</font></p>
+<p><font id="153">{{s.153}}</font><font id="154">{{s.154}}</font><font id="155">{{s.155}}</font><font id="156">{{s.156}}</font><font id="157">{{s.157}}</font></p>
+<p class="versionchanged"><font id="158">{{s.158}}</font></p>
+<p><font id="159">{{s.159}}</font><font id="160">{{s.160}}</font><font id="161">{{s.161}}</font></p>
+<div class="admonition note">
+<p class="first admonition-title"><font id="162">{{s.162}}</font></p>
+<p class="last"><font id="163">{{s.163}}</font><font id="164">{{s.164}}</font><font id="165">{{s.165}}</font></p>
+</div>
+</dd></dl>
+<dl class="function">
+<dt id="file">
+<tt class="descname">file</tt><big>(</big><em>name</em><span class="optional">[</span>, <em>mode</em><span class="optional">[</span>, <em>buffering</em><span class="optional">]</span><span class="optional">]</span><big>)</big><a class="headerlink" href="#file" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="166">{{s.166}}</font><font id="167">{{s.167}}</font></p>
+<p><font id="168">{{s.168}}</font><font id="169">{{s.169}}</font></p>
+<p class="versionadded"><font id="170">{{s.170}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="filter">
+<tt class="descname">filter</tt><big>(</big><em>function</em>, <em>iterable</em><big>)</big><a class="headerlink" href="#filter" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="171">{{s.171}}</font><font id="172">{{s.172}}</font><font id="173">{{s.173}}</font><font id="174">{{s.174}}</font><font id="175">{{s.175}}</font></p>
+<p><font id="176">{{s.176}}</font></p>
+<p><font id="177">{{s.177}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="float">
+<tt class="descname">float</tt><big>(</big><span class="optional">[</span><em>x</em><span class="optional">]</span><big>)</big><a class="headerlink" href="#float" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="178">{{s.178}}</font><font id="179">{{s.179}}</font><font id="180">{{s.180}}</font><font id="181">{{s.181}}</font></p>
+<div class="admonition note">
+<p class="first admonition-title"><font id="182">{{s.182}}</font></p>
+<p class="last" id="index-2"><font id="183">{{s.183}}</font><font id="184">{{s.184}}</font><font id="185">{{s.185}}</font><font id="186">{{s.186}}</font></p>
+</div>
+<p><font id="187">{{s.187}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="format">
+<tt class="descname">format</tt><big>(</big><em>value</em><span class="optional">[</span>, <em>format_spec</em><span class="optional">]</span><big>)</big><a class="headerlink" href="#format" title="Permalink to this definition">¶</a></dt>
+<dd><p id="index-3"><font id="188">{{s.188}}</font><font id="189">{{s.189}}</font></p>
+<div class="admonition note">
+<p class="first admonition-title"><font id="190">{{s.190}}</font></p>
+<p class="last"><font id="191">{{s.191}}</font></p>
+</div>
+<p class="versionadded"><font id="192">{{s.192}}</font></p>
+</dd></dl>
+<span class="target" id="func-frozenset"></span><dl class="function">
+<dt>
+<tt class="descname">frozenset</tt><big>(</big><span class="optional">[</span><em>iterable</em><span class="optional">]</span><big>)</big></dt>
+<dd><p><font id="193">{{s.193}}</font><font id="194">{{s.194}}</font><font id="195">{{s.195}}</font></p>
+<p><font id="196">{{s.196}}</font></p>
+<p class="versionadded"><font id="197">{{s.197}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="getattr">
+<tt class="descname">getattr</tt><big>(</big><em>object</em>, <em>name</em><span class="optional">[</span>, <em>default</em><span class="optional">]</span><big>)</big><a class="headerlink" href="#getattr" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="198">{{s.198}}</font><font id="199">{{s.199}}</font><font id="200">{{s.200}}</font><font id="201">{{s.201}}</font><font id="202">{{s.202}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="globals">
+<tt class="descname">globals</tt><big>(</big><big>)</big><a class="headerlink" href="#globals" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="203">{{s.203}}</font><font id="204">{{s.204}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="hasattr">
+<tt class="descname">hasattr</tt><big>(</big><em>object</em>, <em>name</em><big>)</big><a class="headerlink" href="#hasattr" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="205">{{s.205}}</font><font id="206">{{s.206}}</font><font id="207">{{s.207}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="hash">
+<tt class="descname">hash</tt><big>(</big><em>object</em><big>)</big><a class="headerlink" href="#hash" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="208">{{s.208}}</font><font id="209">{{s.209}}</font><font id="210">{{s.210}}</font><font id="211">{{s.211}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="help">
+<tt class="descname">help</tt><big>(</big><span class="optional">[</span><em>object</em><span class="optional">]</span><big>)</big><a class="headerlink" href="#help" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="212">{{s.212}}</font><font id="213">{{s.213}}</font><font id="214">{{s.214}}</font><font id="215">{{s.215}}</font><font id="216">{{s.216}}</font></p>
+<p><font id="217">{{s.217}}</font></p>
+<p class="versionadded"><font id="218">{{s.218}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="hex">
+<tt class="descname">hex</tt><big>(</big><em>x</em><big>)</big><a class="headerlink" href="#hex" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="219">{{s.219}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="nb">hex</span><span class="p">(</span><span class="mi">255</span><span class="p">)</span>
+<span class="go">'0xff'</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">hex</span><span class="p">(</span><span class="o">-</span><span class="mi">42</span><span class="p">)</span>
+<span class="go">'-0x2a'</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">hex</span><span class="p">(</span><span class="il">1L</span><span class="p">)</span>
+<span class="go">'0x1L'</span>
+</pre></div>
+</div>
+<p><font id="220">{{s.220}}</font></p>
+<p><font id="221">{{s.221}}</font></p>
+<div class="admonition note">
+<p class="first admonition-title"><font id="222">{{s.222}}</font></p>
+<p class="last"><font id="223">{{s.223}}</font></p>
+</div>
+<p class="versionchanged"><font id="224">{{s.224}}</font><font id="225">{{s.225}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="id">
+<tt class="descname">id</tt><big>(</big><em>object</em><big>)</big><a class="headerlink" href="#id" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="226">{{s.226}}</font><font id="227">{{s.227}}</font><font id="228">{{s.228}}</font></p>
+<div class="impl-detail compound">
+<p><font id="229">{{s.229}}</font><font id="230">{{s.230}}</font></p>
+</div>
+</dd></dl>
+<dl class="function">
+<dt id="input">
+<tt class="descname">input</tt><big>(</big><span class="optional">[</span><em>prompt</em><span class="optional">]</span><big>)</big><a class="headerlink" href="#input" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="231">{{s.231}}</font></p>
+<p><font id="232">{{s.232}}</font><font id="233">{{s.233}}</font><font id="234">{{s.234}}</font></p>
+<p><font id="235">{{s.235}}</font></p>
+<p><font id="236">{{s.236}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="int">
+<tt class="descname">int</tt><big>(</big><em>x=0</em><big>)</big><a class="headerlink" href="#int" title="Permalink to this definition">¶</a></dt>
+<dt>
+<tt class="descname">int</tt><big>(</big><em>x</em>, <em>base=10</em><big>)</big></dt>
+<dd><p><font id="237">{{s.237}}</font><font id="238">{{s.238}}</font><font id="239">{{s.239}}</font><font id="240">{{s.240}}</font></p>
+<p><font id="241">{{s.241}}</font><font id="242">{{s.242}}</font><font id="243">{{s.243}}</font><font id="244">{{s.244}}</font><font id="245">{{s.245}}</font><font id="246">{{s.246}}</font><font id="247">{{s.247}}</font></p>
+<p><font id="248">{{s.248}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="isinstance">
+<tt class="descname">isinstance</tt><big>(</big><em>object</em>, <em>classinfo</em><big>)</big><a class="headerlink" href="#isinstance" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="249">{{s.249}}</font><font id="250">{{s.250}}</font><font id="251">{{s.251}}</font><font id="252">{{s.252}}</font><font id="253">{{s.253}}</font></p>
+<p class="versionchanged"><font id="254">{{s.254}}</font><font id="255">{{s.255}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="issubclass">
+<tt class="descname">issubclass</tt><big>(</big><em>class</em>, <em>classinfo</em><big>)</big><a class="headerlink" href="#issubclass" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="256">{{s.256}}</font><font id="257">{{s.257}}</font><font id="258">{{s.258}}</font><font id="259">{{s.259}}</font></p>
+<p class="versionchanged"><font id="260">{{s.260}}</font><font id="261">{{s.261}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="iter">
+<tt class="descname">iter</tt><big>(</big><em>o</em><span class="optional">[</span>, <em>sentinel</em><span class="optional">]</span><big>)</big><a class="headerlink" href="#iter" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="262">{{s.262}}</font><font id="263">{{s.263}}</font><font id="264">{{s.264}}</font><font id="265">{{s.265}}</font><font id="266">{{s.266}}</font><font id="267">{{s.267}}</font><font id="268">{{s.268}}</font></p>
+<p><font id="269">{{s.269}}</font><font id="270">{{s.270}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">'mydata.txt'</span><span class="p">)</span> <span class="k">as</span> <span class="n">fp</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="nb">iter</span><span class="p">(</span><span class="n">fp</span><span class="o">.</span><span class="n">readline</span><span class="p">,</span> <span class="s">''</span><span class="p">):</span>
+        <span class="n">process_line</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+</pre></div>
+</div>
+<p class="versionadded"><font id="271">{{s.271}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="len">
+<tt class="descname">len</tt><big>(</big><em>s</em><big>)</big><a class="headerlink" href="#len" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="272">{{s.272}}</font><font id="273">{{s.273}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="list">
+<tt class="descname">list</tt><big>(</big><span class="optional">[</span><em>iterable</em><span class="optional">]</span><big>)</big><a class="headerlink" href="#list" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="274">{{s.274}}</font><font id="275">{{s.275}}</font><font id="276">{{s.276}}</font><font id="277">{{s.277}}</font><font id="278">{{s.278}}</font></p>
+<p><font id="279">{{s.279}}</font><font id="280">{{s.280}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="locals">
+<tt class="descname">locals</tt><big>(</big><big>)</big><a class="headerlink" href="#locals" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="281">{{s.281}}</font><font id="282">{{s.282}}</font></p>
+<div class="admonition note">
+<p class="first admonition-title"><font id="283">{{s.283}}</font></p>
+<p class="last"><font id="284">{{s.284}}</font><font id="285">{{s.285}}</font></p>
+</div>
+</dd></dl>
+<dl class="function">
+<dt id="long">
+<tt class="descname">long</tt><big>(</big><em>x=0</em><big>)</big><a class="headerlink" href="#long" title="Permalink to this definition">¶</a></dt>
+<dt>
+<tt class="descname">long</tt><big>(</big><em>x</em>, <em>base=10</em><big>)</big></dt>
+<dd><p><font id="286">{{s.286}}</font><font id="287">{{s.287}}</font><font id="288">{{s.288}}</font><font id="289">{{s.289}}</font><font id="290">{{s.290}}</font><font id="291">{{s.291}}</font></p>
+<p><font id="292">{{s.292}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="map">
+<tt class="descname">map</tt><big>(</big><em>function</em>, <em>iterable</em>, <em>...</em><big>)</big><a class="headerlink" href="#map" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="293">{{s.293}}</font><font id="294">{{s.294}}</font><font id="295">{{s.295}}</font><font id="296">{{s.296}}</font><font id="297">{{s.297}}</font><font id="298">{{s.298}}</font><font id="299">{{s.299}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="max">
+<tt class="descname">max</tt><big>(</big><em>iterable</em><span class="optional">[</span>, <em>key</em><span class="optional">]</span><big>)</big><a class="headerlink" href="#max" title="Permalink to this definition">¶</a></dt>
+<dt>
+<tt class="descname">max</tt><big>(</big><em>arg1</em>, <em>arg2</em>, <em>*args</em><span class="optional">[</span>, <em>key</em><span class="optional">]</span><big>)</big></dt>
+<dd><p><font id="300">{{s.300}}</font></p>
+<p><font id="301">{{s.301}}</font><font id="302">{{s.302}}</font><font id="303">{{s.303}}</font></p>
+<p><font id="304">{{s.304}}</font><font id="305">{{s.305}}</font></p>
+<p class="versionchanged"><font id="306">{{s.306}}</font><font id="307">{{s.307}}</font></p>
+</dd></dl>
+<span class="target" id="func-memoryview"></span><dl class="function">
+<dt>
+<tt class="descname">memoryview</tt><big>(</big><em>obj</em><big>)</big></dt>
+<dd><p><font id="308">{{s.308}}</font><font id="309">{{s.309}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="min">
+<tt class="descname">min</tt><big>(</big><em>iterable</em><span class="optional">[</span>, <em>key</em><span class="optional">]</span><big>)</big><a class="headerlink" href="#min" title="Permalink to this definition">¶</a></dt>
+<dt>
+<tt class="descname">min</tt><big>(</big><em>arg1</em>, <em>arg2</em>, <em>*args</em><span class="optional">[</span>, <em>key</em><span class="optional">]</span><big>)</big></dt>
+<dd><p><font id="310">{{s.310}}</font></p>
+<p><font id="311">{{s.311}}</font><font id="312">{{s.312}}</font><font id="313">{{s.313}}</font></p>
+<p><font id="314">{{s.314}}</font><font id="315">{{s.315}}</font></p>
+<p class="versionchanged"><font id="316">{{s.316}}</font><font id="317">{{s.317}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="next">
+<tt class="descname">next</tt><big>(</big><em>iterator</em><span class="optional">[</span>, <em>default</em><span class="optional">]</span><big>)</big><a class="headerlink" href="#next" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="318">{{s.318}}</font><font id="319">{{s.319}}</font></p>
+<p class="versionadded"><font id="320">{{s.320}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="object">
+<tt class="descname">object</tt><big>(</big><big>)</big><a class="headerlink" href="#object" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="321">{{s.321}}</font><font id="322">{{s.322}}</font><font id="323">{{s.323}}</font></p>
+<p class="versionadded"><font id="324">{{s.324}}</font></p>
+<p class="versionchanged"><font id="325">{{s.325}}</font><font id="326">{{s.326}}</font><font id="327">{{s.327}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="oct">
+<tt class="descname">oct</tt><big>(</big><em>x</em><big>)</big><a class="headerlink" href="#oct" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="328">{{s.328}}</font><font id="329">{{s.329}}</font></p>
+<p class="versionchanged"><font id="330">{{s.330}}</font><font id="331">{{s.331}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="open">
+<tt class="descname">open</tt><big>(</big><em>name</em><span class="optional">[</span>, <em>mode</em><span class="optional">[</span>, <em>buffering</em><span class="optional">]</span><span class="optional">]</span><big>)</big><a class="headerlink" href="#open" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="332">{{s.332}}</font><font id="333">{{s.333}}</font><font id="334">{{s.334}}</font></p>
+<p><font id="335">{{s.335}}</font></p>
+<p><font id="336">{{s.336}}</font><font id="337">{{s.337}}</font><font id="338">{{s.338}}</font><font id="339">{{s.339}}</font><font id="340">{{s.340}}</font><font id="341">{{s.341}}</font></p>
+<p id="index-4"><font id="342">{{s.342}}</font><font id="343">{{s.343}}</font><font id="344">{{s.344}}</font><font id="345">{{s.345}}</font></p>
+<p><font id="346">{{s.346}}</font><font id="347">{{s.347}}</font><font id="348">{{s.348}}</font><font id="349">{{s.349}}</font></p>
+<p id="index-5"><font id="350">{{s.350}}</font><font id="351">{{s.351}}</font><font id="352">{{s.352}}</font><font id="355">{{s.355}}</font><font id="356">{{s.356}}</font><font id="357">{{s.357}}</font></p>
+<p><font id="360">{{s.360}}</font></p>
+<p><font id="361">{{s.361}}</font></p>
+<p class="versionchanged"><font id="362">{{s.362}}</font><font id="363">{{s.363}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="ord">
+<tt class="descname">ord</tt><big>(</big><em>c</em><big>)</big><a class="headerlink" href="#ord" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="364">{{s.364}}</font><font id="365">{{s.365}}</font><font id="366">{{s.366}}</font><font id="367">{{s.367}}</font><font id="368">{{s.368}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="pow">
+<tt class="descname">pow</tt><big>(</big><em>x</em>, <em>y</em><span class="optional">[</span>, <em>z</em><span class="optional">]</span><big>)</big><a class="headerlink" href="#pow" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="369">{{s.369}}</font><font id="370">{{s.370}}</font><font id="371">{{s.371}}</font></p>
+<p><font id="372">{{s.372}}</font><font id="373">{{s.373}}</font><font id="374">{{s.374}}</font><font id="375">{{s.375}}</font><font id="376">{{s.376}}</font><font id="377">{{s.377}}</font><font id="378">{{s.378}}</font><font id="379">{{s.379}}</font><font id="380">{{s.380}}</font><font id="381">{{s.381}}</font><font id="382">{{s.382}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="print">
+<tt class="descname">print</tt><big>(</big><em>*objects</em>, <em>sep=' '</em>, <em>end='\n'</em>, <em>file=sys.stdout</em><big>)</big><a class="headerlink" href="#print" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="383">{{s.383}}</font><font id="384">{{s.384}}</font></p>
+<p><font id="385">{{s.385}}</font><font id="386">{{s.386}}</font><font id="387">{{s.387}}</font><font id="388">{{s.388}}</font></p>
+<p><font id="389">{{s.389}}</font><font id="390">{{s.390}}</font><font id="391">{{s.391}}</font><font id="392">{{s.392}}</font></p>
+<div class="admonition note">
+<p class="first admonition-title"><font id="393">{{s.393}}</font></p>
+<p><font id="394">{{s.394}}</font><font id="395">{{s.395}}</font></p>
+<div class="last highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">print_function</span>
+</pre></div>
+</div>
+</div>
+<p class="versionadded"><font id="396">{{s.396}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="property">
+<tt class="descname">property</tt><big>(</big><span class="optional">[</span><em>fget</em><span class="optional">[</span>, <em>fset</em><span class="optional">[</span>, <em>fdel</em><span class="optional">[</span>, <em>doc</em><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><big>)</big><a class="headerlink" href="#property" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="397">{{s.397}}</font></p>
+<p><font id="398">{{s.398}}</font><font id="399">{{s.399}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">C</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_x</span> <span class="o">=</span> <span class="bp">None</span>
+
+    <span class="k">def</span> <span class="nf">getx</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_x</span>
+    <span class="k">def</span> <span class="nf">setx</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_x</span> <span class="o">=</span> <span class="n">value</span>
+    <span class="k">def</span> <span class="nf">delx</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">_x</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="nb">property</span><span class="p">(</span><span class="n">getx</span><span class="p">,</span> <span class="n">setx</span><span class="p">,</span> <span class="n">delx</span><span class="p">,</span> <span class="s">"I'm the 'x' property."</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><font id="400">{{s.400}}</font></p>
+<p><font id="401">{{s.401}}</font><font id="402">{{s.402}}</font><font id="403">{{s.403}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">Parrot</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_voltage</span> <span class="o">=</span> <span class="mi">100000</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">voltage</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">"""Get the current voltage."""</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_voltage</span>
+</pre></div>
+</div>
+<p><font id="404">{{s.404}}</font></p>
+<p><font id="405">{{s.405}}</font><font id="406">{{s.406}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">C</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_x</span> <span class="o">=</span> <span class="bp">None</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">x</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">"""I'm the 'x' property."""</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_x</span>
+
+    <span class="nd">@x.setter</span>
+    <span class="k">def</span> <span class="nf">x</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_x</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="nd">@x.deleter</span>
+    <span class="k">def</span> <span class="nf">x</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">_x</span>
+</pre></div>
+</div>
+<p><font id="407">{{s.407}}</font><font id="408">{{s.408}}</font></p>
+<p><font id="409">{{s.409}}</font></p>
+<p class="versionadded"><font id="410">{{s.410}}</font></p>
+<p class="versionchanged"><font id="411">{{s.411}}</font><font id="412">{{s.412}}</font></p>
+<p class="versionchanged"><font id="413">{{s.413}}</font><font id="414">{{s.414}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="range">
+<tt class="descname">range</tt><big>(</big><em>stop</em><big>)</big><a class="headerlink" href="#range" title="Permalink to this definition">¶</a></dt>
+<dt>
+<tt class="descname">range</tt><big>(</big><em>start</em>, <em>stop</em><span class="optional">[</span>, <em>step</em><span class="optional">]</span><big>)</big></dt>
+<dd><p><font id="415">{{s.415}}</font><font id="416">{{s.416}}</font><font id="417">{{s.417}}</font><font id="418">{{s.418}}</font><font id="419">{{s.419}}</font><font id="420">{{s.420}}</font><font id="421">{{s.421}}</font><font id="422">{{s.422}}</font><font id="423">{{s.423}}</font><font id="424">{{s.424}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="go">[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">11</span><span class="p">)</span>
+<span class="go">[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="go">[0, 5, 10, 15, 20, 25]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="go">[0, 3, 6, 9]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="go">[0, -1, -2, -3, -4, -5, -6, -7, -8, -9]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="go">[]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="go">[]</span>
+</pre></div>
+</div>
+</dd></dl>
+<dl class="function">
+<dt id="raw_input">
+<tt class="descname">raw_input</tt><big>(</big><span class="optional">[</span><em>prompt</em><span class="optional">]</span><big>)</big><a class="headerlink" href="#raw_input" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="425">{{s.425}}</font><font id="426">{{s.426}}</font><font id="427">{{s.427}}</font><font id="428">{{s.428}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span> <span class="o">=</span> <span class="nb">raw_input</span><span class="p">(</span><span class="s">'--&gt; '</span><span class="p">)</span>
+<span class="go">--&gt; Monty Python's Flying Circus</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s</span>
+<span class="go">"Monty Python's Flying Circus"</span>
+</pre></div>
+</div>
+<p><font id="429">{{s.429}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="reduce">
+<tt class="descname">reduce</tt><big>(</big><em>function</em>, <em>iterable</em><span class="optional">[</span>, <em>initializer</em><span class="optional">]</span><big>)</big><a class="headerlink" href="#reduce" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="430">{{s.430}}</font><font id="431">{{s.431}}</font><font id="432">{{s.432}}</font><font id="433">{{s.433}}</font><font id="434">{{s.434}}</font><font id="435">{{s.435}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">reduce</span><span class="p">(</span><span class="n">function</span><span class="p">,</span> <span class="n">iterable</span><span class="p">,</span> <span class="n">initializer</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+    <span class="n">it</span> <span class="o">=</span> <span class="nb">iter</span><span class="p">(</span><span class="n">iterable</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">initializer</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">initializer</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">it</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">StopIteration</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s">'reduce() of empty sequence with no initial value'</span><span class="p">)</span>
+    <span class="n">accum_value</span> <span class="o">=</span> <span class="n">initializer</span>
+    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">it</span><span class="p">:</span>
+        <span class="n">accum_value</span> <span class="o">=</span> <span class="n">function</span><span class="p">(</span><span class="n">accum_value</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">accum_value</span>
+</pre></div>
+</div>
+</dd></dl>
+<dl class="function">
+<dt id="reload">
+<tt class="descname">reload</tt><big>(</big><em>module</em><big>)</big><a class="headerlink" href="#reload" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="436">{{s.436}}</font><font id="437">{{s.437}}</font><font id="438">{{s.438}}</font><font id="439">{{s.439}}</font></p>
+<p><font id="440">{{s.440}}</font></p>
+<ul class="simple">
+<li><font id="715">{{s.715}}</font><font id="716">{{s.716}}</font></li>
+<li><font id="717">{{s.717}}</font></li>
+<li><font id="718">{{s.718}}</font></li>
+<li><font id="719">{{s.719}}</font></li>
+</ul>
+<p><font id="441">{{s.441}}</font></p>
+<p><font id="442">{{s.442}}</font><font id="443">{{s.443}}</font></p>
+<p><font id="444">{{s.444}}</font><font id="445">{{s.445}}</font><font id="446">{{s.446}}</font><font id="447">{{s.447}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">try</span><span class="p">:</span>
+    <span class="n">cache</span>
+<span class="k">except</span> <span class="ne">NameError</span><span class="p">:</span>
+    <span class="n">cache</span> <span class="o">=</span> <span class="p">{}</span>
+</pre></div>
+</div>
+<p><font id="448">{{s.448}}</font><font id="449">{{s.449}}</font></p>
+<p><font id="450">{{s.450}}</font><font id="451">{{s.451}}</font></p>
+<p><font id="452">{{s.452}}</font><font id="453">{{s.453}}</font></p>
+</dd></dl>
+<span class="target" id="func-repr"></span><dl class="function">
+<dt id="repr">
+<tt class="descname">repr</tt><big>(</big><em>object</em><big>)</big><a class="headerlink" href="#repr" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="454">{{s.454}}</font><font id="455">{{s.455}}</font><font id="456">{{s.456}}</font><font id="457">{{s.457}}</font><font id="458">{{s.458}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="reversed">
+<tt class="descname">reversed</tt><big>(</big><em>seq</em><big>)</big><a class="headerlink" href="#reversed" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="459">{{s.459}}</font><font id="460">{{s.460}}</font></p>
+<p class="versionadded"><font id="461">{{s.461}}</font></p>
+<p class="versionchanged"><font id="462">{{s.462}}</font><font id="463">{{s.463}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="round">
+<tt class="descname">round</tt><big>(</big><em>number</em><span class="optional">[</span>, <em>ndigits</em><span class="optional">]</span><big>)</big><a class="headerlink" href="#round" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="464">{{s.464}}</font><font id="465">{{s.465}}</font><font id="466">{{s.466}}</font><font id="467">{{s.467}}</font><font id="468">{{s.468}}</font></p>
+<div class="admonition note">
+<p class="first admonition-title"><font id="469">{{s.469}}</font></p>
+<p class="last"><font id="470">{{s.470}}</font><font id="471">{{s.471}}</font><font id="472">{{s.472}}</font></p>
+</div>
+</dd></dl>
+<span class="target" id="func-set"></span><dl class="function">
+<dt>
+<tt class="descname">set</tt><big>(</big><span class="optional">[</span><em>iterable</em><span class="optional">]</span><big>)</big></dt>
+<dd><p><font id="473">{{s.473}}</font><font id="474">{{s.474}}</font><font id="475">{{s.475}}</font></p>
+<p><font id="476">{{s.476}}</font></p>
+<p class="versionadded"><font id="477">{{s.477}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="setattr">
+<tt class="descname">setattr</tt><big>(</big><em>object</em>, <em>name</em>, <em>value</em><big>)</big><a class="headerlink" href="#setattr" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="478">{{s.478}}</font><font id="479">{{s.479}}</font><font id="480">{{s.480}}</font><font id="481">{{s.481}}</font><font id="482">{{s.482}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="slice">
+<tt class="descname">slice</tt><big>(</big><em>stop</em><big>)</big><a class="headerlink" href="#slice" title="Permalink to this definition">¶</a></dt>
+<dt>
+<tt class="descname">slice</tt><big>(</big><em>start</em>, <em>stop</em><span class="optional">[</span>, <em>step</em><span class="optional">]</span><big>)</big></dt>
+<dd><p id="index-6"><font id="483">{{s.483}}</font><font id="484">{{s.484}}</font><font id="485">{{s.485}}</font><font id="486">{{s.486}}</font><font id="487">{{s.487}}</font><font id="488">{{s.488}}</font><font id="489">{{s.489}}</font><font id="490">{{s.490}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="sorted">
+<tt class="descname">sorted</tt><big>(</big><em>iterable</em><span class="optional">[</span>, <em>cmp</em><span class="optional">[</span>, <em>key</em><span class="optional">[</span>, <em>reverse</em><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><big>)</big><a class="headerlink" href="#sorted" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="491">{{s.491}}</font></p>
+<p><font id="492">{{s.492}}</font></p>
+<p><font id="493">{{s.493}}</font><font id="494">{{s.494}}</font></p>
+<p><font id="495">{{s.495}}</font><font id="496">{{s.496}}</font></p>
+<p><font id="497">{{s.497}}</font><font id="498">{{s.498}}</font></p>
+<p><font id="499">{{s.499}}</font><font id="500">{{s.500}}</font><font id="501">{{s.501}}</font></p>
+<p><font id="502">{{s.502}}</font></p>
+<p class="versionadded"><font id="503">{{s.503}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="staticmethod">
+<tt class="descname">staticmethod</tt><big>(</big><em>function</em><big>)</big><a class="headerlink" href="#staticmethod" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="504">{{s.504}}</font></p>
+<p><font id="505">{{s.505}}</font><font id="506">{{s.506}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">C</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">arg1</span><span class="p">,</span> <span class="n">arg2</span><span class="p">,</span> <span class="o">...</span><span class="p">):</span>
+        <span class="o">...</span>
+</pre></div>
+</div>
+<p><font id="507">{{s.507}}</font></p>
+<p><font id="508">{{s.508}}</font><font id="509">{{s.509}}</font></p>
+<p><font id="510">{{s.510}}</font><font id="511">{{s.511}}</font></p>
+<p><font id="512">{{s.512}}</font></p>
+<p class="versionadded"><font id="513">{{s.513}}</font></p>
+<p class="versionchanged"><font id="514">{{s.514}}</font><font id="515">{{s.515}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="str">
+<tt class="descname">str</tt><big>(</big><em>object=''</em><big>)</big><a class="headerlink" href="#str" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="516">{{s.516}}</font><font id="517">{{s.517}}</font><font id="518">{{s.518}}</font><font id="519">{{s.519}}</font><font id="520">{{s.520}}</font></p>
+<p><font id="521">{{s.521}}</font><font id="522">{{s.522}}</font><font id="523">{{s.523}}</font><font id="524">{{s.524}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="sum">
+<tt class="descname">sum</tt><big>(</big><em>iterable</em><span class="optional">[</span>, <em>start</em><span class="optional">]</span><big>)</big><a class="headerlink" href="#sum" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="525">{{s.525}}</font><font id="526">{{s.526}}</font><font id="527">{{s.527}}</font></p>
+<p><font id="528">{{s.528}}</font><font id="529">{{s.529}}</font><font id="530">{{s.530}}</font><font id="531">{{s.531}}</font></p>
+<p class="versionadded"><font id="532">{{s.532}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="super">
+<tt class="descname">super</tt><big>(</big><em>type</em><span class="optional">[</span>, <em>object-or-type</em><span class="optional">]</span><big>)</big><a class="headerlink" href="#super" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="533">{{s.533}}</font><font id="534">{{s.534}}</font><font id="535">{{s.535}}</font></p>
+<p><font id="536">{{s.536}}</font><font id="537">{{s.537}}</font></p>
+<p><font id="538">{{s.538}}</font><font id="539">{{s.539}}</font><font id="540">{{s.540}}</font></p>
+<div class="admonition note">
+<p class="first admonition-title"><font id="541">{{s.541}}</font></p>
+<p class="last"><font id="542">{{s.542}}</font></p>
+</div>
+<p><font id="543">{{s.543}}</font><font id="544">{{s.544}}</font><font id="545">{{s.545}}</font></p>
+<p><font id="546">{{s.546}}</font><font id="547">{{s.547}}</font><font id="548">{{s.548}}</font><font id="549">{{s.549}}</font></p>
+<p><font id="550">{{s.550}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">C</span><span class="p">(</span><span class="n">B</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">method</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">arg</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">C</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">method</span><span class="p">(</span><span class="n">arg</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><font id="551">{{s.551}}</font><font id="552">{{s.552}}</font><font id="553">{{s.553}}</font></p>
+<p><font id="554">{{s.554}}</font><font id="555">{{s.555}}</font></p>
+<p><font id="556">{{s.556}}</font></p>
+<p class="versionadded"><font id="557">{{s.557}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="tuple">
+<tt class="descname">tuple</tt><big>(</big><span class="optional">[</span><em>iterable</em><span class="optional">]</span><big>)</big><a class="headerlink" href="#tuple" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="558">{{s.558}}</font><font id="559">{{s.559}}</font><font id="560">{{s.560}}</font><font id="561">{{s.561}}</font><font id="562">{{s.562}}</font></p>
+<p><font id="563">{{s.563}}</font><font id="564">{{s.564}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="type">
+<tt class="descname">type</tt><big>(</big><em>object</em><big>)</big><a class="headerlink" href="#type" title="Permalink to this definition">¶</a></dt>
+<dt>
+<tt class="descname">type</tt><big>(</big><em>name</em>, <em>bases</em>, <em>dict</em><big>)</big></dt>
+<dd><p id="index-7"><font id="565">{{s.565}}</font><font id="566">{{s.566}}</font><font id="567">{{s.567}}</font></p>
+<p><font id="568">{{s.568}}</font><font id="569">{{s.569}}</font><font id="570">{{s.570}}</font><font id="571">{{s.571}}</font><font id="572">{{s.572}}</font><font id="573">{{s.573}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">class</span> <span class="nc">X</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="n">a</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="gp">...</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">X</span> <span class="o">=</span> <span class="nb">type</span><span class="p">(</span><span class="s">'X'</span><span class="p">,</span> <span class="p">(</span><span class="nb">object</span><span class="p">,),</span> <span class="nb">dict</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
+</pre></div>
+</div>
+<p class="versionadded"><font id="574">{{s.574}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="unichr">
+<tt class="descname">unichr</tt><big>(</big><em>i</em><big>)</big><a class="headerlink" href="#unichr" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="575">{{s.575}}</font><font id="576">{{s.576}}</font><font id="577">{{s.577}}</font><font id="578">{{s.578}}</font><font id="579">{{s.579}}</font><font id="580">{{s.580}}</font></p>
+<p class="versionadded"><font id="581">{{s.581}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="unicode">
+<tt class="descname">unicode</tt><big>(</big><em>object=''</em><big>)</big><a class="headerlink" href="#unicode" title="Permalink to this definition">¶</a></dt>
+<dt>
+<tt class="descname">unicode</tt><big>(</big><em>object</em><span class="optional">[</span>, <em>encoding</em><span class="optional">[</span>, <em>errors</em><span class="optional">]</span><span class="optional">]</span><big>)</big></dt>
+<dd><p><font id="582">{{s.582}}</font></p>
+<p><font id="583">{{s.583}}</font><font id="584">{{s.584}}</font><font id="585">{{s.585}}</font><font id="586">{{s.586}}</font><font id="587">{{s.587}}</font><font id="588">{{s.588}}</font><font id="589">{{s.589}}</font></p>
+<p><font id="590">{{s.590}}</font><font id="591">{{s.591}}</font></p>
+<p><font id="592">{{s.592}}</font><font id="593">{{s.593}}</font></p>
+<p><font id="594">{{s.594}}</font><font id="595">{{s.595}}</font><font id="596">{{s.596}}</font><font id="597">{{s.597}}</font></p>
+<p class="versionadded"><font id="598">{{s.598}}</font></p>
+<p class="versionchanged"><font id="599">{{s.599}}</font><font id="600">{{s.600}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="vars">
+<tt class="descname">vars</tt><big>(</big><span class="optional">[</span><em>object</em><span class="optional">]</span><big>)</big><a class="headerlink" href="#vars" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="601">{{s.601}}</font></p>
+<p><font id="602">{{s.602}}</font><font id="603">{{s.603}}</font></p>
+<p><font id="604">{{s.604}}</font><font id="605">{{s.605}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="xrange">
+<tt class="descname">xrange</tt><big>(</big><em>stop</em><big>)</big><a class="headerlink" href="#xrange" title="Permalink to this definition">¶</a></dt>
+<dt>
+<tt class="descname">xrange</tt><big>(</big><em>start</em>, <em>stop</em><span class="optional">[</span>, <em>step</em><span class="optional">]</span><big>)</big></dt>
+<dd><p><font id="606">{{s.606}}</font><font id="607">{{s.607}}</font><font id="608">{{s.608}}</font><font id="609">{{s.609}}</font></p>
+<div class="impl-detail compound">
+<p><font id="610">{{s.610}}</font><font id="611">{{s.611}}</font><font id="612">{{s.612}}</font><font id="613">{{s.613}}</font><font id="614">{{s.614}}</font></p>
+</div>
+</dd></dl>
+<dl class="function">
+<dt id="zip">
+<tt class="descname">zip</tt><big>(</big><span class="optional">[</span><em>iterable</em>, <em>...</em><span class="optional">]</span><big>)</big><a class="headerlink" href="#zip" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="615">{{s.615}}</font><font id="616">{{s.616}}</font><font id="617">{{s.617}}</font><font id="618">{{s.618}}</font><font id="619">{{s.619}}</font></p>
+<p><font id="620">{{s.620}}</font><font id="621">{{s.621}}</font></p>
+<p><font id="622">{{s.622}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">zipped</span> <span class="o">=</span> <span class="nb">zip</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">zipped</span>
+<span class="go">[(1, 4), (2, 5), (3, 6)]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x2</span><span class="p">,</span> <span class="n">y2</span> <span class="o">=</span> <span class="nb">zip</span><span class="p">(</span><span class="o">*</span><span class="n">zipped</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">==</span> <span class="nb">list</span><span class="p">(</span><span class="n">x2</span><span class="p">)</span> <span class="ow">and</span> <span class="n">y</span> <span class="o">==</span> <span class="nb">list</span><span class="p">(</span><span class="n">y2</span><span class="p">)</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+<p class="versionadded"><font id="623">{{s.623}}</font></p>
+<p class="versionchanged"><font id="624">{{s.624}}</font><font id="625">{{s.625}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="__import__">
+<tt class="descname">__import__</tt><big>(</big><em>name</em><span class="optional">[</span>, <em>globals</em><span class="optional">[</span>, <em>locals</em><span class="optional">[</span>, <em>fromlist</em><span class="optional">[</span>, <em>level</em><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><big>)</big><a class="headerlink" href="#__import__" title="Permalink to this definition">¶</a></dt>
+<dd><div class="admonition note" id="index-8">
+<p class="first admonition-title"><font id="626">{{s.626}}</font></p>
+<p class="last"><font id="627">{{s.627}}</font></p>
+</div>
+<p><font id="628">{{s.628}}</font><font id="629">{{s.629}}</font><font id="630">{{s.630}}</font></p>
+<p><font id="631">{{s.631}}</font><font id="632">{{s.632}}</font><font id="633">{{s.633}}</font></p>
+<p><font id="634">{{s.634}}</font><font id="635">{{s.635}}</font><font id="636">{{s.636}}</font><font id="637">{{s.637}}</font></p>
+<p><font id="638">{{s.638}}</font><font id="639">{{s.639}}</font></p>
+<p><font id="640">{{s.640}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">spam</span> <span class="o">=</span> <span class="nb">__import__</span><span class="p">(</span><span class="s">'spam'</span><span class="p">,</span> <span class="nb">globals</span><span class="p">(),</span> <span class="nb">locals</span><span class="p">(),</span> <span class="p">[],</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><font id="641">{{s.641}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">spam</span> <span class="o">=</span> <span class="nb">__import__</span><span class="p">(</span><span class="s">'spam.ham'</span><span class="p">,</span> <span class="nb">globals</span><span class="p">(),</span> <span class="nb">locals</span><span class="p">(),</span> <span class="p">[],</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><font id="642">{{s.642}}</font></p>
+<p><font id="643">{{s.643}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">_temp</span> <span class="o">=</span> <span class="nb">__import__</span><span class="p">(</span><span class="s">'spam.ham'</span><span class="p">,</span> <span class="nb">globals</span><span class="p">(),</span> <span class="nb">locals</span><span class="p">(),</span> <span class="p">[</span><span class="s">'eggs'</span><span class="p">,</span> <span class="s">'sausage'</span><span class="p">],</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">eggs</span> <span class="o">=</span> <span class="n">_temp</span><span class="o">.</span><span class="n">eggs</span>
+<span class="n">saus</span> <span class="o">=</span> <span class="n">_temp</span><span class="o">.</span><span class="n">sausage</span>
+</pre></div>
+</div>
+<p><font id="644">{{s.644}}</font><font id="645">{{s.645}}</font></p>
+<p><font id="646">{{s.646}}</font></p>
+<p class="versionchanged"><font id="647">{{s.647}}</font><font id="648">{{s.648}}</font></p>
+<p class="versionchanged"><font id="649">{{s.649}}</font><font id="650">{{s.650}}</font></p>
+</dd></dl>
+</div>
+<div class="section" id="non-essential-built-in-functions">
+<span id="non-essential-built-in-funcs"></span><h1><font id="680">{{s.680}}</font><a class="headerlink" href="#non-essential-built-in-functions" title="Permalink to this headline">¶</a></h1>
+<p><font id="651">{{s.651}}</font><font id="652">{{s.652}}</font></p>
+<p><font id="653">{{s.653}}</font></p>
+<dl class="function">
+<dt id="apply">
+<tt class="descname">apply</tt><big>(</big><em>function</em>, <em>args</em><span class="optional">[</span>, <em>keywords</em><span class="optional">]</span><big>)</big><a class="headerlink" href="#apply" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="654">{{s.654}}</font><font id="655">{{s.655}}</font><font id="656">{{s.656}}</font><font id="657">{{s.657}}</font><font id="658">{{s.658}}</font><font id="659">{{s.659}}</font><font id="660">{{s.660}}</font></p>
+<p class="deprecated"><font id="661">{{s.661}}</font><font id="662">{{s.662}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="buffer">
+<tt class="descname">buffer</tt><big>(</big><em>object</em><span class="optional">[</span>, <em>offset</em><span class="optional">[</span>, <em>size</em><span class="optional">]</span><span class="optional">]</span><big>)</big><a class="headerlink" href="#buffer" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="663">{{s.663}}</font><font id="664">{{s.664}}</font><font id="665">{{s.665}}</font><font id="666">{{s.666}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="coerce">
+<tt class="descname">coerce</tt><big>(</big><em>x</em>, <em>y</em><big>)</big><a class="headerlink" href="#coerce" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="667">{{s.667}}</font><font id="668">{{s.668}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="intern">
+<tt class="descname">intern</tt><big>(</big><em>string</em><big>)</big><a class="headerlink" href="#intern" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="669">{{s.669}}</font><font id="670">{{s.670}}</font><font id="671">{{s.671}}</font></p>
+<p class="versionchanged"><font id="672">{{s.672}}</font><font id="673">{{s.673}}</font><font id="674">{{s.674}}</font></p>
+</dd></dl>
+<p class="rubric"><font id="675">{{s.675}}</font></p>
+<table class="docutils footnote" frame="void" id="id3" rules="none">
+<colgroup><col class="label"></col><col></col></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td><font id="720">{{s.720}}</font></td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id4" rules="none">
+<colgroup><col class="label"></col><col></col></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id2">[2]</a></td><td><font id="721">{{s.721}}</font><font id="722">{{s.722}}</font></td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id5" rules="none">
+<colgroup><col class="label"></col><col></col></colgroup>
+<tbody valign="top">
+<tr><td class="label">[3]</td><td><font id="723">{{s.723}}</font><font id="724">{{s.724}}</font></td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="sphinxsidebar">
+<div class="sphinxsidebarwrapper">
+<h3><font id="682">{{s.682}}</font></h3>
+<ul>
+<li><a class="reference internal" href="#"><font id="697">{{s.697}}</font></a></li>
+<li><a class="reference internal" href="#non-essential-built-in-functions"><font id="698">{{s.698}}</font></a></li>
+</ul>
+<h4><font id="686">{{s.686}}</font></h4>
+<p class="topless"><font id="676">{{s.676}}</font></p>
+<h4><font id="687">{{s.687}}</font></h4>
+<p class="topless"><font id="677">{{s.677}}</font></p>
+<h3><font id="683">{{s.683}}</font></h3>
+<ul class="this-page-menu">
+<li><a href="#" onclick="showOriginTexts();return false;">中英文对照</a></li>
+<li><a href="#" onclick="hideOriginTexts();return false;">中文</a></li>
+</ul>
+</div>
+</div>
+<div class="clearer"></div>
+</div>
+<div class="related">
+<h3><font id="685">{{s.685}}</font></h3>
+<ul>
+<li class="right" style="margin-right: 10px">
+<a href="../genindex.html" title="General Index"><font id="701">{{s.701}}</font></a></li>
+<li class="right">
+<a href="../py-modindex.html" title="Python Module Index"><font id="702">{{s.702}}</font></a> |</li>
+<li class="right">
+<a href="constants.html" title="4. Built-in Constants"><font id="703">{{s.703}}</font></a> |</li>
+<li class="right">
+<a href="intro.html" title="1. Introduction"><font id="704">{{s.704}}</font></a> |</li>
+<li class="right">
+<a href="#" onclick="hideOriginTexts();return false;">中文</a> |</li>
+<li class="right">
+<a href="#" onclick="showOriginTexts();return false;">中英文对照</a> |</li>
+<li><img alt="" src="../_static/py.png" style="vertical-align: middle; margin-top: -1px"/></li>
+<li><a href="http://www.python.org/"><font id="705">{{s.705}}</font></a> »</li>
+<li>
+<span class="version_switcher_placeholder">2.7.8</span>
+<a href="../index.html"><font id="706">{{s.706}}</font></a> »
+        </li>
+<li><a href="index.html"><font id="707">{{s.707}}</font></a> »</li>
+</ul>
+</div>
+
+<br><div id="disqus_thread"></div>
+<div class="footer">
+    © <a href="../copyright.html">Copyright</a> 1990-2014, Python Software Foundation.
+    <br/>
+    The Python Software Foundation is a non-profit corporation.
+    <a href="http://www.python.org/psf/donations/">Please donate.</a>
+<br/>
+    Last updated on Jul 27, 2014.
+    <a href="../bugs.html">Found a bug</a>?
+    <br/>
+    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+    <script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'thepythontutorial2'; // required: replace example with your forum shortname
+    var disqus_identifier = '/python2/library/functions';
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+<link href="../_static/ms_translator.css" rel="stylesheet" type="text/css"/>
+<script src="../_static/ms_translator.js" type="text/javascript"></script>
+{% include "python_278/ms_translator.html" %}
+</body>
+</html>

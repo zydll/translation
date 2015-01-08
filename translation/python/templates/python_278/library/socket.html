@@ -1,0 +1,759 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<title>17.2. socket — Low-level networking interface — Python v2.7.8 documentation</title>
+<link href="../_static/default.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2.7.8',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+<script src="../_static/jquery.js" type="text/javascript"></script>
+<script src="../_static/underscore.js" type="text/javascript"></script>
+<script src="../_static/doctools.js" type="text/javascript"></script>
+<script src="../_static/sidebar.js" type="text/javascript"></script>
+<link href="../_static/opensearch.xml" rel="search" title="Search within Python v2.7.8 documentation" type="application/opensearchdescription+xml"/>
+<link href="../about.html" rel="author" title="About these documents"/>
+<link href="../copyright.html" rel="copyright" title="Copyright"/>
+<link href="../index.html" rel="top" title="Python v2.7.8 documentation"/>
+<link href="ipc.html" rel="up" title="17. Interprocess Communication and Networking"/>
+<link href="ssl.html" rel="next" title="17.3. ssl — TLS/SSL wrapper for socket objects"/>
+<link href="subprocess.html" rel="prev" title="17.1. subprocess — Subprocess management"/>
+<link href="../_static/py.png" rel="shortcut icon" type="image/png"/>
+<script src="../_static/copybutton.js" type="text/javascript"></script>
+<script src="../_static/version_switch.js" type="text/javascript"></script>
+</head>
+<body>
+<div class="related">
+<h3><font id="361">{{s.361}}</font></h3>
+<ul>
+<li class="right" style="margin-right: 10px">
+<a accesskey="I" href="../genindex.html" title="General Index"><font id="368">{{s.368}}</font></a></li>
+<li class="right">
+<a href="../py-modindex.html" title="Python Module Index"><font id="369">{{s.369}}</font></a> |</li>
+<li class="right">
+<a accesskey="N" href="ssl.html" title="17.3. ssl — TLS/SSL wrapper for socket objects"><font id="370">{{s.370}}</font></a> |</li>
+<li class="right">
+<a accesskey="P" href="subprocess.html" title="17.1. subprocess — Subprocess management"><font id="371">{{s.371}}</font></a> |</li>
+<li class="right">
+<a href="#" onclick="hideOriginTexts();return false;">中文</a> |</li>
+<li class="right">
+<a href="#" onclick="showOriginTexts();return false;">中英文对照</a> |</li>
+<li><img alt="" src="../_static/py.png" style="vertical-align: middle; margin-top: -1px"/></li>
+<li><a href="http://www.python.org/"><font id="372">{{s.372}}</font></a> »</li>
+<li>
+<span class="version_switcher_placeholder">2.7.8</span>
+<a href="../index.html"><font id="373">{{s.373}}</font></a> »
+        </li>
+<li><a href="index.html"><font id="374">{{s.374}}</font></a> »</li>
+<li><a accesskey="U" href="ipc.html"><font id="375">{{s.375}}</font></a> »</li>
+</ul>
+</div>
+<div class="document">
+<div class="documentwrapper">
+<div class="bodywrapper">
+<div class="body">
+<div class="section" id="module-socket">
+<span id="socket-low-level-networking-interface"></span><h1>17.2. <a class="reference internal" href="#module-socket" title="socket: Low-level networking interface."><tt class="xref py py-mod docutils literal"><span class="pre">socket</span></tt></a> &#8212; <font id="358">{{s.358}}</font><a class="headerlink" href="#module-socket" title="Permalink to this headline">¶</a></h1>
+<p><font id="1">{{s.1}}</font><font id="2">{{s.2}}</font></p>
+<div class="admonition note">
+<p class="first admonition-title"><font id="3">{{s.3}}</font></p>
+<p class="last"><font id="4">{{s.4}}</font></p>
+</div>
+<p><font id="5">{{s.5}}</font><font id="6">{{s.6}}</font><font id="7">{{s.7}}</font><font id="8">{{s.8}}</font><font id="9">{{s.9}}</font></p>
+<p id="index-1"><font id="10">{{s.10}}</font><font id="11">{{s.11}}</font></p>
+<p><font id="12">{{s.12}}</font><font id="13">{{s.13}}</font><font id="14">{{s.14}}</font><font id="15">{{s.15}}</font><font id="16">{{s.16}}</font><font id="17">{{s.17}}</font><font id="18">{{s.18}}</font></p>
+<p><font id="19">{{s.19}}</font><font id="20">{{s.20}}</font></p>
+<p><font id="21">{{s.21}}</font><font id="22">{{s.22}}</font><font id="23">{{s.23}}</font></p>
+<p class="versionadded"><font id="24">{{s.24}}</font><font id="25">{{s.25}}</font></p>
+<p class="versionadded">
+<span class="versionmodified"><font id="389">{{s.389}}</font></span><font id="390">{{s.390}}</font><font id="391">{{s.391}}</font><font id="392">{{s.392}}</font><font id="393">{{s.393}}</font>
+<ul>
+<li><p class="first"><font id="26">{{s.26}}</font></p>
+</li>
+<li><p class="first"><font id="27">{{s.27}}</font></p>
+</li>
+<li><p class="first"><font id="28">{{s.28}}</font></p>
+<p><font id="29">{{s.29}}</font></p>
+<p><font id="30">{{s.30}}</font></p>
+</li>
+</ul>
+</p>
+<p><font id="31">{{s.31}}</font><font id="32">{{s.32}}</font><font id="33">{{s.33}}</font></p>
+<p><font id="34">{{s.34}}</font><font id="35">{{s.35}}</font></p>
+<p><font id="36">{{s.36}}</font></p>
+<dl class="exception">
+<dt id="socket.error">
+<em class="property">exception </em><tt class="descclassname">socket.</tt><tt class="descname">error</tt><a class="headerlink" href="#socket.error" title="Permalink to this definition">¶</a></dt>
+<dd><p id="index-2"><font id="37">{{s.37}}</font><font id="38">{{s.38}}</font><font id="39">{{s.39}}</font></p>
+<p class="versionchanged"><font id="40">{{s.40}}</font><font id="41">{{s.41}}</font></p>
+</dd></dl>
+<dl class="exception">
+<dt id="socket.herror">
+<em class="property">exception </em><tt class="descclassname">socket.</tt><tt class="descname">herror</tt><a class="headerlink" href="#socket.herror" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="42">{{s.42}}</font></p>
+<p><font id="43">{{s.43}}</font><font id="44">{{s.44}}</font></p>
+</dd></dl>
+<dl class="exception">
+<dt id="socket.gaierror">
+<em class="property">exception </em><tt class="descclassname">socket.</tt><tt class="descname">gaierror</tt><a class="headerlink" href="#socket.gaierror" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="45">{{s.45}}</font><font id="46">{{s.46}}</font><font id="47">{{s.47}}</font><font id="48">{{s.48}}</font></p>
+</dd></dl>
+<dl class="exception">
+<dt id="socket.timeout">
+<em class="property">exception </em><tt class="descclassname">socket.</tt><tt class="descname">timeout</tt><a class="headerlink" href="#socket.timeout" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="49">{{s.49}}</font><font id="50">{{s.50}}</font></p>
+<p class="versionadded"><font id="51">{{s.51}}</font></p>
+</dd></dl>
+<dl class="data">
+<dt id="socket.AF_UNIX">
+<tt class="descclassname">socket.</tt><tt class="descname">AF_UNIX</tt><a class="headerlink" href="#socket.AF_UNIX" title="Permalink to this definition">¶</a></dt>
+<dt id="socket.AF_INET">
+<tt class="descclassname">socket.</tt><tt class="descname">AF_INET</tt><a class="headerlink" href="#socket.AF_INET" title="Permalink to this definition">¶</a></dt>
+<dt id="socket.AF_INET6">
+<tt class="descclassname">socket.</tt><tt class="descname">AF_INET6</tt><a class="headerlink" href="#socket.AF_INET6" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="52">{{s.52}}</font><font id="53">{{s.53}}</font></p>
+</dd></dl>
+<dl class="data">
+<dt id="socket.SOCK_STREAM">
+<tt class="descclassname">socket.</tt><tt class="descname">SOCK_STREAM</tt><a class="headerlink" href="#socket.SOCK_STREAM" title="Permalink to this definition">¶</a></dt>
+<dt id="socket.SOCK_DGRAM">
+<tt class="descclassname">socket.</tt><tt class="descname">SOCK_DGRAM</tt><a class="headerlink" href="#socket.SOCK_DGRAM" title="Permalink to this definition">¶</a></dt>
+<dt id="socket.SOCK_RAW">
+<tt class="descclassname">socket.</tt><tt class="descname">SOCK_RAW</tt><a class="headerlink" href="#socket.SOCK_RAW" title="Permalink to this definition">¶</a></dt>
+<dt id="socket.SOCK_RDM">
+<tt class="descclassname">socket.</tt><tt class="descname">SOCK_RDM</tt><a class="headerlink" href="#socket.SOCK_RDM" title="Permalink to this definition">¶</a></dt>
+<dt id="socket.SOCK_SEQPACKET">
+<tt class="descclassname">socket.</tt><tt class="descname">SOCK_SEQPACKET</tt><a class="headerlink" href="#socket.SOCK_SEQPACKET" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="54">{{s.54}}</font><font id="55">{{s.55}}</font></p>
+</dd></dl>
+<dl class="data">
+<dt>
+<tt class="descname">SO_*</tt></dt>
+<dt id="socket.SOMAXCONN">
+<tt class="descclassname">socket.</tt><tt class="descname">SOMAXCONN</tt><a class="headerlink" href="#socket.SOMAXCONN" title="Permalink to this definition">¶</a></dt>
+<dt>
+<tt class="descname">MSG_*</tt></dt>
+<dt>
+<tt class="descname">SOL_*</tt></dt>
+<dt>
+<tt class="descname">IPPROTO_*</tt></dt>
+<dt>
+<tt class="descname">IPPORT_*</tt></dt>
+<dt>
+<tt class="descname">INADDR_*</tt></dt>
+<dt>
+<tt class="descname">IP_*</tt></dt>
+<dt>
+<tt class="descname">IPV6_*</tt></dt>
+<dt>
+<tt class="descname">EAI_*</tt></dt>
+<dt>
+<tt class="descname">AI_*</tt></dt>
+<dt>
+<tt class="descname">NI_*</tt></dt>
+<dt>
+<tt class="descname">TCP_*</tt></dt>
+<dd><p><font id="56">{{s.56}}</font><font id="57">{{s.57}}</font><font id="58">{{s.58}}</font><font id="59">{{s.59}}</font></p>
+</dd></dl>
+<dl class="data">
+<dt>
+<tt class="descname">SIO_*</tt></dt>
+<dt>
+<tt class="descname">RCVALL_*</tt></dt>
+<dd><p><font id="60">{{s.60}}</font><font id="61">{{s.61}}</font></p>
+<p class="versionadded"><font id="62">{{s.62}}</font></p>
+</dd></dl>
+<dl class="data">
+<dt>
+<tt class="descname">TIPC_*</tt></dt>
+<dd><p><font id="63">{{s.63}}</font><font id="64">{{s.64}}</font></p>
+<p class="versionadded"><font id="65">{{s.65}}</font></p>
+</dd></dl>
+<dl class="data">
+<dt id="socket.has_ipv6">
+<tt class="descclassname">socket.</tt><tt class="descname">has_ipv6</tt><a class="headerlink" href="#socket.has_ipv6" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="66">{{s.66}}</font></p>
+<p class="versionadded"><font id="67">{{s.67}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="socket.create_connection">
+<tt class="descclassname">socket.</tt><tt class="descname">create_connection</tt><big>(</big><em>address</em><span class="optional">[</span>, <em>timeout</em><span class="optional">[</span>, <em>source_address</em><span class="optional">]</span><span class="optional">]</span><big>)</big><a class="headerlink" href="#socket.create_connection" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="68">{{s.68}}</font><font id="69">{{s.69}}</font><font id="70">{{s.70}}</font></p>
+<p><font id="71">{{s.71}}</font><font id="72">{{s.72}}</font></p>
+<p><font id="73">{{s.73}}</font><font id="74">{{s.74}}</font></p>
+<p class="versionadded"><font id="75">{{s.75}}</font></p>
+<p class="versionchanged"><font id="76">{{s.76}}</font><font id="77">{{s.77}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="socket.getaddrinfo">
+<tt class="descclassname">socket.</tt><tt class="descname">getaddrinfo</tt><big>(</big><em>host</em>, <em>port</em><span class="optional">[</span>, <em>family</em><span class="optional">[</span>, <em>socktype</em><span class="optional">[</span>, <em>proto</em><span class="optional">[</span>, <em>flags</em><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><big>)</big><a class="headerlink" href="#socket.getaddrinfo" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="78">{{s.78}}</font><font id="79">{{s.79}}</font><font id="80">{{s.80}}</font><font id="81">{{s.81}}</font></p>
+<p><font id="82">{{s.82}}</font><font id="83">{{s.83}}</font><font id="84">{{s.84}}</font><font id="85">{{s.85}}</font><font id="86">{{s.86}}</font></p>
+<p><font id="87">{{s.87}}</font></p>
+<p><font id="88">{{s.88}}</font></p>
+<p><font id="89">{{s.89}}</font><font id="90">{{s.90}}</font><font id="91">{{s.91}}</font><font id="92">{{s.92}}</font></p>
+<p><font id="93">{{s.93}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">socket</span><span class="o">.</span><span class="n">getaddrinfo</span><span class="p">(</span><span class="s">"www.python.org"</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">socket</span><span class="o">.</span><span class="n">SOL_TCP</span><span class="p">)</span>
+<span class="go">[(2, 1, 6, '', ('82.94.164.162', 80)),</span>
+<span class="go"> (10, 1, 6, '', ('2001:888:2000:d::a2', 80, 0, 0))]</span>
+</pre></div>
+</div>
+<p class="versionadded"><font id="94">{{s.94}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="socket.getfqdn">
+<tt class="descclassname">socket.</tt><tt class="descname">getfqdn</tt><big>(</big><span class="optional">[</span><em>name</em><span class="optional">]</span><big>)</big><a class="headerlink" href="#socket.getfqdn" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="95">{{s.95}}</font><font id="96">{{s.96}}</font><font id="97">{{s.97}}</font><font id="98">{{s.98}}</font><font id="99">{{s.99}}</font></p>
+<p class="versionadded"><font id="100">{{s.100}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="socket.gethostbyname">
+<tt class="descclassname">socket.</tt><tt class="descname">gethostbyname</tt><big>(</big><em>hostname</em><big>)</big><a class="headerlink" href="#socket.gethostbyname" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="101">{{s.101}}</font><font id="102">{{s.102}}</font><font id="103">{{s.103}}</font><font id="104">{{s.104}}</font><font id="105">{{s.105}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="socket.gethostbyname_ex">
+<tt class="descclassname">socket.</tt><tt class="descname">gethostbyname_ex</tt><big>(</big><em>hostname</em><big>)</big><a class="headerlink" href="#socket.gethostbyname_ex" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="106">{{s.106}}</font><font id="107">{{s.107}}</font><font id="108">{{s.108}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="socket.gethostname">
+<tt class="descclassname">socket.</tt><tt class="descname">gethostname</tt><big>(</big><big>)</big><a class="headerlink" href="#socket.gethostname" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="109">{{s.109}}</font></p>
+<p><font id="110">{{s.110}}</font><font id="111">{{s.111}}</font></p>
+<p><font id="112">{{s.112}}</font><font id="113">{{s.113}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="socket.gethostbyaddr">
+<tt class="descclassname">socket.</tt><tt class="descname">gethostbyaddr</tt><big>(</big><em>ip_address</em><big>)</big><a class="headerlink" href="#socket.gethostbyaddr" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="114">{{s.114}}</font><font id="115">{{s.115}}</font><font id="116">{{s.116}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="socket.getnameinfo">
+<tt class="descclassname">socket.</tt><tt class="descname">getnameinfo</tt><big>(</big><em>sockaddr</em>, <em>flags</em><big>)</big><a class="headerlink" href="#socket.getnameinfo" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="117">{{s.117}}</font><font id="118">{{s.118}}</font><font id="119">{{s.119}}</font></p>
+<p class="versionadded"><font id="120">{{s.120}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="socket.getprotobyname">
+<tt class="descclassname">socket.</tt><tt class="descname">getprotobyname</tt><big>(</big><em>protocolname</em><big>)</big><a class="headerlink" href="#socket.getprotobyname" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="121">{{s.121}}</font><font id="122">{{s.122}}</font><font id="123">{{s.123}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="socket.getservbyname">
+<tt class="descclassname">socket.</tt><tt class="descname">getservbyname</tt><big>(</big><em>servicename</em><span class="optional">[</span>, <em>protocolname</em><span class="optional">]</span><big>)</big><a class="headerlink" href="#socket.getservbyname" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="124">{{s.124}}</font><font id="125">{{s.125}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="socket.getservbyport">
+<tt class="descclassname">socket.</tt><tt class="descname">getservbyport</tt><big>(</big><em>port</em><span class="optional">[</span>, <em>protocolname</em><span class="optional">]</span><big>)</big><a class="headerlink" href="#socket.getservbyport" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="126">{{s.126}}</font><font id="127">{{s.127}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="socket.socket">
+<tt class="descclassname">socket.</tt><tt class="descname">socket</tt><big>(</big><span class="optional">[</span><em>family</em><span class="optional">[</span>, <em>type</em><span class="optional">[</span>, <em>proto</em><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><big>)</big><a class="headerlink" href="#socket.socket" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="128">{{s.128}}</font><font id="129">{{s.129}}</font><font id="130">{{s.130}}</font><font id="131">{{s.131}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="socket.socketpair">
+<tt class="descclassname">socket.</tt><tt class="descname">socketpair</tt><big>(</big><span class="optional">[</span><em>family</em><span class="optional">[</span>, <em>type</em><span class="optional">[</span>, <em>proto</em><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><big>)</big><a class="headerlink" href="#socket.socketpair" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="132">{{s.132}}</font><font id="133">{{s.133}}</font><font id="134">{{s.134}}</font><font id="135">{{s.135}}</font><font id="136">{{s.136}}</font></p>
+<p class="versionadded"><font id="137">{{s.137}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="socket.fromfd">
+<tt class="descclassname">socket.</tt><tt class="descname">fromfd</tt><big>(</big><em>fd</em>, <em>family</em>, <em>type</em><span class="optional">[</span>, <em>proto</em><span class="optional">]</span><big>)</big><a class="headerlink" href="#socket.fromfd" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="138">{{s.138}}</font><font id="139">{{s.139}}</font><font id="140">{{s.140}}</font><font id="141">{{s.141}}</font><font id="142">{{s.142}}</font><font id="143">{{s.143}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="socket.ntohl">
+<tt class="descclassname">socket.</tt><tt class="descname">ntohl</tt><big>(</big><em>x</em><big>)</big><a class="headerlink" href="#socket.ntohl" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="144">{{s.144}}</font><font id="145">{{s.145}}</font><font id="146">{{s.146}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="socket.ntohs">
+<tt class="descclassname">socket.</tt><tt class="descname">ntohs</tt><big>(</big><em>x</em><big>)</big><a class="headerlink" href="#socket.ntohs" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="147">{{s.147}}</font><font id="148">{{s.148}}</font><font id="149">{{s.149}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="socket.htonl">
+<tt class="descclassname">socket.</tt><tt class="descname">htonl</tt><big>(</big><em>x</em><big>)</big><a class="headerlink" href="#socket.htonl" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="150">{{s.150}}</font><font id="151">{{s.151}}</font><font id="152">{{s.152}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="socket.htons">
+<tt class="descclassname">socket.</tt><tt class="descname">htons</tt><big>(</big><em>x</em><big>)</big><a class="headerlink" href="#socket.htons" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="153">{{s.153}}</font><font id="154">{{s.154}}</font><font id="155">{{s.155}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="socket.inet_aton">
+<tt class="descclassname">socket.</tt><tt class="descname">inet_aton</tt><big>(</big><em>ip_string</em><big>)</big><a class="headerlink" href="#socket.inet_aton" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="156">{{s.156}}</font><font id="157">{{s.157}}</font></p>
+<p><font id="158">{{s.158}}</font><font id="159">{{s.159}}</font></p>
+<p><font id="160">{{s.160}}</font><font id="161">{{s.161}}</font></p>
+<p><font id="162">{{s.162}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="socket.inet_ntoa">
+<tt class="descclassname">socket.</tt><tt class="descname">inet_ntoa</tt><big>(</big><em>packed_ip</em><big>)</big><a class="headerlink" href="#socket.inet_ntoa" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="163">{{s.163}}</font><font id="164">{{s.164}}</font></p>
+<p><font id="165">{{s.165}}</font><font id="166">{{s.166}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="socket.inet_pton">
+<tt class="descclassname">socket.</tt><tt class="descname">inet_pton</tt><big>(</big><em>address_family</em>, <em>ip_string</em><big>)</big><a class="headerlink" href="#socket.inet_pton" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="167">{{s.167}}</font><font id="168">{{s.168}}</font></p>
+<p><font id="169">{{s.169}}</font><font id="170">{{s.170}}</font><font id="171">{{s.171}}</font></p>
+<p><font id="172">{{s.172}}</font></p>
+<p class="versionadded"><font id="173">{{s.173}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="socket.inet_ntop">
+<tt class="descclassname">socket.</tt><tt class="descname">inet_ntop</tt><big>(</big><em>address_family</em>, <em>packed_ip</em><big>)</big><a class="headerlink" href="#socket.inet_ntop" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="174">{{s.174}}</font></p>
+<p><font id="175">{{s.175}}</font><font id="176">{{s.176}}</font><font id="177">{{s.177}}</font></p>
+<p><font id="178">{{s.178}}</font></p>
+<p class="versionadded"><font id="179">{{s.179}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="socket.getdefaulttimeout">
+<tt class="descclassname">socket.</tt><tt class="descname">getdefaulttimeout</tt><big>(</big><big>)</big><a class="headerlink" href="#socket.getdefaulttimeout" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="180">{{s.180}}</font><font id="181">{{s.181}}</font><font id="182">{{s.182}}</font></p>
+<p class="versionadded"><font id="183">{{s.183}}</font></p>
+</dd></dl>
+<dl class="function">
+<dt id="socket.setdefaulttimeout">
+<tt class="descclassname">socket.</tt><tt class="descname">setdefaulttimeout</tt><big>(</big><em>timeout</em><big>)</big><a class="headerlink" href="#socket.setdefaulttimeout" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="184">{{s.184}}</font><font id="185">{{s.185}}</font><font id="186">{{s.186}}</font></p>
+<p class="versionadded"><font id="187">{{s.187}}</font></p>
+</dd></dl>
+<dl class="data">
+<dt id="socket.SocketType">
+<tt class="descclassname">socket.</tt><tt class="descname">SocketType</tt><a class="headerlink" href="#socket.SocketType" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="188">{{s.188}}</font><font id="189">{{s.189}}</font></p>
+</dd></dl>
+<div class="admonition-see-also admonition seealso">
+<p class="first admonition-title"><font id="190">{{s.190}}</font></p>
+<dl class="last docutils">
+<dt>Module <a class="reference internal" href="socketserver.html#module-SocketServer" title="SocketServer: A framework for network servers."><tt class="xref py py-mod docutils literal"><span class="pre">SocketServer</span></tt></a></dt>
+<dd>Classes that simplify writing network servers.</dd>
+<dt>Module <a class="reference internal" href="ssl.html#module-ssl" title="ssl: TLS/SSL wrapper for socket objects"><tt class="xref py py-mod docutils literal"><span class="pre">ssl</span></tt></a></dt>
+<dd>A TLS/SSL wrapper for socket objects.</dd>
+</dl>
+</div>
+<div class="section" id="socket-objects">
+<span id="id1"></span><h2><font id="359">{{s.359}}</font><a class="headerlink" href="#socket-objects" title="Permalink to this headline">¶</a></h2>
+<p><font id="191">{{s.191}}</font><font id="192">{{s.192}}</font></p>
+<dl class="method">
+<dt id="socket.socket.accept">
+<tt class="descclassname">socket.</tt><tt class="descname">accept</tt><big>(</big><big>)</big><a class="headerlink" href="#socket.socket.accept" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="193">{{s.193}}</font><font id="194">{{s.194}}</font><font id="195">{{s.195}}</font></p>
+</dd></dl>
+<dl class="method">
+<dt id="socket.socket.bind">
+<tt class="descclassname">socket.</tt><tt class="descname">bind</tt><big>(</big><em>address</em><big>)</big><a class="headerlink" href="#socket.socket.bind" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="196">{{s.196}}</font><font id="197">{{s.197}}</font><font id="198">{{s.198}}</font></p>
+<div class="admonition note">
+<p class="first admonition-title"><font id="199">{{s.199}}</font></p>
+<p class="last"><font id="200">{{s.200}}</font><font id="201">{{s.201}}</font></p>
+</div>
+</dd></dl>
+<dl class="method">
+<dt id="socket.socket.close">
+<tt class="descclassname">socket.</tt><tt class="descname">close</tt><big>(</big><big>)</big><a class="headerlink" href="#socket.socket.close" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="202">{{s.202}}</font><font id="203">{{s.203}}</font><font id="204">{{s.204}}</font><font id="205">{{s.205}}</font></p>
+<div class="admonition note">
+<p class="first admonition-title"><font id="206">{{s.206}}</font></p>
+<p class="last"><font id="207">{{s.207}}</font><font id="208">{{s.208}}</font></p>
+</div>
+</dd></dl>
+<dl class="method">
+<dt id="socket.socket.connect">
+<tt class="descclassname">socket.</tt><tt class="descname">connect</tt><big>(</big><em>address</em><big>)</big><a class="headerlink" href="#socket.socket.connect" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="209">{{s.209}}</font><font id="210">{{s.210}}</font></p>
+<div class="admonition note">
+<p class="first admonition-title"><font id="211">{{s.211}}</font></p>
+<p class="last"><font id="212">{{s.212}}</font><font id="213">{{s.213}}</font></p>
+</div>
+</dd></dl>
+<dl class="method">
+<dt id="socket.socket.connect_ex">
+<tt class="descclassname">socket.</tt><tt class="descname">connect_ex</tt><big>(</big><em>address</em><big>)</big><a class="headerlink" href="#socket.socket.connect_ex" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="214">{{s.214}}</font><font id="215">{{s.215}}</font><font id="216">{{s.216}}</font></p>
+<div class="admonition note">
+<p class="first admonition-title"><font id="217">{{s.217}}</font></p>
+<p class="last"><font id="218">{{s.218}}</font><font id="219">{{s.219}}</font></p>
+</div>
+</dd></dl>
+<dl class="method">
+<dt id="socket.socket.fileno">
+<tt class="descclassname">socket.</tt><tt class="descname">fileno</tt><big>(</big><big>)</big><a class="headerlink" href="#socket.socket.fileno" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="220">{{s.220}}</font><font id="221">{{s.221}}</font></p>
+<p><font id="222">{{s.222}}</font><font id="223">{{s.223}}</font></p>
+</dd></dl>
+<dl class="method">
+<dt id="socket.socket.getpeername">
+<tt class="descclassname">socket.</tt><tt class="descname">getpeername</tt><big>(</big><big>)</big><a class="headerlink" href="#socket.socket.getpeername" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="224">{{s.224}}</font><font id="225">{{s.225}}</font><font id="226">{{s.226}}</font><font id="227">{{s.227}}</font></p>
+</dd></dl>
+<dl class="method">
+<dt id="socket.socket.getsockname">
+<tt class="descclassname">socket.</tt><tt class="descname">getsockname</tt><big>(</big><big>)</big><a class="headerlink" href="#socket.socket.getsockname" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="228">{{s.228}}</font><font id="229">{{s.229}}</font><font id="230">{{s.230}}</font></p>
+</dd></dl>
+<dl class="method">
+<dt id="socket.socket.getsockopt">
+<tt class="descclassname">socket.</tt><tt class="descname">getsockopt</tt><big>(</big><em>level</em>, <em>optname</em><span class="optional">[</span>, <em>buflen</em><span class="optional">]</span><big>)</big><a class="headerlink" href="#socket.socket.getsockopt" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="231">{{s.231}}</font><font id="232">{{s.232}}</font><font id="233">{{s.233}}</font><font id="234">{{s.234}}</font><font id="235">{{s.235}}</font></p>
+</dd></dl>
+<dl class="method">
+<dt id="socket.socket.ioctl">
+<tt class="descclassname">socket.</tt><tt class="descname">ioctl</tt><big>(</big><em>control</em>, <em>option</em><big>)</big><a class="headerlink" href="#socket.socket.ioctl" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name"></col>
+<col class="field-body"></col>
+<tbody valign="top">
+<tr class="field"><th class="field-name">Platform :</th><td class="field-body">Windows</td>
+</tr>
+</tbody>
+</table>
+<p><font id="236">{{s.236}}</font><font id="237">{{s.237}}</font></p>
+<p><font id="238">{{s.238}}</font><font id="239">{{s.239}}</font></p>
+<p class="versionadded"><font id="240">{{s.240}}</font></p>
+</dd></dl>
+<dl class="method">
+<dt id="socket.socket.listen">
+<tt class="descclassname">socket.</tt><tt class="descname">listen</tt><big>(</big><em>backlog</em><big>)</big><a class="headerlink" href="#socket.socket.listen" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="241">{{s.241}}</font><font id="242">{{s.242}}</font><font id="243">{{s.243}}</font></p>
+</dd></dl>
+<dl class="method">
+<dt id="socket.socket.makefile">
+<tt class="descclassname">socket.</tt><tt class="descname">makefile</tt><big>(</big><span class="optional">[</span><em>mode</em><span class="optional">[</span>, <em>bufsize</em><span class="optional">]</span><span class="optional">]</span><big>)</big><a class="headerlink" href="#socket.socket.makefile" title="Permalink to this definition">¶</a></dt>
+<dd><p id="index-3"><font id="244">{{s.244}}</font><font id="245">{{s.245}}</font><font id="246">{{s.246}}</font><font id="247">{{s.247}}</font><font id="248">{{s.248}}</font></p>
+<div class="admonition note">
+<p class="first admonition-title"><font id="249">{{s.249}}</font></p>
+<p class="last"><font id="250">{{s.250}}</font><font id="251">{{s.251}}</font></p>
+</div>
+</dd></dl>
+<dl class="method">
+<dt id="socket.socket.recv">
+<tt class="descclassname">socket.</tt><tt class="descname">recv</tt><big>(</big><em>bufsize</em><span class="optional">[</span>, <em>flags</em><span class="optional">]</span><big>)</big><a class="headerlink" href="#socket.socket.recv" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="252">{{s.252}}</font><font id="253">{{s.253}}</font><font id="254">{{s.254}}</font><font id="255">{{s.255}}</font><font id="256">{{s.256}}</font></p>
+<div class="admonition note">
+<p class="first admonition-title"><font id="257">{{s.257}}</font></p>
+<p class="last"><font id="258">{{s.258}}</font></p>
+</div>
+</dd></dl>
+<dl class="method">
+<dt id="socket.socket.recvfrom">
+<tt class="descclassname">socket.</tt><tt class="descname">recvfrom</tt><big>(</big><em>bufsize</em><span class="optional">[</span>, <em>flags</em><span class="optional">]</span><big>)</big><a class="headerlink" href="#socket.socket.recvfrom" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="259">{{s.259}}</font><font id="260">{{s.260}}</font><font id="261">{{s.261}}</font><font id="262">{{s.262}}</font><font id="263">{{s.263}}</font></p>
+</dd></dl>
+<dl class="method">
+<dt id="socket.socket.recvfrom_into">
+<tt class="descclassname">socket.</tt><tt class="descname">recvfrom_into</tt><big>(</big><em>buffer</em><span class="optional">[</span>, <em>nbytes</em><span class="optional">[</span>, <em>flags</em><span class="optional">]</span><span class="optional">]</span><big>)</big><a class="headerlink" href="#socket.socket.recvfrom_into" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="264">{{s.264}}</font><font id="265">{{s.265}}</font><font id="266">{{s.266}}</font><font id="267">{{s.267}}</font><font id="268">{{s.268}}</font></p>
+<p class="versionadded"><font id="269">{{s.269}}</font></p>
+</dd></dl>
+<dl class="method">
+<dt id="socket.socket.recv_into">
+<tt class="descclassname">socket.</tt><tt class="descname">recv_into</tt><big>(</big><em>buffer</em><span class="optional">[</span>, <em>nbytes</em><span class="optional">[</span>, <em>flags</em><span class="optional">]</span><span class="optional">]</span><big>)</big><a class="headerlink" href="#socket.socket.recv_into" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="270">{{s.270}}</font><font id="271">{{s.271}}</font><font id="272">{{s.272}}</font><font id="273">{{s.273}}</font><font id="274">{{s.274}}</font></p>
+<p class="versionadded"><font id="275">{{s.275}}</font></p>
+</dd></dl>
+<dl class="method">
+<dt id="socket.socket.send">
+<tt class="descclassname">socket.</tt><tt class="descname">send</tt><big>(</big><em>string</em><span class="optional">[</span>, <em>flags</em><span class="optional">]</span><big>)</big><a class="headerlink" href="#socket.socket.send" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="276">{{s.276}}</font><font id="277">{{s.277}}</font><font id="278">{{s.278}}</font><font id="279">{{s.279}}</font><font id="280">{{s.280}}</font><font id="281">{{s.281}}</font><font id="282">{{s.282}}</font></p>
+</dd></dl>
+<dl class="method">
+<dt id="socket.socket.sendall">
+<tt class="descclassname">socket.</tt><tt class="descname">sendall</tt><big>(</big><em>string</em><span class="optional">[</span>, <em>flags</em><span class="optional">]</span><big>)</big><a class="headerlink" href="#socket.socket.sendall" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="283">{{s.283}}</font><font id="284">{{s.284}}</font><font id="285">{{s.285}}</font><font id="286">{{s.286}}</font><font id="287">{{s.287}}</font><font id="288">{{s.288}}</font></p>
+</dd></dl>
+<dl class="method">
+<dt id="socket.socket.sendto">
+<tt class="descclassname">socket.</tt><tt class="descname">sendto</tt><big>(</big><em>string</em>, <em>address</em><big>)</big><a class="headerlink" href="#socket.socket.sendto" title="Permalink to this definition">¶</a></dt>
+<dt>
+<tt class="descclassname">socket.</tt><tt class="descname">sendto</tt><big>(</big><em>string</em>, <em>flags</em>, <em>address</em><big>)</big></dt>
+<dd><p><font id="289">{{s.289}}</font><font id="290">{{s.290}}</font><font id="291">{{s.291}}</font><font id="292">{{s.292}}</font><font id="293">{{s.293}}</font></p>
+</dd></dl>
+<dl class="method">
+<dt id="socket.socket.setblocking">
+<tt class="descclassname">socket.</tt><tt class="descname">setblocking</tt><big>(</big><em>flag</em><big>)</big><a class="headerlink" href="#socket.socket.setblocking" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="294">{{s.294}}</font><font id="295">{{s.295}}</font><font id="296">{{s.296}}</font><font id="297">{{s.297}}</font><font id="298">{{s.298}}</font><font id="299">{{s.299}}</font></p>
+</dd></dl>
+<dl class="method">
+<dt id="socket.socket.settimeout">
+<tt class="descclassname">socket.</tt><tt class="descname">settimeout</tt><big>(</big><em>value</em><big>)</big><a class="headerlink" href="#socket.socket.settimeout" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="300">{{s.300}}</font><font id="301">{{s.301}}</font><font id="302">{{s.302}}</font><font id="303">{{s.303}}</font><font id="304">{{s.304}}</font><font id="305">{{s.305}}</font></p>
+<p class="versionadded"><font id="306">{{s.306}}</font></p>
+</dd></dl>
+<dl class="method">
+<dt id="socket.socket.gettimeout">
+<tt class="descclassname">socket.</tt><tt class="descname">gettimeout</tt><big>(</big><big>)</big><a class="headerlink" href="#socket.socket.gettimeout" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="307">{{s.307}}</font><font id="308">{{s.308}}</font></p>
+<p class="versionadded"><font id="309">{{s.309}}</font></p>
+</dd></dl>
+<p><font id="310">{{s.310}}</font><font id="311">{{s.311}}</font><font id="312">{{s.312}}</font><font id="313">{{s.313}}</font><font id="314">{{s.314}}</font><font id="315">{{s.315}}</font></p>
+<p><font id="316">{{s.316}}</font><font id="317">{{s.317}}</font><font id="318">{{s.318}}</font><font id="319">{{s.319}}</font></p>
+<p><font id="320">{{s.320}}</font><font id="321">{{s.321}}</font></p>
+<dl class="method">
+<dt id="socket.socket.setsockopt">
+<tt class="descclassname">socket.</tt><tt class="descname">setsockopt</tt><big>(</big><em>level</em>, <em>optname</em>, <em>value</em><big>)</big><a class="headerlink" href="#socket.socket.setsockopt" title="Permalink to this definition">¶</a></dt>
+<dd><p id="index-4"><font id="322">{{s.322}}</font><font id="323">{{s.323}}</font><font id="324">{{s.324}}</font><font id="325">{{s.325}}</font></p>
+</dd></dl>
+<dl class="method">
+<dt id="socket.socket.shutdown">
+<tt class="descclassname">socket.</tt><tt class="descname">shutdown</tt><big>(</big><em>how</em><big>)</big><a class="headerlink" href="#socket.socket.shutdown" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="326">{{s.326}}</font><font id="327">{{s.327}}</font><font id="328">{{s.328}}</font><font id="329">{{s.329}}</font><font id="330">{{s.330}}</font></p>
+</dd></dl>
+<p><font id="331">{{s.331}}</font><font id="332">{{s.332}}</font></p>
+<p><font id="333">{{s.333}}</font></p>
+<dl class="attribute">
+<dt id="socket.socket.family">
+<tt class="descclassname">socket.</tt><tt class="descname">family</tt><a class="headerlink" href="#socket.socket.family" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="334">{{s.334}}</font></p>
+<p class="versionadded"><font id="335">{{s.335}}</font></p>
+</dd></dl>
+<dl class="attribute">
+<dt id="socket.socket.type">
+<tt class="descclassname">socket.</tt><tt class="descname">type</tt><a class="headerlink" href="#socket.socket.type" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="336">{{s.336}}</font></p>
+<p class="versionadded"><font id="337">{{s.337}}</font></p>
+</dd></dl>
+<dl class="attribute">
+<dt id="socket.socket.proto">
+<tt class="descclassname">socket.</tt><tt class="descname">proto</tt><a class="headerlink" href="#socket.socket.proto" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="338">{{s.338}}</font></p>
+<p class="versionadded"><font id="339">{{s.339}}</font></p>
+</dd></dl>
+</div>
+<div class="section" id="example">
+<span id="socket-example"></span><h2><font id="360">{{s.360}}</font><a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
+<p><font id="340">{{s.340}}</font><font id="341">{{s.341}}</font><font id="342">{{s.342}}</font></p>
+<p><font id="343">{{s.343}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># Echo server program</span>
+<span class="kn">import</span> <span class="nn">socket</span>
+
+<span class="n">HOST</span> <span class="o">=</span> <span class="s">''</span>                 <span class="c"># Symbolic name meaning all available interfaces</span>
+<span class="n">PORT</span> <span class="o">=</span> <span class="mi">50007</span>              <span class="c"># Arbitrary non-privileged port</span>
+<span class="n">s</span> <span class="o">=</span> <span class="n">socket</span><span class="o">.</span><span class="n">socket</span><span class="p">(</span><span class="n">socket</span><span class="o">.</span><span class="n">AF_INET</span><span class="p">,</span> <span class="n">socket</span><span class="o">.</span><span class="n">SOCK_STREAM</span><span class="p">)</span>
+<span class="n">s</span><span class="o">.</span><span class="n">bind</span><span class="p">((</span><span class="n">HOST</span><span class="p">,</span> <span class="n">PORT</span><span class="p">))</span>
+<span class="n">s</span><span class="o">.</span><span class="n">listen</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">conn</span><span class="p">,</span> <span class="n">addr</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">accept</span><span class="p">()</span>
+<span class="k">print</span> <span class="s">'Connected by'</span><span class="p">,</span> <span class="n">addr</span>
+<span class="k">while</span> <span class="mi">1</span><span class="p">:</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">recv</span><span class="p">(</span><span class="mi">1024</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">data</span><span class="p">:</span> <span class="k">break</span>
+    <span class="n">conn</span><span class="o">.</span><span class="n">sendall</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="n">conn</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># Echo client program</span>
+<span class="kn">import</span> <span class="nn">socket</span>
+
+<span class="n">HOST</span> <span class="o">=</span> <span class="s">'daring.cwi.nl'</span>    <span class="c"># The remote host</span>
+<span class="n">PORT</span> <span class="o">=</span> <span class="mi">50007</span>              <span class="c"># The same port as used by the server</span>
+<span class="n">s</span> <span class="o">=</span> <span class="n">socket</span><span class="o">.</span><span class="n">socket</span><span class="p">(</span><span class="n">socket</span><span class="o">.</span><span class="n">AF_INET</span><span class="p">,</span> <span class="n">socket</span><span class="o">.</span><span class="n">SOCK_STREAM</span><span class="p">)</span>
+<span class="n">s</span><span class="o">.</span><span class="n">connect</span><span class="p">((</span><span class="n">HOST</span><span class="p">,</span> <span class="n">PORT</span><span class="p">))</span>
+<span class="n">s</span><span class="o">.</span><span class="n">sendall</span><span class="p">(</span><span class="s">'Hello, world'</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">recv</span><span class="p">(</span><span class="mi">1024</span><span class="p">)</span>
+<span class="n">s</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="k">print</span> <span class="s">'Received'</span><span class="p">,</span> <span class="nb">repr</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><font id="344">{{s.344}}</font><font id="345">{{s.345}}</font><font id="346">{{s.346}}</font><font id="347">{{s.347}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># Echo server program</span>
+<span class="kn">import</span> <span class="nn">socket</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="n">HOST</span> <span class="o">=</span> <span class="bp">None</span>               <span class="c"># Symbolic name meaning all available interfaces</span>
+<span class="n">PORT</span> <span class="o">=</span> <span class="mi">50007</span>              <span class="c"># Arbitrary non-privileged port</span>
+<span class="n">s</span> <span class="o">=</span> <span class="bp">None</span>
+<span class="k">for</span> <span class="n">res</span> <span class="ow">in</span> <span class="n">socket</span><span class="o">.</span><span class="n">getaddrinfo</span><span class="p">(</span><span class="n">HOST</span><span class="p">,</span> <span class="n">PORT</span><span class="p">,</span> <span class="n">socket</span><span class="o">.</span><span class="n">AF_UNSPEC</span><span class="p">,</span>
+                              <span class="n">socket</span><span class="o">.</span><span class="n">SOCK_STREAM</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">socket</span><span class="o">.</span><span class="n">AI_PASSIVE</span><span class="p">):</span>
+    <span class="n">af</span><span class="p">,</span> <span class="n">socktype</span><span class="p">,</span> <span class="n">proto</span><span class="p">,</span> <span class="n">canonname</span><span class="p">,</span> <span class="n">sa</span> <span class="o">=</span> <span class="n">res</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">s</span> <span class="o">=</span> <span class="n">socket</span><span class="o">.</span><span class="n">socket</span><span class="p">(</span><span class="n">af</span><span class="p">,</span> <span class="n">socktype</span><span class="p">,</span> <span class="n">proto</span><span class="p">)</span>
+    <span class="k">except</span> <span class="n">socket</span><span class="o">.</span><span class="n">error</span> <span class="k">as</span> <span class="n">msg</span><span class="p">:</span>
+        <span class="n">s</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="k">continue</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">s</span><span class="o">.</span><span class="n">bind</span><span class="p">(</span><span class="n">sa</span><span class="p">)</span>
+        <span class="n">s</span><span class="o">.</span><span class="n">listen</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">except</span> <span class="n">socket</span><span class="o">.</span><span class="n">error</span> <span class="k">as</span> <span class="n">msg</span><span class="p">:</span>
+        <span class="n">s</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+        <span class="n">s</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="k">continue</span>
+    <span class="k">break</span>
+<span class="k">if</span> <span class="n">s</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+    <span class="k">print</span> <span class="s">'could not open socket'</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">conn</span><span class="p">,</span> <span class="n">addr</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">accept</span><span class="p">()</span>
+<span class="k">print</span> <span class="s">'Connected by'</span><span class="p">,</span> <span class="n">addr</span>
+<span class="k">while</span> <span class="mi">1</span><span class="p">:</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">recv</span><span class="p">(</span><span class="mi">1024</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">data</span><span class="p">:</span> <span class="k">break</span>
+    <span class="n">conn</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="n">conn</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># Echo client program</span>
+<span class="kn">import</span> <span class="nn">socket</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="n">HOST</span> <span class="o">=</span> <span class="s">'daring.cwi.nl'</span>    <span class="c"># The remote host</span>
+<span class="n">PORT</span> <span class="o">=</span> <span class="mi">50007</span>              <span class="c"># The same port as used by the server</span>
+<span class="n">s</span> <span class="o">=</span> <span class="bp">None</span>
+<span class="k">for</span> <span class="n">res</span> <span class="ow">in</span> <span class="n">socket</span><span class="o">.</span><span class="n">getaddrinfo</span><span class="p">(</span><span class="n">HOST</span><span class="p">,</span> <span class="n">PORT</span><span class="p">,</span> <span class="n">socket</span><span class="o">.</span><span class="n">AF_UNSPEC</span><span class="p">,</span> <span class="n">socket</span><span class="o">.</span><span class="n">SOCK_STREAM</span><span class="p">):</span>
+    <span class="n">af</span><span class="p">,</span> <span class="n">socktype</span><span class="p">,</span> <span class="n">proto</span><span class="p">,</span> <span class="n">canonname</span><span class="p">,</span> <span class="n">sa</span> <span class="o">=</span> <span class="n">res</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">s</span> <span class="o">=</span> <span class="n">socket</span><span class="o">.</span><span class="n">socket</span><span class="p">(</span><span class="n">af</span><span class="p">,</span> <span class="n">socktype</span><span class="p">,</span> <span class="n">proto</span><span class="p">)</span>
+    <span class="k">except</span> <span class="n">socket</span><span class="o">.</span><span class="n">error</span> <span class="k">as</span> <span class="n">msg</span><span class="p">:</span>
+        <span class="n">s</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="k">continue</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">s</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">sa</span><span class="p">)</span>
+    <span class="k">except</span> <span class="n">socket</span><span class="o">.</span><span class="n">error</span> <span class="k">as</span> <span class="n">msg</span><span class="p">:</span>
+        <span class="n">s</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+        <span class="n">s</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="k">continue</span>
+    <span class="k">break</span>
+<span class="k">if</span> <span class="n">s</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+    <span class="k">print</span> <span class="s">'could not open socket'</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">s</span><span class="o">.</span><span class="n">sendall</span><span class="p">(</span><span class="s">'Hello, world'</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">recv</span><span class="p">(</span><span class="mi">1024</span><span class="p">)</span>
+<span class="n">s</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="k">print</span> <span class="s">'Received'</span><span class="p">,</span> <span class="nb">repr</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><font id="348">{{s.348}}</font><font id="349">{{s.349}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">socket</span>
+
+<span class="c"># the public network interface</span>
+<span class="n">HOST</span> <span class="o">=</span> <span class="n">socket</span><span class="o">.</span><span class="n">gethostbyname</span><span class="p">(</span><span class="n">socket</span><span class="o">.</span><span class="n">gethostname</span><span class="p">())</span>
+
+<span class="c"># create a raw socket and bind it to the public interface</span>
+<span class="n">s</span> <span class="o">=</span> <span class="n">socket</span><span class="o">.</span><span class="n">socket</span><span class="p">(</span><span class="n">socket</span><span class="o">.</span><span class="n">AF_INET</span><span class="p">,</span> <span class="n">socket</span><span class="o">.</span><span class="n">SOCK_RAW</span><span class="p">,</span> <span class="n">socket</span><span class="o">.</span><span class="n">IPPROTO_IP</span><span class="p">)</span>
+<span class="n">s</span><span class="o">.</span><span class="n">bind</span><span class="p">((</span><span class="n">HOST</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+
+<span class="c"># Include IP headers</span>
+<span class="n">s</span><span class="o">.</span><span class="n">setsockopt</span><span class="p">(</span><span class="n">socket</span><span class="o">.</span><span class="n">IPPROTO_IP</span><span class="p">,</span> <span class="n">socket</span><span class="o">.</span><span class="n">IP_HDRINCL</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="c"># receive all packages</span>
+<span class="n">s</span><span class="o">.</span><span class="n">ioctl</span><span class="p">(</span><span class="n">socket</span><span class="o">.</span><span class="n">SIO_RCVALL</span><span class="p">,</span> <span class="n">socket</span><span class="o">.</span><span class="n">RCVALL_ON</span><span class="p">)</span>
+
+<span class="c"># receive a package</span>
+<span class="k">print</span> <span class="n">s</span><span class="o">.</span><span class="n">recvfrom</span><span class="p">(</span><span class="mi">65565</span><span class="p">)</span>
+
+<span class="c"># disabled promiscuous mode</span>
+<span class="n">s</span><span class="o">.</span><span class="n">ioctl</span><span class="p">(</span><span class="n">socket</span><span class="o">.</span><span class="n">SIO_RCVALL</span><span class="p">,</span> <span class="n">socket</span><span class="o">.</span><span class="n">RCVALL_OFF</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><font id="350">{{s.350}}</font></p>
+<div class="highlight-python"><pre>socket.error: [Errno 98] Address already in use</pre>
+</div>
+<p><font id="351">{{s.351}}</font></p>
+<p><font id="352">{{s.352}}</font><font id="353">{{s.353}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">s</span> <span class="o">=</span> <span class="n">socket</span><span class="o">.</span><span class="n">socket</span><span class="p">(</span><span class="n">socket</span><span class="o">.</span><span class="n">AF_INET</span><span class="p">,</span> <span class="n">socket</span><span class="o">.</span><span class="n">SOCK_STREAM</span><span class="p">)</span>
+<span class="n">s</span><span class="o">.</span><span class="n">setsockopt</span><span class="p">(</span><span class="n">socket</span><span class="o">.</span><span class="n">SOL_SOCKET</span><span class="p">,</span> <span class="n">socket</span><span class="o">.</span><span class="n">SO_REUSEADDR</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">s</span><span class="o">.</span><span class="n">bind</span><span class="p">((</span><span class="n">HOST</span><span class="p">,</span> <span class="n">PORT</span><span class="p">))</span>
+</pre></div>
+</div>
+<p><font id="354">{{s.354}}</font></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sphinxsidebar">
+<div class="sphinxsidebarwrapper">
+<h3><font id="362">{{s.362}}</font></h3>
+<ul>
+<li><a class="reference internal" href="#">17.2. <tt class="docutils literal"><span class="pre">socket</span></tt> &#8212 <font id="376">{{s.376}}</font></a><ul>
+<li><a class="reference internal" href="#socket-objects"><font id="377">{{s.377}}</font></a></li>
+<li><a class="reference internal" href="#example"><font id="378">{{s.378}}</font></a></li>
+</ul>
+</li>
+</ul>
+<h4><font id="366">{{s.366}}</font></h4>
+<p class="topless"><font id="355">{{s.355}}</font></p>
+<h4><font id="367">{{s.367}}</font></h4>
+<p class="topless"><font id="356">{{s.356}}</font></p>
+<h3><font id="363">{{s.363}}</font></h3>
+<ul class="this-page-menu">
+<li><a href="#" onclick="showOriginTexts();return false;">中英文对照</a></li>
+<li><a href="#" onclick="hideOriginTexts();return false;">中文</a></li>
+</ul>
+</div>
+</div>
+<div class="clearer"></div>
+</div>
+<div class="related">
+<h3><font id="365">{{s.365}}</font></h3>
+<ul>
+<li class="right" style="margin-right: 10px">
+<a href="../genindex.html" title="General Index"><font id="381">{{s.381}}</font></a></li>
+<li class="right">
+<a href="../py-modindex.html" title="Python Module Index"><font id="382">{{s.382}}</font></a> |</li>
+<li class="right">
+<a href="ssl.html" title="17.3. ssl — TLS/SSL wrapper for socket objects"><font id="383">{{s.383}}</font></a> |</li>
+<li class="right">
+<a href="subprocess.html" title="17.1. subprocess — Subprocess management"><font id="384">{{s.384}}</font></a> |</li>
+<li class="right">
+<a href="#" onclick="hideOriginTexts();return false;">中文</a> |</li>
+<li class="right">
+<a href="#" onclick="showOriginTexts();return false;">中英文对照</a> |</li>
+<li><img alt="" src="../_static/py.png" style="vertical-align: middle; margin-top: -1px"/></li>
+<li><a href="http://www.python.org/"><font id="385">{{s.385}}</font></a> »</li>
+<li>
+<span class="version_switcher_placeholder">2.7.8</span>
+<a href="../index.html"><font id="386">{{s.386}}</font></a> »
+        </li>
+<li><a href="index.html"><font id="387">{{s.387}}</font></a> »</li>
+<li><a href="ipc.html"><font id="388">{{s.388}}</font></a> »</li>
+</ul>
+</div>
+<br><div id="disqus_thread"></div>
+<div class="footer">
+    © <a href="../copyright.html">Copyright</a> 1990-2014, Python Software Foundation.
+    <br/>
+    The Python Software Foundation is a non-profit corporation.
+    <a href="http://www.python.org/psf/donations/">Please donate.</a>
+<br/>
+    Last updated on Jul 27, 2014.
+    <a href="../bugs.html">Found a bug</a>?
+    <br/>
+    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'thepythontutorial2'; // required: replace example with your forum shortname
+    var disqus_identifier = '/python2/library/socket';
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+<link href="../_static/ms_translator.css" rel="stylesheet" type="text/css"/>
+<script src="../_static/ms_translator.js" type="text/javascript"></script>
+{% include "python_278/ms_translator.html" %}
+</body>
+</html>

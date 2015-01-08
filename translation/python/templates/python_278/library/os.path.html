@@ -1,0 +1,414 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>10.1. os.path — Common pathname manipulations &mdash; Python v2.7.8 documentation</title>
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2.7.8',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/sidebar.js"></script>
+    <link rel="search" type="application/opensearchdescription+xml"
+          title="Search within Python v2.7.8 documentation"
+          href="../_static/opensearch.xml"/>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="copyright" title="Copyright" href="../copyright.html" />
+    <link rel="top" title="Python v2.7.8 documentation" href="../index.html" />
+    <link rel="up" title="10. File and Directory Access" href="filesys.html" />
+    <link rel="next" title="10.2. fileinput — Iterate over lines from multiple input streams" href="fileinput.html" />
+    <link rel="prev" title="10. File and Directory Access" href="filesys.html" />
+    <link rel="shortcut icon" type="image/png" href="../_static/py.png" />
+    <script type="text/javascript" src="../_static/copybutton.js"></script>
+    <script type="text/javascript" src="../_static/version_switch.js"></script>
+ 
+    
+
+  </head>
+  <body>  
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">索引</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >模块</a> |</li>
+        <li class="right" >
+          <a href="fileinput.html" title="10.2. fileinput — Iterate over lines from multiple input streams"
+             accesskey="N">下一页</a> |</li>
+        <li class="right" >
+          <a href="filesys.html" title="10. File and Directory Access"
+             accesskey="P">上一页</a> |</li>
+        <li class="right">
+<a href="#" onclick="hideOriginTexts();return false;">中文</a> |</li>
+<li class="right">
+<a href="#" onclick="showOriginTexts();return false;">中英文对照</a> |</li>
+        <li><img src="../_static/py.png" alt=""
+                 style="vertical-align: middle; margin-top: -1px"/></li>
+        <li><a href="http://www.python.org/">Python</a> &raquo;</li>
+        <li>
+          <span class="version_switcher_placeholder">2.7.8</span>
+          <a href="../index.html">文档</a> &raquo;
+        </li>
+
+          <li><a href="index.html" >Python 标准库</a> &raquo;</li>
+          <li><a href="filesys.html" accesskey="U">10. File and Directory Access</a> &raquo;</li> 
+      </ul>
+    </div>    
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-os.path">
+<span id="os-path-common-pathname-manipulations"></span><h1>10.1. <a class="reference internal" href="#module-os.path" title="os.path: Operations on pathnames."><tt class="xref py py-mod docutils literal"><span class="pre">os.path</span></tt></a> &#8212; <font id="1">{{s.1}}</font><a class="headerlink" href="#module-os.path" title="Permalink to this headline">¶</a></h1>
+<p id="index-0"><font id="2">{{s.2}}</font><font id="3">{{s.3}}</font></p>
+<div class="admonition note">
+<p class="first admonition-title"><font id="4">{{s.4}}</font></p>
+<p class="last"><font id="5">{{s.5}}</font><font id="6">{{s.6}}</font></p>
+</div>
+<p><font id="7">{{s.7}}</font><font id="8">{{s.8}}</font><font id="9">{{s.9}}</font></p>
+<div class="admonition note">
+<p class="first admonition-title"><font id="10">{{s.10}}</font></p>
+<p><font id="11">{{s.11}}</font><font id="12">{{s.12}}</font><font id="13">{{s.13}}</font><font id="14">{{s.14}}</font></p>
+<ul class="last simple">
+<li><font id="15">{{s.15}}</font></li>
+<li><font id="16">{{s.16}}</font></li>
+<li><font id="17">{{s.17}}</font></li>
+<li><font id="18">{{s.18}}</font></li>
+</ul>
+</div>
+<dl class="function">
+<dt id="os.path.abspath">
+<tt class="descclassname">os.path.</tt><tt class="descname">abspath</tt><big>(</big><em>path</em><big>)</big><a class="headerlink" href="#os.path.abspath" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="19">{{s.19}}</font><font id="20">{{s.20}}</font></p>
+<p class="versionadded">
+<span class="versionmodified"><font id="21">{{s.21}}</font></span></p>
+</dd></dl>
+
+<dl class="function">
+<dt id="os.path.basename">
+<tt class="descclassname">os.path.</tt><tt class="descname">basename</tt><big>(</big><em>path</em><big>)</big><a class="headerlink" href="#os.path.basename" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="22">{{s.22}}</font><font id="23">{{s.23}}</font><font id="24">{{s.24}}</font><font id="25">{{s.25}}</font></p>
+</dd></dl>
+
+<dl class="function">
+<dt id="os.path.commonprefix">
+<tt class="descclassname">os.path.</tt><tt class="descname">commonprefix</tt><big>(</big><em>list</em><big>)</big><a class="headerlink" href="#os.path.commonprefix" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="26">{{s.26}}</font><font id="27">{{s.27}}</font><font id="28">{{s.28}}</font></p>
+</dd></dl>
+
+<dl class="function">
+<dt id="os.path.dirname">
+<tt class="descclassname">os.path.</tt><tt class="descname">dirname</tt><big>(</big><em>path</em><big>)</big><a class="headerlink" href="#os.path.dirname" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="29">{{s.29}}</font><font id="30">{{s.30}}</font></p>
+</dd></dl>
+
+<dl class="function">
+<dt id="os.path.exists">
+<tt class="descclassname">os.path.</tt><tt class="descname">exists</tt><big>(</big><em>path</em><big>)</big><a class="headerlink" href="#os.path.exists" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="31">{{s.31}}</font><font id="32">{{s.32}}</font><font id="33">{{s.33}}</font></p>
+</dd></dl>
+
+<dl class="function">
+<dt id="os.path.lexists">
+<tt class="descclassname">os.path.</tt><tt class="descname">lexists</tt><big>(</big><em>path</em><big>)</big><a class="headerlink" href="#os.path.lexists" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="34">{{s.34}}</font><font id="35">{{s.35}}</font><font id="36">{{s.36}}</font></p>
+<p class="versionadded">
+<span class="versionmodified"><font id="37">{{s.37}}</font></span></p>
+</dd></dl>
+
+<dl class="function">
+<dt id="os.path.expanduser">
+<tt class="descclassname">os.path.</tt><tt class="descname">expanduser</tt><big>(</big><em>path</em><big>)</big><a class="headerlink" href="#os.path.expanduser" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="38">{{s.38}}</font></p>
+<p id="index-1"><font id="39">{{s.39}}</font><font id="40">{{s.40}}</font><font id="41">{{s.41}}</font></p>
+<p><font id="42">{{s.42}}</font><font id="43">{{s.43}}</font></p>
+<p><font id="44">{{s.44}}</font></p>
+</dd></dl>
+
+<dl class="function">
+<dt id="os.path.expandvars">
+<tt class="descclassname">os.path.</tt><tt class="descname">expandvars</tt><big>(</big><em>path</em><big>)</big><a class="headerlink" href="#os.path.expandvars" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="45">{{s.45}}</font><font id="46">{{s.46}}</font><font id="47">{{s.47}}</font></p>
+<p><font id="48">{{s.48}}</font></p>
+</dd></dl>
+
+<dl class="function">
+<dt id="os.path.getatime">
+<tt class="descclassname">os.path.</tt><tt class="descname">getatime</tt><big>(</big><em>path</em><big>)</big><a class="headerlink" href="#os.path.getatime" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="49">{{s.49}}</font><font id="50">{{s.50}}</font><font id="51">{{s.51}}</font></p>
+<p class="versionadded">
+<span class="versionmodified"><font id="52">{{s.52}}</font></span></p>
+<p class="versionchanged">
+<span class="versionmodified"><font id="53">{{s.53}}</font></span><font id="54">{{s.54}}</font></p>
+</dd></dl>
+
+<dl class="function">
+<dt id="os.path.getmtime">
+<tt class="descclassname">os.path.</tt><tt class="descname">getmtime</tt><big>(</big><em>path</em><big>)</big><a class="headerlink" href="#os.path.getmtime" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="55">{{s.55}}</font><font id="56">{{s.56}}</font><font id="57">{{s.57}}</font><font id="58">{{s.58}}</font></p>
+<p class="versionadded">
+<span class="versionmodified"><font id="59">{{s.59}}</font></span></p>
+<p class="versionchanged">
+<span class="versionmodified"><font id="60">{{s.60}}</font></span><font id="61">{{s.61}}</font></p>
+</dd></dl>
+
+<dl class="function">
+<dt id="os.path.getctime">
+<tt class="descclassname">os.path.</tt><tt class="descname">getctime</tt><big>(</big><em>path</em><big>)</big><a class="headerlink" href="#os.path.getctime" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="62">{{s.62}}</font><font id="63">{{s.63}}</font><font id="64">{{s.64}}</font><font id="65">{{s.65}}</font></p>
+<p class="versionadded">
+<span class="versionmodified"><font id="66">{{s.66}}</font></span></p>
+</dd></dl>
+
+<dl class="function">
+<dt id="os.path.getsize">
+<tt class="descclassname">os.path.</tt><tt class="descname">getsize</tt><big>(</big><em>path</em><big>)</big><a class="headerlink" href="#os.path.getsize" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="67">{{s.67}}</font><font id="68">{{s.68}}</font></p>
+<p class="versionadded">
+<span class="versionmodified"><font id="69">{{s.69}}</font></span></p>
+</dd></dl>
+
+<dl class="function">
+<dt id="os.path.isabs">
+<tt class="descclassname">os.path.</tt><tt class="descname">isabs</tt><big>(</big><em>path</em><big>)</big><a class="headerlink" href="#os.path.isabs" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="70">{{s.70}}</font><font id="71">{{s.71}}</font></p>
+</dd></dl>
+
+<dl class="function">
+<dt id="os.path.isfile">
+<tt class="descclassname">os.path.</tt><tt class="descname">isfile</tt><big>(</big><em>path</em><big>)</big><a class="headerlink" href="#os.path.isfile" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="72">{{s.72}}</font><font id="73">{{s.73}}</font></p>
+</dd></dl>
+
+<dl class="function">
+<dt id="os.path.isdir">
+<tt class="descclassname">os.path.</tt><tt class="descname">isdir</tt><big>(</big><em>path</em><big>)</big><a class="headerlink" href="#os.path.isdir" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="74">{{s.74}}</font><font id="75">{{s.75}}</font></p>
+</dd></dl>
+
+<dl class="function">
+<dt id="os.path.islink">
+<tt class="descclassname">os.path.</tt><tt class="descname">islink</tt><big>(</big><em>path</em><big>)</big><a class="headerlink" href="#os.path.islink" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="76">{{s.76}}</font><font id="77">{{s.77}}</font></p>
+</dd></dl>
+
+<dl class="function">
+<dt id="os.path.ismount">
+<tt class="descclassname">os.path.</tt><tt class="descname">ismount</tt><big>(</big><em>path</em><big>)</big><a class="headerlink" href="#os.path.ismount" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="78">{{s.78}}</font><font id="79">{{s.79}}</font><font id="80">{{s.80}}</font><font id="81">{{s.81}}</font></p>
+</dd></dl>
+
+<dl class="function">
+<dt id="os.path.join">
+<tt class="descclassname">os.path.</tt><tt class="descname">join</tt><big>(</big><em>path1</em><span class="optional">[</span>, <em>path2</em><span class="optional">[</span>, <em>...</em><span class="optional">]</span><span class="optional">]</span><big>)</big><a class="headerlink" href="#os.path.join" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="82">{{s.82}}</font><font id="83">{{s.83}}</font><font id="84">{{s.84}}</font><font id="85">{{s.85}}</font><font id="86">{{s.86}}</font></p>
+</dd></dl>
+
+<dl class="function">
+<dt id="os.path.normcase">
+<tt class="descclassname">os.path.</tt><tt class="descname">normcase</tt><big>(</big><em>path</em><big>)</big><a class="headerlink" href="#os.path.normcase" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="87">{{s.87}}</font><font id="88">{{s.88}}</font><font id="89">{{s.89}}</font><font id="90">{{s.90}}</font></p>
+</dd></dl>
+
+<dl class="function">
+<dt id="os.path.normpath">
+<tt class="descclassname">os.path.</tt><tt class="descname">normpath</tt><big>(</big><em>path</em><big>)</big><a class="headerlink" href="#os.path.normpath" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="91">{{s.91}}</font><font id="92">{{s.92}}</font><font id="93">{{s.93}}</font><font id="94">{{s.94}}</font></p>
+</dd></dl>
+
+<dl class="function">
+<dt id="os.path.realpath">
+<tt class="descclassname">os.path.</tt><tt class="descname">realpath</tt><big>(</big><em>path</em><big>)</big><a class="headerlink" href="#os.path.realpath" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="95">{{s.95}}</font></p>
+<p class="versionadded">
+<span class="versionmodified"><font id="96">{{s.96}}</font></span></p>
+</dd></dl>
+
+<dl class="function">
+<dt id="os.path.relpath">
+<tt class="descclassname">os.path.</tt><tt class="descname">relpath</tt><big>(</big><em>path</em><span class="optional">[</span>, <em>start</em><span class="optional">]</span><big>)</big><a class="headerlink" href="#os.path.relpath" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="97">{{s.97}}</font><font id="98">{{s.98}}</font><font id="99">{{s.99}}</font></p>
+<p><font id="100">{{s.100}}</font></p>
+<p><font id="101">{{s.101}}</font></p>
+<p class="versionadded">
+<span class="versionmodified"><font id="102">{{s.102}}</font></span></p>
+</dd></dl>
+
+<dl class="function">
+<dt id="os.path.samefile">
+<tt class="descclassname">os.path.</tt><tt class="descname">samefile</tt><big>(</big><em>path1</em>, <em>path2</em><big>)</big><a class="headerlink" href="#os.path.samefile" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="103">{{s.103}}</font><font id="104">{{s.104}}</font></p>
+<p><font id="105">{{s.105}}</font></p>
+</dd></dl>
+
+<dl class="function">
+<dt id="os.path.sameopenfile">
+<tt class="descclassname">os.path.</tt><tt class="descname">sameopenfile</tt><big>(</big><em>fp1</em>, <em>fp2</em><big>)</big><a class="headerlink" href="#os.path.sameopenfile" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="106">{{s.106}}</font></p>
+<p><font id="107">{{s.107}}</font></p>
+</dd></dl>
+
+<dl class="function">
+<dt id="os.path.samestat">
+<tt class="descclassname">os.path.</tt><tt class="descname">samestat</tt><big>(</big><em>stat1</em>, <em>stat2</em><big>)</big><a class="headerlink" href="#os.path.samestat" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="108">{{s.108}}</font><font id="109">{{s.109}}</font><font id="110">{{s.110}}</font></p>
+<p><font id="111">{{s.111}}</font></p>
+</dd></dl>
+
+<dl class="function">
+<dt id="os.path.split">
+<tt class="descclassname">os.path.</tt><tt class="descname">split</tt><big>(</big><em>path</em><big>)</big><a class="headerlink" href="#os.path.split" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="112">{{s.112}}</font><font id="113">{{s.113}}</font><font id="114">{{s.114}}</font><font id="115">{{s.115}}</font><font id="116">{{s.116}}</font><font id="117">{{s.117}}</font><font id="118">{{s.118}}</font><font id="119">{{s.119}}</font></p>
+</dd></dl>
+
+<dl class="function">
+<dt id="os.path.splitdrive">
+<tt class="descclassname">os.path.</tt><tt class="descname">splitdrive</tt><big>(</big><em>path</em><big>)</big><a class="headerlink" href="#os.path.splitdrive" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="120">{{s.120}}</font><font id="121">{{s.121}}</font><font id="122">{{s.122}}</font></p>
+<p class="versionadded">
+<span class="versionmodified"><font id="123">{{s.123}}</font></span></p>
+</dd></dl>
+
+<dl class="function">
+<dt id="os.path.splitext">
+<tt class="descclassname">os.path.</tt><tt class="descname">splitext</tt><big>(</big><em>path</em><big>)</big><a class="headerlink" href="#os.path.splitext" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="124">{{s.124}}</font><font id="125">{{s.125}}</font></p>
+<p class="versionchanged"><font id="126">{{s.126}}</font></p>
+</dd></dl>
+
+<dl class="function">
+<dt id="os.path.splitunc">
+<tt class="descclassname">os.path.</tt><tt class="descname">splitunc</tt><big>(</big><em>path</em><big>)</big><a class="headerlink" href="#os.path.splitunc" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="127">{{s.127}}</font><font id="128">{{s.128}}</font></p>
+<p><font id="129">{{s.129}}</font></p>
+</dd></dl>
+
+<dl class="function">
+<dt id="os.path.walk">
+<tt class="descclassname">os.path.</tt><tt class="descname">walk</tt><big>(</big><em>path</em>, <em>visit</em>, <em>arg</em><big>)</big><a class="headerlink" href="#os.path.walk" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="130">{{s.130}}</font><font id="131">{{s.131}}</font><font id="132">{{s.132}}</font><font id="133">{{s.133}}</font></p>
+<div class="admonition note">
+<p class="first admonition-title"><font id="134">{{s.134}}</font></p>
+<p class="last"><font id="135">{{s.135}}</font><font id="136">{{s.136}}</font></p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title"><font id="137">{{s.137}}</font></p>
+<p class="last"><font id="138">{{s.138}}</font></p>
+</div>
+</dd></dl>
+
+<dl class="data">
+<dt id="os.path.supports_unicode_filenames">
+<tt class="descclassname">os.path.</tt><tt class="descname">supports_unicode_filenames</tt><a class="headerlink" href="#os.path.supports_unicode_filenames" title="Permalink to this definition">¶</a></dt>
+<dd><p><font id="139">{{s.139}}</font></p>
+<p class="versionadded">
+<span class="versionmodified"><font id="140">{{s.140}}</font></span></p>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>上一主题</h4>
+  <p class="topless"><a href="filesys.html"
+                        title="previous chapter"><font id="141">{{s.141}}</font></a></p>
+  <h4>下一主题</h4>
+  <p class="topless"><a href="fileinput.html"
+                        title="next chapter"><font id="142">{{s.142}}</font></a></p>
+<h3>当前页</h3>
+<ul class="this-page-menu">
+<li><a href="#" onclick="showOriginTexts();return false;">中英文对照</a></li>
+<li><a href="#" onclick="hideOriginTexts();return false;">中文</a></li>
+</ul>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>  
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >索引</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >目录</a> |</li>
+        <li class="right" >
+          <a href="fileinput.html" title="10.2. fileinput — Iterate over lines from multiple input streams"
+             >下一页</a> |</li>
+        <li class="right" >
+          <a href="filesys.html" title="10. File and Directory Access"
+             >上一页</a> |</li>
+        <li class="right">
+<a href="#" onclick="hideOriginTexts();return false;">中文</a> |</li>
+<li class="right">
+<a href="#" onclick="showOriginTexts();return false;">中英文对照</a> |</li>
+        <li><img src="../_static/py.png" alt=""
+                 style="vertical-align: middle; margin-top: -1px"/></li>
+        <li><a href="http://www.python.org/">Python</a> &raquo;</li>
+        <li>
+          <span class="version_switcher_placeholder">2.7.8</span>
+          <a href="../index.html">文档</a> &raquo;
+        </li>
+
+          <li><a href="index.html" >Python 标准库</a> &raquo;</li>
+          <li><a href="filesys.html" >10. File and Directory Access</a> &raquo;</li> 
+      </ul>
+    </div>  
+    
+     <br><div id="disqus_thread"></div>
+     
+    <div class="footer">
+    &copy; <a href="../copyright.html">Copyright</a> 1990-2014, Python Software Foundation.
+    <br />
+    The Python Software Foundation is a non-profit corporation.
+    <a href="http://www.python.org/psf/donations/">Please donate.</a>
+    <br />
+    Last updated on Jul 27, 2014.
+    <a href="../bugs.html">Found a bug</a>?
+    <br />
+    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+    
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'thepythontutorial2'; // required: replace example with your forum shortname
+    var disqus_identifier = '/python2/library/os.path';
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+<link href="../_static/ms_translator.css" rel="stylesheet" type="text/css"/>
+<script src="../_static/ms_translator.js" type="text/javascript"></script>
+{% include "python_278/ms_translator.html" %}
+  </body>
+</html>

@@ -1,0 +1,499 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<title>6. Simple statements — Python v2.7.8 documentation</title>
+<link href="../_static/default.css" rel="stylesheet" type="text/css"/>
+<link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '2.7.8',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+<script src="../_static/jquery.js" type="text/javascript"></script>
+<script src="../_static/underscore.js" type="text/javascript"></script>
+<script src="../_static/doctools.js" type="text/javascript"></script>
+<script src="../_static/sidebar.js" type="text/javascript"></script>
+<link href="../_static/opensearch.xml" rel="search" title="Search within Python v2.7.8 documentation" type="application/opensearchdescription+xml"/>
+<link href="../about.html" rel="author" title="About these documents"/>
+<link href="../copyright.html" rel="copyright" title="Copyright"/>
+<link href="../index.html" rel="top" title="Python v2.7.8 documentation"/>
+<link href="index.html" rel="up" title="The Python Language Reference"/>
+<link href="compound_stmts.html" rel="next" title="7. Compound statements"/>
+<link href="expressions.html" rel="prev" title="5. Expressions"/>
+<link href="../_static/py.png" rel="shortcut icon" type="image/png"/>
+<script src="../_static/copybutton.js" type="text/javascript"></script>
+<script src="../_static/version_switch.js" type="text/javascript"></script>
+</head>
+<body>
+<div class="related">
+<h3><font id="290">{{s.290}}</font></h3>
+<ul>
+<li class="right" style="margin-right: 10px">
+<a accesskey="I" href="../genindex.html" title="General Index"><font id="299">{{s.299}}</font></a></li>
+<li class="right">
+<a href="../py-modindex.html" title="Python Module Index"><font id="300">{{s.300}}</font></a> |</li>
+<li class="right">
+<a accesskey="N" href="compound_stmts.html" title="7. Compound statements"><font id="301">{{s.301}}</font></a> |</li>
+<li class="right">
+<a accesskey="P" href="expressions.html" title="5. Expressions"><font id="302">{{s.302}}</font></a> |</li>
+<li class="right">
+<a href="#" onclick="hideOriginTexts();return false;">中文</a> |</li>
+<li class="right">
+<a href="#" onclick="showOriginTexts();return false;">中英文对照</a> |</li>
+<li><img alt="" src="../_static/py.png" style="vertical-align: middle; margin-top: -1px"/></li>
+<li><a href="http://www.python.org/"><font id="303">{{s.303}}</font></a> »</li>
+<li>
+<span class="version_switcher_placeholder">2.7.8</span>
+<a href="../index.html"><font id="304">{{s.304}}</font></a> »
+        </li>
+<li><a accesskey="U" href="index.html"><font id="305">{{s.305}}</font></a> »</li>
+</ul>
+</div>
+<div class="document">
+<div class="documentwrapper">
+<div class="bodywrapper">
+<div class="body">
+<div class="section" id="simple-statements">
+<span id="simple"></span><h1><font id="275">{{s.275}}</font><a class="headerlink" href="#simple-statements" title="Permalink to this headline">¶</a></h1>
+<p id="index-0"><font id="1">{{s.1}}</font><font id="2">{{s.2}}</font><font id="3">{{s.3}}</font></p>
+<pre>
+<strong id="grammar-token-simple_stmt">simple_stmt</strong> ::=  <a class="reference internal" href="#grammar-token-expression_stmt"><tt class="xref docutils literal"><span class="pre">expression_stmt</span></tt></a>
+                 | <a class="reference internal" href="#grammar-token-assert_stmt"><tt class="xref docutils literal"><span class="pre">assert_stmt</span></tt></a>
+                 | <a class="reference internal" href="#grammar-token-assignment_stmt"><tt class="xref docutils literal"><span class="pre">assignment_stmt</span></tt></a>
+                 | <a class="reference internal" href="#grammar-token-augmented_assignment_stmt"><tt class="xref docutils literal"><span class="pre">augmented_assignment_stmt</span></tt></a>
+                 | <a class="reference internal" href="#grammar-token-pass_stmt"><tt class="xref docutils literal"><span class="pre">pass_stmt</span></tt></a>
+                 | <a class="reference internal" href="#grammar-token-del_stmt"><tt class="xref docutils literal"><span class="pre">del_stmt</span></tt></a>
+                 | <a class="reference internal" href="#grammar-token-print_stmt"><tt class="xref docutils literal"><span class="pre">print_stmt</span></tt></a>
+                 | <a class="reference internal" href="#grammar-token-return_stmt"><tt class="xref docutils literal"><span class="pre">return_stmt</span></tt></a>
+                 | <a class="reference internal" href="#grammar-token-yield_stmt"><tt class="xref docutils literal"><span class="pre">yield_stmt</span></tt></a>
+                 | <a class="reference internal" href="#grammar-token-raise_stmt"><tt class="xref docutils literal"><span class="pre">raise_stmt</span></tt></a>
+                 | <a class="reference internal" href="#grammar-token-break_stmt"><tt class="xref docutils literal"><span class="pre">break_stmt</span></tt></a>
+                 | <a class="reference internal" href="#grammar-token-continue_stmt"><tt class="xref docutils literal"><span class="pre">continue_stmt</span></tt></a>
+                 | <a class="reference internal" href="#grammar-token-import_stmt"><tt class="xref docutils literal"><span class="pre">import_stmt</span></tt></a>
+                 | <a class="reference internal" href="#grammar-token-global_stmt"><tt class="xref docutils literal"><span class="pre">global_stmt</span></tt></a>
+                 | <a class="reference internal" href="#grammar-token-exec_stmt"><tt class="xref docutils literal"><span class="pre">exec_stmt</span></tt></a>
+</pre>
+<div class="section" id="expression-statements">
+<span id="exprstmts"></span><h2><font id="276">{{s.276}}</font><a class="headerlink" href="#expression-statements" title="Permalink to this headline">¶</a></h2>
+<p id="index-1"><font id="4">{{s.4}}</font><font id="5">{{s.5}}</font><font id="6">{{s.6}}</font></p>
+<pre>
+<strong id="grammar-token-expression_stmt">expression_stmt</strong> ::=  <a class="reference internal" href="expressions.html#grammar-token-expression_list"><tt class="xref docutils literal"><span class="pre">expression_list</span></tt></a>
+</pre>
+<p><font id="7">{{s.7}}</font></p>
+<p id="index-2"><font id="8">{{s.8}}</font><font id="9">{{s.9}}</font></p>
+</div>
+<div class="section" id="assignment-statements">
+<span id="assignment"></span><h2><font id="277">{{s.277}}</font><a class="headerlink" href="#assignment-statements" title="Permalink to this headline">¶</a></h2>
+<p id="index-3"><font id="10">{{s.10}}</font></p>
+<pre>
+<strong id="grammar-token-assignment_stmt">assignment_stmt</strong> ::=  (<a class="reference internal" href="#grammar-token-target_list"><tt class="xref docutils literal"><span class="pre">target_list</span></tt></a> "=")+ (<a class="reference internal" href="expressions.html#grammar-token-expression_list"><tt class="xref docutils literal"><span class="pre">expression_list</span></tt></a> | <a class="reference internal" href="expressions.html#grammar-token-yield_expression"><tt class="xref docutils literal"><span class="pre">yield_expression</span></tt></a>)
+<strong id="grammar-token-target_list">target_list    </strong> ::=  <a class="reference internal" href="#grammar-token-target"><tt class="xref docutils literal"><span class="pre">target</span></tt></a> ("," <a class="reference internal" href="#grammar-token-target"><tt class="xref docutils literal"><span class="pre">target</span></tt></a>)* [","]
+<strong id="grammar-token-target">target         </strong> ::=  <a class="reference internal" href="lexical_analysis.html#grammar-token-identifier"><tt class="xref docutils literal"><span class="pre">identifier</span></tt></a>
+                     | "(" <a class="reference internal" href="#grammar-token-target_list"><tt class="xref docutils literal"><span class="pre">target_list</span></tt></a> ")"
+                     | "[" <a class="reference internal" href="#grammar-token-target_list"><tt class="xref docutils literal"><span class="pre">target_list</span></tt></a> "]"
+                     | <a class="reference internal" href="expressions.html#grammar-token-attributeref"><tt class="xref docutils literal"><span class="pre">attributeref</span></tt></a>
+                     | <a class="reference internal" href="expressions.html#grammar-token-subscription"><tt class="xref docutils literal"><span class="pre">subscription</span></tt></a>
+                     | <a class="reference internal" href="expressions.html#grammar-token-slicing"><tt class="xref docutils literal"><span class="pre">slicing</span></tt></a>
+</pre>
+<p><font id="11">{{s.11}}</font></p>
+<p id="index-4"><font id="12">{{s.12}}</font></p>
+<p id="index-5"><font id="13">{{s.13}}</font><font id="14">{{s.14}}</font><font id="15">{{s.15}}</font></p>
+<p id="index-6"><font id="16">{{s.16}}</font></p>
+<ul class="simple">
+<li><font id="334">{{s.334}}</font></li>
+<li><font id="335">{{s.335}}</font></li>
+</ul>
+<p><font id="17">{{s.17}}</font></p>
+<ul>
+<li><p class="first"><font id="18">{{s.18}}</font></p>
+<blockquote>
+<div></div></blockquote>
+<ul class="simple" id="index-7">
+<li><font id="336">{{s.336}}</font></li>
+<li><font id="337">{{s.337}}</font></li>
+</ul>
+<p id="index-8"><font id="19">{{s.19}}</font><font id="20">{{s.20}}</font></p>
+</li>
+<li><p class="first"><font id="21">{{s.21}}</font></p>
+</li>
+<li id="index-9"><p class="first"><font id="22">{{s.22}}</font><font id="23">{{s.23}}</font><font id="24">{{s.24}}</font><font id="25">{{s.25}}</font><font id="26">{{s.26}}</font></p>
+<p id="attr-target-note"><font id="27">{{s.27}}</font><font id="28">{{s.28}}</font><font id="29">{{s.29}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">Cls</span><span class="p">:</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="mi">3</span>             <span class="c"># class variable</span>
+<span class="n">inst</span> <span class="o">=</span> <span class="n">Cls</span><span class="p">()</span>
+<span class="n">inst</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">inst</span><span class="o">.</span><span class="n">x</span> <span class="o">+</span> <span class="mi">1</span>   <span class="c"># writes inst.x as 4 leaving Cls.x as 3</span>
+</pre></div>
+</div>
+<p><font id="30">{{s.30}}</font></p>
+</li>
+<li id="index-10"><p class="first"><font id="31">{{s.31}}</font><font id="32">{{s.32}}</font><font id="33">{{s.33}}</font></p>
+<p id="index-11"><font id="34">{{s.34}}</font><font id="35">{{s.35}}</font><font id="36">{{s.36}}</font><font id="37">{{s.37}}</font></p>
+<p id="index-12"><font id="38">{{s.38}}</font><font id="39">{{s.39}}</font></p>
+</li>
+<li id="index-13"><p class="first"><font id="40">{{s.40}}</font><font id="41">{{s.41}}</font><font id="42">{{s.42}}</font><font id="43">{{s.43}}</font><font id="44">{{s.44}}</font><font id="45">{{s.45}}</font><font id="46">{{s.46}}</font><font id="47">{{s.47}}</font><font id="48">{{s.48}}</font><font id="49">{{s.49}}</font></p>
+</li>
+</ul>
+<div class="impl-detail compound">
+<p><font id="50">{{s.50}}</font><font id="51">{{s.51}}</font></p>
+</div>
+<p><font id="52">{{s.52}}</font><font id="53">{{s.53}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+<span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">i</span><span class="p">,</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span>
+<span class="k">print</span> <span class="n">x</span>
+</pre></div>
+</div>
+<div class="section" id="augmented-assignment-statements">
+<span id="augassign"></span><h3><font id="291">{{s.291}}</font><a class="headerlink" href="#augmented-assignment-statements" title="Permalink to this headline">¶</a></h3>
+<p id="index-14"><font id="54">{{s.54}}</font></p>
+<pre>
+<strong id="grammar-token-augmented_assignment_stmt">augmented_assignment_stmt</strong> ::=  <a class="reference internal" href="#grammar-token-augtarget"><tt class="xref docutils literal"><span class="pre">augtarget</span></tt></a> <a class="reference internal" href="#grammar-token-augop"><tt class="xref docutils literal"><span class="pre">augop</span></tt></a> (<a class="reference internal" href="expressions.html#grammar-token-expression_list"><tt class="xref docutils literal"><span class="pre">expression_list</span></tt></a> | <a class="reference internal" href="expressions.html#grammar-token-yield_expression"><tt class="xref docutils literal"><span class="pre">yield_expression</span></tt></a>)
+<strong id="grammar-token-augtarget">augtarget                </strong> ::=  <a class="reference internal" href="lexical_analysis.html#grammar-token-identifier"><tt class="xref docutils literal"><span class="pre">identifier</span></tt></a> | <a class="reference internal" href="expressions.html#grammar-token-attributeref"><tt class="xref docutils literal"><span class="pre">attributeref</span></tt></a> | <a class="reference internal" href="expressions.html#grammar-token-subscription"><tt class="xref docutils literal"><span class="pre">subscription</span></tt></a> | <a class="reference internal" href="expressions.html#grammar-token-slicing"><tt class="xref docutils literal"><span class="pre">slicing</span></tt></a>
+<strong id="grammar-token-augop">augop                    </strong> ::=  "+=" | "-=" | "*=" | "/=" | "//=" | "%=" | "**="
+                               | "&gt;&gt;=" | "&lt;&lt;=" | "&amp;=" | "^=" | "|="
+</pre>
+<p><font id="55">{{s.55}}</font></p>
+<p><font id="56">{{s.56}}</font><font id="57">{{s.57}}</font></p>
+<p><font id="58">{{s.58}}</font><font id="59">{{s.59}}</font><font id="60">{{s.60}}</font></p>
+<p><font id="61">{{s.61}}</font><font id="62">{{s.62}}</font></p>
+<p><font id="63">{{s.63}}</font></p>
+</div>
+</div>
+<div class="section" id="the-assert-statement">
+<span id="assert"></span><h2><font id="278">{{s.278}}</font></h2>
+<p id="index-15"><font id="64">{{s.64}}</font></p>
+<pre>
+<strong id="grammar-token-assert_stmt">assert_stmt</strong> ::=  "assert" <a class="reference internal" href="expressions.html#grammar-token-expression"><tt class="xref docutils literal"><span class="pre">expression</span></tt></a> ["," <a class="reference internal" href="expressions.html#grammar-token-expression"><tt class="xref docutils literal"><span class="pre">expression</span></tt></a>]
+</pre>
+<p><font id="65">{{s.65}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">if</span> <span class="n">__debug__</span><span class="p">:</span>
+   <span class="k">if</span> <span class="ow">not</span> <span class="n">expression</span><span class="p">:</span> <span class="k">raise</span> <span class="ne">AssertionError</span>
+</pre></div>
+</div>
+<p><font id="66">{{s.66}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">if</span> <span class="n">__debug__</span><span class="p">:</span>
+   <span class="k">if</span> <span class="ow">not</span> <span class="n">expression1</span><span class="p">:</span> <span class="k">raise</span> <span class="ne">AssertionError</span><span class="p">(</span><span class="n">expression2</span><span class="p">)</span>
+</pre></div>
+</div>
+<p id="index-16"><font id="67">{{s.67}}</font><font id="68">{{s.68}}</font><font id="69">{{s.69}}</font><font id="70">{{s.70}}</font><font id="71">{{s.71}}</font></p>
+<p><font id="72">{{s.72}}</font><font id="73">{{s.73}}</font></p>
+</div>
+<div class="section" id="the-pass-statement">
+<span id="pass"></span><h2><font id="279">{{s.279}}</font></h2>
+<pre id="index-17">
+<strong id="grammar-token-pass_stmt">pass_stmt</strong> ::=  "pass"
+</pre>
+<p><font id="74">{{s.74}}</font><font id="75">{{s.75}}</font></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">arg</span><span class="p">):</span> <span class="k">pass</span>    <span class="c"># a function that does nothing (yet)</span>
+
+<span class="k">class</span> <span class="nc">C</span><span class="p">:</span> <span class="k">pass</span>       <span class="c"># a class with no methods (yet)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="the-del-statement">
+<span id="del"></span><h2><font id="280">{{s.280}}</font></h2>
+<pre id="index-18">
+<strong id="grammar-token-del_stmt">del_stmt</strong> ::=  "del" <a class="reference internal" href="#grammar-token-target_list"><tt class="xref docutils literal"><span class="pre">target_list</span></tt></a>
+</pre>
+<p><font id="76">{{s.76}}</font><font id="77">{{s.77}}</font></p>
+<p><font id="78">{{s.78}}</font></p>
+<p id="index-19"><font id="79">{{s.79}}</font><font id="80">{{s.80}}</font></p>
+<p id="index-20"><font id="81">{{s.81}}</font></p>
+<p id="index-21"><font id="82">{{s.82}}</font><font id="83">{{s.83}}</font></p>
+</div>
+<div class="section" id="the-print-statement">
+<span id="print"></span><h2><font id="281">{{s.281}}</font></h2>
+<pre id="index-22">
+<strong id="grammar-token-print_stmt">print_stmt</strong> ::=  "print" ([<a class="reference internal" href="expressions.html#grammar-token-expression"><tt class="xref docutils literal"><span class="pre">expression</span></tt></a> ("," <a class="reference internal" href="expressions.html#grammar-token-expression"><tt class="xref docutils literal"><span class="pre">expression</span></tt></a>)* [","]]
+                | "&gt;&gt;" <a class="reference internal" href="expressions.html#grammar-token-expression"><tt class="xref docutils literal"><span class="pre">expression</span></tt></a> [("," <a class="reference internal" href="expressions.html#grammar-token-expression"><tt class="xref docutils literal"><span class="pre">expression</span></tt></a>)+ [","]])
+</pre>
+<p><font id="84">{{s.84}}</font><font id="85">{{s.85}}</font><font id="86">{{s.86}}</font><font id="87">{{s.87}}</font><font id="88">{{s.88}}</font><font id="89">{{s.89}}</font></p>
+<div class="admonition note">
+<p class="first admonition-title"><font id="90">{{s.90}}</font></p>
+<p class="last"><font id="91">{{s.91}}</font></p>
+</div>
+<p id="index-23"><font id="92">{{s.92}}</font><font id="93">{{s.93}}</font></p>
+<p id="index-24"><font id="94">{{s.94}}</font><font id="95">{{s.95}}</font></p>
+<p id="index-25"><font id="96">{{s.96}}</font><font id="97">{{s.97}}</font><font id="98">{{s.98}}</font><font id="99">{{s.99}}</font><font id="100">{{s.100}}</font></p>
+</div>
+<div class="section" id="the-return-statement">
+<span id="return"></span><h2><font id="282">{{s.282}}</font></h2>
+<pre id="index-26">
+<strong id="grammar-token-return_stmt">return_stmt</strong> ::=  "return" [<a class="reference internal" href="expressions.html#grammar-token-expression_list"><tt class="xref docutils literal"><span class="pre">expression_list</span></tt></a>]
+</pre>
+<p><font id="101">{{s.101}}</font></p>
+<p><font id="102">{{s.102}}</font></p>
+<p><font id="103">{{s.103}}</font></p>
+<p id="index-27"><font id="104">{{s.104}}</font></p>
+<p><font id="105">{{s.105}}</font><font id="106">{{s.106}}</font></p>
+</div>
+<div class="section" id="the-yield-statement">
+<span id="yield"></span><h2><font id="283">{{s.283}}</font></h2>
+<pre id="index-28">
+<strong id="grammar-token-yield_stmt">yield_stmt</strong> ::=  <a class="reference internal" href="expressions.html#grammar-token-yield_expression"><tt class="xref docutils literal"><span class="pre">yield_expression</span></tt></a>
+</pre>
+<p><font id="107">{{s.107}}</font><font id="108">{{s.108}}</font></p>
+<p><font id="109">{{s.109}}</font><font id="110">{{s.110}}</font></p>
+<p><font id="111">{{s.111}}</font><font id="112">{{s.112}}</font></p>
+<p><font id="113">{{s.113}}</font><font id="114">{{s.114}}</font><font id="115">{{s.115}}</font></p>
+<p><font id="116">{{s.116}}</font></p>
+<div class="admonition note">
+<p class="first admonition-title"><font id="117">{{s.117}}</font></p>
+<p><font id="118">{{s.118}}</font><font id="119">{{s.119}}</font></p>
+<div class="last highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">generators</span>
+</pre></div>
+</div>
+</div>
+<div class="admonition-see-also admonition seealso">
+<p class="first admonition-title"><font id="120">{{s.120}}</font></p>
+<dl class="last docutils">
+<dt><span class="target" id="index-29"></span><a class="pep reference external" href="http://www.python.org/dev/peps/pep-0255"><strong>PEP 0255</strong></a> - Simple Generators</dt>
+<dd>The proposal for adding generators and the <a class="reference internal" href="#yield"><tt class="xref std std-keyword docutils literal"><span class="pre">yield</span></tt></a> statement to Python.</dd>
+<dt><span class="target" id="index-30"></span><a class="pep reference external" href="http://www.python.org/dev/peps/pep-0342"><strong>PEP 0342</strong></a> - Coroutines via Enhanced Generators</dt>
+<dd>The proposal that, among other generator enhancements, proposed allowing
+<a class="reference internal" href="#yield"><tt class="xref std std-keyword docutils literal"><span class="pre">yield</span></tt></a> to appear inside a <a class="reference internal" href="compound_stmts.html#try"><tt class="xref std std-keyword docutils literal"><span class="pre">try</span></tt></a> ... <a class="reference internal" href="compound_stmts.html#finally"><tt class="xref std std-keyword docutils literal"><span class="pre">finally</span></tt></a> block.</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="the-raise-statement">
+<span id="raise"></span><h2><font id="284">{{s.284}}</font></h2>
+<pre id="index-31">
+<strong id="grammar-token-raise_stmt">raise_stmt</strong> ::=  "raise" [<a class="reference internal" href="expressions.html#grammar-token-expression"><tt class="xref docutils literal"><span class="pre">expression</span></tt></a> ["," <a class="reference internal" href="expressions.html#grammar-token-expression"><tt class="xref docutils literal"><span class="pre">expression</span></tt></a> ["," <a class="reference internal" href="expressions.html#grammar-token-expression"><tt class="xref docutils literal"><span class="pre">expression</span></tt></a>]]]
+</pre>
+<p><font id="121">{{s.121}}</font><font id="122">{{s.122}}</font></p>
+<p><font id="123">{{s.123}}</font><font id="124">{{s.124}}</font></p>
+<p><font id="125">{{s.125}}</font></p>
+<p><font id="126">{{s.126}}</font><font id="127">{{s.127}}</font><font id="128">{{s.128}}</font><font id="129">{{s.129}}</font><font id="130">{{s.130}}</font></p>
+<p id="index-32"><font id="131">{{s.131}}</font><font id="132">{{s.132}}</font><font id="133">{{s.133}}</font></p>
+<p><font id="134">{{s.134}}</font></p>
+</div>
+<div class="section" id="the-break-statement">
+<span id="break"></span><h2><font id="285">{{s.285}}</font></h2>
+<pre id="index-33">
+<strong id="grammar-token-break_stmt">break_stmt</strong> ::=  "break"
+</pre>
+<p><font id="135">{{s.135}}</font></p>
+<p id="index-34"><font id="136">{{s.136}}</font></p>
+<p id="index-35"><font id="137">{{s.137}}</font></p>
+<p id="index-36"><font id="138">{{s.138}}</font></p>
+</div>
+<div class="section" id="the-continue-statement">
+<span id="continue"></span><h2><font id="286">{{s.286}}</font></h2>
+<pre id="index-37">
+<strong id="grammar-token-continue_stmt">continue_stmt</strong> ::=  "continue"
+</pre>
+<p><font id="139">{{s.139}}</font><font id="140">{{s.140}}</font></p>
+<p><font id="141">{{s.141}}</font></p>
+</div>
+<div class="section" id="the-import-statement">
+<span id="from"></span><span id="import"></span><h2><font id="287">{{s.287}}</font></h2>
+<pre id="index-38">
+<strong id="grammar-token-import_stmt">import_stmt    </strong> ::=  "import" <a class="reference internal" href="#grammar-token-module"><tt class="xref docutils literal"><span class="pre">module</span></tt></a> ["as" <a class="reference internal" href="#grammar-token-name"><tt class="xref docutils literal"><span class="pre">name</span></tt></a>] ( "," <a class="reference internal" href="#grammar-token-module"><tt class="xref docutils literal"><span class="pre">module</span></tt></a> ["as" <a class="reference internal" href="#grammar-token-name"><tt class="xref docutils literal"><span class="pre">name</span></tt></a>] )*
+                     | "from" <a class="reference internal" href="#grammar-token-relative_module"><tt class="xref docutils literal"><span class="pre">relative_module</span></tt></a> "import" <a class="reference internal" href="lexical_analysis.html#grammar-token-identifier"><tt class="xref docutils literal"><span class="pre">identifier</span></tt></a> ["as" <a class="reference internal" href="#grammar-token-name"><tt class="xref docutils literal"><span class="pre">name</span></tt></a>]
+                     ( "," <a class="reference internal" href="lexical_analysis.html#grammar-token-identifier"><tt class="xref docutils literal"><span class="pre">identifier</span></tt></a> ["as" <a class="reference internal" href="#grammar-token-name"><tt class="xref docutils literal"><span class="pre">name</span></tt></a>] )*
+                     | "from" <a class="reference internal" href="#grammar-token-relative_module"><tt class="xref docutils literal"><span class="pre">relative_module</span></tt></a> "import" "(" <a class="reference internal" href="lexical_analysis.html#grammar-token-identifier"><tt class="xref docutils literal"><span class="pre">identifier</span></tt></a> ["as" <a class="reference internal" href="#grammar-token-name"><tt class="xref docutils literal"><span class="pre">name</span></tt></a>]
+                     ( "," <a class="reference internal" href="lexical_analysis.html#grammar-token-identifier"><tt class="xref docutils literal"><span class="pre">identifier</span></tt></a> ["as" <a class="reference internal" href="#grammar-token-name"><tt class="xref docutils literal"><span class="pre">name</span></tt></a>] )* [","] ")"
+                     | "from" <a class="reference internal" href="#grammar-token-module"><tt class="xref docutils literal"><span class="pre">module</span></tt></a> "import" "*"
+<strong id="grammar-token-module">module         </strong> ::=  (<a class="reference internal" href="lexical_analysis.html#grammar-token-identifier"><tt class="xref docutils literal"><span class="pre">identifier</span></tt></a> ".")* <a class="reference internal" href="lexical_analysis.html#grammar-token-identifier"><tt class="xref docutils literal"><span class="pre">identifier</span></tt></a>
+<strong id="grammar-token-relative_module">relative_module</strong> ::=  "."* <a class="reference internal" href="#grammar-token-module"><tt class="xref docutils literal"><span class="pre">module</span></tt></a> | "."+
+<strong id="grammar-token-name">name           </strong> ::=  <a class="reference internal" href="lexical_analysis.html#grammar-token-identifier"><tt class="xref docutils literal"><span class="pre">identifier</span></tt></a>
+</pre>
+<p><font id="142">{{s.142}}</font><font id="143">{{s.143}}</font><font id="144">{{s.144}}</font><font id="145">{{s.145}}</font><font id="146">{{s.146}}</font></p>
+<p id="index-39"><font id="147">{{s.147}}</font><font id="148">{{s.148}}</font><font id="149">{{s.149}}</font><font id="150">{{s.150}}</font><font id="151">{{s.151}}</font></p>
+<p id="index-40"><font id="152">{{s.152}}</font><font id="153">{{s.153}}</font><font id="154">{{s.154}}</font></p>
+<p id="index-41"><font id="155">{{s.155}}</font><font id="156">{{s.156}}</font><font id="157">{{s.157}}</font><font id="158">{{s.158}}</font></p>
+<p id="index-43"><font id="159">{{s.159}}</font><font id="160">{{s.160}}</font><font id="161">{{s.161}}</font></p>
+<p><font id="162">{{s.162}}</font><font id="163">{{s.163}}</font><font id="164">{{s.164}}</font></p>
+<p><font id="165">{{s.165}}</font><font id="166">{{s.166}}</font><font id="167">{{s.167}}</font><font id="168">{{s.168}}</font><font id="169">{{s.169}}</font><font id="170">{{s.170}}</font></p>
+<p id="index-44"><font id="171">{{s.171}}</font><font id="172">{{s.172}}</font><font id="173">{{s.173}}</font><font id="174">{{s.174}}</font><font id="175">{{s.175}}</font><font id="176">{{s.176}}</font><font id="177">{{s.177}}</font></p>
+<p id="index-46"><font id="178">{{s.178}}</font><font id="179">{{s.179}}</font><font id="180">{{s.180}}</font><font id="181">{{s.181}}</font><font id="182">{{s.182}}</font><font id="183">{{s.183}}</font></p>
+<p id="index-47"><font id="184">{{s.184}}</font><font id="185">{{s.185}}</font></p>
+<p><font id="186">{{s.186}}</font></p>
+<p><font id="187">{{s.187}}</font><font id="188">{{s.188}}</font></p>
+<p id="index-48"><font id="189">{{s.189}}</font><font id="190">{{s.190}}</font><font id="191">{{s.191}}</font><font id="192">{{s.192}}</font></p>
+<p id="index-49"><font id="193">{{s.193}}</font><font id="194">{{s.194}}</font><font id="195">{{s.195}}</font><font id="196">{{s.196}}</font><font id="197">{{s.197}}</font><font id="198">{{s.198}}</font></p>
+<p><font id="199">{{s.199}}</font><font id="200">{{s.200}}</font></p>
+<p id="index-50"><font id="201">{{s.201}}</font><font id="202">{{s.202}}</font><font id="203">{{s.203}}</font><font id="204">{{s.204}}</font><font id="205">{{s.205}}</font><font id="206">{{s.206}}</font><font id="207">{{s.207}}</font><font id="208">{{s.208}}</font><font id="209">{{s.209}}</font><font id="210">{{s.210}}</font><font id="211">{{s.211}}</font><font id="212">{{s.212}}</font><font id="213">{{s.213}}</font></p>
+<p><font id="214">{{s.214}}</font></p>
+<div class="section" id="future-statements">
+<span id="future"></span><h3><font id="292">{{s.292}}</font><a class="headerlink" href="#future-statements" title="Permalink to this headline">¶</a></h3>
+<p id="index-52"><font id="215">{{s.215}}</font><font id="216">{{s.216}}</font><font id="217">{{s.217}}</font></p>
+<pre>
+<strong id="grammar-token-future_statement">future_statement</strong> ::=  "from" "__future__" "import" feature ["as" name]
+                      ("," feature ["as" name])*
+                      | "from" "__future__" "import" "(" feature ["as" name]
+                      ("," feature ["as" name])* [","] ")"
+<strong id="grammar-token-feature">feature         </strong> ::=  identifier
+<strong id="id1">name            </strong> ::=  identifier
+</pre>
+<p><font id="218">{{s.218}}</font><font id="219">{{s.219}}</font></p>
+<ul class="simple">
+<li>the module docstring (if any),</li>
+<li>comments,</li>
+<li>blank lines, and</li>
+<li>other future statements.</li>
+</ul>
+<p><font id="220">{{s.220}}</font><font id="221">{{s.221}}</font></p>
+<p><font id="222">{{s.222}}</font><font id="223">{{s.223}}</font><font id="224">{{s.224}}</font></p>
+<p><font id="225">{{s.225}}</font></p>
+<p><font id="226">{{s.226}}</font></p>
+<p><font id="227">{{s.227}}</font></p>
+<p><font id="228">{{s.228}}</font></p>
+<div class="highlight-python"><pre>import __future__ [as name]</pre>
+</div>
+<p><font id="229">{{s.229}}</font><font id="230">{{s.230}}</font></p>
+<p><font id="231">{{s.231}}</font><font id="232">{{s.232}}</font></p>
+<p><font id="233">{{s.233}}</font><font id="234">{{s.234}}</font></p>
+<div class="admonition-see-also admonition seealso">
+<p class="first admonition-title"><font id="235">{{s.235}}</font></p>
+<dl class="last docutils">
+<dt><span class="target" id="index-53"></span><a class="pep reference external" href="http://www.python.org/dev/peps/pep-0236"><strong>PEP 236</strong></a> - Back to the __future__</dt>
+<dd>The original proposal for the __future__ mechanism.</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="section" id="the-global-statement">
+<span id="global"></span><h2><font id="288">{{s.288}}</font></h2>
+<pre id="index-54">
+<strong id="grammar-token-global_stmt">global_stmt</strong> ::=  "global" <a class="reference internal" href="lexical_analysis.html#grammar-token-identifier"><tt class="xref docutils literal"><span class="pre">identifier</span></tt></a> ("," <a class="reference internal" href="lexical_analysis.html#grammar-token-identifier"><tt class="xref docutils literal"><span class="pre">identifier</span></tt></a>)*
+</pre>
+<p><font id="236">{{s.236}}</font><font id="237">{{s.237}}</font><font id="238">{{s.238}}</font></p>
+<p><font id="239">{{s.239}}</font></p>
+<p><font id="240">{{s.240}}</font></p>
+<div class="impl-detail compound">
+<p><font id="241">{{s.241}}</font><font id="242">{{s.242}}</font></p>
+</div>
+<p id="index-55"><font id="243">{{s.243}}</font><font id="244">{{s.244}}</font><font id="245">{{s.245}}</font><font id="246">{{s.246}}</font></p>
+</div>
+<div class="section" id="the-exec-statement">
+<span id="exec"></span><h2><font id="289">{{s.289}}</font></h2>
+<pre id="index-56">
+<strong id="grammar-token-exec_stmt">exec_stmt</strong> ::=  "exec" <a class="reference internal" href="expressions.html#grammar-token-or_expr"><tt class="xref docutils literal"><span class="pre">or_expr</span></tt></a> ["in" <a class="reference internal" href="expressions.html#grammar-token-expression"><tt class="xref docutils literal"><span class="pre">expression</span></tt></a> ["," <a class="reference internal" href="expressions.html#grammar-token-expression"><tt class="xref docutils literal"><span class="pre">expression</span></tt></a>]]
+</pre>
+<p><font id="247">{{s.247}}</font><font id="248">{{s.248}}</font><font id="249">{{s.249}}</font><font id="250">{{s.250}}</font><font id="251">{{s.251}}</font><font id="252">{{s.252}}</font><font id="253">{{s.253}}</font><font id="254">{{s.254}}</font></p>
+<p><font id="255">{{s.255}}</font><font id="256">{{s.256}}</font><font id="257">{{s.257}}</font><font id="258">{{s.258}}</font><font id="259">{{s.259}}</font><font id="260">{{s.260}}</font></p>
+<p><font id="261">{{s.261}}</font><font id="262">{{s.262}}</font><font id="263">{{s.263}}</font><font id="264">{{s.264}}</font></p>
+<p class="versionchanged"><font id="265">{{s.265}}</font><font id="266">{{s.266}}</font></p>
+<p id="index-57"><font id="267">{{s.267}}</font><font id="268">{{s.268}}</font></p>
+<p id="index-58"><font id="269">{{s.269}}</font><font id="270">{{s.270}}</font></p>
+<p class="rubric"><font id="271">{{s.271}}</font></p>
+<table class="docutils footnote" frame="void" id="id3" rules="none">
+<colgroup><col class="label"></col><col></col></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id2">[1]</a></td><td>Note that the parser only accepts the Unix-style end of line convention.
+If you are reading the code from a file, make sure to use
+<a class="reference internal" href="../glossary.html#term-universal-newlines"><em class="xref std std-term">universal newlines</em></a> mode to convert Windows or Mac-style newlines.</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sphinxsidebar">
+<div class="sphinxsidebarwrapper">
+<h3><font id="293">{{s.293}}</font></h3>
+<ul>
+<li><a class="reference internal" href="#"><font id="308">{{s.308}}</font></a><ul>
+<li><a class="reference internal" href="#expression-statements"><font id="309">{{s.309}}</font></a></li>
+<li><a class="reference internal" href="#assignment-statements"><font id="310">{{s.310}}</font></a><ul>
+<li><a class="reference internal" href="#augmented-assignment-statements"><font id="311">{{s.311}}</font></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#the-assert-statement"><font id="312">{{s.312}}</font></a></li>
+<li><a class="reference internal" href="#the-pass-statement"><font id="313">{{s.313}}</font></a></li>
+<li><a class="reference internal" href="#the-del-statement"><font id="314">{{s.314}}</font></a></li>
+<li><a class="reference internal" href="#the-print-statement"><font id="315">{{s.315}}</font></a></li>
+<li><a class="reference internal" href="#the-return-statement"><font id="316">{{s.316}}</font></a></li>
+<li><a class="reference internal" href="#the-yield-statement"><font id="317">{{s.317}}</font></a></li>
+<li><a class="reference internal" href="#the-raise-statement"><font id="318">{{s.318}}</font></a></li>
+<li><a class="reference internal" href="#the-break-statement"><font id="319">{{s.319}}</font></a></li>
+<li><a class="reference internal" href="#the-continue-statement"><font id="320">{{s.320}}</font></a></li>
+<li><a class="reference internal" href="#the-import-statement"><font id="321">{{s.321}}</font></a><ul>
+<li><a class="reference internal" href="#future-statements"><font id="322">{{s.322}}</font></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#the-global-statement"><font id="323">{{s.323}}</font></a></li>
+<li><a class="reference internal" href="#the-exec-statement"><font id="324">{{s.324}}</font></a></li>
+</ul>
+</li>
+</ul>
+<h4><font id="297">{{s.297}}</font></h4>
+<p class="topless"><font id="272">{{s.272}}</font></p>
+<h4><font id="298">{{s.298}}</font></h4>
+<p class="topless"><font id="273">{{s.273}}</font></p>
+<h3><font id="294">{{s.294}}</font></h3>
+<ul class="this-page-menu">
+<li><a href="#" onclick="showOriginTexts();return false;">中英文对照</a></li>
+<li><a href="#" onclick="hideOriginTexts();return false;">中文</a></li>
+</ul>
+</div>
+</div>
+<div class="clearer"></div>
+</div>
+<div class="related">
+<h3><font id="296">{{s.296}}</font></h3>
+<ul>
+<li class="right" style="margin-right: 10px">
+<a href="../genindex.html" title="General Index"><font id="327">{{s.327}}</font></a></li>
+<li class="right">
+<a href="../py-modindex.html" title="Python Module Index"><font id="328">{{s.328}}</font></a> |</li>
+<li class="right">
+<a href="compound_stmts.html" title="7. Compound statements"><font id="329">{{s.329}}</font></a> |</li>
+<li class="right">
+<a href="expressions.html" title="5. Expressions"><font id="330">{{s.330}}</font></a> |</li>
+<li class="right">
+<a href="#" onclick="hideOriginTexts();return false;">中文</a> |</li>
+<li class="right">
+<a href="#" onclick="showOriginTexts();return false;">中英文对照</a> |</li>
+<li><img alt="" src="../_static/py.png" style="vertical-align: middle; margin-top: -1px"/></li>
+<li><a href="http://www.python.org/"><font id="331">{{s.331}}</font></a> »</li>
+<li>
+<span class="version_switcher_placeholder">2.7.8</span>
+<a href="../index.html"><font id="332">{{s.332}}</font></a> »
+        </li>
+<li><a href="index.html"><font id="333">{{s.333}}</font></a> »</li>
+</ul>
+</div>
+<br><div id="disqus_thread"></div>
+<div class="footer">
+    © <a href="../copyright.html">Copyright</a> 1990-2014, Python Software Foundation.
+    <br/>
+    The Python Software Foundation is a non-profit corporation.
+    <a href="http://www.python.org/psf/donations/">Please donate.</a>
+<br/>
+    Last updated on Jul 27, 2014.
+    <a href="../bugs.html">Found a bug</a>?
+    <br/>
+    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+    
+    <script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'thepythontutorial2'; // required: replace example with your forum shortname
+    var disqus_identifier = '/python2/reference/simple_stmts';
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+<link href="../_static/ms_translator.css" rel="stylesheet" type="text/css"/>
+<script src="../_static/ms_translator.js" type="text/javascript"></script>
+{% include "python_278/ms_translator.html" %}
+
+</body>
+</html>
